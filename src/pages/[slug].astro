@@ -1,0 +1,134 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import TopicMediaList from '../components/react/TopicMediaList.jsx';
+import TryOtherPlatforms from '../components/TryOtherPlatforms.astro';
+import FAQItem from '../components/FAQItem.astro';
+import PlatformIcon from '../components/PlatformIcon.astro';
+import TrendingDownloads from '../components/TrendingDownloads.astro';
+import pSeoConfig from '../data/pSeoConfig.json';
+
+export async function getStaticPaths() {
+  const { popularUsernames, trendingKeywords, platformConfigs } = pSeoConfig;
+  const paths = [];
+
+  Object.entries(platformConfigs).forEach(([platformKey, config]) => {
+    const platSlug = platformKey === 'instagram' ? 'instagram-reel' : 
+                    platformKey === 'youtube' ? 'youtube-short' : 
+                    platformKey === 'facebook' ? 'facebook-video' : 
+                    platformKey === 'pinterest' ? 'pinterest-video' : 
+                    platformKey === 'x' ? 'x-video' : platformKey;
+
+    // From usernames
+    popularUsernames.forEach(username => {
+      paths.push({
+        params: { slug: `download-${platSlug}-from-${username.replace(/\./g, '-')}` },
+        props: { platform: platformKey, topic: username.replace(/\./g, '-'), type: 'from' }
+      });
+    });
+
+    // About keywords
+    trendingKeywords.forEach(keyword => {
+      paths.push({
+        params: { slug: `download-${platSlug}-about-${keyword.replace(/\s+/g, '-')}` },
+        props: { platform: platformKey, topic: keyword.replace(/\s+/g, '-'), type: 'about' }
+      });
+    });
+  });
+
+  return paths;
+}
+
+const { slug } = Astro.params;
+const { platform, topic, type } = Astro.props;
+
+const platformInfo = pSeoConfig.platformConfigs[platform];
+const formattedTopic = topic.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+
+const title = `${type === 'from' ? platformInfo.prefix : platformInfo.keywordPrefix} ${formattedTopic}`;
+const description = `Download the latest videos and content from ${formattedTopic} on ${platformInfo.name}. Free, fast, and no watermark 2026.`;
+
+const endpointMap = {
+  instagram: '/instagram/download',
+  youtube: '/youtube/download',
+  facebook: '/facebook/download',
+  pinterest: '/pinterest/download',
+  x: '/x/download'
+};
+
+const topicData = pSeoConfig.topicData[topic]?.[platform === 'x' ? 'twitter' : platform] || [];
+
+const FAQS = [
+  { q: `Is it free to download ${platformInfo.name} content here?`, a: 'Yes, our platform is 100% free with no hidden charges or premium subscriptions.' },
+  { q: 'Do I need an account to use this?', a: 'No registration is required. You can save any public content instantly without logging in.' },
+  { q: 'Is there a limit on how many I can download?', a: 'There are no limits. You can download as many videos or photos as you need daily.' }
+];
+---
+
+<PageLayout
+  title={`${title} — Downloader 2026`}
+  description={description}
+>
+  <section class="max-w-[1100px] mx-auto px-5 pt-14 pb-20">
+    <!-- Hero -->
+    <div class="text-center mb-16 relative overflow-hidden">
+      <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-[400px] h-[400px] rounded-full pointer-events-none -z-0"
+        style={`background:radial-gradient(ellipse,${platformInfo.color.replace('var(--grad-', '#7c3aed').replace(')', '')}22 0%,transparent 70%);`} />
+      
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[0.75rem] font-bold uppercase tracking-wider mb-5 relative z-10"
+        style={`background:rgba(124,58,237,0.1); border:1px solid rgba(124,58,237,0.3); color:var(--brand2);`}>
+        <PlatformIcon platform={platform} size={14} />
+        <span>{platform.toUpperCase()} EXCLUSIVE</span>
+      </div>
+
+      <h1 class="text-[2.8rem] font-black leading-[1.1] mb-5 relative z-10" style="color:var(--txt);">
+        {title.replace(formattedTopic, '')}
+        <span style={`color:${platformInfo.color.replace('var(--grad-', '#a78bfa').replace(')', '')};`}>{formattedTopic}</span>
+      </h1>
+      
+      <p class="text-[1.1rem] max-w-[600px] mx-auto opacity-70 relative z-10">
+        {description}
+      </p>
+    </div>
+
+    <TopicMediaList 
+      client:load 
+      platform={platform} 
+      apiEndpoint={endpointMap[platform]} 
+      topicData={topicData} 
+    />
+
+    <!-- SEO Content -->
+    <div class="mt-24 pt-16 border-t border-[var(--bdr)]">
+      <h2 class="text-[1.8rem] font-black mb-10 text-center" style="color:var(--txt);">Why Download {formattedTopic} Content With Us?</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div class="p-8 rounded-[24px] border border-[var(--bdr)] relative group" style="background:var(--bg-glass);">
+          <div class="text-[2.2rem] mb-4">💎</div>
+          <h3 class="text-[1.1rem] font-bold mb-3" style="color:var(--txt);">Original Quality</h3>
+          <p class="text-[0.85rem] leading-relaxed" style="color:var(--txt3);">We fetch the highest resolution available directly from the source servers, ensuring no loss in quality.</p>
+        </div>
+        <div class="p-8 rounded-[24px] border border-[var(--bdr)] relative group" style="background:var(--bg-glass);">
+          <div class="text-[2.2rem] mb-4">🚀</div>
+          <h3 class="text-[1.1rem] font-bold mb-3" style="color:var(--txt);">Instant Processing</h3>
+          <p class="text-[0.85rem] leading-relaxed" style="color:var(--txt3);">No long waiting times. Our high-speed engine generates your download links in less than 3 seconds.</p>
+        </div>
+        <div class="p-8 rounded-[24px] border border-[var(--bdr)] relative group" style="background:var(--bg-glass);">
+          <div class="text-[2.2rem] mb-4">🛡️</div>
+          <h3 class="text-[1.1rem] font-bold mb-3" style="color:var(--txt);">Safe & Anonymous</h3>
+          <p class="text-[0.85rem] leading-relaxed" style="color:var(--txt3);">We don't store your data or link requests. Your browsing is private, encrypted, and secure.</p>
+        </div>
+      </div>
+
+      <h2 class="text-[1.8rem] font-black mb-10 text-center" style="color:var(--txt);">Frequently Asked Questions</h2>
+      <div class="max-w-[800px] mx-auto space-y-4 mb-20">
+        {FAQS.map(faq => (
+          <FAQItem q={faq.q} a={faq.a} />
+        ))}
+      </div>
+
+      <TrendingDownloads />
+
+      <TryOtherPlatforms current="pSeo" />
+    </div>
+  </section>
+</PageLayout>

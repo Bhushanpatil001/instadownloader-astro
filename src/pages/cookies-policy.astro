@@ -1,0 +1,90 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const COOKIE_DATA = [
+  ['id-theme', 'Functional', 'Stores your dark/light mode preference', 'Persistent'],
+  ['_ga', 'Analytics', 'Google Analytics — tracks aggregate usage', '2 years'],
+  ['_gid', 'Analytics', 'Google Analytics — distinguishes users', '24 hours'],
+  ['IDE', 'Advertising', 'Google DoubleClick — personalised ads', '1 year'],
+  ['test_cookie', 'Advertising', 'Checks if browser supports cookies', 'Session'],
+];
+---
+
+<PageLayout
+  title="Cookies Policy — Downloader"
+  description="Read the Cookies Policy for Downloader. Learn what cookies we use, why we use them, and how you can manage your cookie preferences."
+>
+  <div class="max-w-[1000px] mx-auto px-6 py-5">
+    <div class="text-center mb-6">
+      <div class="inline-flex px-4 py-1.5 rounded-full text-sm font-bold bg-[rgba(124,58,237,0.1)] border border-[rgba(124,58,237,0.2)] text-[var(--brand2)] mb-3">🍪 Cookies</div>
+      <h1 class="text-[clamp(1.8rem,4vw,2.6rem)] font-black mb-1 leading-tight" style="color:var(--txt);">Cookies Policy</h1>
+      <p class="opacity-50 text-sm">Last updated: April 25, 2026</p>
+    </div>
+
+    <div class="p-10 rounded-[32px] border border-[var(--bdr)] shadow-md" style="background:var(--bg-glass);">
+      <div class="prose prose-invert max-w-none space-y-10">
+        <section>
+          <h2 class="text-xl font-bold mb-4" style="color:var(--txt);">1. What are Cookies?</h2>
+          <p class="text-[var(--txt2)] leading-relaxed">
+            Cookies are small text files that are stored on your device when you visit a website. They are widely used to make websites work more efficiently, to provide analytical data to site owners, and sometimes to serve personalised advertisements.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold mb-4" style="color:var(--txt);">2. How We Use Cookies?</h2>
+          <p class="text-[var(--txt2)] leading-relaxed">
+            Downloader uses cookies for the following purposes: (1) Functional cookies to remember your preferences such as dark/light mode, (2) Analytics cookies (Google Analytics) to understand aggregate user behaviour and improve the Service, and (3) Advertising cookies (Google AdSense) to serve relevant, non-intrusive advertisements that keep the Service free.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold mb-5" style="color:var(--txt);">3. Cookies We Use</h2>
+          <p class="text-[var(--txt2)] leading-relaxed mb-6">The table below lists the specific cookies we set or allow:</p>
+          <div class="overflow-x-auto rounded-xl border border-[var(--bdr)]">
+            <table class="w-full border-collapse text-sm">
+              <thead>
+                <tr class="bg-[rgba(124,58,237,0.1)] text-[var(--txt)]">
+                  <th class="px-6 py-4 text-left font-bold border-b border-[var(--bdr)]">Cookie</th>
+                  <th class="px-6 py-4 text-left font-bold border-b border-[var(--bdr)]">Type</th>
+                  <th class="px-6 py-4 text-left font-bold border-b border-[var(--bdr)]">Purpose</th>
+                  <th class="px-6 py-4 text-left font-bold border-b border-[var(--bdr)]">Duration</th>
+                </tr>
+              </thead>
+              <tbody class="text-[var(--txt2)]">
+                {COOKIE_DATA.map(([cookie, type, purpose, duration]) => (
+                  <tr class="border-b border-[var(--bdr)] last:border-0">
+                    <td class="px-6 py-4 font-medium text-[var(--brand2)]">{cookie}</td>
+                    <td class="px-6 py-4">{type}</td>
+                    <td class="px-6 py-4">{purpose}</td>
+                    <td class="px-6 py-4 opacity-70">{duration}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold mb-4" style="color:var(--txt);">4. Third-Party Cookies</h2>
+          <p class="text-[var(--txt2)] leading-relaxed">
+            We use Google AdSense to display advertisements. Google may use cookies to serve ads based on your prior visits to our website or other websites. You can opt out of personalised advertising by visiting Google's Ads Settings at <a href="https://adssettings.google.com" target="_blank" rel="noopener" class="text-[var(--brand2)] underline">https://adssettings.google.com</a>.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold mb-4" style="color:var(--txt);">5. Managing Cookies</h2>
+          <p class="text-[var(--txt2)] leading-relaxed">
+            You can control and manage cookies through your browser settings. Most browsers allow you to refuse or delete cookies. Note that disabling cookies may affect functionality — for example, your theme preference will not be saved between sessions.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold mb-4" style="color:var(--txt);">6. Changes to this Policy</h2>
+          <p class="text-[var(--txt2)] leading-relaxed">
+            We may update this Cookies Policy from time to time. We encourage you to review this page periodically. Continued use of the Service after changes are posted constitutes acceptance.
+          </p>
+        </section>
+      </div>
+    </div>
+  </div>
+</PageLayout>

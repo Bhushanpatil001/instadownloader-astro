@@ -1,0 +1,83 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import DownloaderWidget from '../components/react/DownloaderWidget.jsx';
+import FAQItem from '../components/FAQItem.astro';
+import TrendingDownloads from '../components/TrendingDownloads.astro';
+import TryOtherPlatforms from '../components/TryOtherPlatforms.astro';
+
+const FAQS = [
+    { q: 'Is it free to download X videos?', a: 'Yes, our X (Twitter) video downloader is completely free with no limits.' },
+    { q: 'Can I download private tweets?', a: 'No, we only support downloading media from public tweets for privacy and legal reasons.' },
+    { q: 'What quality are the downloads?', a: 'We fetch the original video or image quality as served by X (up to 1080p for most videos).' },
+    { q: 'Do I need an account to use this?', a: 'No login or account is required. Simply paste the tweet link and save the content.' }
+];
+
+const STEPS = [
+    { step: 'Copy Tweet URL', detail: 'Click the "Share" button on a tweet and select "Copy Link".' },
+    { step: 'Paste & Search', detail: 'Paste the link above and click to process the content.' },
+    { step: 'Select Format', detail: 'Choose the file format (MP4 for video, JPG for images).' },
+    { step: 'Save Instantly', detail: 'Click download and the file will be saved to your device immediately.' }
+];
+---
+
+<PageLayout
+  title="X Video Downloader — Download Twitter Videos & Photos in HD 2026"
+  description="Download X (Twitter) videos and photos for free in HD. Fast, secure, and no registration required. Try the best X downloader of 2026."
+>
+  <div class="max-w-[1000px] mx-auto px-6 py-5">
+    <div class="text-center mb-6">
+      <div style="color:var(--txt);" class="inline-flex px-4 py-1.5 rounded-full text-sm font-bold bg-[rgba(100,116,139,0.1)] border border-[rgba(100,116,139,0.2)] text-[#14171a] dark:text-[#f8fafc] mb-3">𝕏 X Saver</div>
+      <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-black mb-1 leading-tight" style="color:var(--txt);">
+        X (Twitter) <span style="background:linear-gradient(135deg,#14171a,#292f36); "color:var(--txt); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Video Downloader</span>
+      </h1>
+      <p class="text-lg opacity-70 max-w-[700px] mx-auto">
+        Download videos and images from X (Twitter) tweets — fast and free.
+      </p>
+    </div>
+
+    <DownloaderWidget
+      client:load
+      platform="x"
+      apiEndpoint="/x/download"
+      placeholder="Paste X / Twitter URL here…"
+    >
+      <div class="seo-content-section mt-12">
+        <h2 class="seo-section-heading">High-Quality X (Twitter) Video Downloader</h2>
+        <p class="seo-p">
+          X is the hub for real-time news and viral media. Whether it's a breaking news clip, an artistic illustration, or a funny meme video, our <strong>X downloader</strong> lets you save any public media instantly.
+        </p>
+        <p class="seo-p">
+          Our tool is optimized for the latest X platform updates in 2026, ensuring that you can save videos and images in the best available resolution. It works perfectly on all mobile and desktop browsers without any setup.
+        </p>
+
+        <h2 class="seo-section-heading">How to Use the X Downloader</h2>
+        <div class="p-8 rounded-[24px] border border-[var(--bdr)] mb-12" style="background:var(--bg-glass);">
+          <ol class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 list-none p-0">
+            {STEPS.map((s, i) => (
+              <li class="flex gap-4">
+                <span class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white text-sm" style="background:#14171a">{i + 1}</span>
+                <div>
+                  <strong class="block mb-1 font-bold" style="color:var(--txt);">{s.step}</strong>
+                  <p class="text-[0.85rem] opacity-60 leading-relaxed">{s.detail}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <h2 class="seo-section-heading">Frequently Asked Questions — X</h2>
+        <div class="max-w-[1000px] mx-auto space-y-3 mb-16">
+          {FAQS.map(faq => <FAQItem q={faq.q} a={faq.a} />)}
+        </div>
+      </div>
+    </DownloaderWidget>
+
+    <div class="mt-16 pt-16 border-t border-[var(--bdr)]">
+      <TrendingDownloads />
+    </div>
+
+    <div class="mt-12">
+       <TryOtherPlatforms current="x" />
+    </div>
+  </div>
+</PageLayout>

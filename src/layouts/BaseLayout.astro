@@ -1,0 +1,92 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  schema?: object;
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.href,
+  ogImage = '/og-image.png',
+  schema,
+} = Astro.props;
+
+const SERVE_ADS = import.meta.env.PUBLIC_SERVE_ADS === 'true';
+const AD_CLIENT  = 'ca-pub-2219975169694529';
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:title"       content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url"         content={canonical} />
+    <meta property="og:type"        content="website" />
+    <meta property="og:image"       content={ogImage} />
+    <meta property="og:site_name"   content="Downloader" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image"       content={ogImage} />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- JSON-LD -->
+    {schema && (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    )}
+
+    <!-- AdSense -->
+    {SERVE_ADS && (
+      <>
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${AD_CLIENT}`}
+          crossorigin="anonymous"
+        ></script>
+        <script is:inline define:vars={{ AD_CLIENT }}>
+          window.adsbygoogle = window.adsbygoogle || [];
+          window.adsbygoogle.push({
+            google_ad_client: AD_CLIENT,
+            overlays: { bottom: true }
+          });
+        </script>
+      </>
+    )}
+
+    <!-- Theme init: runs before first paint to avoid FOUC -->
+    <script is:inline define:vars={{ SERVE_ADS }}>
+      try {
+        window.__SERVE_ADS__ = SERVE_ADS;
+        var t = localStorage.getItem('id-theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(_) {}
+    </script>
+  </head>
+
+  <body class="flex flex-col min-h-screen" style="background:var(--bg-base);color:var(--txt);font-family:'Inter',system-ui,sans-serif;">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>

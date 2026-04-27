@@ -1,11 +1,76 @@
 ---
+import PageLayout from '../layouts/PageLayout.astro';
+import HomeDownloader from '../components/react/HomeDownloader.jsx';
+import TrendingDownloads from '../components/TrendingDownloads.astro';
+import FAQItem from '../components/FAQItem.astro';
 import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const FAQS = [
+  { q: "Is this downloader free?", a: "Yes, our service is 100% free with no hidden charges or premium subscriptions." },
+  { q: "Do I need to create an account?", a: "No, you can download any public content anonymously without sign-up." },
+  { q: "Which platforms are supported?", a: "We support Instagram, YouTube, Facebook, TikTok, Pinterest, and X (Twitter)." },
+  { q: "Is there a download limit?", a: "No, you can download an unlimited number of videos and images every day." }
+];
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<PageLayout
+  title="Social Media Downloader — Download Videos, Reels & Audio in HD 2026"
+  description="Download videos, reels, photos and audio from Facebook, Instagram, YouTube, TikTok, Pinterest and X. Fast, free, and no sign-up required. High-quality MP4 and MP3 downloads."
+>
+  <HomeDownloader client:load />
+
+  <section class="max-w-[1240px] mx-auto px-6 py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
+      <div>
+        <h2 class="text-3xl font-black mb-6" style="color:var(--txt);">Why Choose Our <span class="text-[var(--brand)]">Downloader?</span></h2>
+        <p class="text-[var(--txt2)] text-lg leading-relaxed mb-8">
+          We've built the most reliable social media downloader of 2026. No more low-quality screen recordings or sketchy websites. Save original content in 2-Clicks.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-[rgba(124,58,237,0.1)] flex items-center justify-center shrink-0">🚀</div>
+            <div>
+              <h4 class="font-bold mb-1" style="color:var(--txt);">Instant Speed</h4>
+              <p class="text-sm opacity-60">Fetch links in milliseconds</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-[rgba(236,72,153,0.1)] flex items-center justify-center shrink-0">🔒</div>
+            <div>
+              <h4 class="font-bold mb-1" style="color:var(--txt);">100% Private</h4>
+              <p class="text-sm opacity-60">No login, no tracking</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-[var(--brand)] to-[var(--brand2)] rounded-[32px] blur opacity-25 group-hover:opacity-40 transition-opacity"></div>
+        <div class="relative p-8 rounded-[32px] border border-[var(--bdr)] overflow-hidden" style="background:var(--bg-glass);">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-2xl bg-[var(--bg-glass-h)] flex items-center justify-center text-2xl">📱</div>
+            <h3 class="text-xl font-bold" style="color:var(--txt);">Multi-Device Support</h3>
+          </div>
+          <p class="text-[var(--txt2)] leading-relaxed mb-6">
+            Our tool works seamlessly across iOS, Android, Windows and macOS. Whether you're on a mobile browser or a desktop, the experience is fast and smooth.
+          </p>
+          <div class="flex flex-wrap gap-3">
+             <span class="px-4 py-1.5 rounded-lg bg-[var(--bg-glass-h)] text-xs font-semibold" style="color:var(--txt3);">Android</span>
+             <span class="px-4 py-1.5 rounded-lg bg-[var(--bg-glass-h)] text-xs font-semibold" style="color:var(--txt3);">iPhone / iPad</span>
+             <span class="px-4 py-1.5 rounded-lg bg-[var(--bg-glass-h)] text-xs font-semibold" style="color:var(--txt3);">Windows PC</span>
+             <span class="px-4 py-1.5 rounded-lg bg-[var(--bg-glass-h)] text-xs font-semibold" style="color:var(--txt3);">Mac / Linux</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="text-[1.6rem] font-bold mb-8 text-center" style="color:var(--txt);">Frequently Asked Questions</h2>
+      <div class="max-w-[800px] mx-auto space-y-4 mb-20">
+        {FAQS.map(faq => <FAQItem q={faq.q} a={faq.a} />)}
+      </div>
+
+      <TrendingDownloads />
+
+    </div>
+  </section>
+</PageLayout>

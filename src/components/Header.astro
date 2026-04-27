@@ -1,0 +1,118 @@
+---
+const NAV = [
+  { href: '/instagram', label: 'Instagram' },
+  { href: '/yt',        label: 'YouTube'   },
+  { href: '/facebook',  label: 'Facebook'  },
+  { href: '/pinterest', label: 'Pinterest' },
+  { href: '/x',         label: 'X'         },
+  { href: '/tiktok',    label: 'TikTok'    },
+];
+---
+
+<header id="site-header"
+  class="sticky top-0 z-[1000] border-b border-[var(--bdr)]"
+  style="background:rgba(15,15,26,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);">
+
+  <div class="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between gap-4">
+
+    <!-- Logo -->
+    <a href="/" class="text-[1.4rem] font-black tracking-tight whitespace-nowrap shrink-0"
+      style="background:var(--g-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+      ⬇ Downloader
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-1 flex-1 justify-center">
+      {NAV.map(({ href, label }) => (
+        <a href={href}
+          class="flex items-center gap-2 px-[14px] py-[7px] rounded-[10px] text-sm font-medium border border-transparent transition-all
+            hover:border-[var(--bdr-h)] hover:bg-[var(--bg-glass-h)]"
+          style="color:var(--txt2);"
+          onmouseover="this.style.color='var(--txt)'"
+          onmouseout="this.style.color='var(--txt2)'"
+          data-navlink>
+          {label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Right controls -->
+    <div class="flex items-center gap-2 shrink-0">
+      <!-- Theme toggle -->
+      <button id="theme-toggle" aria-label="Toggle theme"
+        class="flex items-center justify-center w-[38px] h-[38px] rounded-[10px] border border-[var(--bdr)] relative overflow-hidden cursor-pointer transition-all
+          hover:border-[var(--bdr-h)] hover:bg-[var(--bg-glass-h)]"
+        style="background:var(--bg-glass);color:var(--txt2);">
+        <span class="icon-sun absolute text-base select-none">☀️</span>
+        <span class="icon-moon absolute text-base select-none">🌙</span>
+      </button>
+
+      <!-- Hamburger -->
+      <button id="hamburger" aria-label="Menu"
+        class="flex md:hidden flex-col gap-[5px] cursor-pointer p-2 rounded-lg border border-[var(--bdr)] transition-all hover:bg-[var(--bg-glass-h)]"
+        style="background:var(--bg-glass);">
+        <span id="hb1" class="block w-5 h-[2px] rounded-sm transition-all" style="background:var(--txt);"></span>
+        <span id="hb2" class="block w-5 h-[2px] rounded-sm transition-all" style="background:var(--txt);"></span>
+        <span id="hb3" class="block w-5 h-[2px] rounded-sm transition-all" style="background:var(--txt);"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden flex-col gap-1 px-6 pb-4 pt-3 border-t border-[var(--bdr)]"
+    style="background:rgba(15,15,26,0.97);">
+    {NAV.map(({ href, label }) => (
+      <a href={href}
+        class="flex items-center gap-[10px] px-[14px] py-[10px] rounded-[10px] text-[0.9rem] font-medium transition-all hover:bg-[var(--bg-glass-h)]"
+        style="color:var(--txt2);"
+        onmouseover="this.style.color='var(--txt)'"
+        onmouseout="this.style.color='var(--txt2)'">
+        {label}
+      </a>
+    ))}
+  </div>
+</header>
+
+<script>
+  // Theme toggle
+  const toggle = document.getElementById('theme-toggle');
+  const applyTheme = (t: string) => {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('id-theme', t);
+  };
+  toggle?.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+    // Keep header bg in sync
+    const header = document.getElementById('site-header');
+    const menu   = document.getElementById('mobile-menu');
+    if (header) header.style.background = current === 'dark' ? 'rgba(240,242,248,0.88)' : 'rgba(15,15,26,0.85)';
+    if (menu)   menu.style.background   = current === 'dark' ? 'rgba(240,242,248,0.97)' : 'rgba(15,15,26,0.97)';
+  });
+
+  // Hamburger
+  const hamburger  = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hb1 = document.getElementById('hb1');
+  const hb2 = document.getElementById('hb2');
+  const hb3 = document.getElementById('hb3');
+  let open = false;
+
+  hamburger?.addEventListener('click', () => {
+    open = !open;
+    if (mobileMenu) {
+      mobileMenu.style.display = open ? 'flex' : 'none';
+      mobileMenu.className    = `${open ? 'flex' : 'hidden'} md:hidden flex-col gap-1 px-6 pb-4 pt-3 border-t border-[var(--bdr)]`;
+    }
+    if (hb1) hb1.style.transform = open ? 'translateY(7px) rotate(45deg)' : 'none';
+    if (hb2) hb2.style.opacity   = open ? '0' : '1';
+    if (hb3) hb3.style.transform = open ? 'translateY(-7px) rotate(-45deg)' : 'none';
+  });
+
+  // Keep header background in sync with initial theme
+  const initTheme = document.documentElement.getAttribute('data-theme');
+  const header = document.getElementById('site-header');
+  if (initTheme === 'light' && header) {
+    header.style.background = 'rgba(240,242,248,0.88)';
+  }
+</script>

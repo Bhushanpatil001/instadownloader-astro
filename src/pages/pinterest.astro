@@ -1,0 +1,83 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import DownloaderWidget from '../components/react/DownloaderWidget.jsx';
+import FAQItem from '../components/FAQItem.astro';
+import TrendingDownloads from '../components/TrendingDownloads.astro';
+import TryOtherPlatforms from '../components/TryOtherPlatforms.astro';
+
+const FAQS = [
+    { q: 'Can I download Pinterest videos with this?', a: 'Yes! Our tool supports downloading both Pinterest videos (MP4) and high-quality images (JPG).' },
+    { q: 'Is it free to use?', a: 'Yes, it is 100% free with no hidden charges or premium plans.' },
+    { q: 'Do I need a Pinterest account?', a: 'No, you don\'t need an account or login to download public pins.' },
+    { q: 'How do I download a pin?', a: 'Copy the Pin link (using the share button or address bar) and paste it into our search tool above.' }
+];
+
+const STEPS = [
+    { step: 'Copy Pin Link', detail: 'Click the Share icon on Pinterest and select "Copy Link".' },
+    { step: 'Paste URL', detail: 'Paste the link into the search box at the top of this page.' },
+    { step: 'Process Media', detail: 'We will find the highest resolution version of the video or image.' },
+    { step: 'Quick Download', detail: 'Select the file and save it directly to your device.' }
+];
+---
+
+<PageLayout
+  title="Pinterest Video Downloader — Download Pins & Videos in HD 2026"
+  description="Download Pinterest videos and photos for free in HD. Fast, secure, and no registration required. Try the best Pinterest downloader of 2026."
+>
+  <div class="max-w-[1000px] mx-auto px-6 py-5">
+    <div class="text-center mb-6">
+      <div class="inline-flex px-4 py-1.5 rounded-full text-sm font-bold bg-[rgba(230,0,35,0.1)] border border-[rgba(230,0,35,0.2)] text-[#e60023] mb-3">📌 Pin Saver</div>
+      <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-black mb-1 leading-tight" style="color:var(--txt);">
+        Pinterest <span style="background:linear-gradient(135deg,#e60023,#ad081b); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Video Downloader</span>
+      </h1>
+      <p class="text-lg opacity-70 max-w-[700px] mx-auto">
+        Download videos and high-res images from Pinterest Pins — fast and free.
+      </p>
+    </div>
+
+    <DownloaderWidget
+      client:load
+      platform="pin"
+      apiEndpoint="/pinterest/download"
+      placeholder="Paste Pinterest Pin URL here…"
+    >
+      <div class="seo-content-section mt-12">
+        <h2 class="seo-section-heading">High-Quality Pinterest Media Downloader</h2>
+        <p class="seo-p">
+          Pinterest is the ultimate place for visual inspiration. Whether it's home decor, fashion trends, or DIY tutorials, our <strong>Pinterest downloader</strong> helps you preserve those ideas offline. 
+        </p>
+        <p class="seo-p">
+          We handle both video and image Pins, fetching the highest quality available directly from Pinterest's servers. Our tool is fast, free, and works on any device without the need for additional apps.
+        </p>
+
+        <h2 class="seo-section-heading">How to Use the Pinterest Downloader</h2>
+        <div class="p-8 rounded-[24px] border border-[var(--bdr)] mb-12" style="background:var(--bg-glass);">
+          <ol class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 list-none p-0">
+            {STEPS.map((s, i) => (
+              <li class="flex gap-4">
+                <span class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white text-sm" style="background:#e60023">{i + 1}</span>
+                <div>
+                  <strong class="block mb-1 font-bold" style="color:var(--txt);">{s.step}</strong>
+                  <p class="text-[0.85rem] opacity-60 leading-relaxed">{s.detail}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <h2 class="seo-section-heading">Frequently Asked Questions — Pinterest</h2>
+        <div class="max-w-[1000px] mx-auto space-y-3 mb-16">
+          {FAQS.map(faq => <FAQItem q={faq.q} a={faq.a} />)}
+        </div>
+      </div>
+    </DownloaderWidget>
+
+    <div class="mt-16 pt-16 border-t border-[var(--bdr)]">
+      <TrendingDownloads />
+    </div>
+
+    <div class="mt-12">
+       <TryOtherPlatforms current="pinterest" />
+    </div>
+  </div>
+</PageLayout>

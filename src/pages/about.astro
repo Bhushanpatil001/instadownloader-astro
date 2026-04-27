@@ -1,0 +1,72 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const FEATURES = [
+    { icon: '⚡', title: 'Lightning Fast',    desc: 'Our servers process your download request in seconds, no waiting.' },
+    { icon: '🔐', title: 'Private & Secure',  desc: 'We never store your URLs or media. Everything is processed in real-time.' },
+    { icon: '🆓', title: 'Always Free',       desc: 'No paywalls, no subscriptions. Every feature is completely free to use.' },
+    { icon: '📱', title: 'All Devices',       desc: 'Works on mobile, tablet, or desktop — any browser, any OS.' },
+    { icon: '🌐', title: '5 Platforms',       desc: 'Facebook, Instagram, YouTube, Pinterest, and X — all in one tool.' },
+    { icon: '🎯', title: 'No Signup Needed',  desc: 'Just paste a link and download. No account, no email, no hassle.' },
+];
+---
+
+<PageLayout
+  title="About Us — Downloader | Free Social Media Video Downloader"
+  description="Learn about Downloader — a free, fast, and secure tool to download videos, reels, and images from Facebook, Instagram, YouTube, Pinterest, and X without sign-up."
+>
+  <div class="max-w-[1000px] mx-auto px-6 py-5">
+    <!-- Hero -->
+    <div class="text-center mb-6">
+      <div class="inline-flex px-4 py-1.5 rounded-full text-sm font-bold bg-[rgba(124,58,237,0.1)] border border-[rgba(124,58,237,0.2)] text-[var(--brand2)] mb-3">👋 Our Story</div>
+      <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-black mb-1 leading-tight" style="color:var(--txt);">
+        About <span style="background:var(--g-brand); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Downloader</span>
+      </h1>
+      <p class="text-lg opacity-70 max-w-[700px] mx-auto">
+        We built the free social media downloader we always wished existed — fast, private, and genuinely without strings attached.
+      </p>
+    </div>
+
+    <!-- Mission -->
+    <div class="p-10 rounded-[32px] border border-[var(--bdr)] mb-12 shadow-sm" style="background:var(--bg-glass);">
+      <h2 class="text-xl font-bold mb-5 flex items-center gap-3" style="color:var(--txt);">
+        🚀 Our Mission
+      </h2>
+      <p class="text-[var(--txt2)] leading-relaxed mb-4">
+        Social media platforms make it easy to share content, but deliberately hard to save it.
+        We believe that if you've discovered a video you love — a recipe you want to try, a tutorial you'll need offline,
+        or a reel that made you laugh — you should be able to download it instantly, for free, without jumping through hoops.
+      </p>
+      <p class="text-[var(--txt2)] leading-relaxed">
+        Downloader was created by a small team of developers and designers passionate about building tools that
+        are genuinely useful. We don't sell user data. We don't require sign-ups. We make money through non-intrusive
+        advertising so the service always remains free for everyone.
+      </p>
+    </div>
+
+    <!-- Why choose us -->
+    <h2 class="text-2xl font-bold text-center mb-10" style="color:var(--txt);">
+      Why Choose Downloader?
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mb-16">
+      {FEATURES.map(({ icon, title, desc }) => (
+        <div class="p-8 rounded-[24px] border border-[var(--bdr)] transition-all hover:bg-[var(--bg-glass-h)]" style="background:var(--bg-glass);">
+          <div class="text-[2rem] mb-4">{icon}</div>
+          <h3 class="font-bold text-base mb-2" style="color:var(--txt);">{title}</h3>
+          <p class="text-sm leading-relaxed opacity-60" style="color:var(--txt3);">{desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="p-10 rounded-[32px] border border-[var(--bdr)] text-center shadow-sm" style="background:var(--bg-glass);">
+      <p class="text-[var(--txt2)] mb-6 text-lg">
+        Ready to download? It's free and takes less than 10 seconds.
+      </p>
+      <a href="/" class="inline-flex items-center justify-center px-10 py-4 rounded-2xl text-white font-bold text-lg transition-all hover:-translate-y-1 active:scale-95" 
+         style="background:var(--g-brand); box-shadow:0 10px 25px -5px rgba(124,58,237,0.4);">
+        ⬇ Start Downloading
+      </a>
+    </div>
+  </div>
+</PageLayout>

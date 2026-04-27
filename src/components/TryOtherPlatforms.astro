@@ -1,0 +1,37 @@
+---
+import PlatformIcon from "./PlatformIcon.astro";
+
+// TryOtherPlatforms.astro – static platform links excluding current page
+interface Props { current: string; }
+const { current } = Astro.props;
+
+const ALL = [
+  { href:'/facebook',  name:'Facebook',  color:'#1877f2', bg:'rgba(24,119,242,0.18)',  platform:'facebook', desc:'Videos & Reels'          },
+  { href:'/instagram', name:'Instagram', color:'#dc2743', bg:'rgba(220,39,67,0.18)',   platform:'instagram', desc:'Posts & Reels'            },
+  { href:'/yt',        name:'YouTube',   color:'#ff0000', bg:'rgba(255,0,0,0.18)',     platform:'youtube',   desc:'Videos & Shorts'          },
+  { href:'/pinterest', name:'Pinterest', color:'#e60023', bg:'rgba(230,0,35,0.18)',    platform:'pinterest', desc:'Pins & Videos'            },
+  { href:'/x',         name:'X',         color:'#8a8a8a', bg:'rgba(100,116,139,0.12)', platform:'x',         desc:'Tweets & Videos'          },
+  { href:'/tiktok',    name:'TikTok',    color:'#00f2ea', bg:'rgba(0,242,234,0.18)',   platform:'tiktok',    desc:'No Watermark'             },
+];
+
+const others = ALL.filter(p => !current.includes(p.platform) && p.href !== current && p.href !== `/${current}`);
+---
+
+<div class="mt-12 pt-8 border-t border-[var(--bdr)]">
+  <h2 class="text-[1.1rem] font-bold mb-4" style="color:var(--txt);">Try Other Platforms</h2>
+  <div class="grid gap-3" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr));">
+    {others.map(({ href, name, color, bg, platform, desc }) => (
+      <a href={href}
+        class="flex items-center gap-3 px-4 py-[14px] rounded-[14px] border border-[var(--bdr)] no-underline transition-all hover:-translate-y-0.5 hover:border-[var(--bdr-h)] group"
+        style="background:var(--bg-glass);">
+        <div class="w-[42px] h-[42px] rounded-[10px] flex items-center justify-center shrink-0" style={`background:${bg};`}>
+          <PlatformIcon platform={platform} size={22} class="transition-transform group-hover:scale-110" />
+        </div>
+        <div>
+          <p class="text-[0.85rem] font-bold mb-0.5" style={`color:${color};`}>{name}</p>
+          <p class="text-[0.72rem]" style="color:var(--txt3);">{desc}</p>
+        </div>
+      </a>
+    ))}
+  </div>
+</div>

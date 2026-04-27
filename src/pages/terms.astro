@@ -1,0 +1,87 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const TERMS_SECTIONS = [
+  {
+    title: '1. Acceptance of Terms',
+    body: 'By accessing or using Downloader ("the Service"), you agree to be bound by these Terms of Use. If you do not agree, please discontinue use of the Service immediately.',
+  },
+  {
+    title: '2. Permitted Use',
+    body: 'You may use Downloader solely for personal, non-commercial purposes. You agree to use the Service only to download content you have the legal right to access and save, such as your own content or content licensed under Creative Commons. You must not use the Service to download, reproduce, or distribute copyrighted material without the explicit permission of the copyright holder.',
+  },
+  {
+    title: '3. Prohibited Activities',
+    body: 'You agree NOT to:',
+    list: [
+      'Use the Service for any unlawful purpose or in violation of any regulations.',
+      'Download, distribute, or monetize copyrighted content without authorisation.',
+      'Attempt to reverse-engineer, scrape, or exploit the Service\'s infrastructure.',
+      'Use automated tools, bots, or scripts to access the Service at scale.',
+      'Circumvent rate limits or technical measures protecting the Service.',
+    ],
+  },
+  {
+    title: '4. Intellectual Property',
+    body: 'The Service, including its source code, design, and branding, is the intellectual property of Downloader and its creators. You are granted a limited, non-exclusive, non-transferable licence to use the Service for personal use only.',
+  },
+  {
+    title: '5. Third-Party Platforms',
+    body: 'Downloader processes publicly accessible content from third-party platforms (Facebook, Instagram, YouTube, Pinterest, X). We are not affiliated with, endorsed by, or partnered with any of these platforms. Use of these platforms\' content is subject to their respective terms of service.',
+  },
+  {
+    title: '6. Disclaimer of Warranties',
+    body: 'The Service is provided "as is" without warranties of any kind, express or implied. We do not guarantee uptime, availability, or compatibility with any specific platform\'s API changes.',
+  },
+  {
+    title: '7. Limitation of Liability',
+    body: 'To the maximum extent permitted by law, Downloader shall not be liable for any indirect, incidental, special, or consequential damages arising from your use or inability to use the Service.',
+  },
+  {
+    title: '8. Changes to Terms',
+    body: 'We reserve the right to update these Terms at any time. Continued use of the Service after changes are posted constitutes acceptance of the revised Terms.',
+  },
+  {
+    title: '9. Governing Law',
+    body: 'These Terms shall be governed by and construed in accordance with the laws of Gujarat, India, without regard to its conflict of law provisions.',
+  },
+];
+---
+
+<PageLayout
+  title="Terms of Use — Downloader"
+  description="Read the Terms of Use for Downloader. By using our service you agree to these terms governing acceptable use of our social media download tools."
+>
+  <div class="max-w-[1000px] mx-auto px-6 py-5">
+    <div class="text-center mb-6">
+      <div class="inline-flex px-4 py-1.5 rounded-full text-sm font-bold bg-[rgba(124,58,237,0.1)] border border-[rgba(124,58,237,0.2)] text-[var(--brand2)] mb-3">📋 Legal</div>
+      <h1 class="text-[clamp(1.8rem,4vw,2.6rem)] font-black mb-1 leading-tight" style="color:var(--txt);">Terms of Use</h1>
+      <p class="opacity-50 text-sm">Last updated: April 25, 2026</p>
+    </div>
+
+    <div class="p-10 rounded-[32px] border border-[var(--bdr)] shadow-md" style="background:var(--bg-glass);">
+      <div class="prose prose-invert max-w-none space-y-10">
+        {TERMS_SECTIONS.map((section) => (
+          <section>
+            <h2 class="text-xl font-bold mb-4 pb-2 border-b border-[var(--bdr)]" style="color:var(--txt);">{section.title}</h2>
+            <p class="text-[var(--txt2)] text-[0.95rem] leading-relaxed mb-4">{section.body}</p>
+            {section.list && (
+              <ul class="space-y-3 pl-5 list-disc text-[var(--txt2)] text-[0.9rem]">
+                {section.list.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            )}
+          </section>
+        ))}
+        
+        <section>
+          <h2 class="text-xl font-bold mb-4 pb-2 border-b border-[var(--bdr)]" style="color:var(--txt);">10. Contact</h2>
+          <p class="text-[var(--txt2)] text-[0.95rem] leading-relaxed">
+            For questions regarding these Terms, please use our <a href="/contact" class="text-[var(--brand2)] underline">Contact Us</a> page.
+          </p>
+        </section>
+      </div>
+    </div>
+  </div>
+</PageLayout>

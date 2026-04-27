@@ -1,0 +1,23 @@
+---
+const { q, a } = Astro.props;
+---
+
+<details class="group p-6 rounded-2xl border border-[var(--bdr)] transition-all hover:border-[var(--bdr-h)] overflow-hidden" style="background:var(--bg-glass);">
+  <summary class="font-bold text-[1.05rem] flex justify-between items-center cursor-pointer list-none outline-none">
+    <span class="pr-4">{q}</span>
+    <span class="text-[var(--brand2)] text-xl transition-transform duration-300 group-open:rotate-180 select-none">▾</span>
+  </summary>
+  <div class="grid grid-rows-[0fr] transition-all duration-300 group-open:grid-rows-[1fr] opacity-0 group-open:opacity-100 mt-0 group-open:mt-4">
+    <div class="overflow-hidden">
+      <p class="text-[0.95rem] leading-relaxed" style="color:var(--txt3);">
+        {a}
+      </p>
+    </div>
+  </div>
+</details>
+
+<style>
+  summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

@@ -1,0 +1,23 @@
+---
+import pSeoConfig from '../data/pSeoConfig.json';
+---
+
+<div class="mt-16 pt-12 border-t border-[var(--bdr)]">
+  <h2 class="text-[1.4rem] font-bold mb-6 text-center" style="color:var(--txt);">Trending Downloads</h2>
+  <div class="flex flex-wrap gap-3 justify-center">
+    {pSeoConfig.popularUsernames.slice(0, 10).map(username => (
+      <a href={`/download-instagram-reel-from-${username.replace(/\./g, '-')}`} 
+        class="px-4 py-2 rounded-xl border border-[var(--bdr)] text-sm transition-all hover:bg-[var(--bg-glass-h)] hover:border-[var(--bdr-h)]" 
+        style="background:var(--bg-glass); color:var(--txt2);">
+        {username} Reels
+      </a>
+    ))}
+    {pSeoConfig.trendingKeywords.slice(0, 10).map(keyword => (
+      <a href={`/download-youtube-short-about-${keyword.replace(/\s+/g, '-')}`} 
+        class="px-4 py-2 rounded-xl border border-[var(--bdr)] text-sm transition-all hover:bg-[var(--bg-glass-h)] hover:border-[var(--bdr-h)]" 
+        style="background:var(--bg-glass); color:var(--txt2);">
+        {keyword} Shorts
+      </a>
+    ))}
+  </div>
+</div>

@@ -1,0 +1,83 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import DownloaderWidget from '../components/react/DownloaderWidget.jsx';
+import FAQItem from '../components/FAQItem.astro';
+import TrendingDownloads from '../components/TrendingDownloads.astro';
+import TryOtherPlatforms from '../components/TryOtherPlatforms.astro';
+
+const FAQS = [
+    { q: 'Can I download TikTok videos without watermark?', a: 'Yes! Our TikTok downloader fetches the original HD video without the TikTok logo or watermark.' },
+    { q: 'Is it free to use?', a: 'Completely free. You can download as many videos as you want daily.' },
+    { q: 'Can I save TikTok audio as MP3?', a: 'Yes, we provide separate download links for both the video and the original audio track.' },
+    { q: 'Does it work with TikTok Lite?', a: 'Yes, just copy the share link from any version of TikTok and paste it above.' }
+];
+
+const STEPS = [
+    { step: 'Share & Copy Link', detail: 'On TikTok, tap the Share icon and select "Copy Link".' },
+    { step: 'Paste Above', detail: 'Return here and paste your TikTok link in the input field.' },
+    { step: 'Get Links', detail: 'Our tool will quickly find the video and audio sources.' },
+    { step: 'Save to Device', detail: 'Click "Download Video" for a watermark-free MP4 file.' }
+];
+---
+
+<PageLayout
+  title="TikTok Downloader — Download TikTok Videos Without Watermark HD 2026"
+  description="Download TikTok videos for free in HD without watermark. Save TikTok MP3 audio. Fast, secure, and no registration required. Try the best TikTok downloader of 2026."
+>
+  <div class="max-w-[1000px] mx-auto px-6 py-5">
+    <div class="text-center mb-6">
+      <div class="inline-flex px-4 py-1.5 rounded-full text-sm font-bold bg-[rgba(0,242,234,0.1)] border border-[rgba(0,242,234,0.2)] text-[#00f2ea] mb-3">🎵 TT Saver</div>
+      <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-black mb-1 leading-tight" style="color:var(--txt);">
+        TikTok <span style="background:linear-gradient(135deg,#00f2ea,#ff0050); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Video Downloader</span>
+      </h1>
+      <p class="text-lg opacity-70 max-w-[700px] mx-auto">
+        Download TikTok videos without watermark and save original music — fast and free.
+      </p>
+    </div>
+
+    <DownloaderWidget
+      client:load
+      platform="tiktok"
+      apiEndpoint="/tiktok/download"
+      placeholder="Paste TikTok URL here…"
+    >
+      <div class="seo-content-section mt-12">
+        <h2 class="seo-section-heading">Watermark-Free TikTok Video Downloads</h2>
+        <p class="seo-p">
+          TikTok is the world's most vibrant platform for short-form video. Our <strong>TikTok downloader</strong> is designed for creators and fans who want to save high-quality, watermark-free videos for editing, sharing, or offline viewing.
+        </p>
+        <p class="seo-p">
+          Unlike many other tools, we ensure you get the full-resolution video directly from TikTok's CDN. We also allow you to rip the original audio if you only need the music or sound effect from a specific TikTok.
+        </p>
+
+        <h2 class="seo-section-heading">How to Use the TikTok Downloader</h2>
+        <div class="p-8 rounded-[24px] border border-[var(--bdr)] mb-12" style="background:var(--bg-glass);">
+          <ol class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 list-none p-0">
+            {STEPS.map((s, i) => (
+              <li class="flex gap-4">
+                <span class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white text-sm" style="background:linear-gradient(135deg,#00f2ea,#ff0050)">{i + 1}</span>
+                <div>
+                  <strong class="block mb-1 font-bold" style="color:var(--txt);">{s.step}</strong>
+                  <p class="text-[0.85rem] opacity-60 leading-relaxed">{s.detail}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <h2 class="seo-section-heading">Frequently Asked Questions — TikTok</h2>
+        <div class="max-w-[1000px] mx-auto space-y-3 mb-16">
+          {FAQS.map(faq => <FAQItem q={faq.q} a={faq.a} />)}
+        </div>
+      </div>
+    </DownloaderWidget>
+
+    <div class="mt-16 pt-16 border-t border-[var(--bdr)]">
+      <TrendingDownloads />
+    </div>
+
+    <div class="mt-12">
+       <TryOtherPlatforms current="tiktok" />
+    </div>
+  </div>
+</PageLayout>

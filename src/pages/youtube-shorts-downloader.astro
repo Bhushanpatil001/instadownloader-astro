@@ -1,0 +1,74 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import DownloaderWidget from '../components/react/DownloaderWidget.jsx';
+import TryOtherPlatforms from '../components/TryOtherPlatforms.astro';
+import FAQItem from '../components/FAQItem.astro';
+import PlatformIcon from '../components/PlatformIcon.astro';
+import TrendingDownloads from '../components/TrendingDownloads.astro';
+
+const FAQS = [
+  { q: 'How to download YouTube Shorts in HD?', a: 'Copy the link of the YouTube Short, paste it in the search box, and click Search. We provide the highest resolution MP4 link available.' },
+  { q: 'Is it free?', a: 'Yes, our Shorts downloader is 100% free and unlimited.' },
+  { q: 'Can I extract MP3 from Shorts?', a: 'Definitely. Whenever possible, we provide an MP3 download button for YouTube Shorts content.' },
+  { q: 'Does it work on phone?', a: 'Yes, it works on any browser on your Android or iPhone.' },
+];
+---
+
+<PageLayout
+  title="YouTube Shorts Downloader — Save Shorts in HD Quality Free 2026"
+  description="Download YouTube Shorts for free in high definition. Fast, simple, and works on all devices. No software installation needed."
+>
+  <section class="max-w-[860px] mx-auto px-5 pt-12 pb-16">
+    <div class="text-center mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[0.75rem] font-bold uppercase tracking-wider mb-4"
+        style="background:rgba(255,0,0,0.12); border:1px solid rgba(255,0,0,0.3); color:#ff0000;">
+        <PlatformIcon platform="youtube" size={14} />
+        <span>SHORTS EXCLUSIVE</span>
+      </div>
+      <h1 class="text-[2.2rem] font-black mb-3" style="color:var(--txt);">
+        YouTube Shorts <span style="color:#ff0000;">Downloader</span>
+      </h1>
+      <p class="text-[1rem]" style="color:var(--txt2);">
+        High-quality YouTube Shorts video downloader.
+      </p>
+    </div>
+
+    <DownloaderWidget
+      client:load
+      platform="yt"
+      apiEndpoint="/youtube/download"
+      placeholder="Paste YouTube Shorts link here..."
+    />
+
+    <div class="mt-16 prose prose-invert max-w-none border-t border-[var(--bdr)] pt-16">
+      <h2 class="text-[1.5rem] font-bold mb-6 text-center" style="color:var(--txt);">Save YouTube Shorts Instantly</h2>
+      <p class="text-[0.95rem] leading-relaxed mb-10 text-center opacity-70 max-w-[700px] mx-auto">
+        YouTube Shorts are the latest way to enjoy quick bursts of content. Our downloader is optimized to catch these vertical videos in their full resolution, making it easy to save your favourite clips for offline viewing.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+        <div class="p-8 rounded-[24px] border border-[var(--bdr)]" style="background:var(--bg-glass);">
+          <h3 class="text-[1.1rem] font-bold mb-2">🎬 MP4 Downloads</h3>
+          <p class="text-[0.85rem]" style="color:var(--txt3);">Save Shorts as standard MP4 files that play on any device or player.</p>
+        </div>
+        <div class="p-8 rounded-[24px] border border-[var(--bdr)]" style="background:var(--bg-glass);">
+          <h3 class="text-[1.1rem] font-bold mb-2">⚡ Lightning Fast</h3>
+          <p class="text-[0.85rem]" style="color:var(--txt3);">Our engine handles Shorts links in seconds for a smooth experience.</p>
+        </div>
+      </div>
+
+      <h2 class="text-[1.5rem] font-bold mb-8 text-center" style="color:var(--txt);">Frequently Asked Questions</h2>
+      <div class="max-w-[800px] mx-auto space-y-4 mb-20">
+        {FAQS.map(faq => (
+          <FAQItem q={faq.q} a={faq.a} />
+        ))}
+      </div>
+
+      <TrendingDownloads />
+    </div>
+
+    <div class="mt-12">
+      <TryOtherPlatforms current="yt" />
+    </div>
+  </section>
+</PageLayout>

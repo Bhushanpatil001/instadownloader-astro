@@ -1,0 +1,843 @@
+{
+  "popularUsernames": [
+    "virat.kohli",
+    "cristiano",
+    "leomessi",
+    "selenagomez",
+    "therock",
+    "arianagrande",
+    "kimkardashian",
+    "beyonce",
+    "khloekardashian",
+    "nike"
+  ],
+  "trendingKeywords": [
+    "ipl",
+    "motivation",
+    "funny",
+    "travel",
+    "fitness",
+    "coding",
+    "nature",
+    "diy",
+    "pets",
+    "gaming",
+    "music"
+  ],
+  "platformConfigs": {
+    "instagram": {
+      "name": "Instagram",
+      "prefix": "Download Instagram Reels from",
+      "keywordPrefix": "Download Instagram Reels about",
+      "color": "var(--grad-instagram)"
+    },
+    "youtube": {
+      "name": "YouTube",
+      "prefix": "Download YouTube Shorts from",
+      "keywordPrefix": "Download YouTube Shorts about",
+      "color": "var(--grad-youtube)"
+    },
+    "facebook": {
+      "name": "Facebook",
+      "prefix": "Download Facebook Video from",
+      "keywordPrefix": "Download Facebook Video about",
+      "color": "var(--grad-facebook)"
+    },
+    "pinterest": {
+      "name": "Pinterest",
+      "prefix": "Download Pinterest Video from",
+      "keywordPrefix": "Download Pinterest Video about",
+      "color": "var(--grad-pinterest)"
+    },
+    "x": {
+      "name": "X (Twitter)",
+      "prefix": "Download X Video from",
+      "keywordPrefix": "Download X Video about",
+      "color": "var(--grad-x)"
+    }
+  },
+  "topicData": {
+    "virat-kohli": {
+      "instagram": [
+        { "title": "You are your own guide!", "url": "https://www.instagram.com/reel/DLsEJwPTeu0/" },
+        { "title": "Learn from the best", "url": "https://www.instagram.com/reel/DVkT4lkClIp/" },
+        { "title": "Discipline = Kohli", "url": "https://www.instagram.com/reel/DWT0MVECDUu/" },
+        { "title": "GOAT mindset reel", "url": "https://www.instagram.com/reel/DTQXC_3COth/" },
+        { "title": "Relentless hunger edit", "url": "https://www.instagram.com/reel/DU0nJjck0Zr/" },
+        { "title": "Chase your goals", "url": "https://www.instagram.com/reel/DVdsDOGjJa-/" }
+      ],
+      "youtube": [
+        { "title": "Virat Kohli Motivation", "url": "https://www.youtube.com/watch?v=bgisgR31z6M" },
+        { "title": "Kohli Aggression", "url": "https://www.youtube.com/watch?v=yFlarM35vxA" },
+        { "title": "King Kohli Tribute", "url": "https://www.youtube.com/watch?v=1d8b9z5Vx8A" },
+        { "title": "Best Shots Compilation", "url": "https://www.youtube.com/watch?v=9d8f3s1hG6E" },
+        { "title": "Kohli Fitness Routine", "url": "https://www.youtube.com/watch?v=3K0p9X2h1aE" },
+        { "title": "Top 10 Virat Moments", "url": "https://www.youtube.com/watch?v=J6Z9W8qk2Ks" }
+      ],
+      "twitter": [
+        { "title": "Kohli Celebration Clip", "url": "https://twitter.com/imVkohli" },
+        { "title": "RCB Match Moment", "url": "https://twitter.com/RCBTweets" },
+        { "title": "Winning Shot Clip", "url": "https://twitter.com/BCCI" },
+        { "title": "Fan Edit Kohli", "url": "https://twitter.com/search?q=virat%20kohli%20video" },
+        { "title": "Aggression Moment", "url": "https://twitter.com/search?q=kohli%20aggression" },
+        { "title": "Practice Clip", "url": "https://twitter.com/search?q=virat%20kohli%20practice" }
+      ]
+    },
+    "cristiano": {
+      "instagram": [
+        { "title": "CR7 Teases His Lookalike: 'You Are Too Ugly to Look Like Me!'", "url": "https://www.instagram.com/reel/CJjHrFGFv6a/" },
+        { "title": "Viral LEGO Ad Ahead of World Cup 2026", "url": "https://www.instagram.com/reel/CJjHrFGFv6b/" },
+        { "title": "Cristiano Ronaldo Makes a New Young Friend", "url": "https://www.instagram.com/reel/CJjHrFGFv6c/" },
+        { "title": "CR7's Insane Free-Kick Goal", "url": "https://www.instagram.com/reel/CJjHrFGFv6d/" },
+        { "title": "Cristiano Ronaldo and IShowSpeed Drum Celebration", "url": "https://www.instagram.com/reel/CJjHrFGFv6e/" },
+        { "title": "Ronaldo's Motivational Self-Talk Before a Free Kick", "url": "https://www.instagram.com/reel/CJjHrFGFv6f/" }
+      ],
+      "youtube": [
+        { "title": "Cristiano Ronaldo - SIUUU Best Moments", "url": "https://www.youtube.com/watch?v=8jC_1kPqKtY" },
+        { "title": "The GOAT CR7", "url": "https://www.youtube.com/watch?v=r3m3b7jVHkM" },
+        { "title": "Ronaldo's Top 10 Goals of All Time", "url": "https://www.youtube.com/watch?v=o4Nf8C5n9kU" },
+        { "title": "CR7 Fitness & Training Routine", "url": "https://www.youtube.com/watch?v=H1dP5PmV5Zg" },
+        { "title": "Cristiano Ronaldo - The Journey", "url": "https://www.youtube.com/watch?v=5kMp4nZ5Z7A" },
+        { "title": "Ronaldo vs Messi: The Ultimate Comparison", "url": "https://www.youtube.com/watch?v=0jU8jHnL6gU" }
+      ],
+      "facebook": [
+        { "title": "Viral Clip of Ronaldo Drinking Soda", "url": "https://web.facebook.com/reel/3128165200661412" },
+        { "title": "AI Manipulated Video of Ronaldo Speaking Arabic", "url": "https://web.facebook.com/reel/468338709200424" },
+        { "title": "Ronaldo and Donald Trump Create Viral Moment", "url": "https://www.facebook.com/reel/468338709200425" },
+        { "title": "CR7 Scores Another Stunning Goal", "url": "https://www.facebook.com/reel/468338709200426" },
+        { "title": "Georgina Rodriguez's Funny Dance Fall", "url": "https://www.facebook.com/reel/468338709200427" },
+        { "title": "CR7: The King of Comebacks", "url": "https://www.facebook.com/reel/468338709200428" }
+      ],
+      "pinterest": [
+        { "title": "Cristiano Ronaldo - Real Madrid Tribute", "url": "https://www.pinterest.com/pin/1234567890" },
+        { "title": "CR7 Workout Routine", "url": "https://www.pinterest.com/pin/1234567891" },
+        { "title": "Best Cristiano Ronaldo Goals Compilation", "url": "https://www.pinterest.com/pin/1234567892" },
+        { "title": "Ronaldo's Iconic SIUUU Celebration", "url": "https://www.pinterest.com/pin/1234567893" },
+        { "title": "CR7 - The King of Football", "url": "https://www.pinterest.com/pin/1234567894" },
+        { "title": "Ronaldo vs Messi: The Debate", "url": "https://www.pinterest.com/pin/1234567895" }
+      ],
+      "x": [
+        { "title": "Ronaldo's Touching Gesture with Young Fan", "url": "https://x.com/Cristiano/status/1234567890" },
+        { "title": "Video of Ronaldo Motivating Himself Before Free Kick", "url": "https://x.com/Cristiano/status/1234567891" },
+        { "title": "CR7's Absurd Finishing in Training", "url": "https://x.com/Cristiano/status/1234567892" },
+        { "title": "Cristiano Ronaldo Celebrates with IShowSpeed", "url": "https://x.com/Cristiano/status/1234567893" },
+        { "title": "Ronaldo's Reaction to Messi Chants", "url": "https://x.com/Cristiano/status/1234567894" },
+        { "title": "CR7 Makes a New Friend", "url": "https://x.com/Cristiano/status/1234567895" }
+      ]
+    },
+    "leomessi": {
+      "instagram": [
+        { "title": "Viral LEGO Ad with Ronaldo & Mbappé", "url": "https://www.instagram.com/reel/DU0nJjck0Zr/" },
+        { "title": "Messi's Hilarious Trio Video", "url": "https://www.instagram.com/reel/DTQXC_3COth/" },
+        { "title": "Revanth Reddy's Awkward Moments with Messi", "url": "https://www.instagram.com/reel/DWT0MVECDUu/" },
+        { "title": "Messi's Magical Dribbling Skills", "url": "https://www.instagram.com/reel/DLsEJwPTeu0/" },
+        { "title": "Leo Messi - The GOAT", "url": "https://www.instagram.com/reel/DVkT4lkClIp/" },
+        { "title": "Messi's World Cup Victory Parade", "url": "https://www.instagram.com/reel/DVdsDOGjJa-/" }
+      ],
+      "youtube": [
+        { "title": "Lionel Messi - The GOAT", "url": "https://www.youtube.com/watch?v=UItWltVZZmE" },
+        { "title": "Messi's Top 10 Goals", "url": "https://www.youtube.com/watch?v=ml6cT4AZdqI" },
+        { "title": "Leo Messi Best Skills & Tricks", "url": "https://www.youtube.com/watch?v=IODxDxX7oi4" },
+        { "title": "Messi vs Ronaldo: The Ultimate Battle", "url": "https://www.youtube.com/watch?v=VHyGqsPOUHs" },
+        { "title": "Messi's World Cup Magic", "url": "https://www.youtube.com/watch?v=UBMk30rjy0o" },
+        { "title": "The King of Football", "url": "https://www.youtube.com/watch?v=6kALZikXxLc" }
+      ],
+      "facebook": [
+        { "title": "Leo Messi Turns a Fan Video Viral", "url": "https://web.facebook.com/reel/3128165200661413" },
+        { "title": "Messi's Unintentional Viral Moment", "url": "https://www.facebook.com/reel/468338709200429" },
+        { "title": "AI-Generated Images of Messi in Iraq", "url": "https://www.facebook.com/reel/468338709200430" },
+        { "title": "Messi's Chewing Gum Selfie with Amruta Fadnavis", "url": "https://www.facebook.com/reel/468338709200431" },
+        { "title": "Leo Messi - The Legend", "url": "https://www.facebook.com/reel/468338709200432" },
+        { "title": "Messi's Best Goals Compilation", "url": "https://www.facebook.com/reel/468338709200433" }
+      ],
+      "pinterest": [
+        { "title": "Messi's Hilarious Trio Video", "url": "https://www.pinterest.com/pin/1234567896" },
+        { "title": "Leo Messi - The GOAT", "url": "https://www.pinterest.com/pin/1234567897" },
+        { "title": "Best of Lionel Messi", "url": "https://www.pinterest.com/pin/1234567898" },
+        { "title": "Messi's World Cup Victory", "url": "https://www.pinterest.com/pin/1234567899" },
+        { "title": "Messi's Magical Skills", "url": "https://www.pinterest.com/pin/1234567900" },
+        { "title": "The King of Football", "url": "https://www.pinterest.com/pin/1234567901" }
+      ],
+      "x": [
+        { "title": "Davo Xeneize's Viral 'No Bostezo' Moment with Messi", "url": "https://x.com/leomessi/status/1234567896" },
+        { "title": "Messi's Hilarious Outburst at Referee", "url": "https://x.com/leomessi/status/1234567897" },
+        { "title": "Messi Ignores IShowSpeed", "url": "https://x.com/leomessi/status/1234567898" },
+        { "title": "Fan's Selfie Attempt with Messi Goes Wrong", "url": "https://x.com/leomessi/status/1234567899" },
+        { "title": "Messi's Unintentional Viral Video", "url": "https://x.com/leomessi/status/1234567900" },
+        { "title": "The GOAT at Work", "url": "https://x.com/leomessi/status/1234567901" }
+      ]
+    },
+    "selenagomez": {
+      "instagram": [
+        { "title": "Selena Gomez's Silver Metallic Manicure", "url": "https://www.instagram.com/reel/CzG9Gk5pQ2F/" },
+        { "title": "Selena Gomez Radiates in Nightgown", "url": "https://www.instagram.com/reel/C0kR2wJr3gX/" },
+        { "title": "Selena Gomez Teases New RARE BEAUTY Product", "url": "https://www.instagram.com/reel/C1L4qv5R7XU/" },
+        { "title": "Selena Gomez's Wedding Post", "url": "https://www.instagram.com/reel/C2Ab3g7X9yL/" },
+        { "title": "Selena Gomez's Bandana Mani", "url": "https://www.instagram.com/reel/C3Mn8p2R4Tq/" },
+        { "title": "Selena Gomez's Slinky White Halter Dress", "url": "https://www.instagram.com/reel/C4Xn9k7T2Yp/" }
+      ],
+      "youtube": [
+        { "title": "Selena Gomez - In The Dark (Official Music Video)", "url": "https://www.youtube.com/watch?v=abc123def456" },
+        { "title": "Selena Gomez & Benny Blanco - Sunset Blvd", "url": "https://www.youtube.com/watch?v=ghi789jkl012" },
+        { "title": "Selena Gomez & Benny Blanco - Younger And Hotter Than Me", "url": "https://www.youtube.com/watch?v=mno345pqr678" },
+        { "title": "Selena Gomez & Benny Blanco - Talk (Official Music Video)", "url": "https://www.youtube.com/watch?v=stu901vwx234" },
+        { "title": "Selena Gomez - I Said I Love You First (Short Film)", "url": "https://www.youtube.com/watch?v=yz567abc890" },
+        { "title": "Selena Gomez - Scared of Loving You", "url": "https://www.youtube.com/watch?v=def123ghi456" }
+      ],
+      "facebook": [
+        { "title": "Selena Gomez - How Does It Feel To Be Forgotten", "url": "https://www.facebook.com/selenagomez/videos/1234567890" },
+        { "title": "Selena Gomez - I Said I Love You First (Trailer)", "url": "https://www.facebook.com/selenagomez/videos/1234567891" },
+        { "title": "Selena Gomez's Artist Spotlight Stories", "url": "https://www.facebook.com/selenagomez/videos/1234567892" },
+        { "title": "Selena Gomez's New Music Video Transformation", "url": "https://www.facebook.com/selenagomez/videos/1234567893" },
+        { "title": "Selena Gomez - In The Dark (Behind the Scenes)", "url": "https://www.facebook.com/selenagomez/videos/1234567894" },
+        { "title": "Selena Gomez's Emotional Thanksgiving Message", "url": "https://www.facebook.com/selenagomez/videos/1234567895" }
+      ],
+      "pinterest": [
+        { "title": "Selena Gomez Believe in Yourself Motivational Video", "url": "https://www.pinterest.com/pin/1234567902" },
+        { "title": "Selena Gomez - Fetish Music Video", "url": "https://www.pinterest.com/pin/1234567903" },
+        { "title": "Selena Gomez + Chef Promo", "url": "https://www.pinterest.com/pin/1234567904" },
+        { "title": "Selena Gomez - Ice Cream Music Video", "url": "https://www.pinterest.com/pin/1234567905" },
+        { "title": "Selena Gomez - Hit the Lights Music Video", "url": "https://www.pinterest.com/pin/1234567906" },
+        { "title": "Selena Gomez - The Heart Wants What It Wants", "url": "https://www.pinterest.com/pin/1234567907" }
+      ],
+      "x": [
+        { "title": "Selena Gomez's 'New Face' in Music Video", "url": "https://x.com/selenagomez/status/1234567902" },
+        { "title": "Selena Gomez's Out of Touch Clip Resurfaces", "url": "https://x.com/selenagomez/status/1234567903" },
+        { "title": "Selena Gomez's Emmy Reaction Goes Viral", "url": "https://x.com/selenagomez/status/1234567904" },
+        { "title": "Selena Gomez - In The Dark Music Video Release", "url": "https://x.com/selenagomez/status/1234567905" },
+        { "title": "Selena Gomez Weeps Over Immigration Crackdown", "url": "https://x.com/selenagomez/status/1234567906" },
+        { "title": "Selena Gomez Shines 'In The Dark'", "url": "https://x.com/selenagomez/status/1234567907" }
+      ]
+    },
+    "therock": {
+      "instagram": [
+        { "title": "The Rock Gets a Makeover from His Daughters", "url": "https://www.instagram.com/reel/DXbJ4pzEeew/" },
+        { "title": "The Rock's Hilarious Dance Video", "url": "https://www.instagram.com/reel/DTQXC_3COth/" },
+        { "title": "The Rock's Intense Workout Routine", "url": "https://www.instagram.com/reel/DU0nJjck0Zr/" },
+        { "title": "The Rock's Motivational Speech", "url": "https://www.instagram.com/reel/DVkT4lkClIp/" },
+        { "title": "The Rock's Adorable Moment with His Daughter", "url": "https://www.instagram.com/reel/DLsEJwPTeu0/" },
+        { "title": "The Rock's Epic WWE Return", "url": "https://www.instagram.com/reel/DWT0MVECDUu/" }
+      ],
+      "youtube": [
+        { "title": "The Rock - WWE Final Boss", "url": "https://www.youtube.com/watch?v=bgisgR31z6M" },
+        { "title": "The Rock's Best Moments", "url": "https://www.youtube.com/watch?v=yFlarM35vxA" },
+        { "title": "The Rock's Workout Motivation", "url": "https://www.youtube.com/watch?v=1d8b9z5Vx8A" },
+        { "title": "The Rock's Hilarious Compilation", "url": "https://www.youtube.com/watch?v=9d8f3s1hG6E" },
+        { "title": "The Rock's Epic Promos", "url": "https://www.youtube.com/watch?v=3K0p9X2h1aE" },
+        { "title": "The Rock's Journey from Wrestler to Actor", "url": "https://www.youtube.com/watch?v=J6Z9W8qk2Ks" }
+      ],
+      "facebook": [
+        { "title": "The Rock's Sweet Video with His Daughters", "url": "https://www.facebook.com/therock/videos/1234567896" },
+        { "title": "The Rock Dances to 'Hit the Quan'", "url": "https://www.facebook.com/therock/videos/1234567897" },
+        { "title": "The Rock's Hilarious Dance Video Goes Viral", "url": "https://www.facebook.com/therock/videos/1234567898" },
+        { "title": "The Rock's Never-Seen-Before Voicemail Segment", "url": "https://www.facebook.com/therock/videos/1234567899" },
+        { "title": "The Rock's Final Boss XL Event", "url": "https://www.facebook.com/therock/videos/1234567900" },
+        { "title": "The Rock's Epic Workout", "url": "https://www.facebook.com/therock/videos/1234567901" }
+      ],
+      "pinterest": [
+        { "title": "The Rock - The Final Boss", "url": "https://www.pinterest.com/pin/1234567908" },
+        { "title": "Dwayne Johnson's Workout Routine", "url": "https://www.pinterest.com/pin/1234567909" },
+        { "title": "The Rock's Best WWE Moments", "url": "https://www.pinterest.com/pin/1234567910" },
+        { "title": "The Rock's Motivational Quotes", "url": "https://www.pinterest.com/pin/1234567911" },
+        { "title": "The Rock's Transformation", "url": "https://www.pinterest.com/pin/1234567912" },
+        { "title": "The Rock's Adorable Family Moments", "url": "https://www.pinterest.com/pin/1234567913" }
+      ],
+      "x": [
+        { "title": "The Rock's Hilarious Dance Video", "url": "https://x.com/TheRock/status/1234567908" },
+        { "title": "The Rock and CM Punk's Voicemail Segment", "url": "https://x.com/TheRock/status/1234567909" },
+        { "title": "The Rock's Sweet Video with His Daughters", "url": "https://x.com/TheRock/status/1234567910" },
+        { "title": "The Rock's Final Boss XL Event", "url": "https://x.com/TheRock/status/1234567911" },
+        { "title": "The Rock's Epic Workout", "url": "https://x.com/TheRock/status/1234567912" },
+        { "title": "The Rock's Motivational Speech", "url": "https://x.com/TheRock/status/1234567913" }
+      ]
+    },
+    "arianagrande": {
+      "instagram": [
+        { "title": "Ariana Grande's Backless Glinda-Coded Gown", "url": "https://www.instagram.com/reel/DXbJ4pzEeew/" },
+        { "title": "Bharatanatyam Dance to 'God Is A Woman'", "url": "https://www.instagram.com/reel/DTQXC_3COth/" },
+        { "title": "Ariana Grande's Supernatural Challenge", "url": "https://www.instagram.com/reel/DU0nJjck0Zr/" },
+        { "title": "Ariana Grande Returns to Brown Hair", "url": "https://www.instagram.com/reel/DVkT4lkClIp/" },
+        { "title": "Ariana Grande's Wicked Promo", "url": "https://www.instagram.com/reel/DLsEJwPTeu0/" },
+        { "title": "Ariana Grande's Cute Childhood Video", "url": "https://www.instagram.com/reel/DWT0MVECDUu/" }
+      ],
+      "youtube": [
+        { "title": "Ariana Grande - Brighter Days Ahead (Short Film)", "url": "https://www.youtube.com/watch?v=nqmBr-EyBDU" },
+        { "title": "Ariana Grande - Hampstead (Official Video)", "url": "https://www.youtube.com/watch?v=ZXsQAXx_ao0" },
+        { "title": "Ariana Grande - Supernatural (Music Video)", "url": "https://www.youtube.com/watch?v=mgmVOuLgFB0" },
+        { "title": "Ariana Grande - we can’t be friends (live version)", "url": "https://www.youtube.com/watch?v=IlU-zDU6aQ0" },
+        { "title": "Ariana Grande - The Boy Is Mine (Music Video)", "url": "https://www.youtube.com/watch?v=2OEL4P1Rz04" },
+        { "title": "Ariana Grande - Eternal Sunshine (Performance)", "url": "https://www.youtube.com/watch?v=wnHW6o8WMas" }
+      ],
+      "facebook": [
+        { "title": "Ariana Grande at Wicked: For Good Premiere", "url": "https://www.facebook.com/arianagrande/videos/1234567902" },
+        { "title": "Fake Photo of Ariana Grande Looking Unwell", "url": "https://www.facebook.com/arianagrande/videos/1234567903" },
+        { "title": "Ariana Grande - we can’t be friends (live version)", "url": "https://www.facebook.com/arianagrande/videos/1234567904" },
+        { "title": "Ariana Grande's Supernatural Challenge", "url": "https://www.facebook.com/arianagrande/videos/1234567905" },
+        { "title": "Ariana Grande's Cute Childhood Video", "url": "https://www.facebook.com/arianagrande/videos/1234567906" },
+        { "title": "Ariana Grande's Wicked Promo", "url": "https://www.facebook.com/arianagrande/videos/1234567907" }
+      ],
+      "pinterest": [
+        { "title": "Ariana Grande - 7 Rings Music Video BTS", "url": "https://www.pinterest.com/pin/1234567914" },
+        { "title": "Ariana Grande - God Is A Woman BTS", "url": "https://www.pinterest.com/pin/1234567915" },
+        { "title": "Ariana Grande - Into You (Lyric Video)", "url": "https://www.pinterest.com/pin/1234567916" },
+        { "title": "Ariana Grande - Santa Tell Me Music Video", "url": "https://www.pinterest.com/pin/1234567917" },
+        { "title": "Ariana Grande - Love Me Harder feat. The Weeknd", "url": "https://www.pinterest.com/pin/1234567918" },
+        { "title": "Ariana Grande's Cute Childhood Video", "url": "https://www.pinterest.com/pin/1234567919" }
+      ],
+      "x": [
+        { "title": "Ariana Grande and Cynthia Erivo's Viral Video", "url": "https://x.com/ArianaGrande/status/1234567914" },
+        { "title": "Ariana Grande Wins Video of the Year at VMA 2025", "url": "https://x.com/ArianaGrande/status/1234567915" },
+        { "title": "Ariana Grande's Mysterious Video Sparks Tour Speculation", "url": "https://x.com/ArianaGrande/status/1234567916" },
+        { "title": "Ariana Grande - Supernatural Music Video", "url": "https://x.com/ArianaGrande/status/1234567917" },
+        { "title": "Ariana Grande's Emotional Performance", "url": "https://x.com/ArianaGrande/status/1234567918" },
+        { "title": "Ariana Grande's Wicked Promo", "url": "https://x.com/ArianaGrande/status/1234567919" }
+      ]
+    },
+    "kimkardashian": {
+      "instagram": [
+        { "title": "Kim Kardashian's SKIMS 'Ultimate Bush' Thong", "url": "https://www.instagram.com/reel/CzG9Gk5pQ2F/" },
+        { "title": "Kim Kardashian Reacts to Anthony Hopkins' SKIMS Video", "url": "https://www.instagram.com/reel/C0kR2wJr3gX/" },
+        { "title": "North West's Viral SKIMS Modeling Campaign", "url": "https://www.instagram.com/reel/C1L4qv5R7XU/" },
+        { "title": "Kim Kardashian's AI Video Stealing $10M Birkin", "url": "https://www.instagram.com/reel/C2Ab3g7X9yL/" },
+        { "title": "Kim Kardashian's Pierced Nipple Bra Launch", "url": "https://www.instagram.com/reel/C3Mn8p2R4Tq/" },
+        { "title": "Kim Kardashian's Met Gala Awkward Moment", "url": "https://www.instagram.com/reel/C4Xn9k7T2Yp/" }
+      ],
+      "youtube": [
+        { "title": "Kim Kardashian Ghosts Kendall Jenner", "url": "https://www.youtube.com/watch?v=jaKowe8cU-w" },
+        { "title": "Kim Kardashian Plays 'Noodle Game' with Kai Cenat", "url": "https://www.youtube.com/watch?v=abc123def456" },
+        { "title": "Kim Kardashian's Met Gala 2025 Awkward Moment", "url": "https://www.youtube.com/watch?v=ghi789jkl012" },
+        { "title": "Kim Kardashian's SKIMS Ad Campaign", "url": "https://www.youtube.com/watch?v=mno345pqr678" },
+        { "title": "Kim Kardashian's Halloween Costume with North West", "url": "https://www.youtube.com/watch?v=stu901vwx234" },
+        { "title": "Kim Kardashian's Nike x SKIMS Collab", "url": "https://www.youtube.com/watch?v=yz567abc890" }
+      ],
+      "facebook": [
+        { "title": "Kim Kardashian's SKIMS 'Ultimate Bush' Thong", "url": "https://www.facebook.com/kimkardashian/videos/1234567908" },
+        { "title": "Kim Kardashian's Met Gala Awkward Moment", "url": "https://www.facebook.com/kimkardashian/videos/1234567909" },
+        { "title": "Kim Kardashian's SKIMS Ad Campaign", "url": "https://www.facebook.com/kimkardashian/videos/1234567910" },
+        { "title": "Kim Kardashian's Halloween Costume with North West", "url": "https://www.facebook.com/kimkardashian/videos/1234567911" },
+        { "title": "Kim Kardashian's Nike x SKIMS Collab", "url": "https://www.facebook.com/kimkardashian/videos/1234567912" },
+        { "title": "Kim Kardashian's AI Video Stealing $10M Birkin", "url": "https://www.facebook.com/kimkardashian/videos/1234567913" }
+      ],
+      "pinterest": [
+        { "title": "Kim Kardashian's Hair Color Transformation", "url": "https://www.pinterest.com/pin/1234567920" },
+        { "title": "Kim Kardashian's Met Gala Looks", "url": "https://www.pinterest.com/pin/1234567921" },
+        { "title": "Kim Kardashian's SKIMS Campaign", "url": "https://www.pinterest.com/pin/1234567922" },
+        { "title": "Kim Kardashian's AI Video Stealing Birkin", "url": "https://www.pinterest.com/pin/1234567923" },
+        { "title": "Kim Kardashian's Nike x SKIMS Collab", "url": "https://www.pinterest.com/pin/1234567924" },
+        { "title": "Kim Kardashian's Halloween Costume", "url": "https://www.pinterest.com/pin/1234567925" }
+      ],
+      "x": [
+        { "title": "Kim Kardashian's Nike x SKIMS Collab", "url": "https://x.com/KimKardashian/status/1234567920" },
+        { "title": "Kim Kardashian Plays 'Noodle Game' with Kai Cenat", "url": "https://x.com/KimKardashian/status/1234567921" },
+        { "title": "Kim Kardashian's Met Gala Awkward Moment", "url": "https://x.com/KimKardashian/status/1234567922" },
+        { "title": "Kim Kardashian's SKIMS Ad Campaign", "url": "https://x.com/KimKardashian/status/1234567923" },
+        { "title": "Kim Kardashian's AI Video Stealing Birkin", "url": "https://x.com/KimKardashian/status/1234567924" },
+        { "title": "Kim Kardashian's Halloween Costume", "url": "https://x.com/KimKardashian/status/1234567925" }
+      ]
+    },
+    "beyonce": {
+      "instagram": [
+        { "title": "Beyoncé's Hilarious Nod to Kelly Rowland", "url": "https://www.instagram.com/reel/DXbJ4pzEeew/" },
+        { "title": "Beyoncé's Emotional Thanksgiving Reel", "url": "https://www.instagram.com/reel/DTQXC_3COth/" },
+        { "title": "Beyoncé's Stage Scare Turns Viral", "url": "https://www.instagram.com/reel/DU0nJjck0Zr/" },
+        { "title": "Beyoncé's Stunning Birthday Photos", "url": "https://www.instagram.com/reel/DVkT4lkClIp/" },
+        { "title": "Tina Knowles Dances to 'Savage Remix'", "url": "https://www.instagram.com/reel/DLsEJwPTeu0/" },
+        { "title": "Beyoncé's Cowboy Carter Tour", "url": "https://www.instagram.com/reel/DWT0MVECDUu/" }
+      ],
+      "youtube": [
+        { "title": "Beyoncé - Cowboy Carter Tour Trailer", "url": "https://www.youtube.com/watch?v=nqmBr-EyBDU" },
+        { "title": "Beyoncé - ALL NIGHT (Official Video)", "url": "https://www.youtube.com/watch?v=gM89Q5Eng" },
+        { "title": "Beyoncé - Yoncé (Official Video)", "url": "https://www.youtube.com/watch?v=ZXsQAXx_ao0" },
+        { "title": "Beyoncé - Countdown (Official Video)", "url": "https://www.youtube.com/watch?v=mgmVOuLgFB0" },
+        { "title": "Beyoncé - If I Were a Boy (Official Video)", "url": "https://www.youtube.com/watch?v=IlU-zDU6aQ0" },
+        { "title": "Beyoncé - Formation (Official Video)", "url": "https://www.youtube.com/watch?v=2OEL4P1Rz04" }
+      ],
+      "facebook": [
+        { "title": "Beyoncé's Horse Ride Hinted Her Life Was in Danger", "url": "https://www.facebook.com/reel/697558682852210" },
+        { "title": "Beyoncé's Emotional Thanksgiving Reel", "url": "https://www.facebook.com/beyonce/videos/1234567914" },
+        { "title": "Beyoncé's Cowboy Carter Tour Trailer", "url": "https://www.facebook.com/beyonce/videos/1234567915" },
+        { "title": "Beyoncé's Stunning Birthday Photos", "url": "https://www.facebook.com/beyonce/videos/1234567916" },
+        { "title": "Beyoncé's Stage Scare Turns Viral", "url": "https://www.facebook.com/beyonce/videos/1234567917" },
+        { "title": "Beyoncé's Hilarious Nod to Kelly Rowland", "url": "https://www.facebook.com/beyonce/videos/1234567918" }
+      ],
+      "pinterest": [
+        { "title": "Beyoncé - Why Don't You Love Me (Music Video)", "url": "https://www.pinterest.com/pin/1234567926" },
+        { "title": "Beyoncé - Video Phone ft. Lady Gaga", "url": "https://www.pinterest.com/pin/1234567927" },
+        { "title": "Beyoncé - Dance for You (Official Video)", "url": "https://www.pinterest.com/pin/1234567928" },
+        { "title": "Beyoncé - Spirit (From 'The Lion King')", "url": "https://www.pinterest.com/pin/1234567929" },
+        { "title": "Beyoncé - Sorry (Official Video)", "url": "https://www.pinterest.com/pin/1234567930" },
+        { "title": "Beyoncé - ALL NIGHT (Official Video)", "url": "https://www.pinterest.com/pin/1234567931" }
+      ],
+      "x": [
+        { "title": "Beyoncé's Cowboy Carter Tour Trailer", "url": "https://x.com/Beyonce/status/1234567926" },
+        { "title": "Beyoncé's Emotional Thanksgiving Reel", "url": "https://x.com/Beyonce/status/1234567927" },
+        { "title": "Beyoncé's Stunning Birthday Photos", "url": "https://x.com/Beyonce/status/1234567928" },
+        { "title": "Beyoncé's Stage Scare Turns Viral", "url": "https://x.com/Beyonce/status/1234567929" },
+        { "title": "Beyoncé's Hilarious Nod to Kelly Rowland", "url": "https://x.com/Beyonce/status/1234567930" },
+        { "title": "Beyoncé's Renaissance Concert Film Trailer", "url": "https://x.com/Beyonce/status/1234567931" }
+      ]
+    },
+    "motivation": {
+      "instagram": [
+        { "title": "Stay Focused", "url": "https://www.instagram.com/reel/DXbJ4pzEeew/" },
+        { "title": "Never Give Up", "url": "https://www.instagram.com/reel/DTQXC_3COth/" },
+        { "title": "Success Mindset", "url": "https://www.instagram.com/reel/DU0nJjck0Zr/" },
+        { "title": "Hard Work Wins", "url": "https://www.instagram.com/reel/DVkT4lkClIp/" },
+        { "title": "Daily Motivation", "url": "https://www.instagram.com/reel/DLsEJwPTeu0/" },
+        { "title": "Discipline Life", "url": "https://www.instagram.com/reel/DWT0MVECDUu/" }
+      ],
+      "youtube": [
+        { "title": "Morning Motivation", "url": "https://www.youtube.com/watch?v=nqmBr-EyBDU" },
+        { "title": "Success Speech", "url": "https://www.youtube.com/watch?v=ZXsQAXx_ao0" },
+        { "title": "Never Quit Speech", "url": "https://www.youtube.com/watch?v=mgmVOuLgFB0" },
+        { "title": "Study Motivation", "url": "https://www.youtube.com/watch?v=IlU-zDU6aQ0" },
+        { "title": "Gym Motivation", "url": "https://www.youtube.com/watch?v=2OEL4P1Rz04" },
+        { "title": "Life Changing Advice", "url": "https://www.youtube.com/watch?v=wnHW6o8WMas" }
+      ],
+      "facebook": [
+        { "title": "Motivation for Success", "url": "https://www.facebook.com/reel/1234567890" },
+        { "title": "Never Give Up", "url": "https://www.facebook.com/reel/1234567891" },
+        { "title": "Daily Motivation", "url": "https://www.facebook.com/reel/1234567892" },
+        { "title": "Success Mindset", "url": "https://www.facebook.com/reel/1234567893" },
+        { "title": "Hard Work Pays Off", "url": "https://www.facebook.com/reel/1234567894" },
+        { "title": "Believe in Yourself", "url": "https://www.facebook.com/reel/1234567895" }
+      ],
+      "pinterest": [
+        { "title": "Motivational Video", "url": "https://www.pinterest.com/pin/1234567932" },
+        { "title": "Success Quotes", "url": "https://www.pinterest.com/pin/1234567933" },
+        { "title": "Daily Inspiration", "url": "https://www.pinterest.com/pin/1234567934" },
+        { "title": "Mindset Matters", "url": "https://www.pinterest.com/pin/1234567935" },
+        { "title": "Never Give Up", "url": "https://www.pinterest.com/pin/1234567936" },
+        { "title": "Hard Work Wins", "url": "https://www.pinterest.com/pin/1234567937" }
+      ],
+      "x": [
+        { "title": "Motivation for Success", "url": "https://x.com/search?q=motivation%20video" },
+        { "title": "Never Give Up", "url": "https://x.com/search?q=never%20give%20up" },
+        { "title": "Daily Motivation", "url": "https://x.com/search?q=daily%20motivation" },
+        { "title": "Success Mindset", "url": "https://x.com/search?q=success%20mindset" },
+        { "title": "Hard Work Pays Off", "url": "https://x.com/search?q=hard%20work%20pays%20off" },
+        { "title": "Believe in Yourself", "url": "https://x.com/search?q=believe%20in%20yourself" }
+      ]
+    },
+    "funny": {
+      "instagram": [
+        { "title": "Instagrammar Meme", "url": "https://www.instagram.com/reel/DXbJ4pzEeew/" },
+        { "title": "Couple Pretends Dog Got into Harvard", "url": "https://www.instagram.com/reel/DTQXC_3COth/" },
+        { "title": "Caricature Guy Meme", "url": "https://www.instagram.com/reel/DU0nJjck0Zr/" },
+        { "title": "Awkward In-Flight Moment", "url": "https://www.instagram.com/reel/DVkT4lkClIp/" },
+        { "title": "Mom's Nap-Time Nightmare", "url": "https://www.instagram.com/reel/DLsEJwPTeu0/" },
+        { "title": "Chicken Screaming on Tree", "url": "https://www.instagram.com/reel/DWT0MVECDUu/" }
+      ],
+      "youtube": [
+        { "title": "Funny Cats Compilation", "url": "https://www.youtube.com/watch?v=UBMk30rjy0o" },
+        { "title": "Funny Fails 2025", "url": "https://www.youtube.com/watch?v=UItWltVZZmE" },
+        { "title": "Funny Pranks", "url": "https://www.youtube.com/watch?v=6kALZikXxLc" },
+        { "title": "Funny Dogs", "url": "https://www.youtube.com/watch?v=ml6cT4AZdqI" },
+        { "title": "Funny Kids", "url": "https://www.youtube.com/watch?v=IODxDxX7oi4" },
+        { "title": "Funny Moments", "url": "https://www.youtube.com/watch?v=VHyGqsPOUHs" }
+      ],
+      "facebook": [
+        { "title": "SA Gent's Hilarious Rant", "url": "https://www.facebook.com/reel/1234567896" },
+        { "title": "RC Alligator Prank", "url": "https://www.facebook.com/reel/1234567897" },
+        { "title": "Funny Cat Videos", "url": "https://www.facebook.com/reel/1234567898" },
+        { "title": "Florida Cop's First Gator Grab", "url": "https://www.facebook.com/reel/1234567899" },
+        { "title": "Alex Gonzaga's Prank", "url": "https://www.facebook.com/reel/1234567900" },
+        { "title": "Funny Fails", "url": "https://www.facebook.com/reel/1234567901" }
+      ],
+      "pinterest": [
+        { "title": "Funny Animals", "url": "https://www.pinterest.com/pin/1234567938" },
+        { "title": "Funny Memes", "url": "https://www.pinterest.com/pin/1234567939" },
+        { "title": "Funny Fails", "url": "https://www.pinterest.com/pin/1234567940" },
+        { "title": "Funny Kids", "url": "https://www.pinterest.com/pin/1234567941" },
+        { "title": "Funny Pranks", "url": "https://www.pinterest.com/pin/1234567942" },
+        { "title": "Funny Moments", "url": "https://www.pinterest.com/pin/1234567943" }
+      ],
+      "x": [
+        { "title": "Funny Tweets", "url": "https://x.com/search?q=funny%20video" },
+        { "title": "Funny Memes", "url": "https://x.com/search?q=funny%20memes" },
+        { "title": "Funny Fails", "url": "https://x.com/search?q=funny%20fails" },
+        { "title": "Funny Animals", "url": "https://x.com/search?q=funny%20animals" },
+        { "title": "Funny Kids", "url": "https://x.com/search?q=funny%20kids" },
+        { "title": "Funny Pranks", "url": "https://x.com/search?q=funny%20pranks" }
+      ]
+    },
+    "travel": {
+      "instagram": [
+        { "title": "Hornbill Festival Experience", "url": "https://www.instagram.com/reel/DXbJ4pzEeew/" },
+        { "title": "Hilton's Instagram Reel Hits 5 Billion Views", "url": "https://www.instagram.com/reel/DTQXC_3COth/" },
+        { "title": "Viral Travel Duo 'My Name Is Samuel'", "url": "https://www.instagram.com/reel/DU0nJjck0Zr/" },
+        { "title": "Woman Slips from Moving Train in Sri Lanka", "url": "https://www.instagram.com/reel/DVkT4lkClIp/" },
+        { "title": "'Vietnam is Calling' Trend", "url": "https://www.instagram.com/reel/DLsEJwPTeu0/" },
+        { "title": "American Tourist's 'Don't Go to India' Reel", "url": "https://www.instagram.com/reel/DWT0MVECDUu/" }
+      ],
+      "youtube": [
+        { "title": "Travel Guide 2025", "url": "https://www.youtube.com/watch?v=nqmBr-EyBDU" },
+        { "title": "Best Places to Travel", "url": "https://www.youtube.com/watch?v=ZXsQAXx_ao0" },
+        { "title": "Travel Vlog", "url": "https://www.youtube.com/watch?v=mgmVOuLgFB0" },
+        { "title": "Budget Travel Tips", "url": "https://www.youtube.com/watch?v=IlU-zDU6aQ0" },
+        { "title": "Solo Travel", "url": "https://www.youtube.com/watch?v=2OEL4P1Rz04" },
+        { "title": "Family Travel", "url": "https://www.youtube.com/watch?v=wnHW6o8WMas" }
+      ],
+      "facebook": [
+        { "title": "Hornbill Festival Experience", "url": "https://www.facebook.com/reel/1234567902" },
+        { "title": "Viral Travel Duo 'My Name Is Samuel'", "url": "https://www.facebook.com/reel/1234567903" },
+        { "title": "'Vietnam is Calling' Trend", "url": "https://www.facebook.com/reel/1234567904" },
+        { "title": "American Tourist's 'Don't Go to India' Reel", "url": "https://www.facebook.com/reel/1234567905" },
+        { "title": "Travel Guide 2025", "url": "https://www.facebook.com/reel/1234567906" },
+        { "title": "Best Places to Travel", "url": "https://www.facebook.com/reel/1234567907" }
+      ],
+      "pinterest": [
+        { "title": "Travel Destinations", "url": "https://www.pinterest.com/pin/1234567944" },
+        { "title": "Travel Tips", "url": "https://www.pinterest.com/pin/1234567945" },
+        { "title": "Travel Vlog", "url": "https://www.pinterest.com/pin/1234567946" },
+        { "title": "Solo Travel", "url": "https://www.pinterest.com/pin/1234567947" },
+        { "title": "Family Travel", "url": "https://www.pinterest.com/pin/1234567948" },
+        { "title": "Budget Travel", "url": "https://www.pinterest.com/pin/1234567949" }
+      ],
+      "x": [
+        { "title": "Travel Guide 2025", "url": "https://x.com/search?q=travel%20video" },
+        { "title": "Best Places to Travel", "url": "https://x.com/search?q=travel%20destinations" },
+        { "title": "Travel Vlog", "url": "https://x.com/search?q=travel%20vlog" },
+        { "title": "Budget Travel Tips", "url": "https://x.com/search?q=budget%20travel" },
+        { "title": "Solo Travel", "url": "https://x.com/search?q=solo%20travel" },
+        { "title": "Family Travel", "url": "https://x.com/search?q=family%20travel" }
+      ]
+    },
+    "fitness": {
+      "instagram": [
+        { "title": "Home Workout Routine", "url": "https://www.instagram.com/reel/CzG9Gk5pQ2F/" },
+        { "title": "Abs Workout", "url": "https://www.instagram.com/reel/C0kR2wJr3gX/" },
+        { "title": "Fat Loss Tips", "url": "https://www.instagram.com/reel/C1L4qv5R7XU/" },
+        { "title": "Gym Transformation", "url": "https://www.instagram.com/reel/C2Ab3g7X9yL/" },
+        { "title": "HIIT Workout", "url": "https://www.instagram.com/reel/C3Mn8p2R4Tq/" },
+        { "title": "Beginner Fitness", "url": "https://www.instagram.com/reel/C4Xn9k7T2Yp/" }
+      ],
+      "youtube": [
+        { "title": "Full Body Workout", "url": "https://www.youtube.com/watch?v=UBMk30rjy0o" },
+        { "title": "Weight Loss Guide", "url": "https://www.youtube.com/watch?v=UItWltVZZmE" },
+        { "title": "Muscle Gain Tips", "url": "https://www.youtube.com/watch?v=6kALZikXxLc" },
+        { "title": "Cardio Training", "url": "https://www.youtube.com/watch?v=ml6cT4AZdqI" },
+        { "title": "Beginner Workout", "url": "https://www.youtube.com/watch?v=IODxDxX7oi4" },
+        { "title": "Fitness Motivation", "url": "https://www.youtube.com/watch?v=VHyGqsPOUHs" }
+      ],
+      "facebook": [
+        { "title": "Home Workout Routine", "url": "https://www.facebook.com/reel/1234567908" },
+        { "title": "Abs Workout", "url": "https://www.facebook.com/reel/1234567909" },
+        { "title": "Fat Loss Tips", "url": "https://www.facebook.com/reel/1234567910" },
+        { "title": "Gym Transformation", "url": "https://www.facebook.com/reel/1234567911" },
+        { "title": "HIIT Workout", "url": "https://www.facebook.com/reel/1234567912" },
+        { "title": "Beginner Fitness", "url": "https://www.facebook.com/reel/1234567913" }
+      ],
+      "pinterest": [
+        { "title": "Full Body Workout", "url": "https://www.pinterest.com/pin/1234567950" },
+        { "title": "Weight Loss Guide", "url": "https://www.pinterest.com/pin/1234567951" },
+        { "title": "Muscle Gain Tips", "url": "https://www.pinterest.com/pin/1234567952" },
+        { "title": "Cardio Training", "url": "https://www.pinterest.com/pin/1234567953" },
+        { "title": "Beginner Workout", "url": "https://www.pinterest.com/pin/1234567954" },
+        { "title": "Fitness Motivation", "url": "https://www.pinterest.com/pin/1234567955" }
+      ],
+      "x": [
+        { "title": "Workout Clip", "url": "https://x.com/search?q=workout%20video" },
+        { "title": "Gym Tips", "url": "https://x.com/search?q=gym%20tips" },
+        { "title": "Fitness Routine", "url": "https://x.com/search?q=fitness%20routine" },
+        { "title": "Transformation Clip", "url": "https://x.com/search?q=body%20transformation" },
+        { "title": "Diet Tips", "url": "https://x.com/search?q=diet%20fitness" },
+        { "title": "Training Clip", "url": "https://x.com/search?q=training%20video" }
+      ]
+    },
+    "coding": {
+      "instagram": [
+        { "title": "Coding is Literally So Easy", "url": "https://www.instagram.com/reel/DXbJ4pzEeew/" },
+        { "title": "How to Make Instagram Reels Viral", "url": "https://www.instagram.com/reel/DTQXC_3COth/" },
+        { "title": "2025 Instagram Reels Strategy", "url": "https://www.instagram.com/reel/DU0nJjck0Zr/" },
+        { "title": "Create Instagram Reels That Go Viral", "url": "https://www.instagram.com/reel/DVkT4lkClIp/" },
+        { "title": "How to Hack the Instagram Reels Algorithm", "url": "https://www.instagram.com/reel/DLsEJwPTeu0/" },
+        { "title": "Why Instagram Reels Are Still the #1 Way to Grow", "url": "https://www.instagram.com/reel/DWT0MVECDUu/" }
+      ],
+      "youtube": [
+        { "title": "Learn Coding in 10 Minutes", "url": "https://www.youtube.com/watch?v=nqmBr-EyBDU" },
+        { "title": "Python Tutorial for Beginners", "url": "https://www.youtube.com/watch?v=ZXsQAXx_ao0" },
+        { "title": "Web Development Course", "url": "https://www.youtube.com/watch?v=mgmVOuLgFB0" },
+        { "title": "JavaScript Tutorial", "url": "https://www.youtube.com/watch?v=IlU-zDU6aQ0" },
+        { "title": "Coding for Kids", "url": "https://www.youtube.com/watch?v=2OEL4P1Rz04" },
+        { "title": "Advanced Coding Techniques", "url": "https://www.youtube.com/watch?v=wnHW6o8WMas" }
+      ],
+      "facebook": [
+        { "title": "Learn Coding in 10 Minutes", "url": "https://www.facebook.com/reel/1234567914" },
+        { "title": "Python Tutorial for Beginners", "url": "https://www.facebook.com/reel/1234567915" },
+        { "title": "Web Development Course", "url": "https://www.facebook.com/reel/1234567916" },
+        { "title": "JavaScript Tutorial", "url": "https://www.facebook.com/reel/1234567917" },
+        { "title": "Coding for Kids", "url": "https://www.facebook.com/reel/1234567918" },
+        { "title": "Advanced Coding Techniques", "url": "https://www.facebook.com/reel/1234567919" }
+      ],
+      "pinterest": [
+        { "title": "Learn Coding", "url": "https://www.pinterest.com/pin/1234567956" },
+        { "title": "Python Tutorial", "url": "https://www.pinterest.com/pin/1234567957" },
+        { "title": "Web Development", "url": "https://www.pinterest.com/pin/1234567958" },
+        { "title": "JavaScript Tutorial", "url": "https://www.pinterest.com/pin/1234567959" },
+        { "title": "Coding for Kids", "url": "https://www.pinterest.com/pin/1234567960" },
+        { "title": "Advanced Coding", "url": "https://www.pinterest.com/pin/1234567961" }
+      ],
+      "x": [
+        { "title": "Learn Coding", "url": "https://x.com/search?q=coding%20tutorial" },
+        { "title": "Python Tutorial", "url": "https://x.com/search?q=python%20tutorial" },
+        { "title": "Web Development", "url": "https://x.com/search?q=web%20development" },
+        { "title": "JavaScript Tutorial", "url": "https://x.com/search?q=javascript%20tutorial" },
+        { "title": "Coding for Kids", "url": "https://x.com/search?q=coding%20for%20kids" },
+        { "title": "Advanced Coding", "url": "https://x.com/search?q=advanced%20coding" }
+      ]
+    },
+    "nature": {
+      "instagram": [
+        { "title": "Italian Man Becomes 'Exotic Animal' at Zoo", "url": "https://www.instagram.com/reel/DXbJ4pzEeew/" },
+        { "title": "Teen's Viral Instagram Account Explores Rare Wildlife", "url": "https://www.instagram.com/reel/DTQXC_3COth/" },
+        { "title": "Photographer Captures Raven in Snowstorm", "url": "https://www.instagram.com/reel/DU0nJjck0Zr/" },
+        { "title": "Dance of Frozen Ice Crystals", "url": "https://www.instagram.com/reel/DVkT4lkClIp/" },
+        { "title": "Baby Elephant Asks for Watermelon", "url": "https://www.instagram.com/reel/DLsEJwPTeu0/" },
+        { "title": "Woman Gets Kicked by Horse During Reel", "url": "https://www.instagram.com/reel/DWT0MVECDUu/" }
+      ],
+      "youtube": [
+        { "title": "Amazing Nature 2025", "url": "https://www.youtube.com/watch?v=nqmBr-EyBDU" },
+        { "title": "Wildlife Documentary", "url": "https://www.youtube.com/watch?v=ZXsQAXx_ao0" },
+        { "title": "Beautiful Landscapes", "url": "https://www.youtube.com/watch?v=mgmVOuLgFB0" },
+        { "title": "Nature Relaxation", "url": "https://www.youtube.com/watch?v=IlU-zDU6aQ0" },
+        { "title": "Animal Kingdom", "url": "https://www.youtube.com/watch?v=2OEL4P1Rz04" },
+        { "title": "Ocean Wonders", "url": "https://www.youtube.com/watch?v=wnHW6o8WMas" }
+      ],
+      "facebook": [
+        { "title": "Amazing Nature 2025", "url": "https://www.facebook.com/reel/1234567920" },
+        { "title": "Wildlife Documentary", "url": "https://www.facebook.com/reel/1234567921" },
+        { "title": "Beautiful Landscapes", "url": "https://www.facebook.com/reel/1234567922" },
+        { "title": "Nature Relaxation", "url": "https://www.facebook.com/reel/1234567923" },
+        { "title": "Animal Kingdom", "url": "https://www.facebook.com/reel/1234567924" },
+        { "title": "Ocean Wonders", "url": "https://www.facebook.com/reel/1234567925" }
+      ],
+      "pinterest": [
+        { "title": "Amazing Nature", "url": "https://www.pinterest.com/pin/1234567962" },
+        { "title": "Wildlife", "url": "https://www.pinterest.com/pin/1234567963" },
+        { "title": "Landscapes", "url": "https://www.pinterest.com/pin/1234567964" },
+        { "title": "Nature Relaxation", "url": "https://www.pinterest.com/pin/1234567965" },
+        { "title": "Animal Kingdom", "url": "https://www.pinterest.com/pin/1234567966" },
+        { "title": "Ocean Wonders", "url": "https://www.pinterest.com/pin/1234567967" }
+      ],
+      "x": [
+        { "title": "Amazing Nature", "url": "https://x.com/search?q=nature%20video" },
+        { "title": "Wildlife", "url": "https://x.com/search?q=wildlife%20video" },
+        { "title": "Landscapes", "url": "https://x.com/search?q=landscape%20video" },
+        { "title": "Nature Relaxation", "url": "https://x.com/search?q=nature%20relaxation" },
+        { "title": "Animal Kingdom", "url": "https://x.com/search?q=animal%20video" },
+        { "title": "Ocean Wonders", "url": "https://x.com/search?q=ocean%20video" }
+      ]
+    },
+    "diy": {
+      "instagram": [
+        { "title": "Candle Artist Recreates Dosa in Wax", "url": "https://www.instagram.com/reel/DXbJ4pzEeew/" },
+        { "title": "How to Make Instagram Reels Viral", "url": "https://www.instagram.com/reel/DTQXC_3COth/" },
+        { "title": "Best Reel Ideas for Instagram", "url": "https://www.instagram.com/reel/DU0nJjck0Zr/" },
+        { "title": "How to Make a Reel on Instagram", "url": "https://www.instagram.com/reel/DVkT4lkClIp/" },
+        { "title": "How to Make Popular Reels on Instagram", "url": "https://www.instagram.com/reel/DLsEJwPTeu0/" },
+        { "title": "Instagram Reels Hacks", "url": "https://www.instagram.com/reel/DWT0MVECDUu/" }
+      ],
+      "youtube": [
+        { "title": "DIY Crafts 2025", "url": "https://www.youtube.com/watch?v=nqmBr-EyBDU" },
+        { "title": "Home Decor DIY", "url": "https://www.youtube.com/watch?v=ZXsQAXx_ao0" },
+        { "title": "DIY Gifts", "url": "https://www.youtube.com/watch?v=mgmVOuLgFB0" },
+        { "title": "DIY Organization", "url": "https://www.youtube.com/watch?v=IlU-zDU6aQ0" },
+        { "title": "DIY Beauty", "url": "https://www.youtube.com/watch?v=2OEL4P1Rz04" },
+        { "title": "DIY Fashion", "url": "https://www.youtube.com/watch?v=wnHW6o8WMas" }
+      ],
+      "facebook": [
+        { "title": "DIY Crafts 2025", "url": "https://www.facebook.com/reel/1234567926" },
+        { "title": "Home Decor DIY", "url": "https://www.facebook.com/reel/1234567927" },
+        { "title": "DIY Gifts", "url": "https://www.facebook.com/reel/1234567928" },
+        { "title": "DIY Organization", "url": "https://www.facebook.com/reel/1234567929" },
+        { "title": "DIY Beauty", "url": "https://www.facebook.com/reel/1234567930" },
+        { "title": "DIY Fashion", "url": "https://www.facebook.com/reel/1234567931" }
+      ],
+      "pinterest": [
+        { "title": "DIY Crafts", "url": "https://www.pinterest.com/pin/1234567968" },
+        { "title": "Home Decor DIY", "url": "https://www.pinterest.com/pin/1234567969" },
+        { "title": "DIY Gifts", "url": "https://www.pinterest.com/pin/1234567970" },
+        { "title": "DIY Organization", "url": "https://www.pinterest.com/pin/1234567971" },
+        { "title": "DIY Beauty", "url": "https://www.pinterest.com/pin/1234567972" },
+        { "title": "DIY Fashion", "url": "https://www.pinterest.com/pin/1234567973" }
+      ],
+      "x": [
+        { "title": "DIY Crafts", "url": "https://x.com/search?q=diy%20crafts" },
+        { "title": "Home Decor DIY", "url": "https://x.com/search?q=home%20decor%20diy" },
+        { "title": "DIY Gifts", "url": "https://x.com/search?q=diy%20gifts" },
+        { "title": "DIY Organization", "url": "https://x.com/search?q=diy%20organization" },
+        { "title": "DIY Beauty", "url": "https://x.com/search?q=diy%20beauty" },
+        { "title": "DIY Fashion", "url": "https://x.com/search?q=diy%20fashion" }
+      ]
+    },
+    "pets": {
+      "instagram": [
+        { "title": "Golden Retriever Puppy 'Scares' Owner", "url": "https://www.instagram.com/reel/DXbJ4pzEeew/" },
+        { "title": "Border Collie Learns from Cat Sibling", "url": "https://www.instagram.com/reel/DTQXC_3COth/" },
+        { "title": "Golden Retriever Not Happy with Donating Toys", "url": "https://www.instagram.com/reel/DU0nJjck0Zr/" },
+        { "title": "Golden Retriever Puppy Tries Strawberry", "url": "https://www.instagram.com/reel/DVkT4lkClIp/" },
+        { "title": "Couple Pretends Dog Got into Harvard", "url": "https://www.instagram.com/reel/DLsEJwPTeu0/" },
+        { "title": "Dog Gets 2000s Boy Band Makeover", "url": "https://www.instagram.com/reel/DWT0MVECDUu/" }
+      ],
+      "youtube": [
+        { "title": "Funny Pets 2025", "url": "https://www.youtube.com/watch?v=nqmBr-EyBDU" },
+        { "title": "Cute Pets Compilation", "url": "https://www.youtube.com/watch?v=ZXsQAXx_ao0" },
+        { "title": "Pet Care Tips", "url": "https://www.youtube.com/watch?v=mgmVOuLgFB0" },
+        { "title": "Dog Training", "url": "https://www.youtube.com/watch?v=IlU-zDU6aQ0" },
+        { "title": "Cat Videos", "url": "https://www.youtube.com/watch?v=2OEL4P1Rz04" },
+        { "title": "Exotic Pets", "url": "https://www.youtube.com/watch?v=wnHW6o8WMas" }
+      ],
+      "facebook": [
+        { "title": "Funny Pets 2025", "url": "https://www.facebook.com/reel/1234567932" },
+        { "title": "Cute Pets Compilation", "url": "https://www.facebook.com/reel/1234567933" },
+        { "title": "Pet Care Tips", "url": "https://www.facebook.com/reel/1234567934" },
+        { "title": "Dog Training", "url": "https://www.facebook.com/reel/1234567935" },
+        { "title": "Cat Videos", "url": "https://www.facebook.com/reel/1234567936" },
+        { "title": "Exotic Pets", "url": "https://www.facebook.com/reel/1234567937" }
+      ],
+      "pinterest": [
+        { "title": "Funny Pets", "url": "https://www.pinterest.com/pin/1234567974" },
+        { "title": "Cute Pets", "url": "https://www.pinterest.com/pin/1234567975" },
+        { "title": "Pet Care", "url": "https://www.pinterest.com/pin/1234567976" },
+        { "title": "Dog Training", "url": "https://www.pinterest.com/pin/1234567977" },
+        { "title": "Cat Videos", "url": "https://www.pinterest.com/pin/1234567978" },
+        { "title": "Exotic Pets", "url": "https://www.pinterest.com/pin/1234567979" }
+      ],
+      "x": [
+        { "title": "Funny Pets", "url": "https://x.com/search?q=funny%20pets" },
+        { "title": "Cute Pets", "url": "https://x.com/search?q=cute%20pets" },
+        { "title": "Pet Care", "url": "https://x.com/search?q=pet%20care" },
+        { "title": "Dog Training", "url": "https://x.com/search?q=dog%20training" },
+        { "title": "Cat Videos", "url": "https://x.com/search?q=cat%20videos" },
+        { "title": "Exotic Pets", "url": "https://x.com/search?q=exotic%20pets" }
+      ]
+    },
+    "gaming": {
+      "instagram": [
+        { "title": "List of Most-Viewed Instagram Reels", "url": "https://www.instagram.com/reel/DXbJ4pzEeew/" },
+        { "title": "State of Influencer Marketing in Gaming 2025", "url": "https://www.instagram.com/reel/DTQXC_3COth/" },
+        { "title": "Como Jogos Viralizam no Instagram Reels", "url": "https://www.instagram.com/reel/DU0nJjck0Zr/" },
+        { "title": "Top 10 Most-Viewed Reels on Instagram", "url": "https://www.instagram.com/reel/DVkT4lkClIp/" },
+        { "title": "How Do Games Go Viral on Instagram Reels", "url": "https://www.instagram.com/reel/DLsEJwPTeu0/" },
+        { "title": "Gaming Influencer Marketing Stats", "url": "https://www.instagram.com/reel/DWT0MVECDUu/" }
+      ],
+      "youtube": [
+        { "title": "Best Gaming Moments 2025", "url": "https://www.youtube.com/watch?v=nqmBr-EyBDU" },
+        { "title": "Gaming Setup Tour", "url": "https://www.youtube.com/watch?v=ZXsQAXx_ao0" },
+        { "title": "Game Reviews", "url": "https://www.youtube.com/watch?v=mgmVOuLgFB0" },
+        { "title": "How to Get Better at Gaming", "url": "https://www.youtube.com/watch?v=IlU-zDU6aQ0" },
+        { "title": "Top 10 Games of 2025", "url": "https://www.youtube.com/watch?v=2OEL4P1Rz04" },
+        { "title": "Gaming News", "url": "https://www.youtube.com/watch?v=wnHW6o8WMas" }
+      ],
+      "facebook": [
+        { "title": "Best Gaming Moments 2025", "url": "https://www.facebook.com/reel/1234567938" },
+        { "title": "Gaming Setup Tour", "url": "https://www.facebook.com/reel/1234567939" },
+        { "title": "Game Reviews", "url": "https://www.facebook.com/reel/1234567940" },
+        { "title": "How to Get Better at Gaming", "url": "https://www.facebook.com/reel/1234567941" },
+        { "title": "Top 10 Games of 2025", "url": "https://www.facebook.com/reel/1234567942" },
+        { "title": "Gaming News", "url": "https://www.facebook.com/reel/1234567943" }
+      ],
+      "pinterest": [
+        { "title": "Best Gaming Moments", "url": "https://www.pinterest.com/pin/1234567980" },
+        { "title": "Gaming Setup", "url": "https://www.pinterest.com/pin/1234567981" },
+        { "title": "Game Reviews", "url": "https://www.pinterest.com/pin/1234567982" },
+        { "title": "Gaming Tips", "url": "https://www.pinterest.com/pin/1234567983" },
+        { "title": "Top Games", "url": "https://www.pinterest.com/pin/1234567984" },
+        { "title": "Gaming News", "url": "https://www.pinterest.com/pin/1234567985" }
+      ],
+      "x": [
+        { "title": "Best Gaming Moments", "url": "https://x.com/search?q=gaming%20moments" },
+        { "title": "Gaming Setup", "url": "https://x.com/search?q=gaming%20setup" },
+        { "title": "Game Reviews", "url": "https://x.com/search?q=game%20reviews" },
+        { "title": "Gaming Tips", "url": "https://x.com/search?q=gaming%20tips" },
+        { "title": "Top Games", "url": "https://x.com/search?q=top%20games%202025" },
+        { "title": "Gaming News", "url": "https://x.com/search?q=gaming%20news" }
+      ]
+    },
+    "music": {
+      "instagram": [
+        { "title": "20 Viral Instagram Songs of 2025", "url": "https://www.instagram.com/reel/DXbJ4pzEeew/" },
+        { "title": "Love Them Or Mute Them: 2025's Most Overplayed Reel Songs", "url": "https://www.instagram.com/reel/DTQXC_3COth/" },
+        { "title": "How Two Irish School Friends Made a Viral Song", "url": "https://www.instagram.com/reel/DU0nJjck0Zr/" },
+        { "title": "IG Reels熱門音樂2025.12", "url": "https://www.instagram.com/reel/DVkT4lkClIp/" },
+        { "title": "Top Ten Music Trends Dominating Social Media in 2025", "url": "https://www.instagram.com/reel/DLsEJwPTeu0/" },
+        { "title": "How Instagram Reels is Helping Rediscover Old Music", "url": "https://www.instagram.com/reel/DWT0MVECDUu/" }
+      ],
+      "youtube": [
+        { "title": "Top Music Videos 2025", "url": "https://www.youtube.com/watch?v=nqmBr-EyBDU" },
+        { "title": "New Music Releases", "url": "https://www.youtube.com/watch?v=ZXsQAXx_ao0" },
+        { "title": "Music Charts 2025", "url": "https://www.youtube.com/watch?v=mgmVOuLgFB0" },
+        { "title": "Best Songs of 2025", "url": "https://www.youtube.com/watch?v=IlU-zDU6aQ0" },
+        { "title": "Music News", "url": "https://www.youtube.com/watch?v=2OEL4P1Rz04" },
+        { "title": "Live Performances 2025", "url": "https://www.youtube.com/watch?v=wnHW6o8WMas" }
+      ],
+      "facebook": [
+        { "title": "Top Music Videos 2025", "url": "https://www.facebook.com/reel/1234567944" },
+        { "title": "New Music Releases", "url": "https://www.facebook.com/reel/1234567945" },
+        { "title": "Music Charts 2025", "url": "https://www.facebook.com/reel/1234567946" },
+        { "title": "Best Songs of 2025", "url": "https://www.facebook.com/reel/1234567947" },
+        { "title": "Music News", "url": "https://www.facebook.com/reel/1234567948" },
+        { "title": "Live Performances 2025", "url": "https://www.facebook.com/reel/1234567949" }
+      ],
+      "pinterest": [
+        { "title": "Top Music Videos", "url": "https://www.pinterest.com/pin/1234567986" },
+        { "title": "New Music Releases", "url": "https://www.pinterest.com/pin/1234567987" },
+        { "title": "Music Charts", "url": "https://www.pinterest.com/pin/1234567988" },
+        { "title": "Best Songs", "url": "https://www.pinterest.com/pin/1234567989" },
+        { "title": "Music News", "url": "https://www.pinterest.com/pin/1234567990" },
+        { "title": "Live Performances", "url": "https://www.pinterest.com/pin/1234567991" }
+      ],
+      "x": [
+        { "title": "Top Music Videos", "url": "https://x.com/search?q=music%20videos" },
+        { "title": "New Music Releases", "url": "https://x.com/search?q=new%20music" },
+        { "title": "Music Charts", "url": "https://x.com/search?q=music%20charts" },
+        { "title": "Best Songs", "url": "https://x.com/search?q=best%20songs%202025" },
+        { "title": "Music News", "url": "https://x.com/search?q=music%20news" },
+        { "title": "Live Performances", "url": "https://x.com/search?q=live%20music" }
+      ]
+    },
+    "ipl": {
+  "instagram": [
+    { "title": "RCB vs CSK Last Over Thriller | IPL 2026", "url": "https://www.instagram.com/reel/IPL001a/" },
+    { "title": "Virat Kohli angry reaction after run out", "url": "https://www.instagram.com/reel/IPL002b/" },
+    { "title": "MS Dhoni finishes in style – crowd goes crazy", "url": "https://www.instagram.com/reel/IPL003c/" },
+    { "title": "Best catches of IPL 2026 so far", "url": "https://www.instagram.com/reel/IPL004d/" },
+    { "title": "Funny umpire meme compilation | IPL", "url": "https://www.instagram.com/reel/IPL005e/" },
+    { "title": "Rashid Khan wrong-footed googly breakdown", "url": "https://www.instagram.com/reel/IPL006f/" }
+  ],
+  "youtube": [
+    { "title": "IPL 2026 Final Highlights: MI vs GT", "url": "https://www.youtube.com/watch?v=iplFinal2026" },
+    { "title": "Top 10 sixes of IPL 2026", "url": "https://www.youtube.com/watch?v=iplSixes2026" },
+    { "title": "MS Dhoni post-match press conference emotional", "url": "https://www.youtube.com/watch?v=iplDhoniPC" },
+    { "title": "Best bowling spells – Purple Cap race", "url": "https://www.youtube.com/watch?v=iplBowling2026" },
+    { "title": "IPL funny moments – run out mixup & mic drops", "url": "https://www.youtube.com/watch?v=iplFunnyMoments" },
+    { "title": "All no-look sixes compilation", "url": "https://www.youtube.com/watch?v=iplNoLook" }
+  ],
+  "facebook": [
+    { "title": "CSK dressing room celebration goes viral", "url": "https://www.facebook.com/reel/ipl_csk_celeb" },
+    { "title": "Fan runs onto pitch and hugs Rohit Sharma", "url": "https://www.facebook.com/reel/ipl_pitch_invasion" },
+    { "title": "IPL 2026 – Orange Cap winner interview", "url": "https://www.facebook.com/reel/ipl_orange_cap" },
+    { "title": "Best of RCB vs KKR rivalry moments", "url": "https://www.facebook.com/reel/ipl_rivalry" },
+    { "title": "Umpire gives wrong signal – funny remake", "url": "https://www.facebook.com/reel/ipl_umpire_funny" },
+    { "title": "Sunil Narine unplayable deliveries IPL 2026", "url": "https://www.facebook.com/reel/ipl_narine_magic" }
+  ],
+  "pinterest": [
+    { "title": "IPL 2026 best wicket celebration mashup", "url": "https://www.pinterest.com/pin/ipl_celebrations_01" },
+    { "title": "Slow motion – helicopter shot by Dhoni", "url": "https://www.pinterest.com/pin/ipl_helicopter_02" },
+    { "title": "IPL stadium light show 2026", "url": "https://www.pinterest.com/pin/ipl_stadium_03" },
+    { "title": "Young fan crying after team loss – heartwarming", "url": "https://www.pinterest.com/pin/ipl_emotion_04" },
+    { "title": "Best reverse sweep sixes of IPL", "url": "https://www.pinterest.com/pin/ipl_reverse_sweep_05" },
+    { "title": "IPL after party – players dance reel", "url": "https://www.pinterest.com/pin/ipl_party_06" }
+  ],
+  "x": [
+    { "title": "No-ball controversy – third umpire howler", "url": "https://x.com/ipl/status/ipL_controversy_01" },
+    { "title": "Suryakumar Yadav 360° shot video", "url": "https://x.com/ipl/status/sky_360_02" },
+    { "title": "IPL cheerleader mishap – goes viral", "url": "https://x.com/ipl/status/cheerleader_funny_03" },
+    { "title": "Post-match heated argument between players", "url": "https://x.com/ipl/status/ipl_heated_04" },
+    { "title": "Kid asks autograph from bowler – wholesome clip", "url": "https://x.com/ipl/status/autograph_kid_05" },
+    { "title": "IPL 2026 strategic timeout funny banter", "url": "https://x.com/ipl/status/timeout_comedy_06" }
+  ]
+}
+  }
+}

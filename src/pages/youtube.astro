@@ -1,0 +1,83 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import DownloaderWidget from '../components/react/DownloaderWidget.jsx';
+import FAQItem from '../components/FAQItem.astro';
+import TrendingDownloads from '../components/TrendingDownloads.astro';
+import TryOtherPlatforms from '../components/TryOtherPlatforms.astro';
+
+const FAQS = [
+    { q: 'Can I download YouTube videos in 4K?', a: 'Yes! If the original video is available in 4K, our downloader will fetch the highest quality link for you.' },
+    { q: 'How do I convert YouTube to MP3?', a: 'Paste the link above, and click the "Download MP3" button after the video is processed.' },
+    { q: 'Is it safe to download YouTube videos?', a: 'Completely. We provide a secure gateway to the original content without any malware or sketchy pop-ups.' },
+    { q: 'Can I download YouTube Shorts?', a: 'Yes, we have full support for YouTube Shorts as both MP4 video and MP3 audio.' }
+];
+
+const STEPS = [
+    { step: 'Copy YouTube URL', detail: 'Copy the link from the address bar or use the "Share" button on the YouTube app.' },
+    { step: 'Paste & Search', detail: 'Paste the link above and our system will analyze the available quality options.' },
+    { step: 'Choose Format', detail: 'Select whether you want to save the content as a high-quality MP4 or MP3.' },
+    { step: 'Start Saving', detail: 'Click download and the file will be saved to your device immediately.' }
+];
+---
+
+<PageLayout
+  title="YouTube Downloader — Download Videos & MP3 from YouTube 2026"
+  description="Download YouTube videos and shorts for free in HD. Convert YouTube to MP3 high-quality audio instantly. Fast, secure, and no registration required."
+>
+  <div class="max-w-[1000px] mx-auto px-6 py-5">
+    <div class="text-center mb-6">
+      <div class="inline-flex px-4 py-1.5 rounded-full text-sm font-bold bg-[rgba(255,0,0,0.1)] border border-[rgba(255,0,0,0.2)] text-[#ff0000] mb-3">📺 YT Saver</div>
+      <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-black mb-1 leading-tight" style="color:var(--txt);">
+        YouTube <span style="background:linear-gradient(135deg,#ff0000,#cc0000); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Video Downloader</span>
+      </h1>
+      <p class="text-lg opacity-70 max-w-[700px] mx-auto">
+        Download videos, shorts, and extract MP3 audio from YouTube — fast and free.
+      </p>
+    </div>
+
+    <DownloaderWidget
+      client:load
+      platform="yt"
+      apiEndpoint="/youtube/download"
+      placeholder="Paste YouTube or Shorts URL here…"
+    >
+      <div class="seo-content-section mt-12">
+        <h2 class="seo-section-heading">High-Speed YouTube Video & MP3 Downloader</h2>
+        <p class="seo-p">
+          YouTube is the largest video library on the planet. Whether you're looking for educational tutorials, music videos, or the latest tech reviews, our <strong>YouTube downloader</strong> is the fastest way to save content for offline use.
+        </p>
+        <p class="seo-p">
+          We offer flexible download options, including high-definition MP4 videos and high-bitrate MP3 audio extraction. Our tool is optimized for 2026, ensuring compatible downloads for all modern smartphones and computers.
+        </p>
+
+        <h2 class="seo-section-heading">How to Use the YouTube Downloader</h2>
+        <div class="p-8 rounded-[24px] border border-[var(--bdr)] mb-12" style="background:var(--bg-glass);">
+          <ol class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 list-none p-0">
+            {STEPS.map((s, i) => (
+              <li class="flex gap-4">
+                <span class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white text-sm" style="background:#ff0000">{i + 1}</span>
+                <div>
+                  <strong class="block mb-1 font-bold" style="color:var(--txt);">{s.step}</strong>
+                  <p class="text-[0.85rem] opacity-60 leading-relaxed">{s.detail}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <h2 class="seo-section-heading">Frequently Asked Questions — YouTube</h2>
+        <div class="max-w-[1000px] mx-auto space-y-3 mb-16">
+          {FAQS.map(faq => <FAQItem q={faq.q} a={faq.a} />)}
+        </div>
+      </div>
+    </DownloaderWidget>
+
+    <div class="mt-16 pt-16 border-t border-[var(--bdr)]">
+      <TrendingDownloads />
+    </div>
+
+    <div class="mt-12">
+       <TryOtherPlatforms current="youtube" />
+    </div>
+  </div>
+</PageLayout>

@@ -1,0 +1,84 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import DownloaderWidget from '../components/react/DownloaderWidget.jsx';
+import FAQItem from '../components/FAQItem.astro';
+import TrendingDownloads from '../components/TrendingDownloads.astro';
+import TryOtherPlatforms from '../components/TryOtherPlatforms.astro';
+
+const FAQS = [
+    { q: 'Can I download Instagram videos and photos in 2026?', a: 'Yes! Our tool supports downloading high-quality videos (MP4) and photos (JPG) from Instagram posts, reels, and stories.' },
+    { q: 'Do I need to log in to my Instagram account?', a: 'No login or registration is required. You can download any public content anonymously.' },
+    { q: 'How do I download Instagram stories?', a: 'Just copy the story URL and paste it here. Note that stories are only available for 24 hours on Instagram.' },
+    { q: 'Where do my downloads go?', a: 'Files are saved directly to your device\'s default "Downloads" folder.' },
+    { q: 'What quality are the downloads?', a: 'We fetch the original file from Instagram\'s servers, ensuring the highest possible quality.' }
+];
+
+const STEPS = [
+    { step: 'Copy Link', detail: 'On Instagram, tap "Share" and then "Copy Link" for any public post, reel, or story.' },
+    { step: 'Paste URL', detail: 'Paste the link into the search field above and click search.' },
+    { step: 'Fetch Content', detail: 'Our tool connects to Instagram and finds the original high-quality file.' },
+    { step: 'Download HD', detail: 'Click the download button and the file saves to your device instantly.' }
+];
+---
+
+<PageLayout
+  title="Instagram Downloader — Download Posts, Reels & Stories 2026 | Free"
+  description="Download Instagram videos and photos for free in HD. Support for posts, reels, and stories. Fast, secure, and no login required. Simply paste the Instagram link and save instantly."
+>
+  <div class="max-w-[1000px] mx-auto px-6 py-5">
+    <div class="text-center mb-6">
+      <div class="inline-flex px-4 py-1.5 rounded-full text-sm font-bold bg-[rgba(225,48,108,0.1)] border border-[rgba(225,48,108,0.2)] text-[#e1306c] mb-3">📸 Insta Saver</div>
+      <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-black mb-1 leading-tight" style="color:var(--txt);">
+        Instagram <span style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Video Downloader</span>
+      </h1>
+      <p class="text-lg opacity-70 max-w-[700px] mx-auto">
+        Download posts, reels, IGTV, and stories from Instagram — fast and free, no login needed.
+      </p>
+    </div>
+
+    <DownloaderWidget
+      client:load
+      platform="ig"
+      apiEndpoint="/instagram/download"
+      placeholder="Paste Instagram URL here (post, reel, story…)"
+    >
+      <div class="seo-content-section mt-12">
+        <h2 class="seo-section-heading">All-in-One Instagram Content Downloader</h2>
+        <p class="seo-p">
+          Instagram is where the world's most creative photos and videos live. Whether you're following a travel influencer, a gourmet chef, or a digital artist, our <strong>Instagram downloader</strong> helps you save that inspiration directly to your phone or computer.
+        </p>
+        <p class="seo-p">
+          We support all public content types: standard feed posts (photos & videos), high-energy Reels, long-form IGTV clips, and even temporary Stories. Everything is served in high definition with a single click.
+        </p>
+
+        <h2 class="seo-section-heading">How to Use the Instagram Downloader</h2>
+        <div class="p-8 rounded-[24px] border border-[var(--bdr)] mb-12" style="background:var(--bg-glass);">
+          <ol class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 list-none p-0">
+            {STEPS.map((s, i) => (
+              <li class="flex gap-4">
+                <span class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white text-sm" style="background:linear-gradient(135deg,#f09433,#dc2743)">{i + 1}</span>
+                <div>
+                  <strong class="block mb-1 font-bold" style="color:var(--txt);">{s.step}</strong>
+                  <p class="text-[0.85rem] opacity-60 leading-relaxed">{s.detail}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <h2 class="seo-section-heading">Frequently Asked Questions — Instagram</h2>
+        <div class="max-w-[1000px] mx-auto space-y-3 mb-16">
+          {FAQS.map(faq => <FAQItem q={faq.q} a={faq.a} />)}
+        </div>
+      </div>
+    </DownloaderWidget>
+
+    <div class="mt-16 pt-16 border-t border-[var(--bdr)]">
+      <TrendingDownloads />
+    </div>
+
+    <div class="mt-12">
+       <TryOtherPlatforms current="instagram" />
+    </div>
+  </div>
+</PageLayout>

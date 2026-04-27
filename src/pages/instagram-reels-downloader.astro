@@ -1,0 +1,74 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import DownloaderWidget from '../components/react/DownloaderWidget.jsx';
+import TryOtherPlatforms from '../components/TryOtherPlatforms.astro';
+import FAQItem from '../components/FAQItem.astro';
+import PlatformIcon from '../components/PlatformIcon.astro';
+import TrendingDownloads from '../components/TrendingDownloads.astro';
+
+const FAQS = [
+  { q: 'How do I download Instagram Reels without watermark?', a: 'Just copy the Reel link, paste it here, and search. We provide the original high-quality MP4 file directly from Instagram.' },
+  { q: 'Is it free to use?', a: 'Yes, our Reel downloader is 100% free with no limits.' },
+  { q: 'Do I need to login?', a: 'No, you can download any public Reel without logging into your account.' },
+  { q: 'Can I download Reels on iPhone?', a: 'Yes, it works perfectly on Safari and all other browsers on iPhone and Android.' },
+];
+---
+
+<PageLayout
+  title="Instagram Reels Downloader — Download IG Reels in HD 2026"
+  description="Download Instagram Reels for free in high definition. Simply paste the link and save instantly. No watermark, fast and secure."
+>
+  <section class="max-w-[860px] mx-auto px-5 pt-12 pb-16">
+    <div class="text-center mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[0.75rem] font-bold uppercase tracking-wider mb-4"
+        style="background:rgba(225,48,108,0.12); border:1px solid rgba(225,48,108,0.3); color:#e1306c;">
+        <PlatformIcon platform="instagram" size={14} />
+        <span>REELS EXCLUSIVE</span>
+      </div>
+      <h1 class="text-[2.2rem] font-black mb-3" style="color:var(--txt);">
+        Instagram Reels <span style="color:#e1306c;">Downloader</span>
+      </h1>
+      <p class="text-[1rem]" style="color:var(--txt2);">
+        High-quality Instagram Reels video downloader.
+      </p>
+    </div>
+
+    <DownloaderWidget
+      client:load
+      platform="ig"
+      apiEndpoint="/instagram/download"
+      placeholder="Paste Instagram Reel link here..."
+    />
+
+    <div class="mt-16 prose prose-invert max-w-none border-t border-[var(--bdr)] pt-16">
+      <h2 class="text-[1.5rem] font-bold mb-6 text-center" style="color:var(--txt);">Save Instagram Reels in High Resolution</h2>
+      <p class="text-[0.95rem] leading-relaxed mb-10 text-center opacity-70 max-w-[700px] mx-auto">
+        Reels are the heart of Instagram creativity. Our tool ensures you can preserve these moments in their original resolution, without any added watermarks or quality loss.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+        <div class="p-8 rounded-[24px] border border-[var(--bdr)]" style="background:var(--bg-glass);">
+          <h3 class="text-[1.1rem] font-bold mb-2">🎬 Best Quality MP4</h3>
+          <p class="text-[0.85rem]" style="color:var(--txt3);">Get the original file exactly as it was uploaded to Instagram's servers.</p>
+        </div>
+        <div class="p-8 rounded-[24px] border border-[var(--bdr)]" style="background:var(--bg-glass);">
+          <h3 class="text-[1.1rem] font-bold mb-2">🔒 Secure & Private</h3>
+          <p class="text-[0.85rem]" style="color:var(--txt3);">No data logging or tracking. Your downloads are private and secure.</p>
+        </div>
+      </div>
+
+      <h2 class="text-[1.5rem] font-bold mb-8 text-center" style="color:var(--txt);">Frequently Asked Questions</h2>
+      <div class="max-w-[800px] mx-auto space-y-4 mb-20">
+        {FAQS.map(faq => (
+          <FAQItem q={faq.q} a={faq.a} />
+        ))}
+      </div>
+
+      <TrendingDownloads />
+    </div>
+
+    <div class="mt-12">
+      <TryOtherPlatforms current="ig" />
+    </div>
+  </section>
+</PageLayout>

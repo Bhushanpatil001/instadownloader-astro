@@ -1,1 +1,116 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ── Design tokens ──────────────────────────────────────── */
+:root {
+    --brand: #7c3aed;
+    --brand2: #a855f7;
+    --accent: #ec4899;
+    --bg-base: #0f0f1a;
+    --bg-surf: #1a1a2e;
+    --bg-card: #16213e;
+    --bg-glass: rgba(255, 255, 255, 0.05);
+    --bg-glass-h: rgba(255, 255, 255, 0.09);
+    --txt: #f1f5f9;
+    --txt2: #94a3b8;
+    --txt3: #64748b;
+    --bdr: rgba(255, 255, 255, 0.08);
+    --bdr-h: rgba(255, 255, 255, 0.15);
+    --g-brand: linear-gradient(135deg, #7c3aed, #ec4899);
+    --g-ig: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    --g-yt: linear-gradient(135deg, #ff0000, #cc0000);
+    --g-fb: linear-gradient(135deg, #1877f2, #0d5fce);
+    --g-pin: linear-gradient(135deg, #e60023, #ad081b);
+    --g-x: linear-gradient(135deg, #14171a, #292f36);
+    --g-tt: linear-gradient(135deg, #00f2ea, #ff0050);
+
+    /* SEO Config Mappings */
+    --grad-instagram: var(--g-ig);
+    --grad-youtube: var(--g-yt);
+    --grad-facebook: var(--g-fb);
+    --grad-pinterest: var(--g-pin);
+    --grad-x: var(--g-x);
+    --grad-tiktok: var(--g-tt);
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --dur: 250ms;
+}
+
+[data-theme="light"] {
+    --bg-base: #f0f2f8;
+    --bg-surf: #ffffff;
+    --bg-card: #e8eaf2;
+    --bg-glass: rgba(255, 255, 255, 0.75);
+    --bg-glass-h: rgba(255, 255, 255, 0.95);
+    --txt: #0f172a;
+    --txt2: #475569;
+    --txt3: #94a3b8;
+    --bdr: rgba(0, 0, 0, 0.08);
+    --bdr-h: rgba(0, 0, 0, 0.16);
+}
+
+/* Base */
+html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+    background: var(--bg-base);
+    color: var(--txt);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+    transition: background-color var(--dur) var(--ease), border-color var(--dur) var(--ease),
+        color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+    box-sizing: border-box;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--brand);
+    border-radius: 3px;
+}
+
+/* Theme-toggle icon animation */
+.icon-sun {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    transition: transform 350ms var(--ease), opacity 350ms var(--ease);
+}
+
+.icon-moon {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+    transition: transform 350ms var(--ease), opacity 350ms var(--ease);
+}
+
+[data-theme="light"] .icon-sun {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.5);
+}
+
+[data-theme="light"] .icon-moon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+/* FAQ details reset */
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+details summary {
+    list-style: none;
+}

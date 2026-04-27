@@ -1,0 +1,54 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const DISCLAIMER_SECTIONS = [
+  {
+    title: 'No Affiliation',
+    body: 'Downloader is an independent, third-party service. We are not affiliated with, endorsed by, sponsored by, or officially connected to Facebook, Instagram, YouTube, Pinterest, X (formerly Twitter), or any of Meta, Google, ByteDance, or their subsidiaries. All platform names and logos belong to their respective owners.',
+  },
+  {
+    title: 'Use at Your Own Risk',
+    body: 'The Service is provided on an "as-is" basis. While we strive to ensure reliable and accurate operation, we make no representations or warranties about the accuracy, reliability, or completeness of the Service. You use the Service entirely at your own risk.',
+  },
+  {
+    title: 'Copyright & Intellectual Property',
+    body: 'We do not host, store, or re-distribute any media content. All downloaded content remains the intellectual property of its original creator and/or platform. It is your sole responsibility to ensure you have the right to download and use any content. Downloading copyrighted material without permission may violate the terms of service of the respective platforms and applicable copyright law.',
+  },
+  {
+    title: 'DMCA Compliance',
+    body: 'We respect copyright law and respond promptly to valid DMCA takedown requests. If you believe any content accessible through our Service infringes your copyright, please submit a DMCA notice to us via our Contact page and include: (1) identification of the copyrighted work, (2) identification of the infringing material, (3) your contact information, and (4) a statement of good-faith belief.',
+  },
+  {
+    title: 'External Links',
+    body: 'Our Service may reference or link to third-party websites. We have no control over the content of those sites and accept no responsibility for them or for any loss or damage that may arise from your use of them.',
+  },
+  {
+    title: 'Changes to This Disclaimer',
+    body: 'We reserve the right to modify this Disclaimer at any time. Changes will be posted on this page with an updated date. Your continued use of the Service after any changes constitutes acceptance of the new Disclaimer.',
+  },
+];
+---
+
+<PageLayout
+  title="Disclaimer — Downloader"
+  description="Read the Disclaimer for Downloader. We are not affiliated with Facebook, Instagram, YouTube, Pinterest, or X. Use of Downloader is at your own risk."
+>
+  <div class="max-w-[1000px] mx-auto px-6 py-5">
+    <div class="text-center mb-6">
+      <div class="inline-flex px-4 py-1.5 rounded-full text-sm font-bold bg-[rgba(124,58,237,0.1)] border border-[rgba(124,58,237,0.2)] text-[var(--brand2)] mb-3">⚠️ Important Notice</div>
+      <h1 class="text-[clamp(1.8rem,4vw,2.6rem)] font-black mb-1 leading-tight" style="color:var(--txt);">Disclaimer</h1>
+      <p class="opacity-50 text-sm">Last updated: April 25, 2026</p>
+    </div>
+
+    <div class="p-10 rounded-[32px] border border-[var(--bdr)] shadow-md" style="background:var(--bg-glass);">
+      <div class="prose prose-invert max-w-none space-y-8">
+        {DISCLAIMER_SECTIONS.map(({ title, body }) => (
+          <section>
+            <h2 class="text-xl font-bold mb-4" style="color:var(--txt);">{title}</h2>
+            <p class="text-[var(--txt2)] leading-relaxed">{body}</p>
+          </section>
+        ))}
+      </div>
+    </div>
+  </div>
+</PageLayout>

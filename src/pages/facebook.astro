@@ -1,0 +1,83 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import DownloaderWidget from '../components/react/DownloaderWidget.jsx';
+import FAQItem from '../components/FAQItem.astro';
+import TrendingDownloads from '../components/TrendingDownloads.astro';
+import TryOtherPlatforms from '../components/TryOtherPlatforms.astro';
+
+const FAQS = [
+    { q: 'Is it free to download Facebook videos?', a: 'Yes, our Facebook downloader is completely free and requires no registration or login.' },
+    { q: 'Can I download private Facebook videos?', a: 'No, for privacy reasons, we only support downloading public videos and reels from Facebook.' },
+    { q: 'What is the highest quality available?', a: 'We provide both SD and HD (720p/1080p) download options depending on the original video quality.' },
+    { q: 'Does it work on mobile devices?', a: 'Yes! Our tool is fully responsive and works perfectly on Android and iOS browsers.' }
+];
+
+const STEPS = [
+    { step: 'Copy Video Link', detail: 'On Facebook, click "Share" and then "Copy Link" for the video or reel.' },
+    { step: 'Paste URL', detail: 'Paste the link into the search box above to fetch video information.' },
+    { step: 'Select Quality', detail: 'Choose between SD or HD quality based on your preference.' },
+    { step: 'Save Video', detail: 'Click the download button and the video will be saved to your device.' }
+];
+---
+
+<PageLayout
+  title="Facebook Video Downloader — Download FB Reels & Videos in HD 2026"
+  description="Download Facebook videos and reels for free in HD quality. Fast, secure, and no login required. Simply paste the Facebook link and save instantly."
+>
+  <div class="max-w-[1000px] mx-auto px-6 py-5">
+    <div class="text-center mb-6">
+      <div class="inline-flex px-4 py-1.5 rounded-full text-sm font-bold bg-[rgba(24,119,242,0.1)] border border-[rgba(24,119,242,0.2)] text-[#1877f2] mb-3">🎬 FB Saver</div>
+      <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-black mb-1 leading-tight" style="color:var(--txt);">
+        Facebook <span style="background:linear-gradient(135deg,#1877f2,#0d5fce); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Video Downloader</span>
+      </h1>
+      <p class="text-lg opacity-70 max-w-[700px] mx-auto">
+        Download videos and reels from Facebook posts and pages — fast and free, no login needed.
+      </p>
+    </div>
+
+    <DownloaderWidget
+      client:load
+      platform="fb"
+      apiEndpoint="/facebook/download"
+      placeholder="Paste Facebook video or reel URL here…"
+    >
+      <div class="seo-content-section mt-12">
+        <h2 class="seo-section-heading">Download High-Quality Facebook Videos & Reels</h2>
+        <p class="seo-p">
+          Facebook is home to millions of viral videos, informative clips, and entertaining reels. Our <strong>Facebook downloader</strong> makes it incredibly simple to save any public video directly to your smartphone, tablet, or PC in high definition.
+        </p>
+        <p class="seo-p">
+          Whether it's a cooking tutorial, a news segment, or a funny reel from your feed, you can save it for offline viewing without any watermark and in the best possible resolution.
+        </p>
+
+        <h2 class="seo-section-heading">How to Use the Facebook Downloader</h2>
+        <div class="p-8 rounded-[24px] border border-[var(--bdr)] mb-12" style="background:var(--bg-glass);">
+          <ol class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 list-none p-0">
+            {STEPS.map((s, i) => (
+              <li class="flex gap-4">
+                <span class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white text-sm" style="background:#1877f2">{i + 1}</span>
+                <div>
+                  <strong class="block mb-1 font-bold" style="color:var(--txt);">{s.step}</strong>
+                  <p class="text-[0.85rem] opacity-60 leading-relaxed">{s.detail}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <h2 class="seo-section-heading">Frequently Asked Questions — Facebook</h2>
+        <div class="max-w-[1000px] mx-auto space-y-3 mb-16">
+          {FAQS.map(faq => <FAQItem q={faq.q} a={faq.a} />)}
+        </div>
+      </div>
+    </DownloaderWidget>
+
+    <div class="mt-16 pt-16 border-t border-[var(--bdr)]">
+      <TrendingDownloads />
+    </div>
+
+    <div class="mt-12">
+       <TryOtherPlatforms current="facebook" />
+    </div>
+  </div>
+</PageLayout>

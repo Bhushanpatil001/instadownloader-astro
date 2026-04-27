@@ -1,0 +1,91 @@
+---
+import PlatformIcon from "./PlatformIcon.astro";
+
+const DOWNLOADERS = [
+  { href: '/instagram',                  label: 'Instagram Downloader',        platform: 'instagram', color: '#e1306c' },
+  { href: '/instagram-reels-downloader', label: 'IG Reels Downloader',         platform: 'instagram', color: '#e1306c' },
+  { href: '/yt',                         label: 'YouTube Downloader',          platform: 'youtube',   color: '#ff0000' },
+  { href: '/youtube-shorts-downloader',  label: 'YT Shorts Downloader',        platform: 'youtube',   color: '#ff0000' },
+  { href: '/facebook',                   label: 'Facebook Downloader',         platform: 'facebook',  color: '#1877f2' },
+  { href: '/pinterest',                  label: 'Pinterest Downloader',        platform: 'pinterest', color: '#e60023' },
+  { href: '/x',                          label: 'X (Twitter) Downloader',      platform: 'x',         color: '#8a8a8a' },
+  { href: '/tiktok',                     label: 'TikTok Downloader',           platform: 'tiktok',    color: '#00f2ea' },
+];
+const COMPANY = [
+  { href: '/about',   label: 'About Us'   },
+  { href: '/contact', label: 'Contact Us' },
+  { href: '/sitemap', label: 'Sitemap'    },
+];
+const LEGAL = [
+  { href: '/privacy-policy', label: 'Privacy Policy' },
+  { href: '/terms',          label: 'Terms of Use'   },
+  { href: '/disclaimer',     label: 'Disclaimer'     },
+  { href: '/cookies-policy', label: 'Cookies Policy' },
+];
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-[var(--bdr)] mt-auto" style="background:var(--bg-surf); padding:48px 24px 28px;">
+  <div class="max-w-[1100px] mx-auto grid gap-8" style="grid-template-columns:1.6fr 1fr 1fr 1fr;">
+    <!-- Brand -->
+    <div>
+      <a href="/" class="inline-block text-[1.3rem] font-black mb-3"
+        style="background:var(--g-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+        ⬇ Downloader
+      </a>
+      <p class="text-[0.85rem] leading-relaxed max-w-[280px]" style="color:var(--txt3);">
+        The fastest way to download videos, reels, images &amp; audio from all your favourite social platforms — free.
+      </p>
+    </div>
+
+    <!-- Tools -->
+    <div>
+      <p class="text-[0.78rem] font-bold uppercase tracking-widest mb-4" style="color:var(--txt3);">Tools</p>
+      <ul class="flex flex-col gap-[10px] list-none">
+        {DOWNLOADERS.map(({ href, label, platform, color }) => (
+          <li>
+            <a href={href} class="text-[0.88rem] transition-colors hover:text-[var(--txt)] flex items-center gap-2" style="color:var(--txt2);">
+              <PlatformIcon platform={platform} size={14} class="opacity-70 group-hover:opacity-100" />
+              <span>{label}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Company -->
+    <div>
+      <p class="text-[0.78rem] font-bold uppercase tracking-widest mb-4" style="color:var(--txt3);">Company</p>
+      <ul class="flex flex-col gap-[10px] list-none">
+        {COMPANY.map(({ href, label }) => (
+          <li><a href={href} class="text-[0.88rem] transition-colors hover:text-[var(--txt)]" style="color:var(--txt2);">{label}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Legal -->
+    <div>
+      <p class="text-[0.78rem] font-bold uppercase tracking-widest mb-4" style="color:var(--txt3);">Legal</p>
+      <ul class="flex flex-col gap-[10px] list-none">
+        {LEGAL.map(({ href, label }) => (
+          <li><a href={href} class="text-[0.88rem] transition-colors hover:text-[var(--txt)]" style="color:var(--txt2);">{label}</a></li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <!-- Bottom -->
+  <div class="max-w-[1100px] mx-auto mt-10 pt-6 flex flex-wrap items-center justify-between gap-4 border-t border-[var(--bdr)]">
+    <span class="text-[0.8rem]" style="color:var(--txt3);">© {year} Downloader. Made with ❤️ by Algo.</span>
+    <div class="flex flex-wrap gap-5">
+      {LEGAL.map(({ href, label }) => (
+        <a href={href} class="text-[0.78rem] transition-colors hover:text-[var(--txt)]" style="color:var(--txt3);">{label}</a>
+      ))}
+    </div>
+  </div>
+</footer>
+
+<style>
+  @media(max-width:1024px){footer div.grid{grid-template-columns:1fr 1fr!important; gap: 40px;}}
+  @media(max-width:520px){footer div.grid{grid-template-columns:1fr!important;}}
+</style>
