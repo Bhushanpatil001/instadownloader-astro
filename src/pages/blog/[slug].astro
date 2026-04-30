@@ -1,0 +1,358 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { getAllBlogs, getBlogBySlug } from '../../services/blogService';
+import { marked } from 'marked';
+
+export const prerender = false;
+
+const { slug } = Astro.params;
+const blog = await getBlogBySlug(slug as string);
+
+if (!blog) {
+  return Astro.redirect('/404');
+}
+
+const allBlogs = await getAllBlogs();
+const popularPosts = allBlogs
+  .filter(b => b.id !== blog.id)
+  .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+  .slice(0, 4);
+const categories = [...new Set(allBlogs.map(b => b.category).filter(Boolean))];
+const currentUrl = Astro.url.href;
+
+// Handle both legacy Markdown and new Jodit HTML content
+const isHtml = blog.content.trim().startsWith('<');
+let htmlContent = isHtml ? blog.content : await marked.parse(blog.content);
+
+// Ensure content is displayed properly
+if (!htmlContent || htmlContent.trim() === '') {
+  htmlContent = '<p>Content coming soon...</p>';
+}
+
+// Estimated reading time
+const wordCount = htmlContent.replace(/<[^>]*>/g, '').split(/\s+/).length;
+const calculatedReadingTime = Math.ceil(wordCount / 200);
+const displayReadingTime = blog.readTime || `${calculatedReadingTime} min read`;
+
+// JSON-LD Structured Data
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": blog.title,
+  "description": blog.description,
+  "image": blog.image,
+  "datePublished": blog.createdAt,
+  "dateModified": blog.updatedAt,
+  "author": {
+    "@type": "Organization",
+    "name": "InstaDownloader"
+  }
+};
+---
+
+<PageLayout 
+  title={blog.metaTitle || `${blog.title} | Blog`} 
+  description={blog.metaDescription || blog.description}
+  ogImage={blog.image}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  
+  <div class="min-h-screen pt-2 pb-20 px-4 md:px-8" style="background: var(--bg-base);">
+    <div class="max-w-6xl mx-auto">
+      
+      {/* Breadcrumbs */}
+      <nav class="flex items-center gap-2 text-sm text-[var(--txt3)] mb-8 overflow-x-auto whitespace-nowrap pb-2">
+        <a href="/" class="hover:text-[var(--brand)] transition-colors">Home</a>
+        <span>/</span>
+        <a href="/blog" class="hover:text-[var(--brand)] transition-colors">Blog</a>
+        <span>/</span>
+        <span class="text-[var(--txt2)] truncate">{blog.title}</span>
+      </nav>
+
+      {/* 3/4 - 1/4 Layout */}
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+        
+        {/* Main Content - 3/4 width (3 columns out of 4) */}
+        <div class="lg:col-span-3">
+          {/* Header */}
+          <div class="mb-8">
+            {/* Category and Tags */}
+            <div class="flex flex-wrap gap-2 mb-4">
+              {blog.category && (
+                <span class="px-3 py-1 text-xs font-bold bg-[var(--brand)] text-white rounded-full">
+                  {blog.category}
+                </span>
+              )}
+              {blog.tags.map(tag => (
+                <a href={`/blog?tag=${tag}`} class="text-sm text-[var(--brand)] hover:underline">
+                  #{tag}
+                </a>
+              ))}
+            </div>
+
+            {/* Title */}
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--txt)] mb-4 leading-tight">
+              {blog.title}
+            </h1>
+            
+            {/* Meta */}
+            <div class="flex flex-wrap items-center gap-3 text-sm text-[var(--txt3)] pb-6 border-b border-[var(--bdr)]">
+              <span>{new Date(blog.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+              <span>•</span>
+              <span>{displayReadingTime}</span>
+              <span>•</span>
+              <span>InstaDownloader Team</span>
+            </div>
+          </div>
+
+          {/* Featured Image */}
+          {blog.image && (
+            <div class="mb-8 rounded-xl overflow-hidden">
+              <img 
+                src={blog.image} 
+                alt={blog.title} 
+                class="w-full h-auto object-cover"
+              />
+            </div>
+          )}
+
+          {/* Description */}
+          {blog.description && (
+            <div class="text-lg text-[var(--txt1)] leading-relaxed mb-8 pb-6 border-b border-[var(--bdr)]">
+              {blog.description}
+            </div>
+          )}
+
+          {/* Article Content - THIS IS THE MAIN BLOG CONTENT */}
+          <div class="blog-content">
+            <div set:html={htmlContent} />
+          </div>
+
+          {/* Footer Tags */}
+          <div class="pt-8 mt-8 border-t border-[var(--bdr)]">
+            <div class="flex flex-wrap gap-2">
+              {blog.tags.map(tag => (
+                <a href={`/blog?tag=${tag}`} class="px-3 py-1 text-sm text-[var(--txt2)] hover:text-[var(--brand)] transition-colors">
+                  #{tag}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Sidebar - 1/4 width (1 column out of 4) */}
+        <div class="lg:col-span-1 space-y-8">
+          
+          {/* Popular Posts */}
+          <div>
+            <h3 class="text-xs font-semibold text-[var(--txt3)] uppercase tracking-wider mb-4 pb-2 border-b border-[var(--bdr)]">
+              Popular Posts
+            </h3>
+            <div class="space-y-4">
+              {popularPosts.map((p, idx) => (
+                <a href={`/blog/${p.slug}`} class="group block">
+                  <div class="flex gap-3">
+                    {p.image && (
+                      <div class="flex-shrink-0 w-14 h-14 bg-[var(--bg-alt)] rounded-lg overflow-hidden">
+                        <img src={p.image} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt={p.title} />
+                      </div>
+                    )}
+                    <div>
+                      <p class="text-[10px] text-[var(--txt3)] mb-1">#{idx + 1}</p>
+                      <h4 class="text-sm font-medium text-[var(--txt)] line-clamp-2 group-hover:text-[var(--brand)] transition-colors">
+                        {p.title}
+                      </h4>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Categories */}
+          <div>
+            <h3 class="text-xs font-semibold text-[var(--txt3)] uppercase tracking-wider mb-4 pb-2 border-b border-[var(--bdr)]">
+              Categories
+            </h3>
+            <div class="flex flex-col gap-2">
+              {categories.map(cat => (
+                <a href={`/blog?category=${cat}`} class="flex items-center justify-between group">
+                  <span class="text-sm text-[var(--txt2)] group-hover:text-[var(--brand)] transition-colors">
+                    {cat}
+                  </span>
+                  <span class="text-[10px] px-1.5 py-0.5 bg-[var(--bg-alt)] rounded text-[var(--txt3)]">
+                    {allBlogs.filter(b => b.category === cat).length}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Share */}
+          <div>
+            <h3 class="text-xs font-semibold text-[var(--txt3)] uppercase tracking-wider mb-4 pb-2 border-b border-[var(--bdr)]">
+              Share
+            </h3>
+            <div class="flex gap-4">
+              <a 
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="text-[var(--txt2)] hover:text-[var(--brand)] transition-colors"
+                title="Share on Facebook"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+              <a 
+                href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(blog.title)}`} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="text-[var(--txt2)] hover:text-[var(--brand)] transition-colors"
+                title="Share on Twitter"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 0021.68-11.738c0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+              </a>
+              <a 
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl)}`} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="text-[var(--txt2)] hover:text-[var(--brand)] transition-colors"
+                title="Share on LinkedIn"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451c.979 0 1.771-.773 1.771-1.729V1.729C24 .774 23.203 0 22.224 0z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</PageLayout>
+
+<style is:global>
+  /* Blog content styling - clean and readable */
+  .blog-content {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: var(--txt2);
+  }
+  
+  .blog-content > *:first-child {
+    margin-top: 0;
+  }
+  
+  .blog-content h1,
+  .blog-content h2,
+  .blog-content h3,
+  .blog-content h4 {
+    color: var(--txt);
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .blog-content h2 {
+    font-size: 1.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--bdr);
+  }
+  
+  .blog-content h3 {
+    font-size: 1.5rem;
+  }
+  
+  .blog-content h4 {
+    font-size: 1.25rem;
+  }
+  
+  .blog-content p {
+    margin-bottom: 1.25rem;
+  }
+  
+  .blog-content a {
+    color: var(--brand);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  
+  .blog-content a:hover {
+    text-decoration-thickness: 2px;
+  }
+  
+  .blog-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.75rem;
+    margin: 1.5rem 0;
+  }
+  
+  .blog-content ul,
+  .blog-content ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .blog-content li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .blog-content blockquote {
+    border-left: 3px solid var(--brand);
+    padding-left: 1.25rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--txt1);
+  }
+  
+  .blog-content code {
+    background: var(--bg-alt);
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-family: monospace;
+  }
+  
+  .blog-content pre {
+    background: var(--bg-alt);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+  
+  .blog-content pre code {
+    background: none;
+    padding: 0;
+  }
+  
+  .blog-content hr {
+    margin: 2rem 0;
+    border-color: var(--bdr);
+  }
+  
+  .blog-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+  }
+  
+  .blog-content th,
+  .blog-content td {
+    border: 1px solid var(--bdr);
+    padding: 0.75rem;
+    text-align: left;
+  }
+  
+  .blog-content th {
+    background: var(--bg-alt);
+    font-weight: 600;
+  }
+  
+  /* Line clamp utility */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

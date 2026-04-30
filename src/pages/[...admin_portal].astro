@@ -1,0 +1,99 @@
+---
+import AdminLoginForm from '../components/react/AdminLoginForm';
+import AdminDashboard from '../components/react/AdminDashboard';
+import BlogForm from '../components/react/BlogForm';
+import { verifySessionToken } from '../utils/auth';
+import dotenv from 'dotenv';
+import path from 'path';
+
+dotenv.config({ path: path.resolve(process.cwd(), '.env') });
+
+// Force server-side rendering for admin pages
+export const prerender = false;
+
+const envRoute = import.meta.env.ADMIN_ROUTE || process.env.ADMIN_ROUTE || '/hidden-admin';
+const adminRouteBase = envRoute.replace(/^\//, '').replace(/\/$/, '');
+const { admin_portal } = Astro.params;
+
+// Standardize the param
+const normalizedParam = admin_portal?.replace(/\/$/, '') || '';
+
+console.log(`[Admin Portal] Path: /${admin_portal}, Expected StartsWith: ${adminRouteBase}`);
+
+// If the param doesn't match the hidden route prefix, return 404
+if (!normalizedParam.startsWith(adminRouteBase)) {
+  return Astro.redirect('/404');
+}
+
+// Split the remaining path to handle sub-routes
+// Example: normalizedParam = "admin/cms/dashboard", adminRouteBase = "admin/cms"
+// we want the part after the base
+const subPath = normalizedParam.substring(adminRouteBase.length).replace(/^\//, '');
+const pathParts = subPath.split('/');
+const subRoute = pathParts[0] || '';
+const id = pathParts[1] || '';
+
+
+
+
+// Check session for protected routes
+const sessionToken = Astro.cookies.get('admin_session')?.value;
+const isAuthenticated = sessionToken ? verifySessionToken(sessionToken) : false;
+
+// If not authenticated and not on the login base route, redirect to login
+if (!isAuthenticated && subRoute !== '') {
+  return Astro.redirect(`/${adminRouteBase}`);
+}
+
+// If authenticated and on login page, redirect to dashboard
+if (isAuthenticated && subRoute === '') {
+  return Astro.redirect(`/${adminRouteBase}/dashboard`);
+}
+
+const title = "Admin Portal | Secure CMS";
+---
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>{title}</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body class="bg-[#0f0f1a] text-white font-sans selection:bg-purple-500/30">
+  <div class="min-h-screen flex flex-col">
+    {subRoute === '' && (
+      <div class="flex-1 flex items-center justify-center p-4">
+        <AdminLoginForm client:only="react" adminRoute={adminRouteBase} />
+      </div>
+    )}
+    
+    {subRoute === 'dashboard' && (
+      <AdminDashboard client:only="react" adminRoute={adminRouteBase} />
+    )}
+    
+    {subRoute === 'new' && (
+      <BlogForm client:only="react" adminRoute={adminRouteBase} mode="create" />
+    )}
+    
+    {subRoute === 'edit' && id && (
+      <BlogForm client:only="react" adminRoute={adminRouteBase} mode="edit" blogId={id} />
+    )}
+  </div>
+</body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+
+  @font-face {
+    font-family: 'Inter';
+    src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at 50% 0%, #1a1a2e 0%, #0f0f1a 100%);
+  }
+</style>

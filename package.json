@@ -17,8 +17,15 @@
     "@tailwindcss/vite": "^4.2.4",
     "astro": "^6.1.9",
     "axios": "^1.15.2",
+    "dotenv": "^17.4.2",
+    "jodit": "^4.2.59",
+    "jodit-react": "^5.0.12",
+    "marked": "^18.0.2",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "tailwindcss": "^4.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0"
   }
 }

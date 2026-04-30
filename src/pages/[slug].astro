@@ -7,6 +7,8 @@ import PlatformIcon from '../components/PlatformIcon.astro';
 import TrendingDownloads from '../components/TrendingDownloads.astro';
 import pSeoConfig from '../data/pSeoConfig.json';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const { popularUsernames, trendingKeywords, platformConfigs } = pSeoConfig;
   const paths = [];

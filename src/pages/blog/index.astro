@@ -1,0 +1,316 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { getAllBlogs } from '../../services/blogService';
+
+export const prerender = false;
+
+const blogs = await getAllBlogs();
+
+const filter = Astro.url.searchParams.get('filter') || 'latest';
+const categoryFilter = Astro.url.searchParams.get('category');
+
+let filteredBlogs = Array.isArray(blogs) ? [...blogs] : [];
+
+if (categoryFilter) {
+  filteredBlogs = filteredBlogs.filter(b => b.category === categoryFilter);
+}
+
+// Sort logic
+const sortedBlogs = filteredBlogs.sort((a, b) => {
+  if (filter === 'popular') {
+    // Simulate popularity by using updatedAt or just a different order for now
+    return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
+  }
+  return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+});
+
+const featuredBlog = sortedBlogs[0];
+const remainingBlogs = sortedBlogs.length === 1 ? sortedBlogs : sortedBlogs.slice(1);
+---
+
+<PageLayout 
+  title="Our Blog | Premium Insights & Tech Updates" 
+  description="Explore the latest trends, tips, and tricks in modern web development and digital tools."
+>
+  <main class="min-h-screen pt-6 pb-12 px-6 bg-gradient-to-b from-[var(--bg-base)] to-[var(--bg-glass)]">
+    <div class="max-w-7xl mx-auto">
+
+      {/* Featured Blog Section */}
+      {featuredBlog && (
+        <section class="mb-12">
+          <a href={`/blog/${featuredBlog.slug}`} class="group block">
+            <article class="relative grid lg:grid-cols-2 gap-0 bg-[var(--bg-glass)] border border-[var(--bdr)] rounded-3xl overflow-hidden backdrop-blur-2xl shadow-lg transition-all duration-500 hover:shadow-2xl hover:border-[var(--brand)]/40 hover:-translate-y-1">
+              {/* Image Section */}
+              <div class="relative h-64 lg:h-full min-h-[400px] overflow-hidden">
+                <img 
+                  src={featuredBlog.image || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200'} 
+                  alt={featuredBlog.title}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                
+                {/* Featured Badge */}
+                <div class="absolute top-6 left-6">
+                  <span class="inline-flex items-center gap-2 px-4 py-2 bg-white/15 backdrop-blur-lg border border-white/20 rounded-full text-white text-xs font-bold">
+                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                    Featured Article
+                  </span>
+                </div>
+                
+                {/* Reading Time */}
+                <div class="absolute bottom-6 left-6">
+                  <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg text-white text-xs">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    {featuredBlog.readTime || '5 min read'}
+                  </span>
+                </div>
+              </div>
+
+              {/* Content Section */}
+              <div class="p-8 lg:p-12 flex flex-col justify-center">
+                <div class="flex flex-wrap gap-2 mb-6">
+                  {featuredBlog.category && (
+                    <span class="px-3 py-1 text-xs font-semibold bg-[var(--brand)]/20 text-[var(--brand)] rounded-full border border-[var(--brand)]/30">
+                      {featuredBlog.category}
+                    </span>
+                  )}
+                  {featuredBlog.tags.slice(0, 3).map(tag => (
+                    <span class="px-3 py-1 text-xs font-semibold bg-[var(--brand)]/10 text-[var(--brand)] rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4 leading-tight text-[var(--txt)] group-hover:text-[var(--brand)] transition-colors">
+                  {featuredBlog.title}
+                </h2>
+                
+                <p class="text-[var(--txt2)] text-base leading-relaxed mb-8 line-clamp-3">
+                  {featuredBlog.description}
+                </p>
+                
+                <div class="flex items-center gap-6 pt-6 border-t border-[var(--bdr)]">
+                  <div class="flex items-center gap-3 text-sm text-[var(--txt3)]">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-sm">
+                      JD
+                    </div>
+                    <div>
+                      <p class="font-semibold text-[var(--txt)]">John Doe</p>
+                      <p class="text-xs text-[var(--txt3)]">
+                        {new Date(featuredBlog.createdAt).toLocaleDateString('en-US', { 
+                          month: 'long', 
+                          day: 'numeric', 
+                          year: 'numeric' 
+                        })}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {/* Action Link */}
+                  <div class="ml-auto flex items-center gap-2 text-[var(--brand)] font-semibold group/btn">
+                    Read Article
+                    <svg class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </a>
+        </section>
+      )}
+
+      {/* Blog Grid Section */}
+      <section>
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="text-3xl font-bold text-[var(--txt)]">
+            {categoryFilter ? `Articles in "${categoryFilter}"` : 'All Articles'}
+          </h2>
+          <div class="flex gap-2">
+            <a 
+              href="/blog?filter=latest" 
+              class={`px-4 py-2 text-sm font-semibold rounded-full transition-all ${filter === 'latest' ? 'bg-[var(--brand)] text-white shadow-lg' : 'bg-[var(--bg-glass)] text-[var(--txt2)] border border-[var(--bdr)] hover:border-[var(--brand)]'}`}
+            >
+              Latest
+            </a>
+            <a 
+              href="/blog?filter=popular" 
+              class={`px-4 py-2 text-sm font-semibold rounded-full transition-all ${filter === 'popular' ? 'bg-[var(--brand)] text-white shadow-lg' : 'bg-[var(--bg-glass)] text-[var(--txt2)] border border-[var(--bdr)] hover:border-[var(--brand)]'}`}
+            >
+              Popular
+            </a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {remainingBlogs.map((blog) => (
+            <a href={`/blog/${blog.slug}`} class="group">
+              <article class="h-full bg-[var(--bg-glass)] border border-[var(--bdr)] rounded-2xl overflow-hidden backdrop-blur-xl transition-all duration-300 hover:shadow-xl hover:border-[var(--brand)]/30 hover:-translate-y-1">
+                {/* Image */}
+                <div class="relative aspect-[16/10] overflow-hidden">
+                  <img 
+                    src={blog.image || 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800'} 
+                    alt={blog.title}
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  <div class="absolute top-4 left-4 flex flex-wrap gap-2">
+                    {blog.category && (
+                      <span class="px-2.5 py-1 text-xs font-bold bg-[var(--brand)] text-white rounded-full shadow-sm">
+                        {blog.category}
+                      </span>
+                    )}
+                    {blog.tags.slice(0, 1).map(tag => (
+                      <span class="px-2.5 py-1 text-xs font-bold bg-white/90 backdrop-blur-sm text-gray-900 rounded-full shadow-sm">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div class="p-6">
+                  <h3 class="text-lg font-bold mb-3 leading-snug text-[var(--txt)] group-hover:text-[var(--brand)] transition-colors line-clamp-2">
+                    {blog.title}
+                  </h3>
+                  
+                  <p class="text-sm text-[var(--txt2)] mb-6 line-clamp-3 leading-relaxed">
+                    {blog.description}
+                  </p>
+                  
+                  <div class="flex items-center justify-between pt-4 border-t border-[var(--bdr)]">
+                    <div class="flex items-center gap-2 text-xs text-[var(--txt3)]">
+                      <div class="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-xs">
+                        AB
+                      </div>
+                      <span class="font-medium">
+                        {new Date(blog.createdAt).toLocaleDateString('en-US', { 
+                          month: 'short', 
+                          day: 'numeric' 
+                        })}
+                      </span>
+                    </div>
+                    
+                    <div class="flex items-center gap-1 text-xs text-[var(--txt3)]">
+                      <span>{blog.readTime || '4 min read'}</span>
+                      <span>→</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* Empty State */}
+      {sortedBlogs.length === 0 && (
+        <div class="text-center py-32">
+          <div class="text-7xl mb-8">🚀</div>
+          <h2 class="text-4xl font-bold text-[var(--txt)] mb-4">
+            No posts yet
+          </h2>
+          <p class="text-lg text-[var(--txt2)] max-w-md mx-auto">
+            We're cooking up some amazing content. Stay tuned for insightful articles!
+          </p>
+        </div>
+      )}
+
+      {/* Newsletter CTA */}
+      {sortedBlogs.length > 0 && (
+        <div class="mt-12 text-center bg-gradient-to-r from-[var(--brand)]/10 via-purple-500/10 to-pink-500/10 border border-[var(--bdr)] rounded-3xl p-6 sm:p-12">
+          <h3 class="text-3xl font-bold text-[var(--txt)] mb-4">
+            Stay in the loop
+          </h3>
+          <p class="text-[var(--txt2)] mb-8 max-w-lg mx-auto">
+            Get the latest posts delivered right to your inbox. No spam, ever.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" id="newsletter-container">
+            <input 
+              type="email" 
+              id="newsletter-email"
+              placeholder="Enter your email" 
+              class="w-full sm:flex-1 px-5 py-3 bg-[var(--bg-glass)] border border-[var(--bdr)] rounded-xl text-[var(--txt)] placeholder-[var(--txt3)] focus:outline-none focus:border-[var(--brand)] transition-all"
+            />
+            <button 
+              id="newsletter-btn"
+              class="w-full sm:w-auto px-8 py-3 bg-[var(--brand)] text-white font-bold rounded-xl hover:opacity-90 transition-all flex items-center justify-center gap-2 min-w-[140px] whitespace-nowrap"
+            >
+              <span id="btn-text">Subscribe</span>
+            </button>
+          </div>
+        </div>
+      )}
+
+      <script is:inline>
+        const btn = document.getElementById('newsletter-btn');
+        const input = document.getElementById('newsletter-email');
+        const btnText = document.getElementById('btn-text');
+
+        btn?.addEventListener('click', () => {
+          const email = input.value.trim();
+          if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            // Success state
+            btn.disabled = true;
+            input.disabled = true;
+            btn.classList.add('bg-green-600');
+            btn.classList.remove('bg-[var(--brand)]');
+            btnText.innerHTML = 'Subscribed ✅';
+            
+            // Subtle animation
+            btn.style.transform = 'scale(1.05)';
+            setTimeout(() => {
+              btn.style.transform = 'scale(1)';
+            }, 200);
+
+            // Optional: You could add an API call here
+            console.log('Newsletter subscription for:', email);
+          } else {
+            // Shake effect for error
+            input.classList.add('border-red-500');
+            input.style.transform = 'translateX(5px)';
+            setTimeout(() => input.style.transform = 'translateX(-5px)', 50);
+            setTimeout(() => input.style.transform = 'translateX(5px)', 100);
+            setTimeout(() => input.style.transform = 'translateX(0)', 150);
+            
+            setTimeout(() => {
+              input.classList.remove('border-red-500');
+            }, 2000);
+          }
+        });
+      </script>
+    </div>
+  </main>
+</PageLayout>
+
+<style is:global>
+  :root {
+    --brand: #8B5CF6;
+    --brand-rgb: 139, 92, 246;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .grid > a {
+    animation: fadeInUp 0.6s ease-out backwards;
+  }
+  
+  .grid > a:nth-child(1) { animation-delay: 0.1s; }
+  .grid > a:nth-child(2) { animation-delay: 0.2s; }
+  .grid > a:nth-child(3) { animation-delay: 0.3s; }
+  .grid > a:nth-child(4) { animation-delay: 0.4s; }
+  .grid > a:nth-child(5) { animation-delay: 0.5s; }
+  .grid > a:nth-child(6) { animation-delay: 0.6s; }
+</style>

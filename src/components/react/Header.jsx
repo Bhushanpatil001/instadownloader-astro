@@ -40,6 +40,13 @@ const TtIcon = () => (
   </svg>
 );
 
+const BlogIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
+    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+  </svg>
+);
+
 const NAV = [
   { href: '/',          label: 'Home',      icon: <HomeIcon /> },
   { href: '/instagram', label: 'Instagram', icon: <IgIcon /> },
@@ -48,6 +55,7 @@ const NAV = [
   { href: '/facebook',  label: 'Facebook',  icon: <FbIcon /> },
   { href: '/x',         label: 'X',         icon: <XIcon /> },
   { href: '/pinterest', label: 'Pinterest', icon: <PinIcon /> },
+  { href: '/blog',      label: 'Blog',      icon: <BlogIcon /> },
 ];
 
 const SERVE_ADS = typeof window !== 'undefined' && window.__SERVE_ADS__;
