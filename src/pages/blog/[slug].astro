@@ -2,6 +2,7 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import { getAllBlogs, getBlogBySlug } from '../../services/blogService';
 import { marked } from 'marked';
+import AdSlot from '../../components/react/AdSlot';
 
 export const prerender = false;
 
@@ -99,7 +100,7 @@ const jsonLd = {
             <div class="flex flex-wrap items-center gap-3 text-sm text-[var(--txt3)] pb-6 border-b border-[var(--bdr)]">
               <span>{new Date(blog.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
               <span>•</span>
-              <span>{displayReadingTime}</span>
+              <span>{displayReadingTime} mins read</span>
               <span>•</span>
               <span>InstaDownloader Team</span>
             </div>
@@ -141,8 +142,13 @@ const jsonLd = {
         </div>
 
         {/* Sidebar - 1/4 width (1 column out of 4) */}
-        <div class="lg:col-span-1 space-y-8">
+        <div class="lg:col-span-1 flex flex-col gap-16">
           
+          {/* Sidebar Advertisement */}
+          <div class="relative z-0 mb-8 min-h-[300px]">
+            <AdSlot slot="1601408852" client:load />
+          </div>
+
           {/* Popular Posts */}
           <div>
             <h3 class="text-xs font-semibold text-[var(--txt3)] uppercase tracking-wider mb-4 pb-2 border-b border-[var(--bdr)]">

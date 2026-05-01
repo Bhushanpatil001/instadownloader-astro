@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 export default function AdminDashboard({ adminRoute }) {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [stats, setStats] = useState({ total: 0, latest: null });
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     fetchBlogs();
@@ -14,10 +14,6 @@ export default function AdminDashboard({ adminRoute }) {
       const res = await fetch('/api/admin/blogs');
       const data = await res.json();
       setBlogs(data);
-      setStats({
-        total: data.length,
-        latest: data.length > 0 ? data[0].title : 'None'
-      });
     } catch (err) {
       console.error('Failed to fetch blogs');
     } finally {
@@ -29,8 +25,8 @@ export default function AdminDashboard({ adminRoute }) {
     if (!confirm('Are you sure you want to delete this post?')) return;
     
     try {
-      const res = await fetch(`/api/admin/blogs?id=${id}`, {
-        method: 'DELETE',
+      const res = await fetch(`/api/admin/blogs/${id}/delete`, {
+        method: 'POST',
         headers: { 'Accept': 'application/json' }
       });
       if (res.ok) fetchBlogs();
@@ -44,48 +40,49 @@ export default function AdminDashboard({ adminRoute }) {
     window.location.href = `/${adminRoute}`;
   };
 
+  const filteredBlogs = blogs.filter(blog => 
+    blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    blog.slug.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="min-h-screen bg-[#0f0f1a] pt-12 pb-20 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Top Navigation Bar */}
-        <nav className="flex flex-col md:flex-row md:items-center justify-between mb-16 gap-6">
+        <nav className="flex flex-col lg:flex-row lg:items-center justify-between mb-12 gap-6">
           <div>
             <h1 className="text-4xl font-black text-white mb-2 tracking-tight">CMS Command Center</h1>
             <p className="text-gray-400 font-medium">Manage your content ecosystem with precision.</p>
           </div>
-          <div className="flex gap-4">
+          
+          <div className="flex flex-col sm:flex-row gap-4 items-center">
+            {/* Search Input */}
+            <div className="relative w-full sm:w-64">
+              <input 
+                type="text"
+                placeholder="Search articles..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full px-5 py-3.5 rounded-2xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-purple-500/50 transition-all placeholder:text-gray-600"
+              />
+              <span className="absolute right-4 top-1/2 -translate-y-1/2 opacity-30">🔍</span>
+            </div>
+
             <a
               href={`/${adminRoute}/new`}
-              className="flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] transition-all active:scale-95"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3.5 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] transition-all active:scale-95 whitespace-nowrap"
             >
               <span className="text-xl">+</span> Create New Post
             </a>
+            
             <button
               onClick={handleLogout}
-              className="px-6 py-3.5 rounded-2xl bg-white/5 border border-white/10 text-white font-bold hover:bg-white/10 transition-all border border-red-500/20 text-red-400"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-white/5 border border-white/10 text-red-400 font-bold hover:bg-white/10 transition-all whitespace-nowrap"
             >
               Logout
             </button>
           </div>
         </nav>
-
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
-            <p className="text-gray-400 text-sm font-bold uppercase tracking-widest mb-2">Total Posts</p>
-            <p className="text-5xl font-black text-white">{stats.total}</p>
-          </div>
-          <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
-            <p className="text-gray-400 text-sm font-bold uppercase tracking-widest mb-2">Platform Status</p>
-            <p className="text-xl font-bold text-green-400 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> Encrypted & Online
-            </p>
-          </div>
-          <div className="lg:col-span-2 bg-gradient-to-r from-purple-900/20 to-pink-900/20 border border-purple-500/20 rounded-3xl p-8 backdrop-blur-xl">
-            <p className="text-purple-400 text-sm font-bold uppercase tracking-widest mb-2">Latest Publication</p>
-            <p className="text-xl font-bold text-white truncate italic">"{stats.latest}"</p>
-          </div>
-        </div>
 
         {/* Content Table */}
         <div className="bg-white/5 border border-white/10 rounded-[40px] overflow-hidden backdrop-blur-xl shadow-2xl">
@@ -103,15 +100,19 @@ export default function AdminDashboard({ adminRoute }) {
                   <tr>
                     <td colSpan="3" className="px-8 py-20 text-center text-gray-500 italic">Decrypting data streams...</td>
                   </tr>
-                ) : blogs.length === 0 ? (
+                ) : filteredBlogs.length === 0 ? (
                   <tr>
                     <td colSpan="3" className="px-8 py-32 text-center">
-                       <div className="text-gray-500 mb-6">No articles found in the ecosystem.</div>
-                       <a href={`/${adminRoute}/new`} className="text-purple-400 font-bold hover:underline">Start writing your first piece &rarr;</a>
+                       <div className="text-gray-500 mb-6">
+                         {searchTerm ? `No results found for "${searchTerm}"` : 'No articles found in the ecosystem.'}
+                       </div>
+                       {!searchTerm && (
+                         <a href={`/${adminRoute}/new`} className="text-purple-400 font-bold hover:underline">Start writing your first piece &rarr;</a>
+                       )}
                     </td>
                   </tr>
                 ) : (
-                  blogs.map((blog) => (
+                  filteredBlogs.map((blog) => (
                     <tr key={blog.id} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors group">
                       <td className="px-8 py-8">
                         <div className="flex items-center gap-6">
