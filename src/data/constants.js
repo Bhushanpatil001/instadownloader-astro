@@ -12,3 +12,7 @@ export const BACKEND_URL =
 
 export const SERVE_ADS =
   (typeof import.meta !== 'undefined' && import.meta.env?.PUBLIC_SERVE_ADS === 'true');
+export const SITE_URL =
+  (typeof import.meta !== 'undefined' && import.meta.env?.PUBLIC_SITE_URL)
+    ? import.meta.env.PUBLIC_SITE_URL
+    : 'https://instadownloader.app';

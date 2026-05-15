@@ -1,4 +1,5 @@
 ---
+import { SITE_URL } from '../data/constants.js';
 import PageLayout from '../layouts/PageLayout.astro';
 import DownloaderWidget from '../components/react/DownloaderWidget.jsx';
 import FAQItem from '../components/FAQItem.astro';
@@ -16,7 +17,7 @@ const ttSchema = [
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: 'TikTok Downloader — InstaDownloader',
-    url: 'https://instadownloader.co/tiktok',
+    url: `${SITE_URL}/tiktok`,
     applicationCategory: 'MultimediaApplication',
     operatingSystem: 'Any',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },

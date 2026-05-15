@@ -1,4 +1,5 @@
 ---
+import { SITE_URL } from '../data/constants.js';
 import PageLayout from '../layouts/PageLayout.astro';
 import DownloaderWidget from '../components/react/DownloaderWidget.jsx';
 import FAQItem from '../components/FAQItem.astro';
@@ -16,7 +17,7 @@ const ytSchema = [
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: 'YouTube Downloader — InstaDownloader',
-    url: 'https://instadownloader.co/yt',
+    url: `${SITE_URL}/yt`,
     applicationCategory: 'MultimediaApplication',
     operatingSystem: 'Any',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },

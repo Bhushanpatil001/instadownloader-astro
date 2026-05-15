@@ -3,6 +3,7 @@ export const prerender = false;
 import PageLayout from '../layouts/PageLayout.astro';
 import HomeContent from '../components/HomeContent.astro';
 import { ui } from '../data/i18n.js';
+import { SITE_URL } from '../data/constants.js';
 
 const t = ui.en;
 const homeSchema = [
@@ -10,7 +11,7 @@ const homeSchema = [
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: 'InstaDownloader',
-    url: 'https://instadownloader.co',
+    url: SITE_URL,
     applicationCategory: 'MultimediaApplication',
     operatingSystem: 'Any',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },

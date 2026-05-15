@@ -15,13 +15,15 @@ const {
   title,
   description,
   keywords,
-  canonical = Astro.url.href,
+  canonical: propCanonical,
   ogImage = '/og-image.png',
   ogLocale = 'en_US',
   schema,
 } = Astro.props;
 
-// Auto-generate hreflangs
+const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'https://instadownloader.app';
+
+// Auto-generate hreflangs and canonical
 const url = new URL(Astro.url.href);
 const pathParts = url.pathname.split('/').filter(Boolean);
 let currentLang = 'en';
@@ -32,9 +34,12 @@ if (pathParts.length > 0 && languages[pathParts[0]]) {
   purePath = '/' + pathParts.slice(1).join('/');
 }
 
+// Ensure canonical always uses the production domain
+const canonical = propCanonical || `${siteUrl}${url.pathname}`;
+
 const hreflangs = Object.keys(languages).map(l => ({
   lang: l,
-  url: l === 'en' ? `https://instadownloader.co${purePath}` : `https://instadownloader.co/${l}${purePath}`
+  url: l === 'en' ? `${siteUrl}${purePath}` : `${siteUrl}/${l}${purePath}`
 }));
 
 const currentLocale = languages[currentLang]?.locale || 'en_US';
@@ -43,7 +48,6 @@ const SERVE_ADS = import.meta.env.PUBLIC_SERVE_ADS === 'true';
 const AD_CLIENT  = 'ca-pub-2219975169694529';
 
 // Default Organisation + WebSite schema injected on every page
-const siteUrl = 'https://instadownloader.co';
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
