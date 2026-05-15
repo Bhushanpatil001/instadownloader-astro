@@ -121,20 +121,11 @@ if (schema) {
 
     <!-- AdSense -->
     {SERVE_ADS && (
-      <>
-        <script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${AD_CLIENT}`}
-          crossorigin="anonymous"
-        ></script>
-        <script is:inline define:vars={{ AD_CLIENT }}>
-          window.adsbygoogle = window.adsbygoogle || [];
-          window.adsbygoogle.push({
-            google_ad_client: AD_CLIENT,
-            overlays: { bottom: true }
-          });
-        </script>
-      </>
+      <script
+        async
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${AD_CLIENT}`}
+        crossorigin="anonymous"
+      ></script>
     )}
 
     <!-- Theme init: runs before first paint to avoid FOUC -->
