@@ -24,6 +24,8 @@ const sortedBlogs = filteredBlogs.sort((a, b) => {
   return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
 });
 
+const categories = ['All', ...new Set(blogs.map(b => b.category).filter(Boolean))];
+
 const featuredBlog = sortedBlogs[0];
 const remainingBlogs = sortedBlogs.length === 1 ? sortedBlogs : sortedBlogs.slice(1);
 ---
@@ -124,25 +126,84 @@ const remainingBlogs = sortedBlogs.length === 1 ? sortedBlogs : sortedBlogs.slic
 
       {/* Blog Grid Section */}
       <section>
-        <div class="flex items-center justify-between mb-8">
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
           <h2 class="text-3xl font-bold text-[var(--txt)]">
             {categoryFilter ? `Articles in "${categoryFilter}"` : 'All Articles'}
           </h2>
-          <div class="flex gap-2">
-            <a 
-              href="/blog?filter=latest" 
-              class={`px-4 py-2 text-sm font-semibold rounded-full transition-all ${filter === 'latest' ? 'bg-[var(--brand)] text-white shadow-lg' : 'bg-[var(--bg-glass)] text-[var(--txt2)] border border-[var(--bdr)] hover:border-[var(--brand)]'}`}
-            >
-              Latest
-            </a>
-            <a 
-              href="/blog?filter=popular" 
-              class={`px-4 py-2 text-sm font-semibold rounded-full transition-all ${filter === 'popular' ? 'bg-[var(--brand)] text-white shadow-lg' : 'bg-[var(--bg-glass)] text-[var(--txt2)] border border-[var(--bdr)] hover:border-[var(--brand)]'}`}
-            >
-              Popular
-            </a>
+          
+          <div class="flex items-center gap-3">
+            {/* Custom Category Dropdown */}
+            <div class="relative min-w-[200px]" id="categoryDropdown">
+              <button 
+                id="dropdownButton"
+                class="w-full flex items-center justify-between px-6 py-2.5 bg-[var(--bg-glass)] backdrop-blur-xl text-[var(--txt2)] border border-[var(--bdr)] rounded-full text-sm font-semibold hover:border-[var(--brand)]/50 transition-all shadow-sm group"
+              >
+                <span class="truncate">{categoryFilter ? (categoryFilter === 'All' ? 'All Categories' : categoryFilter) : 'All Categories'}</span>
+                <svg class="w-4 h-4 text-[var(--txt3)] group-hover:text-[var(--brand)] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              <div 
+                id="dropdownMenu"
+                class="hidden absolute top-full left-0 mt-2 w-full bg-[var(--bg-glass)] backdrop-blur-2xl border border-[var(--bdr)] rounded-2xl shadow-2xl overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200"
+              >
+                <div class="py-1 max-h-60 overflow-y-auto">
+                  {categories.map((cat) => {
+                    const isActive = (!categoryFilter && cat === 'All') || categoryFilter === cat;
+                    const href = cat === 'All' ? '/blog' : `/blog?category=${encodeURIComponent(cat)}`;
+                    return (
+                      <a 
+                        href={href}
+                        class={`block px-5 py-2.5 text-sm transition-colors ${
+                          isActive 
+                            ? 'bg-[var(--brand)]/10 text-[var(--brand)] font-bold' 
+                            : 'text-[var(--txt2)] hover:bg-white/5 hover:text-[var(--brand)]'
+                        }`}
+                      >
+                        {cat === 'All' ? 'All Categories' : cat}
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            <div class="flex gap-2 p-1 bg-[var(--bg-glass)] border border-[var(--bdr)] rounded-full">
+              <a 
+                href={`/blog?filter=latest${categoryFilter ? `&category=${categoryFilter}` : ''}`} 
+                class={`px-4 py-1.5 text-sm font-semibold rounded-full transition-all ${filter === 'latest' ? 'bg-[var(--brand)] text-white shadow-lg' : 'text-[var(--txt2)] hover:text-[var(--brand)]'}`}
+              >
+                Latest
+              </a>
+              <a 
+                href={`/blog?filter=popular${categoryFilter ? `&category=${categoryFilter}` : ''}`} 
+                class={`px-4 py-1.5 text-sm font-semibold rounded-full transition-all ${filter === 'popular' ? 'bg-[var(--brand)] text-white shadow-lg' : 'text-[var(--txt2)] hover:text-[var(--brand)]'}`}
+              >
+                Popular
+              </a>
+            </div>
           </div>
         </div>
+
+        <script is:inline>
+          const dropdown = document.getElementById('categoryDropdown');
+          const button = document.getElementById('dropdownButton');
+          const menu = document.getElementById('dropdownMenu');
+
+          button?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menu?.classList.toggle('hidden');
+            button.classList.toggle('border-[var(--brand)]');
+          });
+
+          document.addEventListener('click', (e) => {
+            if (!dropdown?.contains(e.target)) {
+              menu?.classList.add('hidden');
+              button?.classList.remove('border-[var(--brand)]');
+            }
+          });
+        </script>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {remainingBlogs.map((blog) => (
@@ -282,6 +343,7 @@ const remainingBlogs = sortedBlogs.length === 1 ? sortedBlogs : sortedBlogs.slic
           }
         });
       </script>
+
     </div>
   </main>
 </PageLayout>
@@ -301,6 +363,21 @@ const remainingBlogs = sortedBlogs.length === 1 ? sortedBlogs : sortedBlogs.slic
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  @keyframes dropdownFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  #dropdownMenu:not(.hidden) {
+    animation: dropdownFadeIn 0.2s ease-out forwards;
   }
   
   .grid > a {

@@ -1,0 +1,130 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { getShareById } from '../../services/shareService';
+
+export const prerender = false;
+
+const { id } = Astro.params;
+const share = await getShareById(id as string);
+
+if (!share) {
+  return Astro.redirect('/404');
+}
+
+// Check if user or scraper
+const userAgent = Astro.request.headers.get('user-agent') || '';
+const isScraper = /bot|facebook|twitter|whatsapp|telegram|slack|linkedin/i.test(userAgent);
+
+// If it's a scraper, we just serve the metadata
+// If it's a user, we show the landing page
+
+const currentUrl = Astro.url.href;
+---
+
+<PageLayout 
+  title={share.title} 
+  description={share.description}
+  ogImage={share.image}
+>
+  <div class="min-h-[80vh] flex items-center justify-center py-20 px-4 bg-[#0f0f1a]">
+    <div class="max-w-xl w-full">
+      <div class="bg-white/5 border border-white/10 rounded-[32px] p-8 backdrop-blur-xl shadow-2xl text-center relative overflow-hidden">
+        
+        {/* Decorative Background Elements */}
+        <div class="absolute -top-24 -left-24 w-48 h-48 bg-purple-600/20 rounded-full blur-[80px]"></div>
+        <div class="absolute -bottom-24 -right-24 w-48 h-48 bg-pink-600/20 rounded-full blur-[80px]"></div>
+
+        <div class="relative z-10">
+          <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-8 shadow-lg">
+            ⬇️
+          </div>
+
+          <h1 class="text-3xl font-black text-white mb-4 tracking-tight">
+            {share.title}
+          </h1>
+
+          <p class="text-gray-400 mb-8 leading-relaxed">
+            {share.description}
+          </p>
+
+          {share.image && (
+            <div class="mb-8 rounded-2xl overflow-hidden border border-white/10 shadow-inner bg-black/20">
+              <img 
+                src={share.image} 
+                alt={share.title} 
+                class="w-full h-auto max-h-[300px] object-contain mx-auto"
+              />
+            </div>
+          )}
+
+          <div class="space-y-4">
+            <button 
+              id="download-btn"
+              data-url={share.targetUrl}
+              class="w-full py-4 px-8 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg hover:shadow-[0_0_40px_rgba(168,85,247,0.4)] transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              🚀 Download Now
+            </button>
+            
+            <p id="status-text" class="text-xs text-gray-500 font-medium uppercase tracking-[0.2em]">
+              Ready to download
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <a href="/" class="text-gray-500 hover:text-white transition-colors text-sm font-bold flex items-center justify-center gap-2">
+          ← Back to InstaDownloader Home
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    import { fetchDownloadLinks, triggerDownload } from '../../utils/downloadUtils';
+
+    const btn = document.getElementById('download-btn') as HTMLButtonElement;
+    const statusText = document.getElementById('status-text');
+
+    btn?.addEventListener('click', async () => {
+      const url = btn.getAttribute('data-url');
+      if (!url) return;
+      const originalText = btn.innerHTML;
+      
+      try {
+        btn.innerHTML = '⏳ Fetching Media...';
+        btn.disabled = true;
+        if (statusText) statusText.innerText = 'Connecting to server...';
+        
+        const result = await fetchDownloadLinks(url);
+        
+        if (result && result.links && result.links.length > 0) {
+          btn.innerHTML = '✅ Starting Download';
+          if (statusText) statusText.innerText = 'Your download should start automatically';
+          triggerDownload(result.links[0].url, result.links[0].filename);
+        } else {
+          throw new Error('No download links found.');
+        }
+      } catch (err: any) {
+        console.error('Download error:', err);
+        alert('Failed to download: ' + (err.message || 'Unknown error'));
+        btn.innerHTML = originalText;
+        if (statusText) statusText.innerText = 'Download failed. Please try again.';
+      } finally {
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+          if (statusText) statusText.innerText = 'Ready to download';
+        }, 8000);
+      }
+    });
+  </script>
+
+</PageLayout>
+
+<style>
+  body {
+    background-color: #0f0f1a;
+  }
+</style>

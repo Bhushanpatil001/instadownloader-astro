@@ -1,16 +1,22 @@
 ---
 export const prerender = false;
-import PageLayout from '../layouts/PageLayout.astro';
-import HomeContent from '../components/HomeContent.astro';
-import { ui } from '../data/i18n.js';
+import PageLayout from '../../layouts/PageLayout.astro';
+import HomeContent from '../../components/HomeContent.astro';
+import { languages, ui } from '../../data/i18n.js';
 
-const t = ui.en;
+const { lang } = Astro.params;
+
+if (!lang || !languages[lang]) {
+  return Astro.redirect('/404');
+}
+const t = { ...ui.en, ...ui[lang] };
+
 const homeSchema = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: 'InstaDownloader',
-    url: 'https://instadownloader.co',
+    url: `https://instadownloader.co/${lang}`,
     applicationCategory: 'MultimediaApplication',
     operatingSystem: 'Any',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
@@ -29,5 +35,5 @@ const homeSchema = [
   description={t['home.desc']}
   schema={homeSchema}
 >
-  <HomeContent lang="en" />
+  <HomeContent lang={lang} />
 </PageLayout>

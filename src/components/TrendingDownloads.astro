@@ -1,23 +1,67 @@
 ---
-import pSeoConfig from '../data/pSeoConfig.json';
+import { getTrendingData } from '../services/trendingService';
+import { languages, ui } from '../data/i18n.js';
+
+const { lang: propLang } = Astro.props;
+const url = new URL(Astro.url.href);
+const pathParts = url.pathname.split('/').filter(Boolean);
+
+let lang = propLang || 'en';
+if (!propLang && pathParts.length > 0 && languages[pathParts[0]]) {
+  lang = pathParts[0];
+}
+
+const t = { ...ui.en, ...ui[lang] };
+
+const { trending } = await getTrendingData();
+
+const getLocalizedHref = (slug) => {
+  return lang === 'en' ? `/${slug}` : `/${lang}/${slug}`;
+};
 ---
 
 <div class="mt-16 pt-12 border-t border-[var(--bdr)]">
-  <h2 class="text-[1.4rem] font-bold mb-6 text-center" style="color:var(--txt);">Trending Downloads</h2>
+  <h2 class="text-[1.4rem] font-bold mb-6 text-center" style="color:var(--txt);">{t['trending.h2']}</h2>
   <div class="flex flex-wrap gap-3 justify-center">
-    {pSeoConfig.popularUsernames.slice(0, 10).map(username => (
-      <a href={`/download-instagram-reel-from-${username.replace(/\./g, '-')}`} 
-        class="px-4 py-2 rounded-xl border border-[var(--bdr)] text-sm transition-all hover:bg-[var(--bg-glass-h)] hover:border-[var(--bdr-h)]" 
-        style="background:var(--bg-glass); color:var(--txt2);">
-        {username} Reels
-      </a>
-    ))}
-    {pSeoConfig.trendingKeywords.slice(0, 10).map(keyword => (
-      <a href={`/download-youtube-short-about-${keyword.replace(/\s+/g, '-')}`} 
-        class="px-4 py-2 rounded-xl border border-[var(--bdr)] text-sm transition-all hover:bg-[var(--bg-glass-h)] hover:border-[var(--bdr-h)]" 
-        style="background:var(--bg-glass); color:var(--txt2);">
-        {keyword} Shorts
-      </a>
-    ))}
+    {trending.map(topic => {
+      return Object.entries(topic.platforms).map(([platformKey, urls]) => {
+        const platSlug = platformKey === 'instagram' ? 'instagram-reel' : 
+                        platformKey === 'youtube' ? 'youtube-short' : 
+                        platformKey === 'facebook' ? 'facebook-video' : 
+                        platformKey === 'pinterest' ? 'pinterest-video' : 
+                        platformKey === 'x' ? 'x-video' : platformKey;
+        
+        const path = getLocalizedHref(`download-${platSlug}-about-${topic.slug}`);
+        const platName = platformKey === 'instagram' ? t['trending.reels'] :
+                        platformKey === 'youtube' ? t['trending.shorts'] : 
+                        t['trending.video'];
+
+        return (
+          <div class="flex items-center gap-1 group/chip">
+            <a href={path} 
+              class="px-4 py-2 rounded-xl border border-[var(--bdr)] text-sm transition-all hover:bg-[var(--bg-glass-h)] hover:border-[var(--bdr-h)] flex items-center gap-2" 
+              style="background:var(--bg-glass); color:var(--txt2);">
+              <span class="opacity-50 text-[10px] font-black uppercase tracking-tighter">{platformKey}</span>
+              {topic.name} {platName}
+            </a>
+            <button 
+              onclick={`
+                const url = window.location.origin + '${path}';
+                navigator.clipboard.writeText(url).then(() => {
+                  alert('${t['trending.copy_success']}');
+                }).catch(e => {
+                  console.error(e);
+                  alert('${t['trending.copy_fail']}');
+                });
+              `}
+              class="p-2 rounded-lg bg-[var(--bg-glass)] border border-[var(--bdr)] transition-all hover:bg-[var(--bg-glass-h)] text-xs"
+              title={t['trending.share']}
+            >
+              🔗
+            </button>
+          </div>
+        );
+      });
+    })}
   </div>
 </div>

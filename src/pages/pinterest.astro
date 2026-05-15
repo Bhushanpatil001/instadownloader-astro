@@ -5,30 +5,59 @@ import FAQItem from '../components/FAQItem.astro';
 import TrendingDownloads from '../components/TrendingDownloads.astro';
 import TryOtherPlatforms from '../components/TryOtherPlatforms.astro';
 
-const FAQS = [
-    { q: 'Can I download Pinterest videos with this?', a: 'Yes! Our tool supports downloading both Pinterest videos (MP4) and high-quality images (JPG).' },
-    { q: 'Is it free to use?', a: 'Yes, it is 100% free with no hidden charges or premium plans.' },
-    { q: 'Do I need a Pinterest account?', a: 'No, you don\'t need an account or login to download public pins.' },
-    { q: 'How do I download a pin?', a: 'Copy the Pin link (using the share button or address bar) and paste it into our search tool above.' }
-];
+import { platforms, ui } from '../data/i18n.js';
 
-const STEPS = [
-    { step: 'Copy Pin Link', detail: 'Click the Share icon on Pinterest and select "Copy Link".' },
-    { step: 'Paste URL', detail: 'Paste the link into the search box at the top of this page.' },
-    { step: 'Process Media', detail: 'We will find the highest resolution version of the video or image.' },
-    { step: 'Quick Download', detail: 'Select the file and save it directly to your device.' }
+const pData = platforms['pinterest']?.en || {};
+const FAQS = pData.faqs || [];
+const STEPS = pData.steps || [];
+const t = ui.en;
+const pinSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'Pinterest Downloader — InstaDownloader',
+    url: 'https://instadownloader.co/pinterest',
+    applicationCategory: 'MultimediaApplication',
+    operatingSystem: 'Any',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    alternateName: [
+      'pinterest video downloader', 'pinterest downloader',
+      'pin downloader', 'pinterest image downloader',
+      'download pinterest videos', 'pinterest photo downloader',
+      'save pinterest pins', 'pinterest gif downloader',
+      'pinterest video saver', 'pinterest hd downloader',
+      'download pinterest without watermark', 'pinterest media downloader',
+    ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.7',
+      ratingCount: '2150',
+      bestRating: '5',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a },
+    })),
+  },
 ];
 ---
 
 <PageLayout
-  title="Pinterest Video Downloader — Download Pins & Videos in HD 2026"
-  description="Download Pinterest videos and photos for free in HD. Fast, secure, and no registration required. Try the best Pinterest downloader of 2026."
+  title={pData.title || "Pinterest Video Downloader — Download Pinterest Videos & Images HD Free 2026"}
+  description={pData.desc || "Free Pinterest video and image downloader. Download Pinterest videos, GIFs and photos in HD quality. No login, no watermark, instant save. Works on all devices."}
+  keywords="pinterest video downloader, pinterest downloader, pin downloader, download pinterest videos, pinterest image downloader, pinterest photo downloader, save pinterest pins, pinterest gif downloader, pinterest hd downloader, download pinterest without watermark, pinterest video saver, pinterest media downloader"
+  schema={pinSchema}
 >
   <div class="max-w-[1000px] mx-auto px-6 py-5">
     <div class="text-center mb-6">
       <div class="inline-flex px-4 py-1.5 rounded-full text-sm font-bold bg-[rgba(230,0,35,0.1)] border border-[rgba(230,0,35,0.2)] text-[#e60023] mb-3">📌 Pin Saver</div>
       <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-black mb-1 leading-tight" style="color:var(--txt);">
-        Pinterest <span style="background:linear-gradient(135deg,#e60023,#ad081b); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Video Downloader</span>
+        {pData.h1 || "Pinterest Video Downloader"}
       </h1>
       <p class="text-lg opacity-70 max-w-[700px] mx-auto">
         Download videos and high-res images from Pinterest Pins — fast and free.

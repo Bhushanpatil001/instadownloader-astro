@@ -1,0 +1,60 @@
+---
+import HomeDownloader from './react/HomeDownloader.jsx';
+import TrendingDownloads from './TrendingDownloads.astro';
+import FAQItem from './FAQItem.astro';
+import { ui } from '../data/i18n.js';
+
+const { lang = 'en' } = Astro.props;
+const t = { ...ui.en, ...ui[lang] };
+
+const FAQS = [
+  { q: t['faq.q1'] || "Is this downloader free?", a: t['faq.a1'] || "Yes, our service is 100% free with no hidden charges or premium subscriptions." },
+  { q: t['faq.q2'] || "Do I need to create an account?", a: t['faq.a2'] || "No, you can download any public content anonymously without sign-up." },
+  { q: t['faq.q3'] || "Which platforms are supported?", a: t['faq.a3'] || "We support Instagram, YouTube, Facebook, TikTok, Pinterest, and X (Twitter)." },
+  { q: t['faq.q4'] || "Is there a download limit?", a: t['faq.a4'] || "No, you can download an unlimited number of videos and images every day." }
+];
+---
+
+<div class="max-w-[1000px] mx-auto px-6 py-5">
+  <HomeDownloader client:load lang={lang} />
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24 mt-16">
+    <div>
+      <h2 class="text-3xl font-black mb-6" style="color:var(--txt);">{t['home.why_h2']} <span class="text-[var(--brand)]">{t['home.why_brand']}</span></h2>
+      <p class="text-[var(--txt2)] text-lg leading-relaxed mb-8">
+        {t['home.why_p']}
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-[rgba(124,58,237,0.1)] flex items-center justify-center shrink-0">🚀</div>
+          <div>
+            <h4 class="font-bold mb-1" style="color:var(--txt);">{t['home.instant_speed']}</h4>
+            <p class="text-sm opacity-60">{t['home.instant_speed_p']}</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-[rgba(236,72,153,0.1)] flex items-center justify-center shrink-0">🔒</div>
+          <div>
+            <h4 class="font-bold mb-1" style="color:var(--txt);">{t['home.private']}</h4>
+            <p class="text-sm opacity-60">{t['home.private_p']}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="relative p-8 rounded-[32px] border border-[var(--bdr)] overflow-hidden" style="background:var(--bg-glass);">
+        <h3 class="text-xl font-bold mb-4" style="color:var(--txt);">{t['home.multi_device_h3']}</h3>
+        <p class="text-[var(--txt2)] leading-relaxed">
+          {t['home.multi_device_p']}
+        </p>
+    </div>
+  </div>
+
+  <div class="mt-16">
+    <h2 class="text-3xl font-black mb-12 text-center" style="color:var(--txt);">{t['common.faq']}</h2>
+    <div class="max-w-[800px] mx-auto space-y-4 mb-20">
+      {FAQS.map(faq => <FAQItem q={faq.q} a={faq.a} />)}
+    </div>
+
+    <TrendingDownloads lang={lang} />
+  </div>
+</div>

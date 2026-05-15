@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import adBreakManager from './adBreakManager.js';
+import { ui } from '../../data/i18n.js';
 
 // SVG icons inline (no package dep)
 const HomeIcon = () => (
@@ -39,24 +40,12 @@ const TtIcon = () => (
     <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.81a8.18 8.18 0 004.77 1.52V6.88a4.85 4.85 0 01-1-.19z"/>
   </svg>
 );
-
 const BlogIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
     <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
   </svg>
 );
-
-const NAV = [
-  { href: '/',          label: 'Home',      icon: <HomeIcon /> },
-  { href: '/instagram', label: 'Instagram', icon: <IgIcon /> },
-  { href: '/yt',        label: 'YouTube',   icon: <YtIcon /> },
-  { href: '/tiktok',    label: 'TikTok',    icon: <TtIcon /> },
-  { href: '/facebook',  label: 'Facebook',  icon: <FbIcon /> },
-  { href: '/x',         label: 'X',         icon: <XIcon /> },
-  { href: '/pinterest', label: 'Pinterest', icon: <PinIcon /> },
-  { href: '/blog',      label: 'Blog',      icon: <BlogIcon /> },
-];
 
 const SERVE_ADS = typeof window !== 'undefined' && window.__SERVE_ADS__;
 
@@ -65,15 +54,69 @@ function navigate(to) {
   adBreakManager.showInterstitialAd(() => { window.location.href = to; });
 }
 
-export default function Header() {
+export default function Header({ lang = 'en', slug = '' }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
   const [theme, setTheme] = useState('dark');
 
+  const t = { ...ui.en, ...ui[lang] };
+  
+  const LANGS = [
+    { code: 'en', name: 'English', flag: '🇺🇸' },
+    { code: 'es', name: 'Español', flag: '🇪🇸' },
+    { code: 'pt', name: 'Português', flag: '🇵🇹' },
+    { code: 'fr', name: 'Français', flag: '🇫🇷' },
+    { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+    { code: 'hi', name: 'हिन्दी', flag: '🇮🇳' },
+    { code: 'ar', name: 'العربية', flag: '🇸🇦' },
+    { code: 'tr', name: 'Türkçe', flag: '🇹🇷' },
+    { code: 'ru', name: 'Русский', flag: '🇷🇺' },
+    { code: 'id', name: 'Indonesian', flag: '🇮🇩' },
+    { code: 'zh', name: '简体中文', flag: '🇨🇳' },
+    { code: 'ja', name: '日本語', flag: '🇯🇵' },
+    { code: 'ko', name: '한국어', flag: '🇰🇷' },
+    { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳' },
+    { code: 'it', name: 'Italiano', flag: '🇮🇹' },
+    { code: 'nl', name: 'Nederlands', flag: '🇳🇱' },
+  ];
+
+  const NAV = [
+    { slug: '',          label: t['nav.home'] || 'Home',      icon: <HomeIcon /> },
+    { slug: 'instagram', label: t['nav.instagram'] || 'Instagram', icon: <IgIcon /> },
+    { slug: 'yt',        label: t['nav.youtube'] || 'YouTube',   icon: <YtIcon /> },
+    { slug: 'tiktok',    label: t['nav.tiktok'] || 'TikTok',    icon: <TtIcon /> },
+    { slug: 'facebook',  label: t['nav.facebook'] || 'Facebook',  icon: <FbIcon /> },
+    { slug: 'x',         label: t['nav.x'] || 'X',         icon: <XIcon /> },
+    { slug: 'pinterest', label: t['nav.pinterest'] || 'Pinterest', icon: <PinIcon /> },
+    { slug: 'blog',      label: t['nav.blog'] || 'Blog',      icon: <BlogIcon /> },
+  ];
+
+  const [preferredLang, setPreferredLang] = useState(lang);
+
   useEffect(() => {
-    const t = localStorage.getItem('id-theme') || 'dark';
-    setTheme(t);
-    document.documentElement.setAttribute('data-theme', t);
-  }, []);
+    const tTheme = localStorage.getItem('id-theme') || 'dark';
+    setTheme(tTheme);
+    document.documentElement.setAttribute('data-theme', tTheme);
+
+    // Persist language preference
+    if (lang !== 'en') {
+      localStorage.setItem('id-lang', lang);
+      setPreferredLang(lang);
+    } else {
+      const saved = localStorage.getItem('id-lang');
+      if (saved && saved !== 'en') {
+        setPreferredLang(saved);
+      }
+    }
+
+    const handleClickOutside = (e) => {
+      if (!e.target.closest('.lang-selector-container')) {
+        setLangOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [lang]);
 
   const toggleTheme = () => {
     const next = theme === 'dark' ? 'light' : 'dark';
@@ -82,62 +125,87 @@ export default function Header() {
     localStorage.setItem('id-theme', next);
   };
 
+  const getLocalizedHref = (s, l = preferredLang) => {
+    if (s === 'blog') return '/blog';
+    if (!s) return l === 'en' ? '/' : `/${l}`;
+    return l === 'en' ? `/${s}` : `/${l}/${s}`;
+  };
+
   return (
     <header className="sticky top-0 z-[1000] border-b border-[var(--bdr)]"
       style={{ background: 'rgba(15,15,26,0.85)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)' }}
       data-theme-el="header">
-      {/* Inner */}
       <div className="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between gap-4">
-        {/* Logo */}
-        <a href="/" className="text-[1.4rem] font-black tracking-tight whitespace-nowrap shrink-0"
+        <a href={getLocalizedHref('')} className="text-[1.4rem] font-black tracking-tight whitespace-nowrap shrink-0"
           style={{ background: 'var(--g-brand)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-          ⬇ Downloader
+          ⬇ {t['common.downloader'] || 'Downloader'}
         </a>
 
-        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-1 flex-1 justify-center">
-          {NAV.map(({ href, label, icon }) => (
-            <button key={href} onClick={() => navigate(href)}
-              className="flex items-center gap-[7px] px-[14px] py-[7px] rounded-[10px] text-sm font-medium text-[var(--txt2)] border border-transparent cursor-pointer bg-transparent
-                hover:text-[var(--txt)] hover:bg-[var(--bg-glass-h)] hover:border-[var(--bdr-h)] transition-all">
-              {icon}{label}
+          {NAV.map(({ slug: navSlug, label, icon }) => (
+            <button key={navSlug} onClick={() => navigate(getLocalizedHref(navSlug))}
+              className="flex items-center gap-2 px-4 py-2 rounded-xl text-[0.85rem] font-semibold transition-all hover:bg-[var(--bg-glass-h)]"
+              style={{ color: lang === (navSlug || 'en') ? 'var(--brand)' : 'var(--txt2)' }}>
+              {icon}
+              <span>{label}</span>
             </button>
           ))}
         </nav>
 
-        <div className="flex items-center gap-2 shrink-0">
-          {/* Theme toggle */}
-          <button onClick={toggleTheme} aria-label="Toggle theme"
-            className="flex items-center justify-center w-[38px] h-[38px] rounded-[10px] border border-[var(--bdr)] bg-[var(--bg-glass)] text-[var(--txt2)] relative overflow-hidden cursor-pointer
-              hover:bg-[var(--bg-glass-h)] hover:border-[var(--bdr-h)] hover:text-[var(--txt)] transition-all">
-            <span className="icon-sun absolute text-base">☀️</span>
-            <span className="icon-moon absolute text-base">🌙</span>
+        <div className="flex items-center gap-2">
+          {/* Theme Toggle */}
+          <button onClick={toggleTheme} className="p-2.5 rounded-xl hover:bg-[var(--bg-glass-h)] text-[var(--txt2)] transition-all">
+            {theme === 'dark' ? '🌙' : '☀️'}
           </button>
 
-          {/* Hamburger */}
-          <button onClick={() => setMenuOpen(o => !o)} aria-label="Menu"
-            className="flex md:hidden flex-col gap-[5px] cursor-pointer p-2 rounded-lg border border-[var(--bdr)] bg-[var(--bg-glass)] hover:bg-[var(--bg-glass-h)] transition-all">
-            <span style={{ display: 'block', width: 20, height: 2, background: 'var(--txt)', borderRadius: 2,
-              transform: menuOpen ? 'translateY(7px) rotate(45deg)' : 'none', transition: 'all var(--dur)' }} />
-            <span style={{ display: 'block', width: 20, height: 2, background: 'var(--txt)', borderRadius: 2,
-              opacity: menuOpen ? 0 : 1, transition: 'all var(--dur)' }} />
-            <span style={{ display: 'block', width: 20, height: 2, background: 'var(--txt)', borderRadius: 2,
-              transform: menuOpen ? 'translateY(-7px) rotate(-45deg)' : 'none', transition: 'all var(--dur)' }} />
+          {/* Lang Selector */}
+          <div className="relative lang-selector-container">
+            <button 
+              onClick={() => setLangOpen(!langOpen)}
+              className={`flex items-center gap-2 px-3 py-2 rounded-xl transition-all border border-[var(--bdr)] ${langOpen ? 'bg-[var(--bg-glass-h)] text-[var(--txt)]' : 'hover:bg-[var(--bg-glass-h)] text-[var(--txt2)]'}`}>
+              <span className="text-sm font-bold uppercase">{lang}</span>
+              <span className={`text-[10px] opacity-40 transition-transform ${langOpen ? 'rotate-180' : ''}`}>▼</span>
+            </button>
+            
+            {langOpen && (
+              <div className="absolute right-0 top-full mt-2 w-48 border border-white/10 rounded-xl shadow-2xl z-[10000] backdrop-blur-3xl overflow-hidden animate-slideDown"
+                style={{ 
+                  boxShadow: '0 20px 50px rgba(0,0,0,0.5)', 
+                  background: theme === 'dark' ? '#1a1a2e' : '#ffffff' 
+                }}>
+                <div className="p-2 grid grid-cols-1 gap-1 max-h-[400px] overflow-y-auto">
+                  {LANGS.map(l => (
+                    <a key={l.code} href={getLocalizedHref(slug, l.code)} 
+                      onClick={() => localStorage.setItem('id-lang', l.code)}
+                      className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all text-sm font-medium ${lang === l.code ? 'bg-[var(--brand)] text-white' : 'text-[var(--txt2)] hover:bg-[var(--bg-glass-h)] hover:text-[var(--txt)]'}`}>
+                      <span className="text-base">{l.flag}</span> 
+                      <span>{l.name}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Mobile Toggle */}
+          <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden p-2.5 rounded-xl hover:bg-[var(--bg-glass-h)] text-[var(--txt2)]">
+            {menuOpen ? '✕' : '☰'}
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden flex flex-col gap-1 px-6 pb-4 pt-3 border-t border-[var(--bdr)]"
-          style={{ background: 'rgba(15,15,26,0.97)', animation: 'slideDown 200ms var(--ease)' }}>
-          {NAV.map(({ href, label, icon }) => (
-            <button key={href} onClick={() => { setMenuOpen(false); navigate(href); }}
-              className="flex items-center gap-[10px] px-[14px] py-[10px] rounded-[10px] text-[0.9rem] font-medium text-[var(--txt2)] w-full text-left bg-transparent cursor-pointer
-                hover:text-[var(--txt)] hover:bg-[var(--bg-glass-h)] transition-all">
-              {icon}{label}
-            </button>
-          ))}
+        <div className="md:hidden border-t border-[var(--bdr)] bg-[var(--bg-glass)] backdrop-blur-xl animate-slideDown">
+          <div className="p-4 flex flex-col gap-2">
+            {NAV.map(({ slug: navSlug, label, icon }) => (
+              <button key={navSlug} onClick={() => { navigate(getLocalizedHref(navSlug)); setMenuOpen(false); }}
+                className="flex items-center gap-4 px-5 py-4 rounded-2xl text-[0.95rem] font-bold text-[var(--txt2)] transition-all hover:bg-[var(--bg-glass-h)] hover:text-[var(--txt)]">
+                {icon}
+                <span>{label}</span>
+              </button>
+            ))}
+          </div>
         </div>
       )}
 

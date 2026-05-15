@@ -4,7 +4,7 @@ import AdSlot from './AdSlot';
 
 const BACKEND = import.meta.env?.PUBLIC_BACKEND_URL ?? 'https://backend.instadownloader.app/api';
 
-const TopicMediaCard = ({ url, platform, apiEndpoint, fallbackTitle }) => {
+const TopicMediaCard = ({ url, platform, apiEndpoint, fallbackTitle, t = {} }) => {
   const [media, setMedia] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -17,7 +17,7 @@ const TopicMediaCard = ({ url, platform, apiEndpoint, fallbackTitle }) => {
         if (!isMounted) return;
 
         let mapped = {
-          title: data.title || fallbackTitle || 'Viral Video',
+          title: data.title || fallbackTitle || t['topic.fallback'] || 'Viral Video',
           thumbnail: data.thumbnail || data.thumb || '',
           downloadUrl: ''
         };
@@ -78,17 +78,49 @@ const TopicMediaCard = ({ url, platform, apiEndpoint, fallbackTitle }) => {
         <h3 className="text-[0.88rem] font-semibold leading-snug line-clamp-2 h-10" style={{ color: 'var(--txt)' }}>
           {media.title}
         </h3>
-        <button onClick={() => window.open(media.downloadUrl, '_blank')}
-          className="w-full py-[10px] rounded-xl text-[0.82rem] font-bold text-white transition-all hover:brightness-110 active:scale-[0.98]"
-          style={{ background: 'linear-gradient(135deg,#7c3aed,#ec4899)', boxShadow: '0 4px 12px rgba(124,58,237,0.2)' }}>
-          ⬇ Download Original
-        </button>
+        <div className="flex gap-2">
+          <button onClick={() => window.open(media.downloadUrl, '_blank')}
+            className="flex-1 py-[10px] rounded-xl text-[0.82rem] font-bold text-white transition-all hover:brightness-110 active:scale-[0.98]"
+            style={{ background: 'linear-gradient(135deg,#7c3aed,#ec4899)', boxShadow: '0 4px 12px rgba(124,58,237,0.2)' }}>
+            {t['topic.download'] || '⬇ Download Original'}
+          </button>
+          <button 
+            onClick={async (e) => {
+              const btn = e.currentTarget;
+              const originalContent = btn.innerHTML;
+              try {
+                btn.innerHTML = '...';
+                const { data: shareRes } = await axios.post('/api/shares', {
+                  targetUrl: url,
+                  title: media.title,
+                  description: `Check out this trending ${platform} content on InstaDownloader!`,
+                  image: media.thumbnail,
+                  platform: platform
+                });
+                
+                if (shareRes?.id) {
+                  const shareUrl = `${window.location.origin}/share/${shareRes.id}`;
+                  await navigator.clipboard.writeText(shareUrl);
+                  btn.innerHTML = '✅';
+                  setTimeout(() => { btn.innerHTML = originalContent; }, 2000);
+                }
+              } catch (err) {
+                console.error('Sharing failed:', err);
+                btn.innerHTML = originalContent;
+              }
+            }}
+            className="px-3 py-[10px] rounded-xl bg-white/10 border border-white/20 text-white transition-all hover:bg-white/20"
+            title={t['topic.copy_link'] || 'Copy Share Link'}
+          >
+            🔗
+          </button>
+        </div>
       </div>
     </div>
   );
 };
 
-export default function TopicMediaList({ platform, apiEndpoint, topicData }) {
+export default function TopicMediaList({ platform, apiEndpoint, topicData, t = {} }) {
   if (!topicData || topicData.length === 0) return null;
 
   const firstPart = topicData.slice(0, 3);
@@ -100,13 +132,13 @@ export default function TopicMediaList({ platform, apiEndpoint, topicData }) {
       <AdSlot slot="1601408852" className="mb-10" />
 
       <div className="text-center mb-10">
-        <h2 className="text-[1.8rem] font-black mb-2" style={{ color: 'var(--txt)' }}>Latest & Viral Content</h2>
-        <p className="text-[0.9rem]" style={{ color: 'var(--txt3)' }}>Browse and download popular content related to this topic.</p>
+        <h2 className="text-[1.8rem] font-black mb-2" style={{ color: 'var(--txt)' }}>{t['topic.h2'] || 'Latest & Viral Content'}</h2>
+        <p className="text-[0.9rem]" style={{ color: 'var(--txt3)' }}>{t['topic.p'] || 'Browse and download popular content related to this topic.'}</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {firstPart.map((item, idx) => (
-          <TopicMediaCard key={idx} url={item.url} platform={platform} apiEndpoint={apiEndpoint} fallbackTitle={item.title} />
+          <TopicMediaCard key={idx} url={item.url} platform={platform} apiEndpoint={apiEndpoint} fallbackTitle={item.title} t={t} />
         ))}
       </div>
 
@@ -116,14 +148,12 @@ export default function TopicMediaList({ platform, apiEndpoint, topicData }) {
           <AdSlot slot="6748959606" className="my-12" />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {secondPart.map((item, idx) => (
-              <TopicMediaCard key={idx + 3} url={item.url} platform={platform} apiEndpoint={apiEndpoint} fallbackTitle={item.title} />
+              <TopicMediaCard key={idx + 3} url={item.url} platform={platform} apiEndpoint={apiEndpoint} fallbackTitle={item.title} t={t} />
             ))}
           </div>
         </>
       )}
 
-      {/* Bottom Ad */}
-      <AdSlot slot="9503261240" className="mt-16" />
 
       <style>{`@keyframes fadeInUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}`}</style>
     </div>

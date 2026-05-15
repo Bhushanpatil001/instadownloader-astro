@@ -1,27 +1,42 @@
 ---
 import PlatformIcon from "./PlatformIcon.astro";
+import { languages, ui } from '../data/i18n.js';
 
 // TryOtherPlatforms.astro – static platform links excluding current page
-interface Props { current: string; }
-const { current } = Astro.props;
+interface Props { current: string; lang?: string; }
+const { current, lang: propLang } = Astro.props;
+
+const url = new URL(Astro.url.href);
+const pathParts = url.pathname.split('/').filter(Boolean);
+
+let lang = propLang || 'en';
+if (!propLang && pathParts.length > 0 && languages[pathParts[0]]) {
+  lang = pathParts[0];
+}
+
+const t = { ...ui.en, ...ui[lang] };
+
+const getLocalizedHref = (slug) => {
+  return lang === 'en' ? `/${slug}` : `/${lang}/${slug}`;
+};
 
 const ALL = [
-  { href:'/facebook',  name:'Facebook',  color:'#1877f2', bg:'rgba(24,119,242,0.18)',  platform:'facebook', desc:'Videos & Reels'          },
-  { href:'/instagram', name:'Instagram', color:'#dc2743', bg:'rgba(220,39,67,0.18)',   platform:'instagram', desc:'Posts & Reels'            },
-  { href:'/yt',        name:'YouTube',   color:'#ff0000', bg:'rgba(255,0,0,0.18)',     platform:'youtube',   desc:'Videos & Shorts'          },
-  { href:'/pinterest', name:'Pinterest', color:'#e60023', bg:'rgba(230,0,35,0.18)',    platform:'pinterest', desc:'Pins & Videos'            },
-  { href:'/x',         name:'X',         color:'#8a8a8a', bg:'rgba(100,116,139,0.12)', platform:'x',         desc:'Tweets & Videos'          },
-  { href:'/tiktok',    name:'TikTok',    color:'#00f2ea', bg:'rgba(0,242,234,0.18)',   platform:'tiktok',    desc:'No Watermark'             },
+  { slug:'facebook',  name: t['nav.facebook'] || 'Facebook',  color:'#1877f2', bg:'rgba(24,119,242,0.18)',  platform:'facebook', desc: t['nav.facebook_desc'] || 'Videos & Reels'          },
+  { slug:'instagram', name: t['nav.instagram'] || 'Instagram', color:'#dc2743', bg:'rgba(220,39,67,0.18)',   platform:'instagram', desc: t['nav.instagram_desc'] || 'Posts & Reels'            },
+  { slug:'yt',        name: t['nav.youtube'] || 'YouTube',   color:'#ff0000', bg:'rgba(255,0,0,0.18)',     platform:'youtube',   desc: t['nav.youtube_desc'] || 'Videos & Shorts'          },
+  { slug:'pinterest', name: t['nav.pinterest'] || 'Pinterest', color:'#e60023', bg:'rgba(230,0,35,0.18)',    platform:'pinterest', desc: t['nav.pinterest_desc'] || 'Pins & Videos'            },
+  { slug:'x',         name: t['nav.x'] || 'X',         color:'#8a8a8a', bg:'rgba(100,116,139,0.12)', platform:'x',         desc: t['nav.x_desc'] || 'Tweets & Videos'          },
+  { slug:'tiktok',    name: t['nav.tiktok'] || 'TikTok',    color:'#00f2ea', bg:'rgba(0,242,234,0.18)',   platform:'tiktok',    desc: t['nav.tiktok_desc'] || 'No Watermark'             },
 ];
 
-const others = ALL.filter(p => !current.includes(p.platform) && p.href !== current && p.href !== `/${current}`);
+const others = ALL.filter(p => !current.includes(p.platform) && p.slug !== current);
 ---
 
 <div class="mt-12 pt-8 border-t border-[var(--bdr)]">
-  <h2 class="text-[1.1rem] font-bold mb-4" style="color:var(--txt);">Try Other Platforms</h2>
+  <h2 class="text-[1.1rem] font-bold mb-4" style="color:var(--txt);">{t['common.try_others'] || 'Try Other Platforms'}</h2>
   <div class="grid gap-3" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr));">
-    {others.map(({ href, name, color, bg, platform, desc }) => (
-      <a href={href}
+    {others.map(({ slug, name, color, bg, platform, desc }) => (
+      <a href={getLocalizedHref(slug)}
         class="flex items-center gap-3 px-4 py-[14px] rounded-[14px] border border-[var(--bdr)] no-underline transition-all hover:-translate-y-0.5 hover:border-[var(--bdr-h)] group"
         style="background:var(--bg-glass);">
         <div class="w-[42px] h-[42px] rounded-[10px] flex items-center justify-center shrink-0" style={`background:${bg};`}>

@@ -5,30 +5,59 @@ import FAQItem from '../components/FAQItem.astro';
 import TrendingDownloads from '../components/TrendingDownloads.astro';
 import TryOtherPlatforms from '../components/TryOtherPlatforms.astro';
 
-const FAQS = [
-    { q: 'Is it free to download Facebook videos?', a: 'Yes, our Facebook downloader is completely free and requires no registration or login.' },
-    { q: 'Can I download private Facebook videos?', a: 'No, for privacy reasons, we only support downloading public videos and reels from Facebook.' },
-    { q: 'What is the highest quality available?', a: 'We provide both SD and HD (720p/1080p) download options depending on the original video quality.' },
-    { q: 'Does it work on mobile devices?', a: 'Yes! Our tool is fully responsive and works perfectly on Android and iOS browsers.' }
-];
+import { platforms, ui } from '../data/i18n.js';
 
-const STEPS = [
-    { step: 'Copy Video Link', detail: 'On Facebook, click "Share" and then "Copy Link" for the video or reel.' },
-    { step: 'Paste URL', detail: 'Paste the link into the search box above to fetch video information.' },
-    { step: 'Select Quality', detail: 'Choose between SD or HD quality based on your preference.' },
-    { step: 'Save Video', detail: 'Click the download button and the video will be saved to your device.' }
+const pData = platforms['facebook']?.en || {};
+const FAQS = pData.faqs || [];
+const STEPS = pData.steps || [];
+const t = ui.en;
+const fbSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'Facebook Video Downloader — InstaDownloader',
+    url: 'https://instadownloader.co/facebook',
+    applicationCategory: 'MultimediaApplication',
+    operatingSystem: 'Any',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    alternateName: [
+      'facebook video downloader', 'fb video downloader',
+      'facebook downloader', 'fb downloader', 'fdown',
+      'facebook reel downloader', 'download facebook videos',
+      'save facebook videos', 'facebook story downloader',
+      'facebook video saver', 'facebook hd downloader',
+      'facebook video downloader online', 'download fb videos free',
+    ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      ratingCount: '3180',
+      bestRating: '5',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a },
+    })),
+  },
 ];
 ---
 
 <PageLayout
-  title="Facebook Video Downloader — Download FB Reels & Videos in HD 2026"
-  description="Download Facebook videos and reels for free in HD quality. Fast, secure, and no login required. Simply paste the Facebook link and save instantly."
+  title={pData.title || "Facebook Video Downloader — Download FB Reels & Videos in HD Free 2026"}
+  description={pData.desc || "Free Facebook video downloader. Download Facebook videos, reels and stories in HD. No login required. Fast & secure. Save FB videos to your phone or PC instantly."}
+  keywords="facebook video downloader, fb video downloader, facebook downloader, fb downloader, download facebook videos, save facebook videos, facebook reel downloader, facebook story downloader, facebook hd downloader, facebook video saver, facebook video downloader online, download fb videos free, fdown"
+  schema={fbSchema}
 >
   <div class="max-w-[1000px] mx-auto px-6 py-5">
     <div class="text-center mb-6">
       <div class="inline-flex px-4 py-1.5 rounded-full text-sm font-bold bg-[rgba(24,119,242,0.1)] border border-[rgba(24,119,242,0.2)] text-[#1877f2] mb-3">🎬 FB Saver</div>
       <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-black mb-1 leading-tight" style="color:var(--txt);">
-        Facebook <span style="background:linear-gradient(135deg,#1877f2,#0d5fce); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Video Downloader</span>
+        {pData.h1 || "Facebook Video Downloader"}
       </h1>
       <p class="text-lg opacity-70 max-w-[700px] mx-auto">
         Download videos and reels from Facebook posts and pages — fast and free, no login needed.

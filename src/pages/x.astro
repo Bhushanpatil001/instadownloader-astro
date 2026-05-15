@@ -5,30 +5,60 @@ import FAQItem from '../components/FAQItem.astro';
 import TrendingDownloads from '../components/TrendingDownloads.astro';
 import TryOtherPlatforms from '../components/TryOtherPlatforms.astro';
 
-const FAQS = [
-    { q: 'Is it free to download X videos?', a: 'Yes, our X (Twitter) video downloader is completely free with no limits.' },
-    { q: 'Can I download private tweets?', a: 'No, we only support downloading media from public tweets for privacy and legal reasons.' },
-    { q: 'What quality are the downloads?', a: 'We fetch the original video or image quality as served by X (up to 1080p for most videos).' },
-    { q: 'Do I need an account to use this?', a: 'No login or account is required. Simply paste the tweet link and save the content.' }
-];
+import { platforms, ui } from '../data/i18n.js';
 
-const STEPS = [
-    { step: 'Copy Tweet URL', detail: 'Click the "Share" button on a tweet and select "Copy Link".' },
-    { step: 'Paste & Search', detail: 'Paste the link above and click to process the content.' },
-    { step: 'Select Format', detail: 'Choose the file format (MP4 for video, JPG for images).' },
-    { step: 'Save Instantly', detail: 'Click download and the file will be saved to your device immediately.' }
+const pData = platforms['x']?.en || {};
+const FAQS = pData.faqs || [];
+const STEPS = pData.steps || [];
+const t = ui.en;
+const xSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'X Twitter Video Downloader — InstaDownloader',
+    url: 'https://instadownloader.co/x',
+    applicationCategory: 'MultimediaApplication',
+    operatingSystem: 'Any',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    alternateName: [
+      'twitter video downloader', 'x video downloader',
+      'twitter downloader', 'x downloader',
+      'download twitter videos', 'save twitter videos',
+      'tweet video downloader', 'twitter gif downloader',
+      'twitter mp4 downloader', 'x twitter video saver',
+      'download x videos', 'twitter media downloader',
+      'save tweets with video', 'twitter video saver',
+    ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      ratingCount: '2890',
+      bestRating: '5',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a },
+    })),
+  },
 ];
 ---
 
 <PageLayout
-  title="X Video Downloader — Download Twitter Videos & Photos in HD 2026"
-  description="Download X (Twitter) videos and photos for free in HD. Fast, secure, and no registration required. Try the best X downloader of 2026."
+  title={pData.title || "Twitter / X Video Downloader — Download X & Twitter Videos HD Free 2026"}
+  description={pData.desc || "Free Twitter & X video downloader. Download X (Twitter) videos, GIFs and photos in HD. No login required. Fast, secure, instant save on mobile & desktop."}
+  keywords="twitter video downloader, x video downloader, twitter downloader, x downloader, download twitter videos, save twitter videos, tweet video downloader, twitter gif downloader, twitter mp4 downloader, x twitter video saver, download x videos free, twitter media downloader, twitter video saver"
+  schema={xSchema}
 >
   <div class="max-w-[1000px] mx-auto px-6 py-5">
     <div class="text-center mb-6">
       <div style="color:var(--txt);" class="inline-flex px-4 py-1.5 rounded-full text-sm font-bold bg-[rgba(100,116,139,0.1)] border border-[rgba(100,116,139,0.2)] text-[#14171a] dark:text-[#f8fafc] mb-3">𝕏 X Saver</div>
       <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-black mb-1 leading-tight" style="color:var(--txt);">
-        X (Twitter) Video Downloader
+        {pData.h1 || "X (Twitter) Video Downloader"}
       </h1>
       <p class="text-lg opacity-70 max-w-[700px] mx-auto">
         Download videos and images from X (Twitter) tweets — fast and free.

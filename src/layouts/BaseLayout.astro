@@ -1,26 +1,78 @@
 ---
-export interface Props {
+import { languages } from '../data/i18n.js';
+
+interface Props {
   title: string;
   description: string;
+  keywords?: string;
   canonical?: string;
   ogImage?: string;
-  schema?: object;
+  ogLocale?: string;
+  schema?: object | object[];
 }
 
 const {
   title,
   description,
+  keywords,
   canonical = Astro.url.href,
   ogImage = '/og-image.png',
+  ogLocale = 'en_US',
   schema,
 } = Astro.props;
 
+// Auto-generate hreflangs
+const url = new URL(Astro.url.href);
+const pathParts = url.pathname.split('/').filter(Boolean);
+let currentLang = 'en';
+let purePath = url.pathname;
+
+if (pathParts.length > 0 && languages[pathParts[0]]) {
+  currentLang = pathParts[0];
+  purePath = '/' + pathParts.slice(1).join('/');
+}
+
+const hreflangs = Object.keys(languages).map(l => ({
+  lang: l,
+  url: l === 'en' ? `https://instadownloader.co${purePath}` : `https://instadownloader.co/${l}${purePath}`
+}));
+
+const currentLocale = languages[currentLang]?.locale || 'en_US';
+
 const SERVE_ADS = import.meta.env.PUBLIC_SERVE_ADS === 'true';
 const AD_CLIENT  = 'ca-pub-2219975169694529';
+
+// Default Organisation + WebSite schema injected on every page
+const siteUrl = 'https://instadownloader.co';
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'InstaDownloader',
+  url: siteUrl,
+  logo: `${siteUrl}/favicon.ico`,
+  sameAs: [],
+};
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'InstaDownloader',
+  url: siteUrl,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${siteUrl}/?q={search_term_string}`,
+    'query-input': 'required name=search_term_string',
+  },
+};
+// Merge schemas: always include org+website, plus optional page-level schema(s)
+const allSchemas: object[] = [orgSchema, websiteSchema];
+if (schema) {
+  if (Array.isArray(schema)) allSchemas.push(...schema);
+  else allSchemas.push(schema);
+}
 ---
 
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang={currentLang} data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,31 +80,40 @@ const AD_CLIENT  = 'ca-pub-2219975169694529';
 
     <title>{title}</title>
     <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
     <link rel="canonical" href={canonical} />
+
+    <!-- Hreflang alternates (multilingual SEO) -->
+    {hreflangs.length > 0 && hreflangs.map(({ lang, url }) => (
+      <link rel="alternate" hreflang={lang} href={url} />
+    ))}
+    {hreflangs.length > 0 && (
+      <link rel="alternate" hreflang="x-default" href={canonical} />
+    )}
 
     <!-- Open Graph -->
     <meta property="og:title"       content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url"         content={canonical} />
     <meta property="og:type"        content="website" />
-    <meta property="og:image"       content={ogImage} />
-    <meta property="og:site_name"   content="Downloader" />
+    <meta property="og:image"       content={`${siteUrl}${ogImage}`} />
+    <meta property="og:site_name"   content="InstaDownloader" />
+    <meta property="og:locale"      content={currentLocale} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:site"        content="@instadownloader" />
     <meta name="twitter:title"       content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image"       content={ogImage} />
+    <meta name="twitter:image"       content={`${siteUrl}${ogImage}`} />
 
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- JSON-LD -->
-    {schema && (
-      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-    )}
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(allSchemas)} />
 
     <!-- AdSense -->
     {SERVE_ADS && (
@@ -78,6 +139,13 @@ const AD_CLIENT  = 'ca-pub-2219975169694529';
         window.__SERVE_ADS__ = SERVE_ADS;
         var t = localStorage.getItem('id-theme') || 'dark';
         document.documentElement.setAttribute('data-theme', t);
+
+        // Language Persistence
+        var l = localStorage.getItem('id-lang');
+        var p = window.location.pathname;
+        if (l && l !== 'en' && p === '/') {
+          window.location.href = '/' + l;
+        }
       } catch(_) {}
     </script>
   </head>

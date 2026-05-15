@@ -6,17 +6,54 @@ import FAQItem from '../components/FAQItem.astro';
 import PlatformIcon from '../components/PlatformIcon.astro';
 import TrendingDownloads from '../components/TrendingDownloads.astro';
 
-const FAQS = [
-  { q: 'How to download YouTube Shorts in HD?', a: 'Copy the link of the YouTube Short, paste it in the search box, and click Search. We provide the highest resolution MP4 link available.' },
-  { q: 'Is it free?', a: 'Yes, our Shorts downloader is 100% free and unlimited.' },
-  { q: 'Can I extract MP3 from Shorts?', a: 'Definitely. Whenever possible, we provide an MP3 download button for YouTube Shorts content.' },
-  { q: 'Does it work on phone?', a: 'Yes, it works on any browser on your Android or iPhone.' },
+import { platforms, ui } from '../data/i18n.js';
+
+const pData = platforms['youtube-shorts-downloader']?.en || {};
+const FAQS = pData.faqs || [];
+const STEPS = pData.steps || [];
+const t = ui.en;
+
+const shortsSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'YouTube Shorts Downloader — InstaDownloader',
+    url: 'https://instadownloader.co/youtube-shorts-downloader',
+    applicationCategory: 'MultimediaApplication',
+    operatingSystem: 'Any',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    alternateName: [
+      'youtube shorts downloader', 'download youtube shorts',
+      'shorts downloader', 'yt shorts downloader',
+      'save youtube shorts', 'youtube shorts video downloader',
+      'youtube shorts mp4 downloader', 'youtube shorts mp3 downloader',
+      'download shorts from youtube', 'youtube shorts saver',
+      'youtube shorts downloader online free', 'download yt shorts',
+    ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      ratingCount: '2940',
+      bestRating: '5',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a },
+    })),
+  },
 ];
 ---
 
 <PageLayout
-  title="YouTube Shorts Downloader — Save Shorts in HD Quality Free 2026"
-  description="Download YouTube Shorts for free in high definition. Fast, simple, and works on all devices. No software installation needed."
+  title={pData.title || "YouTube Shorts Downloader — Download YouTube Shorts HD Free, MP4 & MP3 2026"}
+  description={pData.desc || "Download YouTube Shorts for free in HD as MP4 or MP3. Paste any Shorts link and save instantly. No registration, works on all devices including iPhone and Android."}
+  keywords="youtube shorts downloader, download youtube shorts, shorts downloader, yt shorts downloader, save youtube shorts, youtube shorts video downloader, youtube shorts mp4 downloader, youtube shorts mp3 downloader, download shorts from youtube, youtube shorts saver, youtube shorts downloader online free"
+  schema={shortsSchema}
 >
   <section class="max-w-[860px] mx-auto px-5 pt-12 pb-16">
     <div class="text-center mb-10">
@@ -26,7 +63,7 @@ const FAQS = [
         <span>SHORTS EXCLUSIVE</span>
       </div>
       <h1 class="text-[2.2rem] font-black mb-3" style="color:var(--txt);">
-        YouTube Shorts <span style="color:#ff0000;">Downloader</span>
+        {pData.h1 || "YouTube Shorts Downloader"}
       </h1>
       <p class="text-[1rem]" style="color:var(--txt2);">
         High-quality YouTube Shorts video downloader.
@@ -56,6 +93,25 @@ const FAQS = [
           <p class="text-[0.85rem]" style="color:var(--txt3);">Our engine handles Shorts links in seconds for a smooth experience.</p>
         </div>
       </div>
+
+      {STEPS.length > 0 && (
+        <div class="mb-20">
+          <h2 class="text-[1.5rem] font-bold mb-8 text-center" style="color:var(--txt);">{t['common.how_to'] || "How to Use"}</h2>
+          <div class="p-8 rounded-[24px] border border-[var(--bdr)]" style="background:var(--bg-glass);">
+            <ol class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 list-none p-0">
+              {STEPS.map((s, i) => (
+                <li class="flex gap-4">
+                  <span class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white text-sm bg-[var(--brand)]">{i + 1}</span>
+                  <div>
+                    <strong class="block mb-1 font-bold" style="color:var(--txt);">{s.step}</strong>
+                    <p class="text-[0.85rem] opacity-60 leading-relaxed">{s.detail}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      )}
 
       <h2 class="text-[1.5rem] font-bold mb-8 text-center" style="color:var(--txt);">Frequently Asked Questions</h2>
       <div class="max-w-[800px] mx-auto space-y-4 mb-20">

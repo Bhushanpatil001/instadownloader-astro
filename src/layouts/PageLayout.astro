@@ -2,20 +2,41 @@
 import BaseLayout from './BaseLayout.astro';
 import Header from '../components/react/Header.jsx';
 import Footer from '../components/Footer.astro';
+import AdSlot from '../components/react/AdSlot.jsx';
+import { ADS_SLOT_BOTTOM } from '../data/constants.js';
+import { languages } from '../data/i18n.js';
 
-export interface Props {
+const SERVE_ADS = import.meta.env.PUBLIC_SERVE_ADS === 'true';
+
+interface Props {
   title: string;
   description: string;
+  keywords?: string;
   canonical?: string;
   ogImage?: string;
-  schema?: object;
+  ogLocale?: string;
+  schema?: object | object[];
+  hreflangs?: { lang: string; url: string }[];
+}
+
+const url = new URL(Astro.url.href);
+const pathParts = url.pathname.split('/').filter(Boolean);
+let currentLang = 'en';
+let slug = '';
+
+if (pathParts.length > 0 && languages[pathParts[0]]) {
+  currentLang = pathParts[0];
+  slug = pathParts.slice(1).join('/');
+} else {
+  slug = pathParts.join('/');
 }
 ---
 
 <BaseLayout {...Astro.props}>
-  <Header client:load />
+  <Header client:load lang={currentLang} slug={slug} />
   <main class="flex-1">
     <slot />
+
   </main>
-  <Footer />
+  <Footer lang={currentLang} />
 </BaseLayout>

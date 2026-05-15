@@ -5,30 +5,60 @@ import FAQItem from '../components/FAQItem.astro';
 import TrendingDownloads from '../components/TrendingDownloads.astro';
 import TryOtherPlatforms from '../components/TryOtherPlatforms.astro';
 
-const FAQS = [
-    { q: 'Can I download TikTok videos without watermark?', a: 'Yes! Our TikTok downloader fetches the original HD video without the TikTok logo or watermark.' },
-    { q: 'Is it free to use?', a: 'Completely free. You can download as many videos as you want daily.' },
-    { q: 'Can I save TikTok audio as MP3?', a: 'Yes, we provide separate download links for both the video and the original audio track.' },
-    { q: 'Does it work with TikTok Lite?', a: 'Yes, just copy the share link from any version of TikTok and paste it above.' }
-];
+import { platforms, ui } from '../data/i18n.js';
 
-const STEPS = [
-    { step: 'Share & Copy Link', detail: 'On TikTok, tap the Share icon and select "Copy Link".' },
-    { step: 'Paste Above', detail: 'Return here and paste your TikTok link in the input field.' },
-    { step: 'Get Links', detail: 'Our tool will quickly find the video and audio sources.' },
-    { step: 'Save to Device', detail: 'Click "Download Video" for a watermark-free MP4 file.' }
+const pData = platforms['tiktok']?.en || {};
+const FAQS = pData.faqs || [];
+const STEPS = pData.steps || [];
+const t = ui.en;
+const ttSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'TikTok Downloader — InstaDownloader',
+    url: 'https://instadownloader.co/tiktok',
+    applicationCategory: 'MultimediaApplication',
+    operatingSystem: 'Any',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    alternateName: [
+      'tiktok downloader', 'tiktok video downloader',
+      'tiktok downloader no watermark', 'tiktok saver',
+      'download tiktok videos', 'snaptik', 'ssstiktok',
+      'save tiktok without watermark', 'tiktok mp4 downloader',
+      'tiktok mp3 downloader', 'tiktok audio downloader',
+      'tiktok video saver', 'download tiktok without watermark free',
+      'tiktok downloader online', 'tikmate',
+    ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      ratingCount: '6740',
+      bestRating: '5',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a },
+    })),
+  },
 ];
 ---
 
 <PageLayout
-  title="TikTok Downloader — Download TikTok Videos Without Watermark HD 2026"
-  description="Download TikTok videos for free in HD without watermark. Save TikTok MP3 audio. Fast, secure, and no registration required. Try the best TikTok downloader of 2026."
+  title={pData.title || "TikTok Downloader — Download TikTok Videos Without Watermark HD 2026"}
+  description={pData.desc || "Download TikTok videos without watermark in HD for free. Save TikTok as MP4 or extract MP3 audio. No registration, no watermark, instant download. Works on all devices."}
+  keywords="tiktok downloader, tiktok downloader no watermark, download tiktok without watermark, tiktok video downloader, save tiktok without watermark, tiktok saver, download tiktok videos, tiktok mp4 downloader, tiktok mp3 downloader, tiktok audio downloader, snaptik, ssstiktok, tiktok video saver, tiktok downloader online free, tikmate"
+  schema={ttSchema}
 >
   <div class="max-w-[1000px] mx-auto px-6 py-5">
     <div class="text-center mb-6">
       <div class="inline-flex px-4 py-1.5 rounded-full text-sm font-bold bg-[rgba(0,242,234,0.1)] border border-[rgba(0,242,234,0.2)] text-[#00f2ea] mb-3">🎵 TT Saver</div>
       <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-black mb-1 leading-tight" style="color:var(--txt);">
-        TikTok <span style="background:linear-gradient(135deg,#00f2ea,#ff0050); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Video Downloader</span>
+        {pData.h1 || "TikTok Video Downloader"}
       </h1>
       <p class="text-lg opacity-70 max-w-[700px] mx-auto">
         Download TikTok videos without watermark and save original music — fast and free.

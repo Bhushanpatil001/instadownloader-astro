@@ -1,35 +1,67 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import DownloaderWidget from '../components/react/DownloaderWidget.jsx';
-import TryOtherPlatforms from '../components/TryOtherPlatforms.astro';
 import FAQItem from '../components/FAQItem.astro';
-import PlatformIcon from '../components/PlatformIcon.astro';
 import TrendingDownloads from '../components/TrendingDownloads.astro';
+import TryOtherPlatforms from '../components/TryOtherPlatforms.astro';
 
-const FAQS = [
-  { q: 'How do I download YouTube videos in 2026?', a: 'Copy the YouTube link, paste it into the search box, and click Search. You will see options to download the video as an MP4 or extract the audio as an MP3.' },
-  { q: 'What is the maximum quality available?', a: 'We always fetch the highest quality available from YouTube, covering 720p, 1080p, and even 4K depending on the original upload.' },
-  { q: 'Can I download just the MP3 audio?', a: 'Yes, if available, we provide a dedicated "Download MP3" button for every YouTube link.' },
-  { q: 'Is it free?', a: 'Completely free with no registration required.' },
+import { platforms, ui } from '../data/i18n.js';
+
+const pData = platforms['yt']?.en || {};
+const FAQS = pData.faqs || [];
+const STEPS = pData.steps || [];
+const t = ui.en;
+const ytSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'YouTube Downloader — InstaDownloader',
+    url: 'https://instadownloader.co/yt',
+    applicationCategory: 'MultimediaApplication',
+    operatingSystem: 'Any',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    alternateName: [
+      'youtube downloader', 'yt downloader', 'youtube video downloader',
+      'youtube to mp3', 'ytmp3', 'youtube mp3 downloader',
+      'youtube mp4 downloader', 'savefrom', 'y2mate',
+      'download youtube videos', 'youtube converter',
+      'youtube shorts downloader', 'save youtube videos',
+      'youtube audio downloader', 'youtube hd downloader',
+      'youtube downloader online', 'youtube 4k downloader',
+    ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      ratingCount: '4100',
+      bestRating: '5',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a },
+    })),
+  },
 ];
 ---
 
 <PageLayout
-  title="YouTube Downloader — Download Videos & MP3 Free 2026"
-  description="Download YouTube videos in HD quality or extract MP3 audio tracks for free. No login, fast and easy to use on mobile and desktop."
+  title={pData.title || "YouTube Downloader — Download Videos, Shorts & MP3 from YouTube Free 2026"}
+  description={pData.desc || "Free YouTube video downloader. Download YouTube videos in HD, convert YouTube to MP3, save YouTube Shorts. Fast, secure, no registration. Works on mobile & desktop."}
+  keywords="youtube downloader, yt downloader, youtube to mp3, ytmp3, youtube video downloader, youtube mp4 downloader, youtube shorts downloader, download youtube videos, youtube converter, youtube mp3 downloader, youtube hd downloader, save youtube videos, youtube audio downloader, youtube 4k downloader, download youtube shorts, youtube downloader online free"
+  schema={ytSchema}
 >
-  <section class="max-w-[860px] mx-auto px-5 pt-12 pb-16">
-    <div class="text-center mb-10">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[0.75rem] font-bold uppercase tracking-wider mb-4"
-        style="background:rgba(255,0,0,0.12); border:1px solid rgba(255,0,0,0.3); color:#ff0000;">
-        <PlatformIcon platform="youtube" size={14} />
-        <span>YouTube</span>
-      </div>
-      <h1 class="text-[2.2rem] font-black mb-3" style="color:var(--txt);">
-        YouTube <span style="color:#ff0000;">Downloader</span>
+  <div class="max-w-[1000px] mx-auto px-6 py-5">
+    <div class="text-center mb-6">
+      <div class="inline-flex px-4 py-1.5 rounded-full text-sm font-bold bg-[rgba(255,0,0,0.1)] border border-[rgba(255,0,0,0.2)] text-[#ff0000] mb-3">📺 YT Saver</div>
+      <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-black mb-1 leading-tight" style="color:var(--txt);">
+        {pData.h1 || "YouTube Video Downloader"}
       </h1>
-      <p class="text-[1rem]" style="color:var(--txt2);">
-        High-quality YouTube video downloader and MP3 converter.
+      <p class="text-lg opacity-70 max-w-[700px] mx-auto">
+        Download videos, shorts, and extract MP3 audio from YouTube — fast and free.
       </p>
     </div>
 
@@ -37,38 +69,45 @@ const FAQS = [
       client:load
       platform="yt"
       apiEndpoint="/youtube/download"
-      placeholder="Paste YouTube link here..."
-    />
+      placeholder="Paste YouTube or Shorts URL here…"
+    >
+      <div class="seo-content-section mt-12">
+        <h2 class="seo-section-heading">High-Speed YouTube Video & MP3 Downloader</h2>
+        <p class="seo-p">
+          YouTube is the largest video library on the planet. Whether you're looking for educational tutorials, music videos, or the latest tech reviews, our <strong>YouTube downloader</strong> is the fastest way to save content for offline use.
+        </p>
+        <p class="seo-p">
+          We offer flexible download options, including high-definition MP4 videos and high-bitrate MP3 audio extraction. Our tool is optimized for 2026, ensuring compatible downloads for all modern smartphones and computers.
+        </p>
 
-    <div class="mt-16 prose prose-invert max-w-none border-t border-[var(--bdr)] pt-16">
-      <h2 class="text-[1.5rem] font-bold mb-6 text-center" style="color:var(--txt);">Free YouTube to MP4 & MP3 Converter</h2>
-      <p class="text-[0.95rem] leading-relaxed mb-10 text-center opacity-70 max-w-[700px] mx-auto">
-        Our YouTube downloader is designed to be the fastest and most reliable way to save your favourite YouTube content. Whether you're harvesting music for offline listening or grabbing educational videos to watch on the go, our tool handles it with ease.
-      </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-        <div class="p-8 rounded-[24px] border border-[var(--bdr)]" style="background:var(--bg-glass);">
-          <h3 class="text-[1.1rem] font-bold mb-2">🎬 Full HD Support</h3>
-          <p class="text-[0.85rem]" style="color:var(--txt3);">Download videos in 1080p, 1440p, and 4K resolutions wherever supported by the original video.</p>
+        <h2 class="seo-section-heading">How to Use the YouTube Downloader</h2>
+        <div class="p-8 rounded-[24px] border border-[var(--bdr)] mb-12" style="background:var(--bg-glass);">
+          <ol class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 list-none p-0">
+            {STEPS.map((s, i) => (
+              <li class="flex gap-4">
+                <span class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white text-sm" style="background:#ff0000">{i + 1}</span>
+                <div>
+                  <strong class="block mb-1 font-bold" style="color:var(--txt);">{s.step}</strong>
+                  <p class="text-[0.85rem] opacity-60 leading-relaxed">{s.detail}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
-        <div class="p-8 rounded-[24px] border border-[var(--bdr)]" style="background:var(--bg-glass);">
-          <h3 class="text-[1.1rem] font-bold mb-2">🎵 MP3 Extraction</h3>
-          <p class="text-[0.85rem]" style="color:var(--txt3);">Convert any YouTube video to a high-quality MP3 audio file instantly with a single click.</p>
+
+        <h2 class="seo-section-heading">Frequently Asked Questions — YouTube</h2>
+        <div class="max-w-[1000px] mx-auto space-y-3 mb-16">
+          {FAQS.map(faq => <FAQItem q={faq.q} a={faq.a} />)}
         </div>
       </div>
+    </DownloaderWidget>
 
-      <h2 class="text-[1.5rem] font-bold mb-8 text-center" style="color:var(--txt);">Frequently Asked Questions</h2>
-      <div class="max-w-[800px] mx-auto space-y-4 mb-20">
-        {FAQS.map(faq => (
-          <FAQItem q={faq.q} a={faq.a} />
-        ))}
-      </div>
-
+    <div class="mt-16 pt-16 border-t border-[var(--bdr)]">
       <TrendingDownloads />
     </div>
 
     <div class="mt-12">
-      <TryOtherPlatforms current="yt" />
+       <TryOtherPlatforms current="youtube" />
     </div>
-  </section>
+  </div>
 </PageLayout>

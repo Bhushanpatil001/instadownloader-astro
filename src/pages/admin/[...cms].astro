@@ -1,8 +1,8 @@
 ---
-import AdminLoginForm from '../components/react/AdminLoginForm';
-import AdminDashboard from '../components/react/AdminDashboard';
-import BlogForm from '../components/react/BlogForm';
-import { verifySessionToken } from '../utils/auth';
+import AdminLoginForm from '../../components/react/AdminLoginForm';
+import AdminDashboard from '../../components/react/AdminDashboard';
+import BlogForm from '../../components/react/BlogForm';
+import { verifySessionToken } from '../../utils/auth';
 import dotenv from 'dotenv';
 import path from 'path';
 
@@ -12,29 +12,27 @@ dotenv.config({ path: path.resolve(process.cwd(), '.env') });
 export const prerender = false;
 
 const envRoute = import.meta.env.ADMIN_ROUTE || process.env.ADMIN_ROUTE || '/hidden-admin';
+// adminRouteBase e.g. "admin/cms-portal-access"
 const adminRouteBase = envRoute.replace(/^\//, '').replace(/\/$/, '');
-const { admin_portal } = Astro.params;
 
-// Standardize the param
-const normalizedParam = admin_portal?.replace(/\/$/, '') || '';
+// The [...cms] param captures everything AFTER /admin/
+// e.g. for /admin/cms-portal-access  → cms = "cms-portal-access"
+// e.g. for /admin/cms-portal-access/dashboard → cms = "cms-portal-access/dashboard"
+const { cms } = Astro.params;
+const normalizedParam = `admin/${cms || ''}`.replace(/\/$/, '');
 
-console.log(`[Admin Portal] Path: /${admin_portal}, Expected StartsWith: ${adminRouteBase}`);
+console.log(`[Middleware] Admin Access: /${normalizedParam}, Route: ${adminRouteBase}`);
 
-// If the param doesn't match the hidden route prefix, return 404
+// If the path doesn't start with the configured admin route, return 404
 if (!normalizedParam.startsWith(adminRouteBase)) {
   return Astro.redirect('/404');
 }
 
-// Split the remaining path to handle sub-routes
-// Example: normalizedParam = "admin/cms/dashboard", adminRouteBase = "admin/cms"
-// we want the part after the base
+// Extract the sub-route (the part after the full adminRouteBase)
 const subPath = normalizedParam.substring(adminRouteBase.length).replace(/^\//, '');
 const pathParts = subPath.split('/');
 const subRoute = pathParts[0] || '';
 const id = pathParts[1] || '';
-
-
-
 
 // Check session for protected routes
 const sessionToken = Astro.cookies.get('admin_session')?.value;
@@ -85,7 +83,7 @@ const title = "Admin Portal | Secure CMS";
 </html>
 
 <style is:global>
-  @import '../styles/global.css';
+  @import '../../styles/global.css';
 
   @font-face {
     font-family: 'Inter';

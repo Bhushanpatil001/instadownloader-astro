@@ -6,17 +6,55 @@ import FAQItem from '../components/FAQItem.astro';
 import PlatformIcon from '../components/PlatformIcon.astro';
 import TrendingDownloads from '../components/TrendingDownloads.astro';
 
-const FAQS = [
-  { q: 'How do I download Instagram Reels without watermark?', a: 'Just copy the Reel link, paste it here, and search. We provide the original high-quality MP4 file directly from Instagram.' },
-  { q: 'Is it free to use?', a: 'Yes, our Reel downloader is 100% free with no limits.' },
-  { q: 'Do I need to login?', a: 'No, you can download any public Reel without logging into your account.' },
-  { q: 'Can I download Reels on iPhone?', a: 'Yes, it works perfectly on Safari and all other browsers on iPhone and Android.' },
+import { platforms, ui } from '../data/i18n.js';
+
+const pData = platforms['instagram-reels-downloader']?.en || {};
+const FAQS = pData.faqs || [];
+const STEPS = pData.steps || [];
+const t = ui.en;
+
+const reelsSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'Instagram Reels Downloader — InstaDownloader',
+    url: 'https://instadownloader.co/instagram-reels-downloader',
+    applicationCategory: 'MultimediaApplication',
+    operatingSystem: 'Any',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    alternateName: [
+      'instagram reels downloader', 'download instagram reels',
+      'reels downloader', 'ig reels downloader',
+      'instagram reel saver', 'download reels from instagram',
+      'save instagram reels', 'instagram reels video downloader',
+      'download ig reels', 'instagram reels mp4 downloader',
+      'instagram reels downloader without watermark',
+      'download instagram reels without login',
+    ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      ratingCount: '3760',
+      bestRating: '5',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a },
+    })),
+  },
 ];
 ---
 
 <PageLayout
-  title="Instagram Reels Downloader — Download IG Reels in HD 2026"
-  description="Download Instagram Reels for free in high definition. Simply paste the link and save instantly. No watermark, fast and secure."
+  title={pData.title || "Instagram Reels Downloader — Download IG Reels HD Free, No Watermark 2026"}
+  description={pData.desc || "Download Instagram Reels for free in HD without watermark. Paste any Reel link and save it instantly as MP4. Works on iPhone, Android & PC. No login required."}
+  keywords="instagram reels downloader, download instagram reels, reels downloader, ig reels downloader, save instagram reels, download reels from instagram, instagram reels video downloader, instagram reels mp4 downloader, instagram reels downloader without watermark, download instagram reels without login, instagram reel saver"
+  schema={reelsSchema}
 >
   <section class="max-w-[860px] mx-auto px-5 pt-12 pb-16">
     <div class="text-center mb-10">
@@ -26,7 +64,7 @@ const FAQS = [
         <span>REELS EXCLUSIVE</span>
       </div>
       <h1 class="text-[2.2rem] font-black mb-3" style="color:var(--txt);">
-        Instagram Reels <span style="color:#e1306c;">Downloader</span>
+        {pData.h1 || "Instagram Reels Downloader"}
       </h1>
       <p class="text-[1rem]" style="color:var(--txt2);">
         High-quality Instagram Reels video downloader.
@@ -56,6 +94,25 @@ const FAQS = [
           <p class="text-[0.85rem]" style="color:var(--txt3);">No data logging or tracking. Your downloads are private and secure.</p>
         </div>
       </div>
+
+      {STEPS.length > 0 && (
+        <div class="mb-20">
+          <h2 class="text-[1.5rem] font-bold mb-8 text-center" style="color:var(--txt);">{t['common.how_to'] || "How to Use"}</h2>
+          <div class="p-8 rounded-[24px] border border-[var(--bdr)]" style="background:var(--bg-glass);">
+            <ol class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 list-none p-0">
+              {STEPS.map((s, i) => (
+                <li class="flex gap-4">
+                  <span class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white text-sm bg-[var(--brand)]">{i + 1}</span>
+                  <div>
+                    <strong class="block mb-1 font-bold" style="color:var(--txt);">{s.step}</strong>
+                    <p class="text-[0.85rem] opacity-60 leading-relaxed">{s.detail}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      )}
 
       <h2 class="text-[1.5rem] font-bold mb-8 text-center" style="color:var(--txt);">Frequently Asked Questions</h2>
       <div class="max-w-[800px] mx-auto space-y-4 mb-20">
