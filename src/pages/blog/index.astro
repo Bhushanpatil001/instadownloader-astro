@@ -132,36 +132,40 @@ const remainingBlogs = sortedBlogs.length === 1 ? sortedBlogs : sortedBlogs.slic
           </h2>
           
           <div class="flex items-center gap-3">
-            {/* Custom Category Dropdown */}
+            {/* Custom Category Dropdown — matches language selector style */}
             <div class="relative min-w-[200px]" id="categoryDropdown">
-              <button 
+              <button
                 id="dropdownButton"
-                class="w-full flex items-center justify-between px-6 py-2.5 bg-[var(--bg-glass)] backdrop-blur-xl text-[var(--txt2)] border border-[var(--bdr)] rounded-full text-sm font-semibold hover:border-[var(--brand)]/50 transition-all shadow-sm group"
+                class="w-full flex items-center justify-between px-4 py-2 border border-[var(--bdr)] rounded-xl text-sm font-bold transition-all hover:bg-[var(--bg-glass-h)] text-[var(--txt2)] hover:text-[var(--txt)]"
               >
                 <span class="truncate">{categoryFilter ? (categoryFilter === 'All' ? 'All Categories' : categoryFilter) : 'All Categories'}</span>
-                <svg class="w-4 h-4 text-[var(--txt3)] group-hover:text-[var(--brand)] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
+                <span class="text-[10px] opacity-40 ml-2 transition-transform duration-200" id="dropdownChevron">▼</span>
               </button>
 
-              <div 
+              <div
                 id="dropdownMenu"
-                class="hidden absolute top-full left-0 mt-2 w-full bg-[var(--bg-glass)] backdrop-blur-2xl border border-[var(--bdr)] rounded-2xl shadow-2xl overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200"
+                class="hidden absolute top-full left-0 mt-2 w-full border border-white/10 rounded-xl shadow-2xl z-[10000] overflow-hidden"
+                style="box-shadow: 0 20px 50px rgba(0,0,0,0.5);"
               >
-                <div class="py-1 max-h-60 overflow-y-auto">
+                <div class="p-2 grid grid-cols-1 gap-1 max-h-[260px] overflow-y-auto">
                   {categories.map((cat) => {
                     const isActive = (!categoryFilter && cat === 'All') || categoryFilter === cat;
                     const href = cat === 'All' ? '/blog' : `/blog?category=${encodeURIComponent(cat)}`;
                     return (
-                      <a 
+                      <a
                         href={href}
-                        class={`block px-5 py-2.5 text-sm transition-colors ${
-                          isActive 
-                            ? 'bg-[var(--brand)]/10 text-[var(--brand)] font-bold' 
-                            : 'text-[var(--txt2)] hover:bg-white/5 hover:text-[var(--brand)]'
+                        class={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all ${
+                          isActive
+                            ? 'bg-[var(--brand)] text-white'
+                            : 'text-[var(--txt2)] hover:bg-[var(--bg-glass-h)] hover:text-[var(--txt)]'
                         }`}
                       >
-                        {cat === 'All' ? 'All Categories' : cat}
+                        <span>{cat === 'All' ? 'All Categories' : cat}</span>
+                        {isActive && (
+                          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                        )}
                       </a>
                     );
                   })}
@@ -187,22 +191,39 @@ const remainingBlogs = sortedBlogs.length === 1 ? sortedBlogs : sortedBlogs.slic
         </div>
 
         <script is:inline>
-          const dropdown = document.getElementById('categoryDropdown');
-          const button = document.getElementById('dropdownButton');
-          const menu = document.getElementById('dropdownMenu');
+          (function () {
+            const dropdown = document.getElementById('categoryDropdown');
+            const button   = document.getElementById('dropdownButton');
+            const menu     = document.getElementById('dropdownMenu');
+            const chevron  = document.getElementById('dropdownChevron');
 
-          button?.addEventListener('click', (e) => {
-            e.stopPropagation();
-            menu?.classList.toggle('hidden');
-            button.classList.toggle('border-[var(--brand)]');
-          });
-
-          document.addEventListener('click', (e) => {
-            if (!dropdown?.contains(e.target)) {
-              menu?.classList.add('hidden');
-              button?.classList.remove('border-[var(--brand)]');
+            function applyBg() {
+              const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+              if (menu) menu.style.background = theme === 'dark' ? '#1a1a2e' : '#ffffff';
             }
-          });
+            applyBg();
+
+            button?.addEventListener('click', (e) => {
+              e.stopPropagation();
+              const isOpen = !menu.classList.contains('hidden');
+              if (isOpen) {
+                menu.classList.add('hidden');
+                if (chevron) chevron.style.transform = 'rotate(0deg)';
+              } else {
+                applyBg();
+                menu.classList.remove('hidden');
+                menu.style.animation = 'catSlideDown 0.18s ease-out forwards';
+                if (chevron) chevron.style.transform = 'rotate(180deg)';
+              }
+            });
+
+            document.addEventListener('click', (e) => {
+              if (!dropdown?.contains(e.target)) {
+                menu?.classList.add('hidden');
+                if (chevron) chevron.style.transform = 'rotate(0deg)';
+              }
+            });
+          })();
         </script>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -366,18 +387,17 @@ const remainingBlogs = sortedBlogs.length === 1 ? sortedBlogs : sortedBlogs.slic
   }
 
   @keyframes dropdownFadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes catSlideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   #dropdownMenu:not(.hidden) {
-    animation: dropdownFadeIn 0.2s ease-out forwards;
+    animation: catSlideDown 0.18s ease-out forwards;
   }
   
   .grid > a {
