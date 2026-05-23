@@ -19,9 +19,20 @@ const igSchema = [
     '@type': 'WebApplication',
     name: 'Instagram Downloader — InstaDownloader',
     url: `${SITE_URL}/instagram`,
+    description: pData.desc || 'Free Instagram video downloader. Download Instagram reels, posts, stories, IGTV and photos in HD. No login, no watermark, instant save.',
     applicationCategory: 'MultimediaApplication',
     operatingSystem: 'Any',
+    browserRequirements: 'Requires JavaScript. Requires HTML5.',
+    image: `${SITE_URL}/og-image.png`,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'InstaDownloader',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/favicon.ico`
+      }
+    },
     alternateName: [
       'instagram downloader', 'instadownloader', 'insta downloader',
       'igram', 'igram.io', 'instagram video downloader',
@@ -52,7 +63,7 @@ const igSchema = [
 ---
 
 <PageLayout
-  title={pData.title || "Instagram Downloader — Download Reels, Posts, Stories & IGTV Free 2026"}
+  title={pData.title || "Instagram Video Downloader — Download Reels, Posts, Stories & IGTV Free 2026"}
   description={pData.desc || "Free Instagram video downloader. Download Instagram reels, posts, stories, IGTV and photos in HD. No login, no watermark, instant save. Works on Android, iPhone & PC."}
   keywords="instagram downloader, instadownloader, insta downloader, igram, instagram video downloader, instagram reels downloader, instagram photo downloader, instagram story downloader, download instagram reels, ig downloader, instagram saver, save instagram videos, download instagram videos free, instagram story saver, instagram video saver, reels downloader, download instagram without login"
   schema={igSchema}

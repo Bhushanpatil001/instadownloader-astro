@@ -12,15 +12,27 @@ const pData = platforms['x']?.en || {};
 const FAQS = pData.faqs || [];
 const STEPS = pData.steps || [];
 const t = ui.en;
+
 const xSchema = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: 'X Twitter Video Downloader — InstaDownloader',
     url: `${SITE_URL}/x`,
+    description: pData.desc || 'Free Twitter & X video downloader. Download X (Twitter) videos, GIFs and photos in HD.',
     applicationCategory: 'MultimediaApplication',
     operatingSystem: 'Any',
+    browserRequirements: 'Requires JavaScript. Requires HTML5.',
+    image: `${SITE_URL}/og-image.png`,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'InstaDownloader',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/favicon.ico`
+      }
+    },
     alternateName: [
       'twitter video downloader', 'x video downloader',
       'twitter downloader', 'x downloader',

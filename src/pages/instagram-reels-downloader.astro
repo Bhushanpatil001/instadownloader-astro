@@ -20,9 +20,20 @@ const reelsSchema = [
     '@type': 'WebApplication',
     name: 'Instagram Reels Downloader — InstaDownloader',
     url: `${SITE_URL}/instagram-reels-downloader`,
+    description: pData.desc || 'Download Instagram Reels for free in HD without watermark. Paste any Reel link and save it instantly as MP4.',
     applicationCategory: 'MultimediaApplication',
     operatingSystem: 'Any',
+    browserRequirements: 'Requires JavaScript. Requires HTML5.',
+    image: `${SITE_URL}/og-image.png`,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'InstaDownloader',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/favicon.ico`
+      }
+    },
     alternateName: [
       'instagram reels downloader', 'download instagram reels',
       'reels downloader', 'ig reels downloader',

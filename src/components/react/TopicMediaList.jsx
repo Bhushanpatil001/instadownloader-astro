@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AdSlot from './AdSlot';
+import { getProxiedImageUrl } from '../../utils/downloadUtils';
 
 const BACKEND = import.meta.env?.PUBLIC_BACKEND_URL ?? 'https://backend.instadownloader.app/api';
 
@@ -26,7 +27,7 @@ const TopicMediaCard = ({ url, platform, apiEndpoint, fallbackTitle, t = {} }) =
           const item = Array.isArray(data) ? data.find(i => i?.url) : (data.result?.[0] || data.result || data.data?.[0] || data.data || data);
           mapped.thumbnail = item?.thumbnail || item?.url || '';
           mapped.downloadUrl = item?.url || '';
-        } else if (platform === 'youtube') {
+        } else if ( platform === 'yt' || platform === 'youtube') {
           mapped.downloadUrl = data.mp4 || data.videoUrl || data.HD || '';
         } else if (platform === 'facebook') {
           mapped.downloadUrl = data.hd || data.sd || data.url || '';
@@ -38,6 +39,8 @@ const TopicMediaCard = ({ url, platform, apiEndpoint, fallbackTitle, t = {} }) =
         } else if (platform === 'pinterest') {
           mapped.downloadUrl = data.data?.url || data.url || '';
         }
+
+        mapped.thumbnail = getProxiedImageUrl(mapped.thumbnail);
 
         if (mapped.downloadUrl) setMedia(mapped);
         else setError(true);

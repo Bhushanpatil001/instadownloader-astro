@@ -124,11 +124,81 @@ export default function Header({ lang = 'en', slug = '' }) {
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('id-theme', next);
   };
-
   const getLocalizedHref = (s, l = preferredLang) => {
     if (s === 'blog') return '/blog';
     if (!s) return l === 'en' ? '/' : `/${l}`;
     return l === 'en' ? `/${s}` : `/${l}/${s}`;
+  };
+
+  const isItemActive = (navSlug) => {
+    if (navSlug === '') {
+      return slug === '';
+    }
+    if (navSlug === 'blog') {
+      return slug.startsWith('blog');
+    }
+    const segments = slug.split(/[-/]/);
+    return segments.includes(navSlug) || slug === navSlug;
+  };
+
+  const getActiveStyle = (navSlug) => {
+    const active = isItemActive(navSlug);
+    if (!active) return { color: 'var(--txt2)' };
+    
+    if (navSlug === 'instagram') {
+      return {
+        background: 'rgba(220, 39, 67, 0.09)',
+        borderColor: 'rgba(220, 39, 67, 0.35)',
+        color: '#dc2743',
+      };
+    }
+    if (navSlug === 'yt') {
+      return {
+        background: 'rgba(255, 0, 0, 0.09)',
+        borderColor: 'rgba(255, 0, 0, 0.35)',
+        color: '#ff0000',
+      };
+    }
+    if (navSlug === 'facebook') {
+      return {
+        background: 'rgba(24, 119, 242, 0.09)',
+        borderColor: 'rgba(24, 119, 242, 0.35)',
+        color: '#1877f2',
+      };
+    }
+    if (navSlug === 'pinterest') {
+      return {
+        background: 'rgba(230, 0, 35, 0.09)',
+        borderColor: 'rgba(230, 0, 35, 0.35)',
+        color: '#e60023',
+      };
+    }
+    if (navSlug === 'tiktok') {
+      return {
+        background: 'rgba(0, 242, 234, 0.07)',
+        borderColor: 'rgba(0, 242, 234, 0.3)',
+        color: 'var(--brand)',
+      };
+    }
+    if (navSlug === 'x') {
+      return {
+        background: 'rgba(100, 116, 139, 0.09)',
+        borderColor: 'rgba(100, 116, 139, 0.35)',
+        color: 'var(--txt)',
+      };
+    }
+    if (navSlug === 'blog') {
+      return {
+        background: 'rgba(124, 58, 237, 0.09)',
+        borderColor: 'rgba(124, 58, 237, 0.35)',
+        color: 'var(--brand)',
+      };
+    }
+    return {
+      background: 'rgba(124, 58, 237, 0.09)',
+      borderColor: 'rgba(124, 58, 237, 0.35)',
+      color: 'var(--brand)',
+    };
   };
 
   return (
@@ -142,14 +212,17 @@ export default function Header({ lang = 'en', slug = '' }) {
         </a>
 
         <nav className="hidden md:flex items-center gap-1 flex-1 justify-center">
-          {NAV.map(({ slug: navSlug, label, icon }) => (
-            <button key={navSlug} onClick={() => navigate(getLocalizedHref(navSlug))}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl text-[0.85rem] font-semibold transition-all hover:bg-[var(--bg-glass-h)]"
-              style={{ color: lang === (navSlug || 'en') ? 'var(--brand)' : 'var(--txt2)' }}>
-              {icon}
-              <span>{label}</span>
-            </button>
-          ))}
+          {NAV.map(({ slug: navSlug, label, icon }) => {
+            const active = isItemActive(navSlug);
+            return (
+              <button key={navSlug} onClick={() => navigate(getLocalizedHref(navSlug))}
+                className={`nav-link flex items-center gap-2 px-4 py-2 rounded-xl text-[0.85rem] font-semibold border transition-all ${active ? 'active' : 'border-transparent'}`}
+                style={getActiveStyle(navSlug)}>
+                {icon}
+                <span>{label}</span>
+              </button>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -198,13 +271,17 @@ export default function Header({ lang = 'en', slug = '' }) {
       {menuOpen && (
         <div className="md:hidden border-t border-[var(--bdr)] bg-[var(--bg-glass)] backdrop-blur-xl animate-slideDown">
           <div className="p-4 flex flex-col gap-2">
-            {NAV.map(({ slug: navSlug, label, icon }) => (
-              <button key={navSlug} onClick={() => { navigate(getLocalizedHref(navSlug)); setMenuOpen(false); }}
-                className="flex items-center gap-4 px-5 py-4 rounded-2xl text-[0.95rem] font-bold text-[var(--txt2)] transition-all hover:bg-[var(--bg-glass-h)] hover:text-[var(--txt)]">
-                {icon}
-                <span>{label}</span>
-              </button>
-            ))}
+            {NAV.map(({ slug: navSlug, label, icon }) => {
+              const active = isItemActive(navSlug);
+              return (
+                <button key={navSlug} onClick={() => { navigate(getLocalizedHref(navSlug)); setMenuOpen(false); }}
+                  className={`nav-link flex items-center gap-4 px-5 py-3.5 rounded-2xl text-[0.95rem] font-bold transition-all border ${active ? 'active' : 'border-transparent'}`}
+                  style={getActiveStyle(navSlug)}>
+                  {icon}
+                  <span>{label}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
       )}
@@ -213,6 +290,17 @@ export default function Header({ lang = 'en', slug = '' }) {
         [data-theme="light"] header[data-theme-el="header"] { background: rgba(240,242,248,0.88) !important; }
         [data-theme="light"] div[style*="rgba(15,15,26,0.97)"] { background: rgba(240,242,248,0.97) !important; }
         @keyframes slideDown { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:translateY(0); } }
+        .nav-link {
+          transition: all var(--dur) var(--ease);
+        }
+        .nav-link:hover {
+          color: var(--txt) !important;
+          border-color: var(--bdr-h) !important;
+          background: var(--bg-glass-h) !important;
+        }
+        .nav-link.active {
+          font-weight: 700;
+        }
       `}</style>
     </header>
   );

@@ -12,15 +12,27 @@ const pData = platforms['facebook']?.en || {};
 const FAQS = pData.faqs || [];
 const STEPS = pData.steps || [];
 const t = ui.en;
+
 const fbSchema = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: 'Facebook Video Downloader — InstaDownloader',
     url: `${SITE_URL}/facebook`,
+    description: pData.desc || 'Free Facebook video downloader. Download Facebook videos, reels and stories in HD. No login required. Fast & secure.',
     applicationCategory: 'MultimediaApplication',
     operatingSystem: 'Any',
+    browserRequirements: 'Requires JavaScript. Requires HTML5.',
+    image: `${SITE_URL}/og-image.png`,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'InstaDownloader',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/favicon.ico`
+      }
+    },
     alternateName: [
       'facebook video downloader', 'fb video downloader',
       'facebook downloader', 'fb downloader', 'fdown',

@@ -47,7 +47,9 @@ const currentLocale = languages[currentLang]?.locale || 'en_US';
 const SERVE_ADS = import.meta.env.PUBLIC_SERVE_ADS === 'true';
 const AD_CLIENT  = 'ca-pub-2219975169694529';
 
-// Default Organisation + WebSite schema injected on every page
+const isHomePage = purePath === '/' || purePath === '';
+
+// Default Organisation + WebSite schema injected ONLY on home page
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -56,6 +58,7 @@ const orgSchema = {
   logo: `${siteUrl}/favicon.ico`,
   sameAs: [],
 };
+
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -67,8 +70,72 @@ const websiteSchema = {
     'query-input': 'required name=search_term_string',
   },
 };
-// Merge schemas: always include org+website, plus optional page-level schema(s)
-const allSchemas: object[] = [orgSchema, websiteSchema];
+
+// Dynamic BreadcrumbList generation
+const breadcrumbItems = [];
+const pathSegments = url.pathname.split('/').filter(Boolean);
+
+let relativePathSegments = [...pathSegments];
+let isLangPrefix = false;
+if (pathSegments.length > 0 && languages[pathSegments[0]]) {
+  relativePathSegments.shift();
+  isLangPrefix = true;
+}
+
+if (relativePathSegments.length > 0) {
+  breadcrumbItems.push({
+    '@type': 'ListItem',
+    position: 1,
+    name: 'Home',
+    item: isLangPrefix ? `${siteUrl}/${pathSegments[0]}` : siteUrl,
+  });
+
+  let currentPath = isLangPrefix ? `/${pathSegments[0]}` : '';
+  relativePathSegments.forEach((segment, index) => {
+    currentPath += `/${segment}`;
+    let name = segment.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    
+    if (segment === 'yt') name = 'YouTube Downloader';
+    else if (segment === 'instagram') name = 'Instagram Downloader';
+    else if (segment === 'instagram-reels-downloader') name = 'Instagram Reels Downloader';
+    else if (segment === 'youtube-shorts-downloader') name = 'YouTube Shorts Downloader';
+    else if (segment === 'tiktok') name = 'TikTok Downloader';
+    else if (segment === 'facebook') name = 'Facebook Downloader';
+    else if (segment === 'pinterest') name = 'Pinterest Downloader';
+    else if (segment === 'x') name = 'X Downloader';
+    else if (segment === 'blog') name = 'Blog';
+    else if (segment.startsWith('download-')) {
+      const platformName = segment.split('-')[1] || '';
+      const displayPlat = platformName.toUpperCase();
+      name = `${displayPlat} Downloader`;
+    }
+
+    breadcrumbItems.push({
+      '@type': 'ListItem',
+      position: index + 2,
+      name: name,
+      item: `${siteUrl}${currentPath}`,
+    });
+  });
+}
+
+const breadcrumbSchema = breadcrumbItems.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems,
+} : null;
+
+// Merge schemas: always include org+website on home, plus breadcrumbs, plus page-level schemas
+const allSchemas: object[] = [];
+
+if (isHomePage) {
+  allSchemas.push(orgSchema, websiteSchema);
+}
+
+if (breadcrumbSchema) {
+  allSchemas.push(breadcrumbSchema);
+}
+
 if (schema) {
   if (Array.isArray(schema)) allSchemas.push(...schema);
   else allSchemas.push(schema);

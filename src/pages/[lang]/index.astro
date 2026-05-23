@@ -12,6 +12,13 @@ if (!lang || !languages[lang]) {
 }
 const t = { ...ui.en, ...ui[lang] };
 
+const FAQS = [
+  { q: t['faq.q1'] || "Is this downloader free?", a: t['faq.a1'] || "Yes, our service is 100% free with no hidden charges or premium subscriptions." },
+  { q: t['faq.q2'] || "Do I need to create an account?", a: t['faq.a2'] || "No, you can download any public content anonymously without sign-up." },
+  { q: t['faq.q3'] || "Which platforms are supported?", a: t['faq.a3'] || "We support Instagram, YouTube, Facebook, TikTok, Pinterest, and X (Twitter)." },
+  { q: t['faq.q4'] || "Is there a download limit?", a: t['faq.a4'] || "No, you can download an unlimited number of videos and images every day." }
+];
+
 const homeSchema = [
   {
     '@context': 'https://schema.org',
@@ -28,12 +35,22 @@ const homeSchema = [
       bestRating: '5',
     },
   },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a },
+    })),
+  },
 ];
 ---
 
 <PageLayout
   title={t['home.title']}
   description={t['home.desc']}
+  keywords={t['home.keywords']}
   schema={homeSchema}
 >
   <HomeContent lang={lang} />

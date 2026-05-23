@@ -20,9 +20,20 @@ const shortsSchema = [
     '@type': 'WebApplication',
     name: 'YouTube Shorts Downloader — InstaDownloader',
     url: `${SITE_URL}/youtube-shorts-downloader`,
+    description: pData.desc || 'Download YouTube Shorts for free in HD as MP4 or MP3. Paste any Shorts link and save instantly.',
     applicationCategory: 'MultimediaApplication',
     operatingSystem: 'Any',
+    browserRequirements: 'Requires JavaScript. Requires HTML5.',
+    image: `${SITE_URL}/og-image.png`,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'InstaDownloader',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/favicon.ico`
+      }
+    },
     alternateName: [
       'youtube shorts downloader', 'download youtube shorts',
       'shorts downloader', 'yt shorts downloader',

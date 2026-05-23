@@ -50,7 +50,7 @@ const currentUrl = Astro.url.href;
           {share.image && (
             <div class="mb-8 rounded-2xl overflow-hidden border border-white/10 shadow-inner bg-black/20">
               <img 
-                src={share.image} 
+                src={share.image.startsWith('/') || share.image.startsWith('data:') ? share.image : `/api/proxy-image?url=${encodeURIComponent(share.image)}`} 
                 alt={share.title} 
                 class="w-full h-auto max-h-[300px] object-contain mx-auto"
               />

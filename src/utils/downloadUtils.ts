@@ -34,6 +34,12 @@ export function detectPlatform(url: string) {
   return null;
 }
 
+export function getProxiedImageUrl(url: string) {
+  if (!url) return '';
+  if (url.startsWith('/') || url.startsWith('data:') || url.includes('placehold.co')) return url;
+  return `/api/proxy-image?url=${encodeURIComponent(url)}`;
+}
+
 export function mapResult(data: any, platform: string, urlToCheck: string) {
   const plat = platform.toLowerCase();
   if (plat === 'facebook' || plat === 'fb') {
@@ -42,7 +48,7 @@ export function mapResult(data: any, platform: string, urlToCheck: string) {
     const links = [];
     if (sd) links.push({ url: sd, label: '⬇ Download SD', subLabel: 'Standard Quality', filename: 'fb-video-sd.mp4', btnClass: 'fb' });
     if (hd) links.push({ url: hd, label: '⬇ Download HD', subLabel: 'High Quality', filename: 'fb-video-hd.mp4', btnClass: 'purple' });
-    return { title: data.title || 'Facebook Video', thumbnail: data.thumbnail || data?.data?.thumbnail || '', links };
+    return { title: data.title || 'Facebook Video', thumbnail: getProxiedImageUrl(data.thumbnail || data?.data?.thumbnail || ''), links };
   }
   if (plat === 'instagram' || plat === 'ig') {
     if (data?.status === false) throw new Error(data.message || 'Private or unavailable.');
@@ -51,7 +57,7 @@ export function mapResult(data: any, platform: string, urlToCheck: string) {
     const vid = item.type?.toLowerCase()?.includes('video') || item.url?.includes('.mp4') || /\/(reel|reels|tv)\//.test(urlToCheck || '');
     return {
       title: vid ? '🎬 Video Ready To Download' : ' Content Ready To Download',
-      thumbnail: item.thumbnail || item.url,
+      thumbnail: getProxiedImageUrl(item.thumbnail || item.url),
       links: [{ url: item.url, label: '⬇ Download', subLabel: vid ? 'Download Video' : 'Download Content', filename: `instagram.${vid ? 'mp4' : 'jpg'}`, btnClass: 'ig' }]
     };
   }
@@ -63,22 +69,22 @@ export function mapResult(data: any, platform: string, urlToCheck: string) {
     const links = [];
     if (mp4) links.push({ url: mp4, label: '⬇ Download MP4', subLabel: 'HD Video', filename: `${s}.mp4`, btnClass: 'yt' });
     if (mp3) links.push({ url: mp3, label: '🎵 Download MP3', subLabel: 'Audio Only', filename: `${s}.mp3`, btnClass: 'green' });
-    return { title: t, thumbnail: data.thumbnail || data.thumb || '', links };
+    return { title: t, thumbnail: getProxiedImageUrl(data.thumbnail || data.thumb || ''), links };
   }
   if (plat === 'tiktok' || plat === 'tt') {
     const links = [];
     if (data.video) links.push({ url: data.video, label: '⬇ Download Video', subLabel: 'No Watermark (HD)', filename: `tiktok-${Date.now()}.mp4`, btnClass: 'tiktok' });
     if (data.audio) links.push({ url: data.audio, label: '🎵 Download Audio', subLabel: 'MP3', filename: `tiktok-audio-${Date.now()}.mp3`, btnClass: 'green' });
-    return { title: data.title || 'TikTok Content', thumbnail: data.thumbnail || '', links };
+    return { title: data.title || 'TikTok Content', thumbnail: getProxiedImageUrl(data.thumbnail || ''), links };
   }
   if (plat === 'x' || plat === 'twitter') {
     if (!data.success || !data.data?.medias?.length) throw new Error('Private or unavailable content.');
     const m = data.data.medias[0];
     const vid = m.type === 'video';
     return {
-      title: data.data.title || 'X Content', 
-      thumbnail: data.data.thumbnail || m.url,
-      links: [{ url: m.url, label: `⬇ Download ${vid ? 'MP4' : 'Image'}`, subLabel: vid ? 'HD Video' : 'HD Image', filename: `x-${Date.now()}`, btnClass: 'x' }] 
+      title: data.data.title || 'X Content',
+      thumbnail: getProxiedImageUrl(data.data.thumbnail || m.url),
+      links: [{ url: m.url, label: `⬇ Download ${vid ? 'MP4' : 'Image'}`, subLabel: vid ? 'HD Video' : 'HD Image', filename: `x-${Date.now()}`, btnClass: 'x' }]
     };
   }
   if (plat === 'pinterest' || plat === 'pin') {
@@ -87,9 +93,9 @@ export function mapResult(data: any, platform: string, urlToCheck: string) {
     const url = item.url || item.link || item.downloadUrl || '';
     const vid = url.includes('.mp4');
     return {
-      title: item.title || 'Pinterest Content', 
-      thumbnail: item.thumbnail || item.image || '',
-      links: [{ url, label: `⬇ Download ${vid ? 'MP4' : 'Image'}`, subLabel: vid ? 'HD Video' : 'HD Image', filename: `pin-${Date.now()}`, btnClass: 'pin' }] 
+      title: item.title || 'Pinterest Content',
+      thumbnail: getProxiedImageUrl(item.thumbnail || item.image || ''),
+      links: [{ url, label: `⬇ Download ${vid ? 'MP4' : 'Image'}`, subLabel: vid ? 'HD Video' : 'HD Image', filename: `pin-${Date.now()}`, btnClass: 'pin' }]
     };
   }
   return null;

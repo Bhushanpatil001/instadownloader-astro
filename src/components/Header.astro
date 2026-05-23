@@ -1,13 +1,38 @@
 ---
+import { languages, ui } from '../data/i18n.js';
+
+const url = new URL(Astro.url.href);
+const pathParts = url.pathname.split('/').filter(Boolean);
+
+let lang = 'en';
+if (pathParts.length > 0 && languages[pathParts[0]]) {
+  lang = pathParts[0];
+}
+
+const t = { ...ui.en, ...ui[lang] };
+
 const NAV = [
-  { href: '/instagram', label: 'Instagram' },
-  { href: '/yt',        label: 'YouTube'   },
-  { href: '/facebook',  label: 'Facebook'  },
-  { href: '/pinterest', label: 'Pinterest' },
-  { href: '/x',         label: 'X'         },
-  { href: '/tiktok',    label: 'TikTok'    },
-  { href: '/blog',      label: 'Blog'      },
+  { slug: 'instagram', label: t['nav.instagram'] || 'Instagram' },
+  { slug: 'yt',        label: t['nav.youtube'] || 'YouTube'   },
+  { slug: 'facebook',  label: t['nav.facebook'] || 'Facebook'  },
+  { slug: 'pinterest', label: t['nav.pinterest'] || 'Pinterest' },
+  { slug: 'x',         label: t['nav.x'] || 'X'         },
+  { slug: 'tiktok',    label: t['nav.tiktok'] || 'TikTok'    },
+  { slug: 'blog',      label: t['nav.blog'] || 'Blog'      },
 ];
+
+const getLocalizedHref = (slug) => {
+  return lang === 'en' ? `/${slug}` : `/${lang}/${slug}`;
+};
+
+const isItemActive = (slug) => {
+  const currentPath = url.pathname;
+  if (slug === 'blog') {
+    return currentPath.includes('/blog');
+  }
+  const segments = currentPath.split(/[\/-]/);
+  return segments.includes(slug);
+};
 ---
 
 <header id="site-header"
@@ -17,24 +42,45 @@ const NAV = [
   <div class="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between gap-4">
 
     <!-- Logo -->
-    <a href="/" class="text-[1.4rem] font-black tracking-tight whitespace-nowrap shrink-0"
+    <a href={lang === 'en' ? '/' : `/${lang}`} class="text-[1.4rem] font-black tracking-tight whitespace-nowrap shrink-0"
       style="background:var(--g-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
       ⬇ Downloader
     </a>
 
     <!-- Desktop nav -->
     <nav class="hidden md:flex items-center gap-1 flex-1 justify-center">
-      {NAV.map(({ href, label }) => (
-        <a href={href}
-          class="flex items-center gap-2 px-[14px] py-[7px] rounded-[10px] text-sm font-medium border border-transparent transition-all
-            hover:border-[var(--bdr-h)] hover:bg-[var(--bg-glass-h)]"
-          style="color:var(--txt2);"
-          onmouseover="this.style.color='var(--txt)'"
-          onmouseout="this.style.color='var(--txt2)'"
-          data-navlink>
-          {label}
-        </a>
-      ))}
+      {NAV.map(({ slug, label }) => {
+        const active = isItemActive(slug);
+        const href = getLocalizedHref(slug);
+        
+        let activeStyle = "color:var(--txt2);";
+        if (active) {
+          if (slug === 'instagram') {
+            activeStyle = "background:rgba(220,39,67,0.09);border-color:rgba(220,39,67,0.35);color:var(--txt);";
+          } else if (slug === 'yt') {
+            activeStyle = "background:rgba(255,0,0,0.09);border-color:rgba(255,0,0,0.35);color:var(--txt);";
+          } else if (slug === 'facebook') {
+            activeStyle = "background:rgba(24,119,242,0.09);border-color:rgba(24,119,242,0.35);color:var(--txt);";
+          } else if (slug === 'pinterest') {
+            activeStyle = "background:rgba(230,0,35,0.09);border-color:rgba(230,0,35,0.35);color:var(--txt);";
+          } else if (slug === 'x') {
+            activeStyle = "background:rgba(100,116,139,0.09);border-color:rgba(100,116,139,0.35);color:var(--txt);";
+          } else if (slug === 'tiktok') {
+            activeStyle = "background:rgba(0,242,234,0.07);border-color:rgba(0,242,234,0.3);color:var(--txt);";
+          } else if (slug === 'blog') {
+            activeStyle = "background:rgba(124,58,237,0.09);border-color:rgba(124,58,237,0.35);color:var(--txt);";
+          }
+        }
+
+        return (
+          <a href={href}
+            class={`nav-link flex items-center gap-2 px-[14px] py-[7px] rounded-[10px] text-sm font-medium border transition-all ${active ? 'active' : 'border-transparent'}`}
+            style={activeStyle}
+            data-navlink>
+            {label}
+          </a>
+        );
+      })}
     </nav>
 
     <!-- Right controls -->
@@ -62,17 +108,53 @@ const NAV = [
   <!-- Mobile menu -->
   <div id="mobile-menu" class="hidden md:hidden flex-col gap-1 px-6 pb-4 pt-3 border-t border-[var(--bdr)]"
     style="background:rgba(15,15,26,0.97);">
-    {NAV.map(({ href, label }) => (
-      <a href={href}
-        class="flex items-center gap-[10px] px-[14px] py-[10px] rounded-[10px] text-[0.9rem] font-medium transition-all hover:bg-[var(--bg-glass-h)]"
-        style="color:var(--txt2);"
-        onmouseover="this.style.color='var(--txt)'"
-        onmouseout="this.style.color='var(--txt2)'">
-        {label}
-      </a>
-    ))}
+    {NAV.map(({ slug, label }) => {
+      const active = isItemActive(slug);
+      const href = getLocalizedHref(slug);
+      
+      let activeStyle = "color:var(--txt2);";
+      if (active) {
+        if (slug === 'instagram') {
+          activeStyle = "background:rgba(220,39,67,0.09);color:var(--txt);";
+        } else if (slug === 'yt') {
+          activeStyle = "background:rgba(255,0,0,0.09);color:var(--txt);";
+        } else if (slug === 'facebook') {
+          activeStyle = "background:rgba(24,119,242,0.09);color:var(--txt);";
+        } else if (slug === 'pinterest') {
+          activeStyle = "background:rgba(230,0,35,0.09);color:var(--txt);";
+        } else if (slug === 'x') {
+          activeStyle = "background:rgba(100,116,139,0.09);color:var(--txt);";
+        } else if (slug === 'tiktok') {
+          activeStyle = "background:rgba(0,242,234,0.07);color:var(--txt);";
+        } else if (slug === 'blog') {
+          activeStyle = "background:rgba(124,58,237,0.09);color:var(--txt);";
+        }
+      }
+
+      return (
+        <a href={href}
+          class={`nav-link flex items-center gap-[10px] px-[14px] py-[10px] rounded-[10px] text-[0.9rem] font-medium transition-all ${active ? 'active' : ''}`}
+          style={activeStyle}>
+          {label}
+        </a>
+      );
+    })}
   </div>
 </header>
+
+<style>
+  .nav-link {
+    transition: all var(--dur) var(--ease);
+  }
+  .nav-link:hover {
+    color: var(--txt) !important;
+    border-color: var(--bdr-h) !important;
+    background: var(--bg-glass-h) !important;
+  }
+  .nav-link.active {
+    font-weight: 600;
+  }
+</style>
 
 <script>
   // Theme toggle

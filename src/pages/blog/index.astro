@@ -28,11 +28,30 @@ const categories = ['All', ...new Set(blogs.map(b => b.category).filter(Boolean)
 
 const featuredBlog = sortedBlogs[0];
 const remainingBlogs = sortedBlogs.length === 1 ? sortedBlogs : sortedBlogs.slice(1);
+
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://instadownloader.app';
+
+const blogIndexSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'InstaDownloader Blog',
+  url: `${SITE_URL}/blog`,
+  description: 'Explore the latest trends, tips, and tricks in modern web development, social media growth, and digital content tools.',
+  publisher: {
+    '@type': 'Organization',
+    name: 'InstaDownloader',
+    logo: {
+      '@type': 'ImageObject',
+      url: `${SITE_URL}/favicon.ico`
+    }
+  }
+};
 ---
 
 <PageLayout 
   title="Our Blog | Premium Insights & Tech Updates" 
   description="Explore the latest trends, tips, and tricks in modern web development and digital tools."
+  schema={blogIndexSchema}
 >
   <main class="min-h-screen pt-6 pb-12 px-6 bg-gradient-to-b from-[var(--bg-base)] to-[var(--bg-glass)]">
     <div class="max-w-7xl mx-auto">

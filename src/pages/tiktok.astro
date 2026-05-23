@@ -12,15 +12,27 @@ const pData = platforms['tiktok']?.en || {};
 const FAQS = pData.faqs || [];
 const STEPS = pData.steps || [];
 const t = ui.en;
+
 const ttSchema = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: 'TikTok Downloader — InstaDownloader',
     url: `${SITE_URL}/tiktok`,
+    description: pData.desc || 'Download TikTok videos without watermark in HD for free. Save TikTok as MP4 or extract MP3 audio.',
     applicationCategory: 'MultimediaApplication',
     operatingSystem: 'Any',
+    browserRequirements: 'Requires JavaScript. Requires HTML5.',
+    image: `${SITE_URL}/og-image.png`,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'InstaDownloader',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/favicon.ico`
+      }
+    },
     alternateName: [
       'tiktok downloader', 'tiktok video downloader',
       'tiktok downloader no watermark', 'tiktok saver',
@@ -50,7 +62,7 @@ const ttSchema = [
 ---
 
 <PageLayout
-  title={pData.title || "TikTok Downloader — Download TikTok Videos Without Watermark HD 2026"}
+  title={pData.title || "TikTok Video Downloader — Download TikTok Videos Without Watermark HD 2026"}
   description={pData.desc || "Download TikTok videos without watermark in HD for free. Save TikTok as MP4 or extract MP3 audio. No registration, no watermark, instant download. Works on all devices."}
   keywords="tiktok downloader, tiktok downloader no watermark, download tiktok without watermark, tiktok video downloader, save tiktok without watermark, tiktok saver, download tiktok videos, tiktok mp4 downloader, tiktok mp3 downloader, tiktok audio downloader, snaptik, ssstiktok, tiktok video saver, tiktok downloader online free, tikmate"
   schema={ttSchema}

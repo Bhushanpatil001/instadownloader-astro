@@ -12,7 +12,7 @@ export default function HomeDownloader({ lang = 'en' }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [result, setResult] = useState(null);
-
+  const thumbnail = Array.isArray(result) ? result[0]?.thumbnail : result?.thumbnail;
   const t = { ...ui.en, ...ui[lang] };
 
   const PLATFORMS_RAW = [
@@ -79,6 +79,9 @@ export default function HomeDownloader({ lang = 'en' }) {
           {t['home.desc']}
         </p>
 
+        <div className="max-w-[800px] mx-auto px-5 relative z-0">
+           <AdSlot slot="1601408852" className="mt-8 mb-0" />
+        </div>
         {/* Search - Ensure high z-index to avoid ad overlap */}
         <form onSubmit={handleSearch} className="flex gap-2 max-w-[660px] mx-auto relative z-20 flex-col sm:flex-row">
           <input type="text" value={url} onChange={e => setUrl(e.target.value)}
@@ -92,9 +95,6 @@ export default function HomeDownloader({ lang = 'en' }) {
           </button>
         </form>
 
-        <div className="max-w-[800px] mx-auto px-5 relative z-0">
-           <AdSlot slot="1601408852" className="mt-8 mb-0" />
-        </div>
       </section>
 
       {/* Feedback */}
@@ -112,9 +112,9 @@ export default function HomeDownloader({ lang = 'en' }) {
         )}
         {result && !loading && (
           <div className="flex flex-col sm:flex-row gap-5 p-6 rounded-[20px] mt-4 border border-[var(--bdr)]" style={{ background:'var(--bg-glass)', animation:'fadeInUp 300ms ease' }}>
-            {result.thumbnail && (
+            {thumbnail && (
               <div className="w-full sm:max-w-[160px] min-h-[130px] rounded-xl overflow-hidden shrink-0" style={{ background:'var(--bg-surf)' }}>
-                <img src={result.thumbnail} alt="preview" className="w-full h-full object-cover" />
+                <img src={thumbnail} alt="preview" className="w-full h-full object-cover" />
               </div>
             )}
             <div className="flex-1">

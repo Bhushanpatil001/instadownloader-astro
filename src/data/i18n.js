@@ -45,15 +45,16 @@ export const ui = {
       "platform.tiktok": "TikTok",
       "platform.igtv": "IGTV",
       "home.title": "Social Media Downloader — Instagram, YouTube, TikTok, Facebook, Pinterest & X",
-      "home.desc": "Download videos, reels, photos and audio from Instagram, YouTube, Facebook, TikTok, Pinterest and X (Twitter). Free HD MP4 & MP3 downloads.",
-      "home.h1": "Social Media Downloader",
-      "home.subtitle": "Download content from your favorite platforms instantly.",
-      "home.downloader_hero_tag": "Free Social Media Downloader",
+      "home.desc": "InstaDownloader.app is the #1 Instagram reels video downloader tool, dedicated to provide Quality service for downloading Reels & Videos. Download Instagram Reels, videos, photos, and stories for free in high quality.",
+      "home.keywords": "instadownloader, instadownloader.app, insta downloader, instagram reels downloader, reels downloader, download instagram reels, download reels, free reels downloader, save instagram videos, insta video downloader, instagram video downloader, Reelsave, reelsave.app",
+      "home.h1": "InstaDownloader.app",
+      "home.subtitle": "The #1 Instagram reels video downloader tool, dedicated to provide Quality service for downloading Reels & Videos.",
+      "home.downloader_hero_tag": "InstaDownloader.app — #1 Instagram Reels & Video Downloader",
       "home.download_from": "Download from ",
       "home.any_platform": "Any Platform",
       "home.why_h2": "Why Choose Our",
-      "home.why_brand": "Downloader?",
-      "home.why_p": "We've built the most reliable social media downloader of 2026. Save original content in 2-Clicks.",
+      "home.why_brand": "InstaDownloader?",
+      "home.why_p": "We've built the most reliable and premium social media downloader of 2026. InstaDownloader.app is optimized to fetch high-quality Reels, videos, and photos in 2 clicks, absolutely free.",
       "home.instant_speed": "Instant Speed",
       "home.instant_speed_p": "Fetch links in milliseconds",
       "home.private": "100% Private",
@@ -143,15 +144,16 @@ export const ui = {
       "platform.tiktok": "TikTok",
       "platform.igtv": "IGTV",
       "home.title": "Descargador de Redes Sociales — Instagram, YouTube, TikTok, Facebook, Pinterest y X",
-      "home.desc": "Descarga videos, reels, fotos y audio de Instagram, YouTube, Facebook, TikTok, Pinterest y X (Twitter). Descargas gratuitas en HD MP4 y MP3.",
-      "home.h1": "Descargador de Redes Sociales",
-      "home.subtitle": "Descarga contenido de tus plataformas favoritas al instante.",
-      "home.downloader_hero_tag": "Descargador Gratuito de Redes Sociales",
+      "home.desc": "InstaDownloader.app es la herramienta de descarga de videos de Instagram reels n.º 1, dedicada a brindar un servicio de calidad para descargar Reels y videos. Descarga fotos y audios en HD gratis.",
+      "home.keywords": "descargador de instagram, descargar videos de instagram, descargar reels, instadownloader, instadownloader.app, Reelsave, reelsave.app",
+      "home.h1": "InstaDownloader.app",
+      "home.subtitle": "La herramienta de descarga de videos de Instagram reels n.º 1, dedicada a brindar un servicio de calidad para descargar Reels y videos.",
+      "home.downloader_hero_tag": "InstaDownloader.app — Descargador de Reels y Vídeos",
       "home.download_from": "Descargar desde ",
       "home.any_platform": "Cualquier Plataforma",
       "home.why_h2": "¿Por qué elegir nuestro",
-      "home.why_brand": "Descargador?",
-      "home.why_p": "Hemos construido el descargador de redes sociales más confiable de 2026. Guarde el contenido original en 2 clics.",
+      "home.why_brand": "InstaDownloader?",
+      "home.why_p": "Hemos construido el descargador de redes sociales más confiable de 2026. InstaDownloader.app está optimizado para guardar el contenido original en 2 clics.",
       "home.instant_speed": "Velocidad Instantánea",
       "home.instant_speed_p": "Obtenga enlaces en milisegundos",
       "home.private": "100% Privado",
@@ -241,15 +243,16 @@ export const ui = {
       "platform.tiktok": "TikTok",
       "platform.igtv": "IGTV",
       "home.title": "Download de Redes Sociais — Instagram, YouTube, TikTok, Facebook, Pinterest e X",
-      "home.desc": "Baixe vídeos, reels, fotos e áudio do Instagram, YouTube, Facebook, TikTok, Pinterest e X (Twitter). Downloads grátis em HD MP4 e MP3.",
-      "home.h1": "Download de Redes Sociais",
-      "home.subtitle": "Baixe conteúdo das suas plataformas favoritas instantaneamente.",
-      "home.downloader_hero_tag": "Downloader Grátis de Redes Sociais",
+      "home.desc": "InstaDownloader.app é la ferramenta de download de vídeos de reels do Instagram nº 1, dedicada a fornecer um serviço de qualidade para baixar Reels e vídeos. Baixe fotos e áudios em HD gratuitamente.",
+      "home.keywords": "baixar instagram, download instagram, baixar reels instagram, instadownloader, instadownloader.app, Reelsave, reelsave.app",
+      "home.h1": "InstaDownloader.app",
+      "home.subtitle": "A ferramenta de download de vídeos de reels do Instagram nº 1, dedicada a fornecer um serviço de qualidade para baixar Reels e vídeos.",
+      "home.downloader_hero_tag": "InstaDownloader.app — Downloader de Reels e Vídeos",
       "home.download_from": "Baixar de ",
       "home.any_platform": "Qualquer Plataforma",
       "home.why_h2": "Por que escolher nosso",
-      "home.why_brand": "Downloader?",
-      "home.why_p": "Construímos o downloader de redes sociais mais confiável de 2026. Salve conteúdo original em 2 cliques.",
+      "home.why_brand": "InstaDownloader?",
+      "home.why_p": "Construímos o downloader de redes sociais mais confiável de 2026. O InstaDownloader.app é otimizado para salvar conteúdo original em 2 cliques.",
       "home.instant_speed": "Velocidade Instantânea",
       "home.instant_speed_p": "Obtenha links em milissegundos",
       "home.private": "100% Privado",
@@ -332,15 +335,16 @@ export const ui = {
       "nav.x_desc": "Tweets et Vidéos",
       "nav.tiktok_desc": "Sans Filigrane",
       "home.title": "Téléchargeur de réseaux sociaux — Instagram, YouTube, TikTok, Facebook, Pinterest & X",
-      "home.desc": "Téléchargez des vidéos, des reels, des photos et du son sur Instagram, YouTube, Facebook, TikTok, Pinterest et X (Twitter). Téléchargements HD MP4 & MP3 gratuits.",
-      "home.h1": "Téléchargeur de réseaux sociaux",
-      "home.subtitle": "Téléchargez instantanément le contenu de vos plateformes préférées.",
-      "home.downloader_hero_tag": "Téléchargeur Gratuit de Réseaux Sociaux",
+      "home.desc": "InstaDownloader.app est le téléchargeur n°1 de vidéos reels Instagram, dédié à fournir un service de qualité pour le téléchargement de Reels & vidéos. Téléchargez des photos et de l'audio gratuitement en HD.",
+      "home.keywords": "téléchargeur instagram, télécharger video instagram, télécharger reels, instadownloader, instadownloader.app, Reelsave, reelsave.app",
+      "home.h1": "InstaDownloader.app",
+      "home.subtitle": "Le téléchargeur n°1 de vidéos reels Instagram, dédié à fournir un service de qualité pour le téléchargement de Reels & vidéos.",
+      "home.downloader_hero_tag": "InstaDownloader.app — Téléchargeur de Reels & Vidéos",
       "home.download_from": "Télécharger depuis ",
       "home.any_platform": "N'importe Quelle Plateforme",
       "home.why_h2": "Pourquoi choisir notre",
-      "home.why_brand": "Téléchargeur ?",
-      "home.why_p": "Nous avons construit le téléchargeur de réseaux sociaux le plus fiable de 2026. Enregistrez le contenu original en 2 clics.",
+      "home.why_brand": "InstaDownloader ?",
+      "home.why_p": "Nous avons construit le téléchargeur de réseaux sociaux le plus fiable de 2026. InstaDownloader.app est optimisé pour enregistrer le contenu original en 2 clics.",
       "home.instant_speed": "Vitesse Instantanée",
       "home.instant_speed_p": "Obtenez des liens en millisecondes",
       "home.private": "100% Privé",
@@ -430,15 +434,16 @@ export const ui = {
       "nav.x_desc": "Tweets & Videos",
       "nav.tiktok_desc": "Ohne Wasserzeichen",
       "home.title": "Social Media Downloader — Instagram, YouTube, TikTok, Facebook, Pinterest & X",
-      "home.desc": "Laden Sie Videos, Reels, Fotos und Audio von Instagram, YouTube, Facebook, TikTok, Pinterest und X (Twitter) herunter. Kostenlose HD MP4 & MP3 Downloads.",
-      "home.h1": "Social Media Downloader",
-      "home.subtitle": "Laden Sie Inhalte von Ihren Lieblingsplattformen sofort herunter.",
-      "home.downloader_hero_tag": "Kostenloser Social Media Downloader",
+      "home.desc": "InstaDownloader.app ist der Nr. 1 Instagram Reels Video Downloader, der darauf spezialisiert ist, erstklassigen Service zum Herunterladen von Reels & Videos zu bieten. Kostenlose HD MP4 & MP3 Downloads.",
+      "home.keywords": "instagram downloader, instagram videos herunterladen, reels downloader, instadownloader, instadownloader.app, Reelsave, reelsave.app",
+      "home.h1": "InstaDownloader.app",
+      "home.subtitle": "Der Nr. 1 Instagram Reels Video Downloader, der darauf spezialisiert ist, erstklassigen Service zum Herunterladen von Reels & Videos zu bieten.",
+      "home.downloader_hero_tag": "InstaDownloader.app — Reels & Video Downloader",
       "home.download_from": "Herunterladen von ",
       "home.any_platform": "Jeder Plattform",
       "home.why_h2": "Warum unseren",
-      "home.why_brand": "Downloader wählen?",
-      "home.why_p": "Wir haben den zuverlässigsten Social-Media-Downloader 2026 entwickelt. Speichern Sie Originalinhalte mit 2 Klicks.",
+      "home.why_brand": "InstaDownloader wählen?",
+      "home.why_p": "Wir haben den zuverlässigsten Social-Media-Downloader 2026 entwickelt. InstaDownloader.app ist darauf optimiert, Originalinhalte mit 2 Klicks zu speichern.",
       "home.instant_speed": "Sofortige Geschwindigkeit",
       "home.instant_speed_p": "Links in Millisekunden abrufen",
       "home.private": "100% Privat",
@@ -538,15 +543,16 @@ export const ui = {
       "platform.igtv": "इंस्टाग्राम टीवी",
       "trending.platform_prefix": "से",
       "home.title": "सोशल मीडिया डाउनलोडर — Instagram, YouTube, TikTok, Facebook, Pinterest और X",
-      "home.desc": "Instagram, YouTube, Facebook, TikTok, Pinterest और X (Twitter) से वीडियो, रील्स, फोटो और ऑडियो डाउनलोड करें। मुफ्त HD MP4 और MP3 डाउनलोड।",
-      "home.h1": "सोशल मीडिया डाउनलोडर",
-      "home.subtitle": "अपनी पसंदीदा प्लेटफॉर्म से तुरंत सामग्री डाउनलोड करें।",
-      "home.downloader_hero_tag": "मुफ्त सोशल मीडिया डाउनलोडर",
+      "home.desc": "InstaDownloader.app नंबर 1 इंस्टाग्राम रील्स वीडियो डाउनलोडर टूल है, जो रील्स और वीडियो डाउनलोड करने के लिए बेहतरीन क्वालिटी सेवा प्रदान करने के लिए समर्पित है। रील्स, वीडियो और फोटो मुफ्त डाउनलोड करें।",
+      "home.keywords": "इंस्टाग्राम डाउनलोडर, इंस्टाग्राम वीडियो डाउनलोडर, रील डाउनलोडर, instadownloader, instadownloader.app, Reelsave, reelsave.app",
+      "home.h1": "InstaDownloader.app",
+      "home.subtitle": "नंबर 1 इंस्टाग्राम रील्स वीडियो डाउनलोडर टूल, जो रील्स और वीडियो डाउनलोड करने के लिए बेहतरीन क्वालिटी सेवा प्रदान करने के लिए समर्पित है।",
+      "home.downloader_hero_tag": "InstaDownloader.app — #1 रील्स और वीडियो डाउनलोडर",
       "home.download_from": "डाउनलोड करें ",
       "home.any_platform": "किसी भी प्लेटफॉर्म से",
       "home.why_h2": "हमारा डाउनलोडर क्यों चुनें?",
-      "home.why_brand": "",
-      "home.why_p": "हमने 2026 का सबसे विश्वसनीय सोशल मीडिया डाउनलोडर बनाया है। केवल 2-क्लिक में मूल सामग्री सहेजें।",
+      "home.why_brand": "InstaDownloader क्यों चुनें?",
+      "home.why_p": "हमने 2026 का सबसे विश्वसनीय सोशल मीडिया डाउनलोडर बनाया है। InstaDownloader.app मूल सामग्री को केवल 2-क्लिक में सहेजने के लिए अनुकूलित है।",
       "home.instant_speed": "त्वरित गति",
       "home.instant_speed_p": "मिलीसेकंड में लिंक प्राप्त करें",
       "home.private": "100% निजी",
@@ -638,15 +644,16 @@ export const ui = {
       "nav.instagram_reels_desc": "ريلز بدون علامة مائية",
       "nav.youtube_shorts_desc": "قصيرات كـ MP4 أو MP3",
       "home.title": "أداة تحميل وسائل التواصل الاجتماعي — إنستغرام، يوتيوب، تيك توك، فيسبوك، بينتيريست وإكس",
-      "home.desc": "قم بتحميل الفيديوهات والريلز والصور والصوت من إنستغرام ويوتيوب وفيسبوك وتيك توك وبينتيريست وإكس (تويتر). تحميلات مجانية بصيغة HD MP4 وMP3.",
-      "home.h1": "أداة تحميل وسائل التواصل الاجتماعي",
-      "home.subtitle": "قم بتحميل المحتوى من منصاتك المفضلة فوراً.",
-      "home.downloader_hero_tag": "أداة تحميل مجانية لوسائل التواصل الاجتماعي",
+      "home.desc": "InstaDownloader.app هي الأداة رقم 1 لتحميل ريلز وفيديوهات إنستغرام، والمخصصة لتقديم خدمة عالية الجودة لتحميل الريلز ومقاطع الفيديو مجانًا بدقة HD.",
+      "home.keywords": "تحميل انستغرام, محمل انستغرام, تحميل ريلز, instadownloader, instadownloader.app, Reelsave, reelsave.app",
+      "home.h1": "InstaDownloader.app",
+      "home.subtitle": "الأداة رقم 1 لتحميل ريلز وفيديوهات إنستغرام، والمخصصة لتقديم خدمة عالية الجودة لتحميل الريلز ومقاطع الفيديو.",
+      "home.downloader_hero_tag": "InstaDownloader.app — أداة تحميل الريلز والفيديو",
       "home.download_from": "تحميل من ",
       "home.any_platform": "أي منصة",
       "home.why_h2": "لماذا تختار",
-      "home.why_brand": "أداة التحميل الخاصة بنا؟",
-      "home.why_p": "لقد بنينا أداة تحميل الوسائط الاجتماعية الأكثر موثوقية لعام 2026. احفظ المحتوى الأصلي بنقرتين.",
+      "home.why_brand": "InstaDownloader؟",
+      "home.why_p": "لقد بنينا أداة تحميل الوسائط الاجتماعية الأكثر موثوقية لعام 2026. تم تحسين InstaDownloader.app لحفظ المحتوى الأصلي بنقرتين.",
       "home.instant_speed": "سرعة فورية",
       "home.instant_speed_p": "جلب الروابط في أجزاء من الثانية",
       "home.private": "خصوصية 100%",
@@ -736,15 +743,16 @@ export const ui = {
       "nav.x_desc": "Tweetler ve Videolar",
       "nav.tiktok_desc": "Filigransız",
       "home.title": "Sosyal Medya İndirici — Instagram, YouTube, TikTok, Facebook, Pinterest ve X",
-      "home.desc": "Instagram, YouTube, Facebook, TikTok, Pinterest ve X (Twitter)'dan video, reels, fotoğraf ve ses indirin. Ücretsiz HD MP4 ve MP3 indirmeleri.",
-      "home.h1": "Sosyal Medya İndirici",
-      "home.subtitle": "Favori platformlarınızdan anında içerik indirin.",
-      "home.downloader_hero_tag": "Ücretsiz Sosyal Medya İndirici",
+      "home.desc": "InstaDownloader.app, Reels ve Videoları indirmek için kaliteli hizmet sunmaya adanmış en popüler (#1) Instagram reels video indirme aracıdır. Ücretsiz HD indirin.",
+      "home.keywords": "instagram indirici, instagram video indir, reels indir, instadownloader, instadownloader.app, Reelsave, reelsave.app",
+      "home.h1": "InstaDownloader.app",
+      "home.subtitle": "Reels ve Videoları indirmek için kaliteli hizmet sunmaya adanmış en popüler (#1) Instagram reels video indirme aracı.",
+      "home.downloader_hero_tag": "InstaDownloader.app — Reels ve Video İndirici",
       "home.download_from": "İndir: ",
       "home.any_platform": "Herhangi Bir Platform",
       "home.why_h2": "Neden Bizim",
-      "home.why_brand": "İndiricimizi Seçmelisiniz?",
-      "home.why_p": "2026'nın en güvenilir sosyal medya indiricisini oluşturduk. Orijinal içeriği 2 tıklamayla kaydedin.",
+      "home.why_brand": "InstaDownloader'ı Seçmelisiniz?",
+      "home.why_p": "2026'nın en güvenilir sosyal medya indiricisini oluşturduk. InstaDownloader.app, orijinal içeriği 2 tıklamayla kaydetmek için optimize edilmiştir.",
       "home.instant_speed": "Anında Hız",
       "home.instant_speed_p": "Milisaniyeler içinde bağlantıları getirin",
       "home.private": "%100 Gizli",
@@ -836,15 +844,16 @@ export const ui = {
       "nav.instagram_reels_desc": "Reels без водяного знака",
       "nav.youtube_shorts_desc": "Shorts в MP4 или MP3",
       "home.title": "Загрузчик из соцсетей — Instagram, YouTube, TikTok, Facebook, Pinterest и X",
-      "home.desc": "Скачивайте видео, рилс, фото и аудио из Instagram, YouTube, Facebook, TikTok, Pinterest и X (Twitter). Бесплатная загрузка в HD MP4 и MP3.",
-      "home.h1": "Загрузчик из соцсетей",
-      "home.subtitle": "Мгновенно скачивайте контент с ваших любимых платформ.",
-      "home.downloader_hero_tag": "Бесплатный Загрузчик Соцсетей",
+      "home.desc": "InstaDownloader.app — это лучший загрузчик видео рилс из Instagram, созданный для предоставления качественного сервиса по скачиванию Reels и видео. Бесплатно и без водяного знака.",
+      "home.keywords": "загрузчик инстаграм, скачать видео инстаграм, загрузчик reels, instadownloader, instadownloader.app, Reelsave, reelsave.app",
+      "home.h1": "InstaDownloader.app",
+      "home.subtitle": "Лучший загрузчик видео рилс из Instagram, созданный для предоставления качественного сервиса по скачиванию Reels и видео.",
+      "home.downloader_hero_tag": "InstaDownloader.app — Загрузчик Reels и видео",
       "home.download_from": "Скачать с ",
       "home.any_platform": "Любой Платформы",
       "home.why_h2": "Почему выбирают наш",
-      "home.why_brand": "Загрузчик?",
-      "home.why_p": "Мы создали самый надежный загрузчик социальных сетей 2026 года. Сохраняйте оригинальный контент в 2 клика.",
+      "home.why_brand": "InstaDownloader?",
+      "home.why_p": "Мы создали самый надежный загрузчик из соцсетей 2026 года. InstaDownloader.app оптимизирован для сохранения оригинального контента в 2 клика.",
       "home.instant_speed": "Мгновенная Скорость",
       "home.instant_speed_p": "Получайте ссылки за миллисекунды",
       "home.private": "100% Приватность",
@@ -934,15 +943,16 @@ export const ui = {
       "nav.x_desc": "Tweet & Video",
       "nav.tiktok_desc": "Tanpa Watermark",
       "home.title": "Pengunduh Media Sosial — Instagram, YouTube, TikTok, Facebook, Pinterest & X",
-      "home.desc": "Unduh video, reels, foto, dan audio dari Instagram, YouTube, Facebook, TikTok, Pinterest, dan X (Twitter). Unduhan gratis HD MP4 & MP3.",
-      "home.h1": "Pengunduh Media Sosial",
-      "home.subtitle": "Unduh konten dari platform favorit Anda secara instan.",
-      "home.downloader_hero_tag": "Pengunduh Media Sosial Gratis",
+      "home.desc": "InstaDownloader.app adalah alat pengunduh video reels Instagram #1, yang didedikasikan untuk memberikan layanan berkualitas untuk mengunduh Reels & Video secara gratis.",
+      "home.keywords": "pengunduh instagram, unduh video ig, pengunduh reels, instadownloader, instadownloader.app, Reelsave, reelsave.app",
+      "home.h1": "InstaDownloader.app",
+      "home.subtitle": "Alat pengunduh video reels Instagram #1, yang didedikasikan untuk memberikan layanan berkualitas untuk mengunduh Reels & Video.",
+      "home.downloader_hero_tag": "InstaDownloader.app — Pengunduh Reels & Video #1",
       "home.download_from": "Unduh dari ",
       "home.any_platform": "Platform Mana Saja",
       "home.why_h2": "Mengapa Memilih",
-      "home.why_brand": "Pengunduh Kami?",
-      "home.why_p": "Kami telah membangun pengunduh media sosial paling andal tahun 2026. Simpan konten asli dalam 2 Klik.",
+      "home.why_brand": "InstaDownloader Kami?",
+      "home.why_p": "Kami telah membangun pengunduh media sosial paling andal di tahun 2026. InstaDownloader.app dioptimalkan untuk menyimpan konten asli dalam 2-Klik.",
       "home.instant_speed": "Kecepatan Instan",
       "home.instant_speed_p": "Ambil tautan dalam milidetik",
       "home.private": "100% Pribadi",
@@ -1032,15 +1042,16 @@ export const ui = {
       "nav.x_desc": "推文和视频",
       "nav.tiktok_desc": "无水印",
       "home.title": "社交媒体下载器 — Instagram, YouTube, TikTok, Facebook, Pinterest & X",
-      "home.desc": "从 Instagram, YouTube, Facebook, TikTok, Pinterest 和 X (Twitter) 下载视频、reels、照片和音频。免费高清 MP4 和 MP3 下载。",
-      "home.h1": "社交媒体下载器",
-      "home.subtitle": "立即从您喜欢的平台下载内容。",
-      "home.downloader_hero_tag": "免费社交媒体下载器",
+      "home.desc": "InstaDownloader.app 是第一大 (#1) Instagram reels 视频下载工具，致力于为下载 Reels 和视频提供优质服务。免费高清 MP4 下载。",
+      "home.keywords": "instagram 下载器, ig 视频下载器, reels 下载器, instadownloader, instadownloader.app, Reelsave, reelsave.app",
+      "home.h1": "InstaDownloader.app",
+      "home.subtitle": "第一大 (#1) Instagram reels 视频下载工具，致力于为下载 Reels 和视频提供优质服务。",
+      "home.downloader_hero_tag": "InstaDownloader.app — #1 Reels 和视频下载器",
       "home.download_from": "从以下平台下载 ",
       "home.any_platform": "任何平台",
       "home.why_h2": "为什么选择我们的",
-      "home.why_brand": "下载器？",
-      "home.why_p": "我们打造了 2026 年最可靠的社交媒体下载器。只需点击两下即可保存原始内容。",
+      "home.why_brand": "InstaDownloader？",
+      "home.why_p": "我们构建了 2026 年最可靠的社交媒体下载器。InstaDownloader.app 经过优化，只需 2 击即可保存原创内容。",
       "home.instant_speed": "瞬时速度",
       "home.instant_speed_p": "毫秒内获取链接",
       "home.private": "100% 私密",
@@ -1130,15 +1141,16 @@ export const ui = {
       "nav.x_desc": "ツイートと動画",
       "nav.tiktok_desc": "透かしなし",
       "home.title": "ソーシャルメディアダウンローダー — Instagram, YouTube, TikTok, Facebook, Pinterest & X",
-      "home.desc": "Instagram, YouTube, Facebook, TikTok, Pinterest, X (Twitter) からビデオ、リール、写真、オーディオをダウンロード。無料の高画質 MP4 & MP3 ダウンロード。",
-      "home.h1": "ソーシャルメディアダウンローダー",
-      "home.subtitle": "お気に入りのプラットフォームからコンテンツをすぐにダウンロード。",
-      "home.downloader_hero_tag": "無料ソーシャルメディアダウンローダー",
+      "home.desc": "InstaDownloader.appは、Instagramリールと動画のダウンロードに特化した高品質なサービスを提供する、No.1リール動画ダウンロードツールです。無料で高画質ダウンロード。",
+      "home.keywords": "instagram ダウンローダー, インスタ動画ダウンロード, リールダウンローダー, instadownloader, instadownloader.app, Reelsave, reelsave.app",
+      "home.h1": "InstaDownloader.app",
+      "home.subtitle": "Instagramリールと動画のダウンロードに特化した高品質なサービスを提供する、No.1リール動画ダウンロードツールです。",
+      "home.downloader_hero_tag": "InstaDownloader.app — リール＆動画ダウンロード",
       "home.download_from": "ダウンロード元: ",
       "home.any_platform": "任意のプラットフォーム",
       "home.why_h2": "なぜ私たちの",
-      "home.why_brand": "ダウンローダーを選ぶのか？",
-      "home.why_p": "2026年で最も信頼性の高いソーシャルメディアダウンローダーを構築しました。2クリックでオリジナルコンテンツを保存します。",
+      "home.why_brand": "InstaDownloaderを選ぶ理由",
+      "home.why_p": "2026年で最も信頼性の高いソーシャルメディアダウンローダーを構築しました。InstaDownloader.appは2クリックでオリジナルコンテンツを保存するのに最適です。",
       "home.instant_speed": "瞬時の速度",
       "home.instant_speed_p": "ミリ秒単位でリンクを取得",
       "home.private": "100% プライベート",
@@ -1228,15 +1240,16 @@ export const ui = {
       "nav.x_desc": "트윗 및 비디오",
       "nav.tiktok_desc": "워터마크 없음",
       "home.title": "소셜 미디어 다운로더 — Instagram, YouTube, TikTok, Facebook, Pinterest & X",
-      "home.desc": "Instagram, YouTube, Facebook, TikTok, Pinterest 및 X (Twitter)에서 비디오, 릴스, 사진 및 오디오를 다운로드하세요. 무료 HD MP4 및 MP3 다운로드.",
-      "home.h1": "소셜 미디어 다운로더",
-      "home.subtitle": "좋아하는 플랫폼에서 즉시 콘텐츠를 다운로드하세요.",
-      "home.downloader_hero_tag": "무료 소셜 미디어 다운로더",
+      "home.desc": "InstaDownloader.app은 인스타그램 릴스 및 비디오 다운로드를 위한 고품질 서비스를 제공하기 위해 전념하는 최고의 릴스 다운로더 도구입니다. 무료 HD MP4 다운로드.",
+      "home.keywords": "인스타그램 다운로더, 인스타 비디오 다운로드, 릴스 다운로더, instadownloader, instadownloader.app, Reelsave, reelsave.app",
+      "home.h1": "InstaDownloader.app",
+      "home.subtitle": "인스타그램 릴스 및 비디오 다운로드를 위한 고품질 서비스를 제공하기 위해 전념하는 최고의 릴스 다운로더 도구입니다.",
+      "home.downloader_hero_tag": "InstaDownloader.app — #1 릴스 및 비디오 다운로더",
       "home.download_from": "다운로드 출처: ",
       "home.any_platform": "모든 플랫폼",
       "home.why_h2": "왜 우리의",
-      "home.why_brand": "다운로더를 선택해야 할까요?",
-      "home.why_p": "2026년 가장 신뢰할 수 있는 소셜 미디어 다운로더를 구축했습니다. 2번의 클릭으로 원본 콘텐츠를 저장하세요.",
+      "home.why_brand": "InstaDownloader를 선택해야 할까요?",
+      "home.why_p": "우리는 2026년 가장 신뢰할 수 있는 소셜 미디어 다운로더를 구축했습니다. InstaDownloader.app은 원본 콘텐츠를 2클릭으로 편리하게 저장합니다.",
       "home.instant_speed": "즉각적인 속도",
       "home.instant_speed_p": "밀리초 만에 링크 가져오기",
       "home.private": "100% 비공개",
@@ -1326,15 +1339,16 @@ export const ui = {
       "nav.x_desc": "Tweet & Video",
       "nav.tiktok_desc": "Không Hình Mờ",
       "home.title": "Trình tải xuống mạng xã hội — Instagram, YouTube, TikTok, Facebook, Pinterest & X",
-      "home.desc": "Tải xuống video, reels, ảnh và âm thanh từ Instagram, YouTube, Facebook, TikTok, Pinterest và X (Twitter). Tải xuống HD MP4 & MP3 miễn phí.",
-      "home.h1": "Trình tải xuống mạng xã hội",
-      "home.subtitle": "Tải nội dung từ các nền tảng yêu thích của bạn ngay lập tức.",
-      "home.downloader_hero_tag": "Trình Tải Xuống Mạng Xã Hội Miễn Phí",
+      "home.desc": "InstaDownloader.app là công cụ tải video reels Instagram số 1 (#1), chuyên cung cấp dịch vụ chất lượng để tải xuống Reels & Video miễn phí và nhanh chóng.",
+      "home.keywords": "tải instagram, tải video instagram, tải reels, instadownloader, instadownloader.app, Reelsave, reelsave.app",
+      "home.h1": "InstaDownloader.app",
+      "home.subtitle": "Công cụ tải video reels Instagram số 1 (#1), chuyên cung cấp dịch vụ chất lượng để tải xuống Reels & Video.",
+      "home.downloader_hero_tag": "InstaDownloader.app — Trình tải Reels & Video #1",
       "home.download_from": "Tải xuống từ ",
       "home.any_platform": "Bất Kỳ Nền Tảng Nào",
       "home.why_h2": "Tại sao chọn",
-      "home.why_brand": "Trình Tải Xuống của chúng tôi?",
-      "home.why_p": "Chúng tôi đã xây dựng trình tải xuống mạng xã hội đáng tin cậy nhất năm 2026. Lưu nội dung gốc chỉ trong 2 cú nhấp chuột.",
+      "home.why_brand": "InstaDownloader của chúng tôi?",
+      "home.why_p": "Chúng tôi đã xây dựng trình tải xuống mạng xã hội đáng tin cậy nhất năm 2026. InstaDownloader.app được tối ưu hóa để lưu nội dung gốc chỉ với 2 lần nhấp.",
       "home.instant_speed": "Tốc Độ Tức Thì",
       "home.instant_speed_p": "Tìm nạp liên kết trong mili giây",
       "home.private": "Riêng Tư 100%",
@@ -1424,15 +1438,16 @@ export const ui = {
       "nav.x_desc": "Tweet e Video",
       "nav.tiktok_desc": "Senza Filigrana",
       "home.title": "Downloader di Social Media — Instagram, YouTube, TikTok, Facebook, Pinterest & X",
-      "home.desc": "Scarica video, reels, foto e audio da Instagram, YouTube, Facebook, TikTok, Pinterest e X (Twitter). Download gratuiti HD MP4 e MP3.",
-      "home.h1": "Downloader di Social Media",
-      "home.subtitle": "Scarica istantaneamente i contenuti dalle tue piattaforme preferite.",
-      "home.downloader_hero_tag": "Downloader di Social Media Gratuito",
+      "home.desc": "InstaDownloader.app è lo strumento di download video reels di Instagram #1, dedicato a fornire un servizio di qualità per scaricare Reels & Video gratuitamente.",
+      "home.keywords": "instagram downloader, scaricare video instagram, scaricare reels, instadownloader, instadownloader.app, Reelsave, reelsave.app",
+      "home.h1": "InstaDownloader.app",
+      "home.subtitle": "Lo strumento di download video reels di Instagram #1, dedicato a fornire un servizio di qualidade per scaricare Reels & Video.",
+      "home.downloader_hero_tag": "InstaDownloader.app — Downloader di Reels & Video #1",
       "home.download_from": "Scarica da ",
       "home.any_platform": "Qualsiasi Piattaforma",
       "home.why_h2": "Perché scegliere il nostro",
-      "home.why_brand": "Downloader?",
-      "home.why_p": "Abbiamo creato il downloader di social media più affidabile del 2026. Salva i contenuti originali in 2 clic.",
+      "home.why_brand": "InstaDownloader?",
+      "home.why_p": "Abbiamo creato il downloader di social media più affidabile del 2026. InstaDownloader.app è optimizzato per salvare i contenuti originali in 2 clic.",
       "home.instant_speed": "Velocità Istantanea",
       "home.instant_speed_p": "Recupera i link in millisecondi",
       "home.private": "100% Privato",
@@ -1522,15 +1537,16 @@ export const ui = {
       "nav.x_desc": "Tweets & Video's",
       "nav.tiktok_desc": "Geen Watermerk",
       "home.title": "Social Media Downloader — Instagram, YouTube, TikTok, Facebook, Pinterest & X",
-      "home.desc": "Download video's, reels, foto's en audio van Instagram, YouTube, Facebook, TikTok, Pinterest en X (Twitter). Gratis HD MP4 & MP3 downloads.",
-      "home.h1": "Social Media Downloader",
-      "home.subtitle": "Download direct content van uw favoriete platforms.",
-      "home.downloader_hero_tag": "Gratis Social Media Downloader",
+      "home.desc": "InstaDownloader.app is de #1 Instagram reels video downloader, gericht op het leveren van een kwalitatieve service voor het downloaden van Reels & Video's.",
+      "home.keywords": "instagram downloader, instagram video downloaden, reels downloader, instadownloader, instadownloader.app, Reelsave, reelsave.app",
+      "home.h1": "InstaDownloader.app",
+      "home.subtitle": "De #1 Instagram reels video downloader, gericht op het leveren van een kwalitatieve service voor het downloaden van Reels & Video's.",
+      "home.downloader_hero_tag": "InstaDownloader.app — #1 Reels & Video Downloader",
       "home.download_from": "Downloaden van ",
       "home.any_platform": "Elk Platform",
       "home.why_h2": "Waarom kiezen voor onze",
-      "home.why_brand": "Downloader?",
-      "home.why_p": "Wij hebben de meest betrouwbare social media downloader van 2026 gebouwd. Bewaar originele content in 2 klikken.",
+      "home.why_brand": "InstaDownloader?",
+      "home.why_p": "We hebben de meest betrouwbare social media downloader van 2026 gebouwd. InstaDownloader.app is geoptimaliseerd om originele inhoud op te slaan in 2-Clicks.",
       "home.instant_speed": "Onmiddellijke Snelheid",
       "home.instant_speed_p": "Haal links op in milliseconden",
       "home.private": "100% Privé",
@@ -1607,7 +1623,7 @@ export const ui = {
 export const platforms = {
     "instagram": {
       "en": {
-        "title": "Instagram Downloader — Download Reels, Posts, Stories & IGTV",
+        "title": "Instagram Video Downloader — Download Reels, Posts, Stories & IGTV",
         "desc": "Free Instagram video downloader. Download Instagram reels, posts, stories, IGTV and photos in HD.",
         "h1": "Instagram Video Downloader",
         "subtitle": "Download posts, reels, IGTV, and stories from Instagram — fast and free.",
@@ -1625,7 +1641,7 @@ export const platforms = {
         "content": "Instagram is where the world's most creative photos and videos live. Our Instagram downloader helps you save that inspiration directly to your phone or computer. We support all public content types: standard feed posts, high-energy Reels, long-form IGTV clips, and even temporary Stories."
       },
       "hi": {
-        "title": "इंस्टाग्राम डाउनलोडर — रील, पोस्ट, कहानियां और इंस्टाग्राम टीवी डाउनलोड करें",
+        "title": "इंस्टाग्राम वीडियो डाउनलोडर — रील, पोस्ट, कहानियां और इंस्टाग्राम टीवी डाउनलोड करें",
         "desc": "मुफ्त इंस्टाग्राम वीडियो डाउनलोडर। इंस्टाग्राम रील, पोस्ट, कहानियां, इंस्टाग्राम टीवी और फोटो HD में डाउनलोड करें।",
         "h1": "इंस्टाग्राम वीडियो डाउनलोडर",
         "subtitle": "इंस्टाग्राम से पोस्ट, रील, इंस्टाग्राम टीवी और कहानियां डाउनलोड करें — तेज़ और मुफ्त।",
@@ -1643,7 +1659,7 @@ export const platforms = {
         "content": "इंस्टाग्राम वह जगह है जहाँ दुनिया की सबसे रचनात्मक तस्वीरें और वीडियो रहते हैं। हमारा इंस्टाग्राम डाउनलोडर आपको उस प्रेरणा को सीधे आपके फोन या कंप्यूटर पर सहेजने में मदद करता है। हम सभी सार्वजनिक सामग्री प्रकारों का समर्थन करते हैं: मानक फ़ीड पोस्ट, उच्च-ऊर्जा रील, लॉन्ग-फॉर्म इंस्टाग्राम टीवी क्लिप और यहां तक कि अस्थायी कहानियां भी।"
       },
       "es": {
-        "title": "Descargador de Instagram — Descarga Reels, Posts, Stories e IGTV",
+        "title": "Descargador de videos de Instagram — Descarga Reels, Posts, Stories e IGTV",
         "desc": "Descargador de videos de Instagram gratuito. Descarga reels, posts, stories, IGTV y fotos de Instagram en HD.",
         "h1": "Descargador de videos de Instagram",
         "subtitle": "Descarga posts, reels, IGTV e historias de Instagram — rápido y gratis.",
@@ -1661,7 +1677,7 @@ export const platforms = {
         "content": "Instagram es donde viven las fotos y videos más creativos del mundo. Nuestro descargador de Instagram te ayuda a guardar esa inspiración directamente en tu teléfono o computadora."
       },
       "pt": {
-        "title": "Download do Instagram — Baixar Reels, Posts, Stories e IGTV",
+        "title": "Baixador de vídeos do Instagram — Baixar Reels, Posts, Stories e IGTV",
         "desc": "Baixador de vídeos do Instagram gratuito. Baixe reels, posts, stories, IGTV e fotos do Instagram em HD.",
         "h1": "Baixador de vídeos do Instagram",
         "subtitle": "Baixe posts, reels, IGTV e stories do Instagram — rápido e grátis.",
@@ -1679,7 +1695,7 @@ export const platforms = {
         "content": "O Instagram é onde vivem as fotos e vídeos mais criativos do mundo. Nosso baixador de Instagram ajuda você a salvar essa inspiração diretamente no seu telefone ou computador."
       },
       "fr": {
-        "title": "Téléchargeur Instagram — Téléchargez Reels, Posts, Stories & IGTV",
+        "title": "Téléchargeur de vidéos Instagram — Téléchargez Reels, Posts, Stories & IGTV",
         "desc": "Téléchargeur de vidéos Instagram gratuit. Téléchargez des reels, des posts, des stories, IGTV et des photos Instagram en HD.",
         "h1": "Téléchargeur de vidéos Instagram",
         "subtitle": "Téléchargez des posts, des reels, IGTV et des stories d'Instagram — rapidement et gratuitement.",
@@ -1697,7 +1713,7 @@ export const platforms = {
         "content": "Instagram est l'endroit où vivent les photos et les vidéos les plus créatives au monde. Notre téléchargeur Instagram vous aide à enregistrer cette inspiration directement sur votre téléphone ou votre ordinateur."
       },
       "de": {
-        "title": "Instagram Downloader — Reels, Posts, Stories & IGTV herunterladen",
+        "title": "Instagram Video Downloader — Reels, Posts, Stories & IGTV herunterladen",
         "desc": "Kostenloser Instagram-Video-Downloader. Laden Sie Instagram-Reels, -Posts, -Stories, -IGTV und -Fotos in HD herunter.",
         "h1": "Instagram Video Downloader",
         "subtitle": "Laden Sie Posts, Reels, IGTV und Stories von Instagram herunter — schnell und kostenlos.",
@@ -1715,7 +1731,7 @@ export const platforms = {
         "content": "Instagram ist der Ort, an dem die kreativsten Fotos und Videos der Welt leben. Unser Instagram-Downloader hilft Ihnen, diese Inspiration direkt auf Ihrem Telefon oder Computer zu speichern."
       },
       "ar": {
-        "title": "محمل إنستغرام — تحميل الريلز، المنشورات، القصص وإنستغرام تي في",
+        "title": "محمل فيديو إنستغرام — تحميل الريلز، المنشورات، القصص وإنستغرام تي في",
         "desc": "محمل فيديو إنستغرام مجاني. قم بتحميل الريلز، المنشورات، القصص، إنستغرام تي في والصور من إنستغرام بجودة HD.",
         "h1": "محمل فيديو إنستغرام",
         "subtitle": "تحميل المنشورات، الريلز، إنستغرام تي في والقصص من إنستغرام — سريع ومجاني.",
@@ -1733,7 +1749,7 @@ export const platforms = {
         "content": "إنستغرام هو المكان الذي تعيش فيه الصور ومقاطع الفيديو الأكثر إبداعًا في العالم. يساعدك محمل إنستغرام الخاص بنا على حفظ هذا الإلهام مباشرة على هاتفك أو جهاز الكمبيوتر الخاص بك."
       },
       "tr": {
-        "title": "Instagram İndirici — Reels, Gönderiler, Hikayeler ve IGTV İndir",
+        "title": "Instagram Video İndirici — Reels, Gönderiler, Hikayeler ve IGTV İndir",
         "desc": "Ücretsiz Instagram video indirici. Instagram reels, gönderiler, hikayeler, IGTV ve fotoğrafları HD olarak indirin.",
         "h1": "Instagram Video İndirici",
         "subtitle": "Instagram'dan gönderileri, reelsleri, IGTV'yi ve hikayeleri indirin — hızlı ve ücretsiz.",
@@ -1751,7 +1767,7 @@ export const platforms = {
         "content": "Instagram, dünyanın en yaratıcı fotoğraflarının ve videolarının yaşadığı yerdir. Instagram indiricimiz, bu ilhamı doğrudan telefonunuza veya bilgisayarınıza kaydetmenize yardımcı olur."
       },
       "ru": {
-        "title": "Загрузчик Инстаграм — Скачивайте Reels, Посты, Истории и IGTV",
+        "title": "Загрузчик Видео Инстаграм — Скачивайте Reels, Посты, Истории и IGTV",
         "desc": "Бесплатный загрузчик видео Инстаграм. Скачивайте Инстаграм reels, посты, истории, IGTV и фото в HD.",
         "h1": "Загрузчик Видео Инстаграм",
         "subtitle": "Скачивайте посты, reels, IGTV и истории из Инстаграм — быстро и бесплатно.",
@@ -1769,7 +1785,7 @@ export const platforms = {
         "content": "Инстаграм — это место, где живут самые креативные фотографии и видео в мире. Наш загрузчик Инстаграм поможет вам сохранить это вдохновение прямо на телефон или компьютер."
       },
       "id": {
-        "title": "Pengunduh Instagram — Unduh Reels, Postingan, Cerita & IGTV",
+        "title": "Pengunduh Video Instagram — Unduh Reels, Postingan, Cerita & IGTV",
         "desc": "Pengunduh video Instagram gratis. Unduh reels, postingan, cerita, IGTV, dan foto Instagram dalam HD.",
         "h1": "Pengunduh Video Instagram",
         "subtitle": "Unduh postingan, reels, IGTV, dan cerita dari Instagram — cepat dan gratis.",
@@ -1787,7 +1803,7 @@ export const platforms = {
         "content": "Instagram adalah tempat foto dan video paling kreatif di dunia. Pengunduh Instagram kami membantu Anda menyimpan inspirasi itu langsung ke ponsel atau komputer Anda."
       },
       "zh": {
-        "title": "Instagram 下载器 — 下载 Reels、帖子、故事和 IGTV",
+        "title": "Instagram 视频下载器 — 下载 Reels、帖子、故事和 IGTV",
         "desc": "免费 Instagram 视频下载器。以高清格式下载 Instagram reels、帖子、故事、IGTV 和照片。",
         "h1": "Instagram 视频下载器",
         "subtitle": "从 Instagram 下载帖子、reels、IGTV 和故事 — 快速且免费。",
@@ -1805,7 +1821,7 @@ export const platforms = {
         "content": "Instagram 是世界上最具创意的照片和视频的所在地。我们的 Instagram 下载器帮助您将这种灵感直接保存到您的手机或电脑上。"
       },
       "ja": {
-        "title": "Instagram ダウンローダー — リール、投稿、ストーリー、IGTVをダウンロード",
+        "title": "Instagram 動画ダウンローダー — リール、投稿、ストーリー、IGTVをダウンロード",
         "desc": "無料のInstagram動画ダウンローダー。Instagramのリール、投稿、ストーリー、IGTV、写真をHDでダウンロード。",
         "h1": "Instagram 動画ダウンローダー",
         "subtitle": "Instagramから投稿、リール、IGTV、ストーリーをダウンロード — 高速かつ無料。",
@@ -1823,7 +1839,7 @@ export const platforms = {
         "content": "Instagramは世界で最も創造的な写真と動画が集まる場所です。当社のInstagramダウンローダーを使えば、そのインスピレーションをスマートフォンやパソコンに直接保存できます。"
       },
       "ko": {
-        "title": "Instagram 다운로더 — 릴스, 게시물, 스토리, IGTV 다운로드",
+        "title": "Instagram 비디오 다운로더 — 릴스, 게시물, 스토리, IGTV 다운로드",
         "desc": "무료 Instagram 비디오 다운로더. Instagram 릴스, 게시물, 스토리, IGTV 및 사진을 HD로 다운로드하세요.",
         "h1": "Instagram 비디오 다운로더",
         "subtitle": "Instagram에서 게시물, 릴스, IGTV 및 스토리를 다운로드하세요 — 빠르고 무료.",
@@ -1841,7 +1857,7 @@ export const platforms = {
         "content": "Instagram은 세계에서 가장 창의적인 사진과 비디오가 있는 곳입니다. 저희 Instagram 다운로더는 이러한 영감을 휴대폰이나 컴퓨터에 직접 저장할 수 있도록 도와줍니다."
       },
       "vi": {
-        "title": "Trình Tải Xuống Instagram — Tải Reels, Bài Viết, Stories & IGTV",
+        "title": "Trình Tải Video Instagram — Tải Reels, Bài Viết, Stories & IGTV",
         "desc": "Trình tải video Instagram miễn phí. Tải xuống reels, bài viết, stories, IGTV và ảnh Instagram ở chất lượng HD.",
         "h1": "Trình Tải Video Instagram",
         "subtitle": "Tải xuống bài viết, reels, IGTV và stories từ Instagram — nhanh chóng và miễn phí.",
@@ -1859,7 +1875,7 @@ export const platforms = {
         "content": "Instagram là nơi chứa đựng những bức ảnh và video sáng tạo nhất thế giới. Trình tải xuống Instagram của chúng tôi giúp bạn lưu nguồn cảm hứng đó trực tiếp vào điện thoại hoặc máy tính."
       },
       "it": {
-        "title": "Downloader Instagram — Scarica Reels, Post, Storie e IGTV",
+        "title": "Downloader Video Instagram — Scarica Reels, Post, Storie e IGTV",
         "desc": "Downloader video Instagram gratuito. Scarica reels, post, storie, IGTV e foto da Instagram in HD.",
         "h1": "Downloader Video Instagram",
         "subtitle": "Scarica post, reels, IGTV e storie da Instagram — veloce e gratuito.",
@@ -1877,7 +1893,7 @@ export const platforms = {
         "content": "Instagram è il luogo in cui vivono le foto e i video più creativi del mondo. Il nostro downloader di Instagram ti aiuta a salvare questa ispirazione direttamente sul tuo telefono o computer."
       },
       "nl": {
-        "title": "Instagram Downloader — Download Reels, Posts, Stories & IGTV",
+        "title": "Instagram Video Downloader — Download Reels, Posts, Stories & IGTV",
         "desc": "Gratis Instagram video downloader. Download Instagram reels, posts, stories, IGTV en foto's in HD.",
         "h1": "Instagram Video Downloader",
         "subtitle": "Download posts, reels, IGTV en stories van Instagram — snel en gratis.",
@@ -1897,7 +1913,7 @@ export const platforms = {
     },
     "yt": {
       "en": {
-        "title": "YouTube Downloader — Download Videos, Shorts & MP3",
+        "title": "YouTube Video Downloader — Download Videos, Shorts & MP3",
         "desc": "Free YouTube video downloader. Download YouTube videos in HD, convert YouTube to MP3, save YouTube Shorts.",
         "h1": "YouTube Video Downloader",
         "subtitle": "Download videos, shorts, and extract MP3 audio from YouTube — fast and free.",
@@ -1915,7 +1931,7 @@ export const platforms = {
         "content": "YouTube is the largest video library on the planet. Whether you're looking for educational tutorials, music videos, or the latest tech reviews, our YouTube downloader is the fastest way to save content for offline use."
       },
       "hi": {
-        "title": "यूट्यूब डाउनलोडर — वीडियो, शॉर्ट्स और MP3 डाउनलोड करें",
+        "title": "यूट्यूब वीडियो डाउनलोडर — वीडियो, शॉर्ट्स और MP3 डाउनलोड करें",
         "desc": "मुफ्त यूट्यूब वीडियो डाउनलोडर। यूट्यूब वीडियो HD में डाउनलोड करें, यूट्यूब को MP3 में बदलें, यूट्यूब शॉर्ट्स सहेजें।",
         "h1": "यूट्यूब वीडियो डाउनलोडर",
         "subtitle": "यूट्यूब से वीडियो, शॉर्ट्स डाउनलोड करें और MP3 ऑडियो निकालें — तेज़ और मुफ्त।",
@@ -1933,7 +1949,7 @@ export const platforms = {
         "content": "यूट्यूब ग्रह पर सबसे बड़ी वीडियो लाइब्रेरी है। चाहे आप शैक्षिक ट्यूटोरियल, संगीत वीडियो, या नवीनतम तकनीकी समीक्षाओं की तलाश में हों, हमारा यूट्यूब डाउनलोडर ऑफ़लाइन उपयोग के लिए सामग्री सहेजने का सबसे तेज़ तरीका है।"
       },
       "es": {
-        "title": "Descargador de YouTube — Descarga Videos, Shorts y MP3",
+        "title": "Descargador de videos de YouTube — Descarga Videos, Shorts y MP3",
         "desc": "Descargador de videos de YouTube gratuito. Descarga videos de YouTube en HD, convierte YouTube a MP3, guarda YouTube Shorts.",
         "h1": "Descargador de videos de YouTube",
         "subtitle": "Descarga videos, shorts y extrae audio MP3 de YouTube — rápido y gratis.",
@@ -1951,7 +1967,7 @@ export const platforms = {
         "content": "YouTube es la biblioteca de videos más grande del planeta. Nuestro descargador de YouTube es la forma más rápida de guardar contenido para uso sin conexión."
       },
       "pt": {
-        "title": "Download do YouTube — Baixar Vídeos, Shorts e MP3",
+        "title": "Baixador de vídeos do YouTube — Baixar Vídeos, Shorts e MP3",
         "desc": "Baixador de vídeos do YouTube gratuito. Baixe vídeos do YouTube em HD, converta YouTube para MP3, salve YouTube Shorts.",
         "h1": "Baixador de vídeos do YouTube",
         "subtitle": "Baixe vídeos, shorts e extraia áudio MP3 do YouTube — rápido e grátis.",
@@ -1969,7 +1985,7 @@ export const platforms = {
         "content": "O YouTube é a maior biblioteca de vídeos do planeta. Nosso baixador de YouTube é a maneira mais rápida de salvar conteúdo para uso offline."
       },
       "fr": {
-        "title": "Téléchargeur YouTube — Téléchargez des vidéos, des Shorts & MP3",
+        "title": "Téléchargeur de vidéos YouTube — Téléchargez des vidéos, des Shorts & MP3",
         "desc": "Téléchargeur de vidéos YouTube gratuit. Téléchargez des vidéos YouTube en HD, convertissez YouTube en MP3, enregistrez des YouTube Shorts.",
         "h1": "Téléchargeur de vidéos YouTube",
         "subtitle": "Téléchargez des vidéos, des shorts et extrayez de l'audio MP3 de YouTube — rapidement et gratuitement.",
@@ -1987,7 +2003,7 @@ export const platforms = {
         "content": "YouTube est la plus grande bibliothèque de vidéos de la planète. Notre téléchargeur YouTube est le moyen le plus rapide d'enregistrer du contenu pour une utilisation hors ligne."
       },
       "de": {
-        "title": "YouTube Downloader — Videos, Shorts & MP3 herunterladen",
+        "title": "YouTube Video Downloader — Videos, Shorts & MP3 herunterladen",
         "desc": "Kostenloser YouTube-Video-Downloader. Laden Sie YouTube-Videos in HD herunter, konvertieren Sie YouTube in MP3, speichern Sie YouTube Shorts.",
         "h1": "YouTube Video Downloader",
         "subtitle": "Laden Sie Videos, Shorts herunter und extrahieren Sie MP3-Audio von YouTube — schnell und kostenlos.",
@@ -2005,7 +2021,7 @@ export const platforms = {
         "content": "YouTube ist die größte Videobibliothek der Welt. Unser YouTube-Downloader ist der schnellste Weg, um Inhalte für die Offline-Nutzung zu speichern."
       },
       "ar": {
-        "title": "محمل يوتيوب — تحميل الفيديوهات، القصيرات و MP3",
+        "title": "محمل فيديو يوتيوب — تحميل الفيديوهات، القصيرات و MP3",
         "desc": "محمل فيديو يوتيوب مجاني. قم بتحميل فيديوهات يوتيوب بجودة HD، تحويل يوتيوب إلى MP3، حفظ قُصيرات يوتيوب.",
         "h1": "محمل فيديو يوتيوب",
         "subtitle": "تحميل الفيديوهات، القصيرات واستخراج الصوت MP3 من يوتيوب — سريع ومجاني.",
@@ -2023,7 +2039,7 @@ export const platforms = {
         "content": "يوتيوب هي أكبر مكتبة فيديو على هذا الكوكب. محمل يوتيوب الخاص بنا هو أسرع طريقة لحفظ المحتوى للاستخدام دون اتصال بالإنترنت."
       },
       "tr": {
-        "title": "YouTube İndirici — Videolar, Shorts ve MP3 İndirin",
+        "title": "YouTube Video İndirici — Videolar, Shorts ve MP3 İndirin",
         "desc": "Ücretsiz YouTube video indirici. YouTube videolarını HD olarak indirin, YouTube'u MP3'e dönüştürün, YouTube Shorts'ları kaydedin.",
         "h1": "YouTube Video İndirici",
         "subtitle": "YouTube'dan videolar, shorts indirin ve MP3 ses çıkarın — hızlı ve ücretsiz.",
@@ -2041,7 +2057,7 @@ export const platforms = {
         "content": "YouTube, gezegendeki en büyük video kütüphanesidir. YouTube indiricimiz, içeriği çevrimdışı kullanım için kaydetmenin en hızlı yoludur."
       },
       "ru": {
-        "title": "Загрузчик Ютуб — Скачивайте Видео, Shorts и MP3",
+        "title": "Загрузчик Видео Ютуб — Скачивайте Видео, Shorts и MP3",
         "desc": "Бесплатный загрузчик видео Ютуб. Скачивайте видео Ютуб в HD, конвертируйте Ютуб в MP3, сохраняйте Ютуб Shorts.",
         "h1": "Загрузчик Видео Ютуб",
         "subtitle": "Скачивайте видео, shorts и извлекайте аудио MP3 из Ютуб — быстро и бесплатно.",
@@ -2059,7 +2075,7 @@ export const platforms = {
         "content": "Ютуб — самая большая видеотека на планете. Наш загрузчик Ютуб — это самый быстрый способ сохранить контент для использования в автономном режиме."
       },
       "id": {
-        "title": "Pengunduh YouTube — Unduh Video, Shorts & MP3",
+        "title": "Pengunduh Video YouTube — Unduh Video, Shorts & MP3",
         "desc": "Pengunduh video YouTube gratis. Unduh video YouTube dalam HD, konversi YouTube ke MP3, simpan YouTube Shorts.",
         "h1": "Pengunduh Video YouTube",
         "subtitle": "Unduh video, short, dan ekstrak audio MP3 dari YouTube — cepat dan gratis.",
@@ -2077,7 +2093,7 @@ export const platforms = {
         "content": "YouTube adalah perpustakaan video terbesar di planet ini. Pengunduh YouTube kami adalah cara tercepat untuk menyimpan konten untuk penggunaan offline."
       },
       "zh": {
-        "title": "YouTube 下载器 — 下载视频、Shorts 和 MP3",
+        "title": "YouTube 视频下载器 — 下载视频、Shorts 和 MP3",
         "desc": "免费 YouTube 视频下载器。以高清格式下载 YouTube 视频，将 YouTube 转换为 MP3，保存 YouTube Shorts。",
         "h1": "YouTube 视频下载器",
         "subtitle": "从 YouTube 下载视频、shorts 并提取 MP3 音频 — 快速且免费。",
@@ -2095,7 +2111,7 @@ export const platforms = {
         "content": "YouTube 是全球最大的视频库。我们的 YouTube 下载器是保存内容以供离线使用的最快方式。"
       },
       "ja": {
-        "title": "YouTube ダウンローダー — 動画、ショート、MP3をダウンロード",
+        "title": "YouTube 動画ダウンローダー — 動画、ショート、MP3をダウンロード",
         "desc": "無料のYouTube動画ダウンローダー。YouTube動画をHDでダウンロード、YouTubeをMP3に変換、YouTubeショートを保存。",
         "h1": "YouTube 動画ダウンローダー",
         "subtitle": "YouTubeから動画、ショートをダウンロードし、MP3音声を抽出 — 高速かつ無料。",
@@ -2113,7 +2129,7 @@ export const platforms = {
         "content": "YouTubeは地球上で最大のビデオライブラリです。当社のYouTubeダウンローダーは、コンテンツをオフラインで使用するために保存する最速の方法です。"
       },
       "ko": {
-        "title": "YouTube 다운로더 — 비디오, Shorts 및 MP3 다운로드",
+        "title": "YouTube 비디오 다운로더 — 비디오, Shorts 및 MP3 다운로드",
         "desc": "무료 YouTube 비디오 다운로더. YouTube 비디오를 HD로 다운로드하고, YouTube를 MP3로 변환하고, YouTube Shorts를 저장하세요.",
         "h1": "YouTube 비디오 다운로더",
         "subtitle": "YouTube에서 비디오, Shorts를 다운로드하고 MP3 오디오를 추출하세요 — 빠르고 무료.",
@@ -2131,7 +2147,7 @@ export const platforms = {
         "content": "YouTube는 지구상에서 가장 큰 비디오 라이브러리입니다. 저희 YouTube 다운로더는 오프라인 사용을 위해 콘텐츠를 저장하는 가장 빠른 방법입니다."
       },
       "vi": {
-        "title": "Trình Tải Xuống YouTube — Tải Video, Shorts & MP3",
+        "title": "Trình Tải Video YouTube — Tải Video, Shorts & MP3",
         "desc": "Trình tải video YouTube miễn phí. Tải video YouTube ở chất lượng HD, chuyển đổi YouTube sang MP3, lưu YouTube Shorts.",
         "h1": "Trình Tải Video YouTube",
         "subtitle": "Tải xuống video, short và trích xuất âm thanh MP3 từ YouTube — nhanh chóng và miễn phí.",
@@ -2149,7 +2165,7 @@ export const platforms = {
         "content": "YouTube là thư viện video lớn nhất hành tinh. Trình tải xuống YouTube của chúng tôi là cách nhanh nhất để lưu nội dung để sử dụng ngoại tuyến."
       },
       "it": {
-        "title": "Downloader YouTube — Scarica Video, Shorts e MP3",
+        "title": "Downloader Video YouTube — Scarica Video, Shorts e MP3",
         "desc": "Downloader video YouTube gratuito. Scarica video YouTube in HD, converti YouTube in MP3, salva YouTube Shorts.",
         "h1": "Downloader Video YouTube",
         "subtitle": "Scarica video, shorts ed estrai audio MP3 da YouTube — veloce e gratuito.",
@@ -2167,7 +2183,7 @@ export const platforms = {
         "content": "YouTube è la più grande libreria video del pianeta. Il nostro downloader YouTube è il modo più veloce per salvare i contenuti per l'uso offline."
       },
       "nl": {
-        "title": "YouTube Downloader — Download Video's, Shorts & MP3",
+        "title": "YouTube Video Downloader — Download Video's, Shorts & MP3",
         "desc": "Gratis YouTube video downloader. Download YouTube-video's in HD, converteer YouTube naar MP3, sla YouTube Shorts op.",
         "h1": "YouTube Video Downloader",
         "subtitle": "Download video's, short en extraheer MP3-audio van YouTube — snel en gratis.",
@@ -2187,7 +2203,7 @@ export const platforms = {
     },
     "facebook": {
       "en": {
-        "title": "Facebook Downloader — Download FB Videos & Reels",
+        "title": "Facebook Video Downloader — Download FB Videos & Reels",
         "desc": "Free Facebook video downloader. Download Facebook videos and reels in HD.",
         "h1": "Facebook Video Downloader",
         "subtitle": "Download videos and reels from Facebook in high quality.",
@@ -2204,7 +2220,7 @@ export const platforms = {
         "content": "Facebook hosts millions of entertaining and informative videos. Our downloader allows you to grab any public FB video or Reel in HD quality instantly."
       },
       "hi": {
-        "title": "फेसबुक डाउनलोडर — फेसबुक वीडियो और रील डाउनलोड करें",
+        "title": "फेसबुक वीडियो डाउनलोडर — फेसबुक वीडियो और रील डाउनलोड करें",
         "desc": "मुफ्त फेसबुक वीडियो डाउनलोडर। फेसबुक वीडियो और रील HD में डाउनलोड करें।",
         "h1": "फेसबुक वीडियो डाउनलोडर",
         "subtitle": "फेसबुक से उच्च गुणवत्ता में वीडियो और रील डाउनलोड करें।",
@@ -2220,7 +2236,7 @@ export const platforms = {
         "content": "फेसबुक पर लाखों मनोरंजक और जानकारीपूर्ण वीडियो हैं। हमारा डाउनलोडर आपको किसी भी सार्वजनिक फेसबुक वीडियो या रील को तुरंत HD गुणवत्ता में डाउनलोड करने की अनुमति देता है।"
       },
       "es": {
-        "title": "Descargador de Facebook — Descarga Videos y Reels de FB",
+        "title": "Descargador de videos de Facebook — Descarga Videos y Reels de FB",
         "desc": "Descargador de videos de Facebook gratuito. Descarga videos y reels de Facebook en HD.",
         "h1": "Descargador de videos de Facebook",
         "subtitle": "Descarga videos y reels de Facebook en alta calidad.",
@@ -2237,7 +2253,7 @@ export const platforms = {
         ]
       },
       "pt": {
-        "title": "Download do Facebook — Baixar Vídeos e Reels do FB",
+        "title": "Baixador de vídeos do Facebook — Baixar Vídeos e Reels do FB",
         "desc": "Baixador de vídeos do Facebook gratuito. Baixe vídeos e reels do Facebook em HD.",
         "h1": "Baixador de vídeos do Facebook",
         "subtitle": "Baixe vídeos e reels do Facebook em alta qualidade.",
@@ -2254,7 +2270,7 @@ export const platforms = {
         ]
       },
       "fr": {
-        "title": "Téléchargeur Facebook — Téléchargez des vidéos et des Reels FB",
+        "title": "Téléchargeur de vidéos Facebook — Téléchargez des vidéos et des Reels FB",
         "desc": "Téléchargeur de vidéos Facebook gratuit. Téléchargez des vidéos et des reels Facebook en HD.",
         "h1": "Téléchargeur de vidéos Facebook",
         "subtitle": "Téléchargez des vidéos et des reels de Facebook en haute qualité.",
@@ -2271,7 +2287,7 @@ export const platforms = {
         ]
       },
       "de": {
-        "title": "Facebook Downloader — FB Videos & Reels herunterladen",
+        "title": "Facebook Video Downloader — FB Videos & Reels herunterladen",
         "desc": "Kostenloser Facebook-Video-Downloader. Laden Sie Facebook-Videos und -Reels in HD herunter.",
         "h1": "Facebook Video Downloader",
         "subtitle": "Laden Sie Videos und Reels von Facebook in hoher Qualität herunter.",
@@ -2288,7 +2304,7 @@ export const platforms = {
         ]
       },
       "ar": {
-        "title": "محمل فيسبوك — تحميل فيديوهات وريلز فيسبوك",
+        "title": "محمل فيديو فيسبوك — تحميل فيديوهات وريلز فيسبوك",
         "desc": "محمل فيديو فيسبوك مجاني. قم بتحميل فيديوهات وريلز فيسبوك بجودة HD.",
         "h1": "محمل فيديو فيسبوك",
         "subtitle": "تحميل الفيديوهات والريلز من فيسبوك بجودة عالية.",
@@ -2305,7 +2321,7 @@ export const platforms = {
         ]
       },
       "tr": {
-        "title": "Facebook İndirici — FB Videoları ve Reels'leri İndir",
+        "title": "Facebook Video İndirici — FB Videoları ve Reels'leri İndir",
         "desc": "Ücretsiz Facebook video indirici. Facebook videolarını ve reels'leri HD olarak indirin.",
         "h1": "Facebook Video İndirici",
         "subtitle": "Facebook'tan yüksek kalitede videolar ve reels'ler indirin.",
@@ -2322,7 +2338,7 @@ export const platforms = {
         ]
       },
       "ru": {
-        "title": "Загрузчик Facebook — Скачивайте Видео и Reels FB",
+        "title": "Загрузчик Видео Facebook — Скачивайте Видео и Reels FB",
         "desc": "Бесплатный загрузчик видео Facebook. Скачивайте видео и reels Facebook в HD.",
         "h1": "Загрузчик Видео Facebook",
         "subtitle": "Скачивайте видео и reels из Facebook в высоком качестве.",
@@ -2339,7 +2355,7 @@ export const platforms = {
         ]
       },
       "id": {
-        "title": "Pengunduh Facebook — Unduh Video & Reels FB",
+        "title": "Pengunduh Video Facebook — Unduh Video & Reels FB",
         "desc": "Pengunduh video Facebook gratis. Unduh video dan reels Facebook dalam HD.",
         "h1": "Pengunduh Video Facebook",
         "subtitle": "Unduh video dan reels dari Facebook dalam kualitas tinggi.",
@@ -2356,7 +2372,7 @@ export const platforms = {
         ]
       },
       "zh": {
-        "title": "Facebook 下载器 — 下载 FB 视频和 Reels",
+        "title": "Facebook 视频下载器 — 下载 FB 视频和 Reels",
         "desc": "免费 Facebook 视频下载器。以高清格式下载 Facebook 视频和 reels。",
         "h1": "Facebook 视频下载器",
         "subtitle": "从 Facebook 以高质量下载视频和 reels。",
@@ -2373,7 +2389,7 @@ export const platforms = {
         ]
       },
       "ja": {
-        "title": "Facebook ダウンローダー — FB動画とリールをダウンロード",
+        "title": "Facebook 動画ダウンローダー — FB動画とリールをダウンロード",
         "desc": "無料のFacebook動画ダウンローダー。Facebookの動画とリールをHDでダウンロードします。",
         "h1": "Facebook 動画ダウンローダー",
         "subtitle": "Facebookから高品質で動画とリールをダウンロードします。",
@@ -2390,7 +2406,7 @@ export const platforms = {
         ]
       },
       "ko": {
-        "title": "Facebook 다운로더 — FB 비디오 및 릴스 다운로드",
+        "title": "Facebook 비디오 다운로더 — FB 비디오 및 릴스 다운로드",
         "desc": "무료 Facebook 비디오 다운로더. Facebook 비디오 및 릴스를 HD로 다운로드하세요.",
         "h1": "Facebook 비디오 다운로더",
         "subtitle": "Facebook에서 고품질로 비디오 및 릴스를 다운로드하세요.",
@@ -2407,7 +2423,7 @@ export const platforms = {
         ]
       },
       "vi": {
-        "title": "Trình Tải Xuống Facebook — Tải Video FB & Reels",
+        "title": "Trình Tải Video Facebook — Tải Video FB & Reels",
         "desc": "Trình tải video Facebook miễn phí. Tải xuống video và reels Facebook ở chất lượng HD.",
         "h1": "Trình Tải Video Facebook",
         "subtitle": "Tải xuống video và reels từ Facebook với chất lượng cao.",
@@ -2424,7 +2440,7 @@ export const platforms = {
         ]
       },
       "it": {
-        "title": "Downloader Facebook — Scarica Video e Reels di FB",
+        "title": "Downloader Video Facebook — Scarica Video e Reels di FB",
         "desc": "Downloader video Facebook gratuito. Scarica video e reels di Facebook in HD.",
         "h1": "Downloader Video Facebook",
         "subtitle": "Scarica video e reels da Facebook in alta qualità.",
@@ -2441,7 +2457,7 @@ export const platforms = {
         ]
       },
       "nl": {
-        "title": "Facebook Downloader — Download FB Video's & Reels",
+        "title": "Facebook Video Downloader — Download FB Video's & Reels",
         "desc": "Gratis Facebook video downloader. Download Facebook video's en reels in HD.",
         "h1": "Facebook Video Downloader",
         "subtitle": "Download video's en reels van Facebook in hoge kwaliteit.",
@@ -2460,7 +2476,7 @@ export const platforms = {
     },
     "tiktok": {
       "en": {
-        "title": "TikTok Downloader — Download TikTok Videos Without Watermark",
+        "title": "TikTok Video Downloader — Download TikTok Videos Without Watermark",
         "desc": "Free TikTok video downloader. Download TikTok videos without watermark in HD.",
         "h1": "TikTok Video Downloader",
         "subtitle": "Download TikTok videos without watermark and save original music.",
@@ -2477,7 +2493,7 @@ export const platforms = {
         "content": "Save your favorite TikTok videos without the annoying watermark. Get original quality video and audio tracks for free."
       },
       "hi": {
-        "title": "टिकटॉक डाउनलोडर — बिना वॉटरमार्क के टिकटॉक वीडियो डाउनलोड करें",
+        "title": "टिकटॉक वीडियो डाउनलोडर — बिना वॉटरमार्क के टिकटॉक वीडियो डाउनलोड करें",
         "desc": "मुफ्त टिकटॉक वीडियो डाउनलोडर। बिना वॉटरमार्क के टिकटॉक वीडियो HD में डाउनलोड करें।",
         "h1": "टिकटॉक वीडियो डाउनलोडर",
         "subtitle": "बिना वॉटरमार्क के टिकटॉक वीडियो डाउनलोड करें और मूल संगीत सहेजें।",
@@ -2495,7 +2511,7 @@ export const platforms = {
         ]
       },
       "es": {
-        "title": "Descargador de TikTok — Descarga Videos de TikTok sin Marca de Agua",
+        "title": "Descargador de videos de TikTok — Descarga Videos de TikTok sin Marca de Agua",
         "desc": "Descargador de videos de TikTok gratuito. Descarga videos de TikTok sin marca de agua en HD.",
         "h1": "Descargador de videos de TikTok",
         "subtitle": "Descarga videos de TikTok sin marca de agua y guarda la música original.",
@@ -2513,7 +2529,7 @@ export const platforms = {
         ]
       },
       "pt": {
-        "title": "Download do TikTok — Baixar Vídeos do TikTok sem Marca d'Água",
+        "title": "Baixador de vídeos do TikTok — Baixar Vídeos do TikTok sem Marca d'Água",
         "desc": "Baixador de vídeos do TikTok gratuito. Baixe vídeos do TikTok sem marca d'água em HD.",
         "h1": "Baixador de vídeos do TikTok",
         "subtitle": "Baixe vídeos do TikTok sem marca d'água e salve a música original.",
@@ -2531,7 +2547,7 @@ export const platforms = {
         ]
       },
       "fr": {
-        "title": "Téléchargeur TikTok — Téléchargez des vidéos TikTok sans filigrane",
+        "title": "Téléchargeur de vidéos TikTok — Téléchargez des vidéos TikTok sans filigrane",
         "desc": "Téléchargeur de vidéos TikTok gratuit. Téléchargez des vidéos TikTok sans filigrane en HD.",
         "h1": "Téléchargeur de vidéos TikTok",
         "subtitle": "Téléchargez des vidéos TikTok sans filigrane et enregistrez la musique originale.",
@@ -2548,7 +2564,7 @@ export const platforms = {
         ]
       },
       "de": {
-        "title": "TikTok Downloader — TikTok-Videos ohne Wasserzeichen herunterladen",
+        "title": "TikTok Video Downloader — TikTok-Videos ohne Wasserzeichen herunterladen",
         "desc": "Kostenloser TikTok-Video-Downloader. Laden Sie TikTok-Videos ohne Wasserzeichen in HD herunter.",
         "h1": "TikTok Video Downloader",
         "subtitle": "Laden Sie TikTok-Videos ohne Wasserzeichen herunter und speichern Sie die Originalmusik.",
@@ -2565,7 +2581,7 @@ export const platforms = {
         ]
       },
       "ar": {
-        "title": "محمل تيك توك — تحميل فيديوهات تيك توك بدون علامة مائية",
+        "title": "محمل فيديو تيك توك — تحميل فيديوهات تيك توك بدون علامة مائية",
         "desc": "محمل فيديو تيك توك مجاني. قم بتحميل فيديوهات تيك توك بدون علامة مائية بجودة HD.",
         "h1": "محمل فيديو تيك توك",
         "subtitle": "تحميل فيديوهات تيك توك بدون علامة مائية وحفظ الموسيقى الأصلية.",
@@ -2582,7 +2598,7 @@ export const platforms = {
         ]
       },
       "tr": {
-        "title": "TikTok İndirici — TikTok Videolarını Filigransız İndir",
+        "title": "TikTok Video İndirici — TikTok Videolarını Filigransız İndir",
         "desc": "Ücretsiz TikTok video indirici. TikTok videolarını filigransız olarak HD kalitesinde indirin.",
         "h1": "TikTok Video İndirici",
         "subtitle": "TikTok videolarını filigransız indirin ve orijinal müziği kaydedin.",
@@ -2599,7 +2615,7 @@ export const platforms = {
         ]
       },
       "ru": {
-        "title": "Загрузчик ТикТок — Скачивайте Видео ТикТок без Водяного Знака",
+        "title": "Загрузчик Видео ТикТок — Скачивайте Видео ТикТок без Водяного Знака",
         "desc": "Бесплатный загрузчик видео ТикТок. Скачивайте видео ТикТок без водяного знака в HD.",
         "h1": "Загрузчик Видео ТикТок",
         "subtitle": "Скачивайте видео ТикТок без водяного знака и сохраняйте оригинальную музыку.",
@@ -2616,7 +2632,7 @@ export const platforms = {
         ]
       },
       "id": {
-        "title": "Pengunduh TikTok — Unduh Video TikTok Tanpa Watermark",
+        "title": "Pengunduh Video TikTok — Unduh Video TikTok Tanpa Watermark",
         "desc": "Pengunduh video TikTok gratis. Unduh video TikTok tanpa watermark dalam HD.",
         "h1": "Pengunduh Video TikTok",
         "subtitle": "Unduh video TikTok tanpa watermark dan simpan musik asli.",
@@ -2632,7 +2648,7 @@ export const platforms = {
         ]
       },
       "zh": {
-        "title": "TikTok 下载器 — 下载无水印 TikTok 视频",
+        "title": "TikTok 视频下载器 — 下载无水印 TikTok 视频",
         "desc": "免费 TikTok 视频下载器。以高清格式下载无水印的 TikTok 视频。",
         "h1": "TikTok 视频下载器",
         "subtitle": "下载无水印的 TikTok 视频并保存原始音乐。",
@@ -2648,7 +2664,7 @@ export const platforms = {
         ]
       },
       "ja": {
-        "title": "TikTok ダウンローダー — 透かしなしでTikTok動画をダウンロード",
+        "title": "TikTok 動画ダウンローダー — 透かしなしでTikTok動画をダウンロード",
         "desc": "無料のTikTok動画ダウンローダー。透かしなしでTikTok動画をHDでダウンロードします。",
         "h1": "TikTok 動画ダウンローダー",
         "subtitle": "透かしなしでTikTok動画をダウンロードし、オリジナルの音楽を保存します。",
@@ -2664,7 +2680,7 @@ export const platforms = {
         ]
       },
       "ko": {
-        "title": "TikTok 다운로더 — 워터마크 없이 TikTok 비디오 다운로드",
+        "title": "TikTok 비디오 다운로더 — 워터마크 없이 TikTok 비디오 다운로드",
         "desc": "무료 TikTok 비디오 다운로더. 워터마크 없이 HD로 TikTok 비디오를 다운로드하세요.",
         "h1": "TikTok 비디오 다운로더",
         "subtitle": "워터마크 없이 TikTok 비디오를 다운로드하고 원본 음악을 저장하세요.",
@@ -2680,7 +2696,7 @@ export const platforms = {
         ]
       },
       "vi": {
-        "title": "Trình Tải Xuống TikTok — Tải Video TikTok Không Có Hình Mờ",
+        "title": "Trình Tải Video TikTok — Tải Video TikTok Không Có Hình Mờ",
         "desc": "Trình tải video TikTok miễn phí. Tải video TikTok không có hình mờ ở chất lượng HD.",
         "h1": "Trình Tải Video TikTok",
         "subtitle": "Tải xuống video TikTok không có hình mờ và lưu nhạc gốc.",
@@ -2696,7 +2712,7 @@ export const platforms = {
         ]
       },
       "it": {
-        "title": "Downloader TikTok — Scarica Video TikTok senza Filigrana",
+        "title": "Downloader Video TikTok — Scarica Video TikTok senza Filigrana",
         "desc": "Downloader video TikTok gratuito. Scarica video TikTok senza filigrana in HD.",
         "h1": "Downloader Video TikTok",
         "subtitle": "Scarica video TikTok senza filigrana e salva la musica originale.",
@@ -2712,7 +2728,7 @@ export const platforms = {
         ]
       },
       "nl": {
-        "title": "TikTok Downloader — Download TikTok Video's Zonder Watermerk",
+        "title": "TikTok Video Downloader — Download TikTok Video's Zonder Watermerk",
         "desc": "Gratis TikTok video downloader. Download TikTok-video's zonder watermerk in HD.",
         "h1": "TikTok Video Downloader",
         "subtitle": "Download TikTok-video's zonder watermerk en sla de originele muziek op.",
@@ -2730,7 +2746,7 @@ export const platforms = {
     },
     "pinterest": {
       "en": {
-        "title": "Pinterest Downloader — Download Pinterest Videos & Images",
+        "title": "Pinterest Video Downloader — Download Pinterest Videos & Images",
         "desc": "Free Pinterest downloader. Download Pinterest videos, images and GIFs in HD.",
         "h1": "Pinterest Video Downloader",
         "subtitle": "Download videos, images and GIFs from Pinterest instantly.",
@@ -2747,7 +2763,7 @@ export const platforms = {
         "content": "Pinterest is a hub for visual inspiration. Our tool makes it easy to download any Pinterest video, image, or GIF directly to your device."
       },
       "hi": {
-        "title": "पिंटरेस्ट डाउनलोडर — पिंटरेस्ट वीडियो और चित्र डाउनलोड करें",
+        "title": "पिंटरेस्ट वीडियो डाउनलोडर — पिंटरेस्ट वीडियो और चित्र डाउनलोड करें",
         "desc": "मुफ्त पिंटरेस्ट डाउनलोडर। पिंटरेस्ट वीडियो, चित्र और GIF HD में डाउनलोड करें।",
         "h1": "पिंटरेस्ट वीडियो डाउनलोडर",
         "subtitle": "पिंटरेस्ट से वीडियो, चित्र और GIF तुरंत डाउनलोड करें।",
@@ -2764,7 +2780,7 @@ export const platforms = {
         ]
       },
       "es": {
-        "title": "Descargador de Pinterest — Descarga Videos e Imágenes de Pinterest",
+        "title": "Descargador de videos de Pinterest — Descarga Videos e Imágenes de Pinterest",
         "desc": "Descargador de Pinterest gratuito. Descarga videos, imágenes y GIFs de Pinterest en HD.",
         "h1": "Descargador de videos de Pinterest",
         "subtitle": "Descarga videos, imágenes y GIFs de Pinterest al instante.",
@@ -2781,7 +2797,7 @@ export const platforms = {
         ]
       },
       "pt": {
-        "title": "Download do Pinterest — Baixar Vídeos e Imagens do Pinterest",
+        "title": "Baixador de vídeos do Pinterest — Baixar Vídeos e Imagens do Pinterest",
         "desc": "Baixador do Pinterest gratuito. Baixe vídeos, imagens e GIFs do Pinterest em HD.",
         "h1": "Baixador de vídeos do Pinterest",
         "subtitle": "Baixe vídeos, imagens e GIFs do Pinterest instantaneamente.",
@@ -2798,7 +2814,7 @@ export const platforms = {
         ]
       },
       "fr": {
-        "title": "Téléchargeur Pinterest — Téléchargez des vidéos et des images Pinterest",
+        "title": "Téléchargeur de vidéos Pinterest — Téléchargez des vidéos et des images Pinterest",
         "desc": "Téléchargeur Pinterest gratuit. Téléchargez des vidéos, des images et des GIFs Pinterest en HD.",
         "h1": "Téléchargeur de vidéos Pinterest",
         "subtitle": "Téléchargez instantanément des vidéos, des images et des GIFs de Pinterest.",
@@ -2815,7 +2831,7 @@ export const platforms = {
         ]
       },
       "de": {
-        "title": "Pinterest Downloader — Pinterest-Videos und -Bilder herunterladen",
+        "title": "Pinterest Video Downloader — Pinterest-Videos und -Bilder herunterladen",
         "desc": "Kostenloser Pinterest-Downloader. Laden Sie Pinterest-Videos, -Bilder und -GIFs in HD herunter.",
         "h1": "Pinterest Video Downloader",
         "subtitle": "Laden Sie Videos, Bilder und GIFs sofort von Pinterest herunter.",
@@ -2832,7 +2848,7 @@ export const platforms = {
         ]
       },
       "ar": {
-        "title": "محمل بينتيريست — تحميل فيديوهات وصور بينتيريست",
+        "title": "محمل فيديو بينتيريست — تحميل فيديوهات وصور بينتيريست",
         "desc": "محمل بينتيريست مجاني. قم بتحميل فيديوهات وصور و GIF بينتيريست بجودة HD.",
         "h1": "محمل فيديو بينتيريست",
         "subtitle": "تحميل الفيديوهات والصور و GIF من بينتيريست على الفور.",
@@ -2849,7 +2865,7 @@ export const platforms = {
         ]
       },
       "tr": {
-        "title": "Pinterest İndirici — Pinterest Videoları ve Görselleri İndir",
+        "title": "Pinterest Video İndirici — Pinterest Videoları ve Görselleri İndir",
         "desc": "Ücretsiz Pinterest indirici. Pinterest videolarını, görsellerini ve GIF'lerini HD olarak indirin.",
         "h1": "Pinterest Video İndirici",
         "subtitle": "Pinterest'ten anında videolar, görseller ve GIF'ler indirin.",
@@ -2866,7 +2882,7 @@ export const platforms = {
         ]
       },
       "ru": {
-        "title": "Загрузчик Пинтерест — Скачивайте Видео и Изображения Пинтерест",
+        "title": "Загрузчик Видео Пинтерест — Скачивайте Видео и Изображения Пинтерест",
         "desc": "Бесплатный загрузчик Пинтерест. Скачивайте видео, изображения и GIF из Пинтерест в HD.",
         "h1": "Загрузчик Видео Пинтерест",
         "subtitle": "Мгновенно скачивайте видео, изображения и GIF из Пинтерест.",
@@ -2883,7 +2899,7 @@ export const platforms = {
         ]
       },
       "id": {
-        "title": "Pengunduh Pinterest — Unduh Video & Gambar Pinterest",
+        "title": "Pengunduh Video Pinterest — Unduh Video & Gambar Pinterest",
         "desc": "Pengunduh Pinterest gratis. Unduh video, gambar, dan GIF Pinterest dalam HD.",
         "h1": "Pengunduh Video Pinterest",
         "subtitle": "Unduh video, gambar, dan GIF dari Pinterest secara instan.",
@@ -2900,7 +2916,7 @@ export const platforms = {
         ]
       },
       "zh": {
-        "title": "Pinterest 下载器 — 下载 Pinterest 视频和图片",
+        "title": "Pinterest 视频下载器 — 下载 Pinterest 视频和图片",
         "desc": "免费 Pinterest 下载器。以高清格式下载 Pinterest 视频、图片和 GIF。",
         "h1": "Pinterest 视频下载器",
         "subtitle": "立即从 Pinterest 下载视频、图片和 GIF。",
@@ -2917,7 +2933,7 @@ export const platforms = {
         ]
       },
       "ja": {
-        "title": "Pinterest ダウンローダー — Pinterestの動画と画像をダウンロード",
+        "title": "Pinterest 動画ダウンローダー — Pinterestの動画と画像をダウンロード",
         "desc": "無料のPinterestダウンローダー。Pinterestの動画、画像、GIFをHDでダウンロードします。",
         "h1": "Pinterest 動画ダウンローダー",
         "subtitle": "Pinterestから動画、画像、GIFをすぐにダウンロードします。",
@@ -2934,7 +2950,7 @@ export const platforms = {
         ]
       },
       "ko": {
-        "title": "Pinterest 다운로더 — Pinterest 비디오 및 이미지 다운로드",
+        "title": "Pinterest 비디오 다운로더 — Pinterest 비디오 및 이미지 다운로드",
         "desc": "무료 Pinterest 다운로더. Pinterest 비디오, 이미지 및 GIF를 HD로 다운로드하세요.",
         "h1": "Pinterest 비디오 다운로더",
         "subtitle": "Pinterest에서 비디오, 이미지 및 GIF를 즉시 다운로드하세요.",
@@ -2951,7 +2967,7 @@ export const platforms = {
         ]
       },
       "vi": {
-        "title": "Trình Tải Xuống Pinterest — Tải Video & Hình Ảnh Pinterest",
+        "title": "Trình Tải Video Pinterest — Tải Video & Hình Ảnh Pinterest",
         "desc": "Trình tải Pinterest miễn phí. Tải xuống video, hình ảnh và GIF Pinterest ở chất lượng HD.",
         "h1": "Trình Tải Video Pinterest",
         "subtitle": "Tải xuống video, hình ảnh và GIF từ Pinterest ngay lập tức.",
@@ -2968,7 +2984,7 @@ export const platforms = {
         ]
       },
       "it": {
-        "title": "Downloader Pinterest — Scarica Video e Immagini da Pinterest",
+        "title": "Downloader Video Pinterest — Scarica Video e Immagini da Pinterest",
         "desc": "Downloader Pinterest gratuito. Scarica video, immagini e GIF da Pinterest in HD.",
         "h1": "Downloader Video Pinterest",
         "subtitle": "Scarica istantaneamente video, immagini e GIF da Pinterest.",
@@ -2985,7 +3001,7 @@ export const platforms = {
         ]
       },
       "nl": {
-        "title": "Pinterest Downloader — Download Pinterest Video's & Afbeeldingen",
+        "title": "Pinterest Video Downloader — Download Pinterest Video's & Afbeeldingen",
         "desc": "Gratis Pinterest downloader. Download Pinterest video's, afbeeldingen en GIF's in HD.",
         "h1": "Pinterest Video Downloader",
         "subtitle": "Download direct video's, afbeeldingen en GIF's van Pinterest.",
@@ -3004,7 +3020,7 @@ export const platforms = {
     },
     "x": {
       "en": {
-        "title": "X (Twitter) Downloader — Download X Videos & GIFs",
+        "title": "X Video Downloader — Download X Videos & GIFs",
         "desc": "Free X (Twitter) video downloader. Download X videos and GIFs in HD.",
         "h1": "X Video Downloader",
         "subtitle": "Download videos and GIFs from X (Twitter) — fast and free.",
@@ -3021,7 +3037,7 @@ export const platforms = {
         "content": "X (Twitter) is great for real-time news and viral clips. Use our X downloader to save any video or GIF from X in high quality."
       },
       "fr": {
-        "title": "Téléchargeur X (Twitter) — Téléchargez des vidéos et des GIFs X",
+        "title": "Téléchargeur de vidéos X — Téléchargez des vidéos et des GIFs X",
         "desc": "Téléchargeur de vidéos X (Twitter) gratuit. Téléchargez des vidéos et des GIFs X en HD.",
         "h1": "Téléchargeur de vidéos X",
         "subtitle": "Téléchargez des vidéos et des GIFs de X (Twitter) — rapidement et gratuitement.",
@@ -3037,7 +3053,7 @@ export const platforms = {
         ]
       },
       "de": {
-        "title": "X (Twitter) Downloader — X-Videos & GIFs herunterladen",
+        "title": "X Video Downloader — X-Videos & GIFs herunterladen",
         "desc": "Kostenloser X (Twitter) Video-Downloader. Laden Sie X-Videos und -GIFs in HD herunter.",
         "h1": "X Video Downloader",
         "subtitle": "Laden Sie Videos und GIFs von X (Twitter) herunter — schnell und kostenlos.",
@@ -3053,7 +3069,7 @@ export const platforms = {
         ]
       },
       "ar": {
-        "title": "محمل إكس (تويتر) — تحميل فيديوهات و GIF من إكس",
+        "title": "محمل فيديو إكس — تحميل فيديوهات و GIF من إكس",
         "desc": "محمل فيديو إكس (تويتر) مجاني. قم بتحميل فيديوهات و GIF من إكس بجودة HD.",
         "h1": "محمل فيديو إكس",
         "subtitle": "تحميل الفيديوهات و GIF من إكس (تويتر) — سريع ومجاني.",
@@ -3069,7 +3085,7 @@ export const platforms = {
         ]
       },
       "tr": {
-        "title": "X (Twitter) İndirici — X Videoları ve GIF'leri İndir",
+        "title": "X Video İndirici — X Videoları ve GIF'leri İndir",
         "desc": "Ücretsiz X (Twitter) video indirici. X videolarını ve GIF'lerini HD olarak indirin.",
         "h1": "X Video İndirici",
         "subtitle": "X (Twitter)'dan videolar ve GIF'ler indirin — hızlı ve ücretsiz.",
@@ -3085,7 +3101,7 @@ export const platforms = {
         ]
       },
       "ru": {
-        "title": "Загрузчик Икс (Twitter) — Скачивайте Видео и GIF из Икс",
+        "title": "Загрузчик Видео Икс — Скачивайте Видео и GIF из Икс",
         "desc": "Бесплатный загрузчик видео Икс (Twitter). Скачивайте видео и GIF из Икс в HD.",
         "h1": "Загрузчик Видео Икс",
         "subtitle": "Скачивайте видео и GIF из Икс (Twitter) — быстро и бесплатно.",
@@ -3101,7 +3117,7 @@ export const platforms = {
         ]
       },
       "id": {
-        "title": "Pengunduh X (Twitter) — Unduh Video & GIF X",
+        "title": "Pengunduh Video X — Unduh Video & GIF X",
         "desc": "Pengunduh video X (Twitter) gratis. Unduh video dan GIF X dalam HD.",
         "h1": "Pengunduh Video X",
         "subtitle": "Unduh video dan GIF dari X (Twitter) — cepat dan gratis.",
@@ -3117,7 +3133,7 @@ export const platforms = {
         ]
       },
       "zh": {
-        "title": "X (Twitter) 下载器 — 下载 X 视频和 GIF",
+        "title": "X 视频下载器 — 下载 X 视频和 GIF",
         "desc": "免费 X (Twitter) 视频下载器。以高清格式下载 X 视频和 GIF。",
         "h1": "X 视频下载器",
         "subtitle": "从 X (Twitter) 下载视频和 GIF — 快速且免费。",
@@ -3133,7 +3149,7 @@ export const platforms = {
         ]
       },
       "ja": {
-        "title": "X (Twitter) ダウンローダー — Xの動画とGIFをダウンロード",
+        "title": "X 動画ダウンローダー — Xの動画とGIFをダウンロード",
         "desc": "無料のX (Twitter) 動画ダウンローダー。Xの動画とGIFをHDでダウンロードします。",
         "h1": "X 動画ダウンローダー",
         "subtitle": "X (Twitter) から動画とGIFをダウンロード — 高速かつ無料。",
@@ -3149,7 +3165,7 @@ export const platforms = {
         ]
       },
       "ko": {
-        "title": "X (Twitter) 다운로더 — X 비디오 및 GIF 다운로드",
+        "title": "X 비디오 다운로더 — X 비디오 및 GIF 다운로드",
         "desc": "무료 X (Twitter) 비디오 다운로더. X 비디오 및 GIF를 HD로 다운로드하세요.",
         "h1": "X 비디오 다운로더",
         "subtitle": "X (Twitter)에서 비디오 및 GIF 다운로드 — 빠르고 무료.",
@@ -3165,7 +3181,7 @@ export const platforms = {
         ]
       },
       "vi": {
-        "title": "Trình Tải Xuống X (Twitter) — Tải Video & GIF X",
+        "title": "Trình Tải Video X — Tải Video & GIF X",
         "desc": "Trình tải video X (Twitter) miễn phí. Tải xuống video và GIF X ở chất lượng HD.",
         "h1": "Trình Tải Video X",
         "subtitle": "Tải xuống video và GIF từ X (Twitter) — nhanh chóng và miễn phí.",
@@ -3181,7 +3197,7 @@ export const platforms = {
         ]
       },
       "it": {
-        "title": "Downloader X (Twitter) — Scarica Video e GIF da X",
+        "title": "Downloader Video X — Scarica Video e GIF da X",
         "desc": "Downloader video X (Twitter) gratuito. Scarica video e GIF da X in HD.",
         "h1": "Downloader Video X",
         "subtitle": "Scarica video e GIF da X (Twitter) — veloce e gratuito.",
@@ -3197,7 +3213,7 @@ export const platforms = {
         ]
       },
       "nl": {
-        "title": "X (Twitter) Downloader — Download X Video's & GIF's",
+        "title": "X Video Downloader — Download X Video's & GIF's",
         "desc": "Gratis X (Twitter) video downloader. Download X-video's en GIF's in HD.",
         "h1": "X Video Downloader",
         "subtitle": "Download video's en GIF's van X (Twitter) — snel en gratis.",

@@ -21,23 +21,30 @@ if (!lang || !(languages as any)[lang as string] || lang === 'en') {
   return Astro.redirect('/404');
 }
 
-// Resolve the internal platform key from the URL slug
-const platform = platSlug === 'instagram-reel' ? 'instagram' : 
-                 platSlug === 'youtube-short' ? 'yt' : 
-                 platSlug === 'facebook-video' ? 'facebook' : 
-                 platSlug === 'pinterest-video' ? 'pinterest' : 
-                 platSlug === 'x-video' ? 'x' : 
-                 (platSlug === 'youtube' ? 'yt' : platSlug);
+// Resolve the internal platform key from the URL slug (mapping to i18n keys and trending configs)
+const i18nPlatform = platSlug === 'instagram-reel' ? 'instagram' : 
+                     platSlug === 'youtube-short' ? 'yt' : 
+                     platSlug === 'facebook-video' ? 'facebook' : 
+                     platSlug === 'pinterest-video' ? 'pinterest' : 
+                     platSlug === 'x-video' ? 'x' : 
+                     (platSlug === 'youtube' ? 'yt' : platSlug);
+
+const configPlatform = platSlug === 'instagram-reel' ? 'instagram' : 
+                       platSlug === 'youtube-short' ? 'youtube' : 
+                       platSlug === 'facebook-video' ? 'facebook' : 
+                       platSlug === 'pinterest-video' ? 'pinterest' : 
+                       platSlug === 'x-video' ? 'x' : 
+                       (platSlug === 'youtube' ? 'youtube' : platSlug);
 
 // 404 if config is missing for this platform
-if (!platform || !(pSeoConfig.platformConfigs as any)[platform as string]) {
+if (!configPlatform || !(pSeoConfig.platformConfigs as any)[configPlatform as string]) {
   return Astro.redirect('/404');
 }
 
 // Find the topic in the trending data
 const trendingItem: any = pSeoConfig.trending.find((t: any) => t.slug === topicSlug);
 
-if (!trendingItem || !trendingItem.platforms[platform as string] || trendingItem.platforms[platform as string].length === 0) {
+if (!trendingItem || !trendingItem.platforms[configPlatform as string] || trendingItem.platforms[configPlatform as string].length === 0) {
   return Astro.redirect('/404');
 }
 
@@ -45,19 +52,19 @@ if (!trendingItem || !trendingItem.platforms[platform as string] || trendingItem
 const t = { ...ui.en, ...((ui as any)[lang as string] || {}) };
 
 // Get platform data from i18n with fallback
-const pData = (platforms as any)[platform as string]?.[lang as string] || (platforms as any)[platform as string]?.en || {};
-const STEPS = pData.steps || (platforms as any)[platform as string]?.en?.steps || [];
+const pData = (platforms as any)[i18nPlatform as string]?.[lang as string] || (platforms as any)[i18nPlatform as string]?.en || {};
+const STEPS = pData.steps || (platforms as any)[i18nPlatform as string]?.en?.steps || [];
 
 // Get translated platform name
-const translatedPlatformName = t[`platform.${platform}` as keyof typeof t] || ((pSeoConfig.platformConfigs as any)[platform as string] as any).name;
+const translatedPlatformName = t[`platform.${i18nPlatform}` as keyof typeof t] || ((pSeoConfig.platformConfigs as any)[configPlatform as string] as any).name;
 const displayName = trendingItem.name;
-const platformInfo: any = (pSeoConfig.platformConfigs as any)[platform as string];
+const platformInfo: any = (pSeoConfig.platformConfigs as any)[configPlatform as string];
 
 // Build title and description with translated platform name
 const formattedTopic = displayName || (topicSlug || '').replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase());
 
 // Use translation function to build title
-const titlePrefix = platform === 'instagram' ? t['trending.reels_prefix'] : t['trending.video_prefix'];
+const titlePrefix = i18nPlatform === 'instagram' ? t['trending.reels_prefix'] : t['trending.video_prefix'];
 
 const title = `${translatedPlatformName} — ${formattedTopic}`;
 const description = `${t['trending.desc_prefix']} ${formattedTopic} ${t['trending.on']} ${translatedPlatformName}. ${t['trending.desc_suffix']}`;
@@ -70,7 +77,7 @@ const endpointMap: Record<string, string> = {
   x: `/x/download`
 };
 
-const trendingUrls = (trendingItem.platforms[platform as string] || []) as string[];
+const trendingUrls = (trendingItem.platforms[configPlatform as string] || []) as string[];
 
 // Convert simple URLs from trending to the {title, url} format used by TopicMediaList
 const topicData = trendingUrls.map((url: string, i: number) => ({ 
@@ -107,7 +114,7 @@ const FAQS = [
       
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[0.75rem] font-bold uppercase tracking-wider mb-5 relative z-10"
         style={`background:rgba(124,58,237,0.1); border:1px solid rgba(124,58,237,0.3); color:var(--brand2);`}>
-        <PlatformIcon platform={platform} size={14} />
+        <PlatformIcon platform={i18nPlatform} size={14} />
         <span>{t['common.exclusive']}</span>
       </div>
 
@@ -123,8 +130,8 @@ const FAQS = [
 
     <TopicMediaList 
       client:load 
-      platform={platform} 
-      apiEndpoint={endpointMap[platform]} 
+      platform={i18nPlatform} 
+      apiEndpoint={endpointMap[configPlatform]} 
       topicData={topicData} 
       t={t}
     />

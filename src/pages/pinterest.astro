@@ -12,15 +12,27 @@ const pData = platforms['pinterest']?.en || {};
 const FAQS = pData.faqs || [];
 const STEPS = pData.steps || [];
 const t = ui.en;
+
 const pinSchema = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: 'Pinterest Downloader — InstaDownloader',
     url: `${SITE_URL}/pinterest`,
+    description: pData.desc || 'Free Pinterest video and image downloader. Download Pinterest videos, GIFs and photos in HD quality.',
     applicationCategory: 'MultimediaApplication',
     operatingSystem: 'Any',
+    browserRequirements: 'Requires JavaScript. Requires HTML5.',
+    image: `${SITE_URL}/og-image.png`,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'InstaDownloader',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/favicon.ico`
+      }
+    },
     alternateName: [
       'pinterest video downloader', 'pinterest downloader',
       'pin downloader', 'pinterest image downloader',

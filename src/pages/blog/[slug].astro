@@ -43,10 +43,22 @@ const jsonLd = {
   "description": blog.description,
   "image": blog.image,
   "datePublished": blog.createdAt,
-  "dateModified": blog.updatedAt,
+  "dateModified": blog.updatedAt || blog.createdAt,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": currentUrl
+  },
   "author": {
     "@type": "Organization",
     "name": "InstaDownloader"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "InstaDownloader",
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${Astro.url.origin}/favicon.ico`
+    }
   }
 };
 ---
@@ -55,8 +67,8 @@ const jsonLd = {
   title={blog.metaTitle || `${blog.title} | Blog`} 
   description={blog.metaDescription || blog.description}
   ogImage={blog.image}
+  schema={jsonLd}
 >
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   
   <div class="min-h-screen pt-2 pb-20 px-4 md:px-8" style="background: var(--bg-base);">
     <div class="max-w-6xl mx-auto">

@@ -12,15 +12,27 @@ const pData = platforms['yt']?.en || {};
 const FAQS = pData.faqs || [];
 const STEPS = pData.steps || [];
 const t = ui.en;
+
 const ytSchema = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: 'YouTube Downloader — InstaDownloader',
     url: `${SITE_URL}/yt`,
+    description: pData.desc || 'Free YouTube video downloader. Download YouTube videos in HD, convert YouTube to MP3, save YouTube Shorts.',
     applicationCategory: 'MultimediaApplication',
     operatingSystem: 'Any',
+    browserRequirements: 'Requires JavaScript. Requires HTML5.',
+    image: `${SITE_URL}/og-image.png`,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'InstaDownloader',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/favicon.ico`
+      }
+    },
     alternateName: [
       'youtube downloader', 'yt downloader', 'youtube video downloader',
       'youtube to mp3', 'ytmp3', 'youtube mp3 downloader',
@@ -50,7 +62,7 @@ const ytSchema = [
 ---
 
 <PageLayout
-  title={pData.title || "YouTube Downloader — Download Videos, Shorts & MP3 from YouTube Free 2026"}
+  title={pData.title || "YouTube Video Downloader — Download Videos, Shorts & MP3 from YouTube Free 2026"}
   description={pData.desc || "Free YouTube video downloader. Download YouTube videos in HD, convert YouTube to MP3, save YouTube Shorts. Fast, secure, no registration. Works on mobile & desktop."}
   keywords="youtube downloader, yt downloader, youtube to mp3, ytmp3, youtube video downloader, youtube mp4 downloader, youtube shorts downloader, download youtube videos, youtube converter, youtube mp3 downloader, youtube hd downloader, save youtube videos, youtube audio downloader, youtube 4k downloader, download youtube shorts, youtube downloader online free"
   schema={ytSchema}
