@@ -5,6 +5,7 @@ import DownloaderWidget from '../components/react/DownloaderWidget.jsx';
 import FAQItem from '../components/FAQItem.astro';
 import TrendingDownloads from '../components/TrendingDownloads.astro';
 import TryOtherPlatforms from '../components/TryOtherPlatforms.astro';
+import RichContent from '../components/RichContent.astro';
 
 import { platforms, ui } from '../data/i18n.js';
 
@@ -16,37 +17,34 @@ const t = ui.en;
 const pinSchema = [
   {
     '@context': 'https://schema.org',
-    '@type': 'WebApplication',
-    name: 'Pinterest Downloader — InstaDownloader',
+    '@type': 'SoftwareApplication',
+    '@id': `${SITE_URL}/pinterest#tool`,
+    name: 'Pinterest Video Downloader — InstaDownloader',
     url: `${SITE_URL}/pinterest`,
     description: pData.desc || 'Free Pinterest video and image downloader. Download Pinterest videos, GIFs and photos in HD quality.',
     applicationCategory: 'MultimediaApplication',
-    operatingSystem: 'Any',
-    browserRequirements: 'Requires JavaScript. Requires HTML5.',
-    image: `${SITE_URL}/og-image.png`,
+    applicationSubCategory: 'Video Downloader',
+    operatingSystem: 'Any (web-based)',
+    isAccessibleForFree: true,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-    publisher: {
-      '@type': 'Organization',
-      name: 'InstaDownloader',
-      logo: {
-        '@type': 'ImageObject',
-        url: `${SITE_URL}/favicon.ico`
-      }
-    },
-    alternateName: [
-      'pinterest video downloader', 'pinterest downloader',
-      'pin downloader', 'pinterest image downloader',
-      'download pinterest videos', 'pinterest photo downloader',
-      'save pinterest pins', 'pinterest gif downloader',
-      'pinterest video saver', 'pinterest hd downloader',
-      'download pinterest without watermark', 'pinterest media downloader',
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    featureList: [
+      'HD video download',
+      'Image and GIF download',
+      'No login required',
+      'Works on iOS, Android, Windows and macOS',
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.7',
-      ratingCount: '2150',
-      bestRating: '5',
-    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to download Pinterest videos with InstaDownloader',
+    totalTime: 'PT30S',
+    step: [
+      { '@type': 'HowToStep', position: 1, name: 'Copy the Pin link', text: 'On Pinterest, tap the Share button and then Copy Link for any public Pin.' },
+      { '@type': 'HowToStep', position: 2, name: 'Paste the URL', text: 'Paste the link into the search field on InstaDownloader and click the download button.' },
+      { '@type': 'HowToStep', position: 3, name: 'Download in HD', text: 'Click the download button and the video or image saves to your device instantly.' },
+    ],
   },
   {
     '@context': 'https://schema.org',
@@ -63,12 +61,11 @@ const pinSchema = [
 <PageLayout
   title={pData.title || "Pinterest Video Downloader — Download Pinterest Videos & Images HD Free 2026"}
   description={pData.desc || "Free Pinterest video and image downloader. Download Pinterest videos, GIFs and photos in HD quality. No login, no watermark, instant save. Works on all devices."}
-  keywords="pinterest video downloader, pinterest downloader, pin downloader, download pinterest videos, pinterest image downloader, pinterest photo downloader, save pinterest pins, pinterest gif downloader, pinterest hd downloader, download pinterest without watermark, pinterest video saver, pinterest media downloader"
+  ogImage="/og-pinterest.png"
   schema={pinSchema}
 >
   <div class="max-w-[1000px] mx-auto px-6 py-5">
     <div class="text-center mb-6">
-      <div class="inline-flex px-4 py-1.5 rounded-full text-sm font-bold bg-[rgba(230,0,35,0.1)] border border-[rgba(230,0,35,0.2)] text-[#e60023] mb-3">📌 Pin Saver</div>
       <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-black mb-1 leading-tight" style="color:var(--txt);">
         {pData.h1 || "Pinterest Video Downloader"}
       </h1>
@@ -113,6 +110,43 @@ const pinSchema = [
         </div>
       </div>
     </DownloaderWidget>
+
+    <RichContent
+      platform="Pinterest"
+      features={[
+        { icon: '📌', title: 'Download Pinterest Videos', desc: 'Save any public Pinterest video Pin as a full-quality MP4 file — ideal for offline viewing, presentations, or reference.' },
+        { icon: '🖼️', title: 'Download Pinterest Images', desc: 'Save original-resolution photos from any public Pinterest Pin as a JPG or PNG file directly to your device.' },
+        { icon: '🎉', title: 'Download Pinterest GIFs', desc: 'Animated GIF Pins can be saved as GIF files, preserving the animation loop exactly as it appears on Pinterest.' },
+        { icon: '🔒', title: 'No Pinterest Login', desc: 'No account required. Paste any public Pin link and download the content — no Pinterest credentials ever needed.' },
+        { icon: '⚡', title: 'Fast & Simple', desc: 'Three steps: copy the Pin link, paste it into InstaDownloader, and click download. Takes under 10 seconds.' },
+        { icon: '🆓', title: 'Unlimited Downloads', desc: 'No cap on downloads. Save as many Pinterest Pins, videos, and images as you need, every day.' },
+      ]}
+      supportedTypes={[
+        { label: 'Pinterest Video Pins (MP4)', desc: 'Videos posted directly to Pinterest or embedded as native video Pins. Saved as MP4 in the highest resolution available on the platform.' },
+        { label: 'Pinterest Photo Pins (JPG/PNG)', desc: 'Original high-resolution photos attached to any public Pin. Quality matches what the creator originally uploaded — no compression added by InstaDownloader.' },
+        { label: 'Pinterest GIF Pins', desc: 'Animated GIFs posted as Pins. Saved as standard .gif files that play in any image viewer or browser.' },
+        { label: 'Story Pins / Idea Pins', desc: 'Pinterest’s Idea Pin format (multi-slide visual stories) — downloadable as individual images or video where the format supports it.' },
+        { label: 'Board Preview Images', desc: 'Individual Pin images from collections and boards, downloaded in original resolution for moodboards and creative reference.' },
+      ]}
+      whySection={{
+        title: 'Why Use InstaDownloader for Pinterest?',
+        paras: [
+          'Pinterest is a visual discovery platform used by hundreds of millions of people to find inspiration for interior design, fashion, recipes, travel, art, and countless other topics. While Pinterest allows you to save Pins to boards within the app, it does not offer a direct download button to save images or videos to your device. <strong>InstaDownloader bridges this gap</strong> — giving you the actual file, not just a bookmark.',
+          'For designers, photographers, architects, stylists, and creative professionals, being able to save high-resolution reference images from Pinterest is essential. InstaDownloader downloads the original uploaded resolution — not a compressed thumbnail — so your reference material retains its full detail.',
+          'Pinterest video Pins are increasingly popular for recipes, DIY tutorials, home renovation reveals, and fashion lookbooks. Our tool handles all Pinterest video formats and saves them as clean MP4 files playable on any device, video editor, or media player.',
+          'Pinterest GIF Pins are a staple of decorating boards, mood boards, and creative inspiration collections. InstaDownloader saves these as genuine .gif files rather than converting them to a lossy video format, so the animation quality and loop behaviour are perfectly preserved.',
+          'InstaDownloader accepts every Pinterest URL format: standard pin links (pinterest.com/pin/...), short links (pin.it/...), and direct image URLs shared from the Pinterest app on mobile. Whatever you copy from Pinterest, our tool will handle it.',
+        ],
+      }}
+      proTips={[
+        { tip: 'Copy the Pin URL from the address bar', detail: 'On desktop, the cleanest URL is in the browser address bar when you open a specific Pin page. It looks like pinterest.com/pin/1234567890.' },
+        { tip: 'Use the Share button on mobile', detail: 'In the Pinterest app, tap the three-dot menu (⋯) on any Pin and select “Copy link”. The resulting short URL (pin.it/...) works perfectly with InstaDownloader.' },
+        { tip: 'Download Idea Pins early', detail: 'Idea Pins (formerly Story Pins) can be removed by creators at any time. If you want to save one for reference, do it soon after finding it.' },
+        { tip: 'Board overview images vs individual Pins', detail: 'To download a specific image, open the individual Pin page — not the board overview. Individual Pin pages give you the original-resolution file.' },
+        { tip: 'Pinterest images may be copyrighted', detail: 'Many images on Pinterest are owned by photographers, designers, or brands. Always check usage rights before using downloaded images in your own commercial work.' },
+      ]}
+      disclaimer="InstaDownloader is an independent tool not affiliated with, endorsed by, or connected to Pinterest, Inc. Download only content you have the right to use. Many images and videos on Pinterest are protected by copyright. Using downloaded Pinterest content commercially without the copyright holder’s permission may violate Pinterest’s Terms of Service and applicable intellectual property laws."
+    />
 
     <div class="mt-16 pt-16 border-t border-[var(--bdr)]">
       <TrendingDownloads />

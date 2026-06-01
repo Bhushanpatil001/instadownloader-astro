@@ -5,6 +5,7 @@ import DownloaderWidget from '../components/react/DownloaderWidget.jsx';
 import FAQItem from '../components/FAQItem.astro';
 import TrendingDownloads from '../components/TrendingDownloads.astro';
 import TryOtherPlatforms from '../components/TryOtherPlatforms.astro';
+import RichContent from '../components/RichContent.astro';
 
 import { platforms, ui } from '../data/i18n.js';
 
@@ -16,37 +17,34 @@ const t = ui.en;
 const fbSchema = [
   {
     '@context': 'https://schema.org',
-    '@type': 'WebApplication',
+    '@type': 'SoftwareApplication',
+    '@id': `${SITE_URL}/facebook#tool`,
     name: 'Facebook Video Downloader — InstaDownloader',
     url: `${SITE_URL}/facebook`,
-    description: pData.desc || 'Free Facebook video downloader. Download Facebook videos, reels and stories in HD. No login required. Fast & secure.',
+    description: pData.desc || 'Free Facebook video downloader. Download Facebook videos, reels and stories in HD. No login required.',
     applicationCategory: 'MultimediaApplication',
-    operatingSystem: 'Any',
-    browserRequirements: 'Requires JavaScript. Requires HTML5.',
-    image: `${SITE_URL}/og-image.png`,
+    applicationSubCategory: 'Video Downloader',
+    operatingSystem: 'Any (web-based)',
+    isAccessibleForFree: true,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-    publisher: {
-      '@type': 'Organization',
-      name: 'InstaDownloader',
-      logo: {
-        '@type': 'ImageObject',
-        url: `${SITE_URL}/favicon.ico`
-      }
-    },
-    alternateName: [
-      'facebook video downloader', 'fb video downloader',
-      'facebook downloader', 'fb downloader', 'fdown',
-      'facebook reel downloader', 'download facebook videos',
-      'save facebook videos', 'facebook story downloader',
-      'facebook video saver', 'facebook hd downloader',
-      'facebook video downloader online', 'download fb videos free',
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    featureList: [
+      'HD video download',
+      'No login required',
+      'Download Facebook Videos, Reels and Stories',
+      'Works on iOS, Android, Windows and macOS',
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      ratingCount: '3180',
-      bestRating: '5',
-    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to download Facebook videos with InstaDownloader',
+    totalTime: 'PT30S',
+    step: [
+      { '@type': 'HowToStep', position: 1, name: 'Copy the link', text: 'On Facebook, tap Share and then Copy Link for any public post or video.' },
+      { '@type': 'HowToStep', position: 2, name: 'Paste the URL', text: 'Paste the link into the search field on InstaDownloader and click the download button.' },
+      { '@type': 'HowToStep', position: 3, name: 'Download in HD', text: 'Click the download button and the file saves to your device instantly.' },
+    ],
   },
   {
     '@context': 'https://schema.org',
@@ -63,12 +61,11 @@ const fbSchema = [
 <PageLayout
   title={pData.title || "Facebook Video Downloader — Download FB Reels & Videos in HD Free 2026"}
   description={pData.desc || "Free Facebook video downloader. Download Facebook videos, reels and stories in HD. No login required. Fast & secure. Save FB videos to your phone or PC instantly."}
-  keywords="facebook video downloader, fb video downloader, facebook downloader, fb downloader, download facebook videos, save facebook videos, facebook reel downloader, facebook story downloader, facebook hd downloader, facebook video saver, facebook video downloader online, download fb videos free, fdown"
+  ogImage="/og-facebook.png"
   schema={fbSchema}
 >
   <div class="max-w-[1000px] mx-auto px-6 py-5">
     <div class="text-center mb-6">
-      <div class="inline-flex px-4 py-1.5 rounded-full text-sm font-bold bg-[rgba(24,119,242,0.1)] border border-[rgba(24,119,242,0.2)] text-[#1877f2] mb-3">🎬 FB Saver</div>
       <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-black mb-1 leading-tight" style="color:var(--txt);">
         {pData.h1 || "Facebook Video Downloader"}
       </h1>
@@ -113,6 +110,43 @@ const fbSchema = [
         </div>
       </div>
     </DownloaderWidget>
+
+    <RichContent
+      platform="Facebook"
+      features={[
+        { icon: '🎬', title: 'HD Video Download', desc: 'Save any public Facebook video in HD or SD quality as an MP4 file playable on any device.' },
+        { icon: '🔄', title: 'Download Facebook Reels', desc: 'Facebook Reels are short vertical videos. InstaDownloader saves them as clean MP4 files in original quality.' },
+        { icon: '📸', title: 'Story Videos', desc: 'Download video stories from public Facebook profiles and pages before they expire after 24 hours.' },
+        { icon: '🔒', title: 'No Facebook Login', desc: 'No need to connect your Facebook account. Paste any public video link and download instantly.' },
+        { icon: '🆓', title: 'Unlimited & Free', desc: 'No daily limits, no subscription fees. Download as many Facebook videos as you need every day.' },
+        { icon: '🌐', title: 'Works on All Devices', desc: 'Use InstaDownloader in any browser on iOS, Android, Windows or macOS.' },
+      ]}
+      supportedTypes={[
+        { label: 'Public Facebook Videos (MP4)', desc: 'Standard videos posted to any public Facebook profile, page, or group. Downloaded as MP4 in the highest available quality.' },
+        { label: 'Facebook Reels', desc: 'Short-form vertical videos in the Reels section of Facebook. Saved as a standard MP4 without any overlay watermark.' },
+        { label: 'Facebook Watch Videos', desc: 'Videos from the Facebook Watch section, including show clips, news videos, and creator content from public pages.' },
+        { label: 'Video Stories', desc: 'Public Facebook video stories, saved before they disappear at the 24-hour mark.' },
+        { label: 'Live Replay Videos', desc: 'Recorded Facebook Live sessions that have been made public on a profile or page can be downloaded after the broadcast ends.' },
+      ]}
+      whySection={{
+        title: 'Why Use InstaDownloader for Facebook?',
+        paras: [
+          'Facebook remains one of the most widely used social media platforms globally, with billions of active users sharing videos daily across profiles, groups, pages, and the Watch section. While Facebook has an internal save feature, it only bookmarks videos inside the app — it does not let you download them as files to your device. <strong>InstaDownloader solves this</strong> with a simple paste-and-download approach.',
+          'Our Facebook video downloader works for any publicly accessible video. This includes standard feed videos, Facebook Reels, Watch content, and even replays of Facebook Live sessions that have been made publicly available. Simply open the video on Facebook, copy its link from the share menu or address bar, paste it into InstaDownloader, and download.',
+          'Quality selection matters. Our tool offers both HD and SD download options for Facebook videos. If storage space is a concern, SD delivers a smaller file. If you want the best possible quality for editing or archiving, HD delivers the original stream resolution that Facebook stores.',
+          'Privacy and security are handled with care. InstaDownloader does not require you to log in with your Facebook credentials, and we never store the URLs you submit. All processing happens in real-time. We act purely as a gateway — your request, Facebook’s CDN, your device.',
+          'InstaDownloader is particularly useful for journalists, social media managers, researchers, and content archivists who routinely need to download and preserve public video content from Facebook for professional purposes.',
+        ],
+      }}
+      proTips={[
+        { tip: 'Copy the video link from the share menu', detail: 'On Facebook, click the three-dot menu (⋯) on a video post and select “Copy link”. This gives the cleanest URL our tool processes.' },
+        { tip: 'For Facebook Watch videos, copy the URL from the address bar', detail: 'Facebook Watch videos often have URLs in the format facebook.com/watch?v=... — copy this from your browser’s address bar on desktop.' },
+        { tip: 'Group videos require the group to be public', detail: 'Videos in private Facebook groups are not accessible externally. Only videos in public groups or on public profiles and pages can be downloaded.' },
+        { tip: 'Right-click the m.facebook.com version on mobile', detail: 'On mobile browsers, switching to m.facebook.com instead of www.facebook.com often gives simpler URLs that resolve faster with our tool.' },
+        { tip: 'Choose HD for archive quality', detail: 'If you are archiving footage for professional use, always select the HD option. Facebook compresses SD video significantly during upload processing.' },
+      ]}
+      disclaimer="InstaDownloader is an independent tool not affiliated with, endorsed by, or connected to Facebook or Meta Platforms, Inc. Download only content you have the right to use. Downloading and redistributing copyrighted Facebook content without the owner’s permission may violate Meta’s Terms of Service and applicable copyright laws."
+    />
 
     <div class="mt-16 pt-16 border-t border-[var(--bdr)]">
       <TrendingDownloads />

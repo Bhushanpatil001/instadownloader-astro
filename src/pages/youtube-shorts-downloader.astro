@@ -6,6 +6,7 @@ import TryOtherPlatforms from '../components/TryOtherPlatforms.astro';
 import FAQItem from '../components/FAQItem.astro';
 import PlatformIcon from '../components/PlatformIcon.astro';
 import TrendingDownloads from '../components/TrendingDownloads.astro';
+import RichContent from '../components/RichContent.astro';
 
 import { platforms, ui } from '../data/i18n.js';
 
@@ -17,37 +18,34 @@ const t = ui.en;
 const shortsSchema = [
   {
     '@context': 'https://schema.org',
-    '@type': 'WebApplication',
+    '@type': 'SoftwareApplication',
+    '@id': `${SITE_URL}/youtube-shorts-downloader#tool`,
     name: 'YouTube Shorts Downloader — InstaDownloader',
     url: `${SITE_URL}/youtube-shorts-downloader`,
     description: pData.desc || 'Download YouTube Shorts for free in HD as MP4 or MP3. Paste any Shorts link and save instantly.',
     applicationCategory: 'MultimediaApplication',
-    operatingSystem: 'Any',
-    browserRequirements: 'Requires JavaScript. Requires HTML5.',
-    image: `${SITE_URL}/og-image.png`,
+    applicationSubCategory: 'Video Downloader',
+    operatingSystem: 'Any (web-based)',
+    isAccessibleForFree: true,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-    publisher: {
-      '@type': 'Organization',
-      name: 'InstaDownloader',
-      logo: {
-        '@type': 'ImageObject',
-        url: `${SITE_URL}/favicon.ico`
-      }
-    },
-    alternateName: [
-      'youtube shorts downloader', 'download youtube shorts',
-      'shorts downloader', 'yt shorts downloader',
-      'save youtube shorts', 'youtube shorts video downloader',
-      'youtube shorts mp4 downloader', 'youtube shorts mp3 downloader',
-      'download shorts from youtube', 'youtube shorts saver',
-      'youtube shorts downloader online free', 'download yt shorts',
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    featureList: [
+      'HD Shorts download',
+      'MP3 audio extraction',
+      'No login required',
+      'Works on iOS, Android, Windows and macOS',
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      ratingCount: '2940',
-      bestRating: '5',
-    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to download YouTube Shorts with InstaDownloader',
+    totalTime: 'PT30S',
+    step: [
+      { '@type': 'HowToStep', position: 1, name: 'Copy the Shorts link', text: 'On YouTube, open a Short and tap Share, then Copy Link.' },
+      { '@type': 'HowToStep', position: 2, name: 'Paste the URL', text: 'Paste the Shorts link into the search field on InstaDownloader and click the download button.' },
+      { '@type': 'HowToStep', position: 3, name: 'Download in HD', text: 'Choose MP4 or MP3 format and the file saves to your device instantly.' },
+    ],
   },
   {
     '@context': 'https://schema.org',
@@ -64,7 +62,7 @@ const shortsSchema = [
 <PageLayout
   title={pData.title || "YouTube Shorts Downloader — Download YouTube Shorts HD Free, MP4 & MP3 2026"}
   description={pData.desc || "Download YouTube Shorts for free in HD as MP4 or MP3. Paste any Shorts link and save instantly. No registration, works on all devices including iPhone and Android."}
-  keywords="youtube shorts downloader, download youtube shorts, shorts downloader, yt shorts downloader, save youtube shorts, youtube shorts video downloader, youtube shorts mp4 downloader, youtube shorts mp3 downloader, download shorts from youtube, youtube shorts saver, youtube shorts downloader online free"
+  ogImage="/og-shorts.png"
   schema={shortsSchema}
 >
   <section class="max-w-[860px] mx-auto px-5 pt-12 pb-16">
@@ -131,6 +129,43 @@ const shortsSchema = [
           <FAQItem q={faq.q} a={faq.a} />
         ))}
       </div>
+
+      <RichContent
+        platform="YouTube Shorts"
+        features={[
+          { icon: '📱', title: 'Download Shorts as MP4', desc: 'Save any public YouTube Short as a vertically-oriented 1080×1920 MP4 file. Works perfectly on iPhone, Android, and desktop.' },
+          { icon: '🎵', title: 'Convert Shorts to MP3', desc: 'Extract the audio from any YouTube Short as a clean MP3 file — ideal for saving trending sounds or commentary.' },
+          { icon: '⚡', title: 'Instant Processing', desc: 'YouTube Shorts are under 60 seconds. Our engine processes the download in 1–3 seconds for virtually all clips.' },
+          { icon: '🔒', title: 'No YouTube Login', desc: 'No Google or YouTube account needed. Completely anonymous processing — just paste the link and download.' },
+          { icon: '🆓', title: 'Unlimited & Free', desc: 'No daily download limits. Save as many YouTube Shorts as you need every day, completely free.' },
+          { icon: '🌐', title: 'Works on Any Browser', desc: 'Works in Chrome, Safari, Firefox and Edge on iOS, Android, Windows, macOS and Linux.' },
+        ]}
+        supportedTypes={[
+          { label: 'YouTube Shorts Videos (MP4, 1080p)', desc: 'Vertical short-form videos (up to 60 seconds) saved as MP4 at the full resolution posted by the creator — typically 1080×1920.' },
+          { label: 'Shorts Audio (MP3)', desc: 'The audio track from any YouTube Short. Saved as a clean MP3 file without any video. Great for saving trending sounds or narration.' },
+          { label: 'Shorts with Original Music', desc: 'YouTube Shorts using licensed tracks from YouTube’s audio library are downloaded with the original audio preserved.' },
+          { label: 'Shorts from Any Creator', desc: 'Any public YouTube Short, from any public channel or creator account, can be downloaded. No channel size requirement.' },
+          { label: 'Shorts from Search & Explore', desc: 'Copy any Shorts link from the YouTube Shorts shelf, search results, or a channel’s Shorts tab and paste it directly.' },
+        ]}
+        whySection={{
+          title: 'Why Use InstaDownloader for YouTube Shorts?',
+          paras: [
+            'YouTube Shorts launched globally in 2021 and now attracts over 70 billion views per day — making it one of the most-watched short-video formats alongside TikTok and Instagram Reels. While YouTube allows users to share Shorts and even remix them within the platform, there is no built-in button to download a Short as a local video file. <strong>InstaDownloader fills this gap</strong> with a simple, free, and browser-based solution.',
+            'Our YouTube Shorts downloader works by accessing the public video stream for the Short. When you paste the Shorts URL, our engine identifies the highest-quality MP4 stream and delivers a direct download link. The entire process takes just a few seconds, and the resulting file is a standard vertical MP4 you can play, edit, or share on any device.',
+            'One of the standout features is our <strong>YouTube Shorts to MP3</strong> conversion. Shorts are increasingly used as a discovery vehicle for music — artists post short clips from new songs and collaborations. Fans who want to save that specific clip as audio can use InstaDownloader to extract a clean MP3 instantly.',
+            'YouTube Shorts use a distinct URL format (youtube.com/shorts/VIDEO_ID) which differs from regular YouTube videos. InstaDownloader handles this format natively, so you do not need to modify or convert the link before pasting it. Standard short URLs (youtu.be/VIDEO_ID) for Shorts also work.',
+            'InstaDownloader is also used by content creators who want to cross-post their YouTube Shorts to TikTok, Instagram Reels, or other platforms. Downloading the original Short file gives you a clean MP4 to upload without the YouTube watermark or player controls.',
+          ],
+        }}
+        proTips={[
+          { tip: 'Copy the Shorts URL from the Share button', detail: 'On mobile, tap Share below any Short and select “Copy link”. On desktop, copy the URL from the browser address bar while watching the Short.' },
+          { tip: 'Use the full youtube.com/shorts/... URL', detail: 'The full URL (youtube.com/shorts/VIDEO_ID) resolves faster than a short youtu.be/... link because it skips an extra redirect step.' },
+          { tip: 'Choose MP4 for reposting, MP3 for audio', detail: 'If you want to repost the Short on another platform, use MP4. If you just want the background music or voice, use the MP3 option.' },
+          { tip: 'Age-restricted Shorts are not supported', detail: 'YouTube requires login for age-restricted content. Since InstaDownloader does not connect to your account, age-restricted Shorts cannot be downloaded.' },
+          { tip: 'Shorts from private channels are not accessible', detail: 'Only Shorts from public YouTube channels can be downloaded. Shorts from channels requiring a subscription or set to private are inaccessible externally.' },
+        ]}
+        disclaimer="InstaDownloader is an independent tool not affiliated with, endorsed by, or connected to YouTube or Google LLC. Download only content you have the right to use. Downloading copyrighted YouTube Shorts content without authorisation may violate YouTube’s Terms of Service and applicable copyright law. This tool is intended for personal, non-commercial use only."
+      />
 
       <TrendingDownloads />
     </div>

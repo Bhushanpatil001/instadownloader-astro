@@ -5,6 +5,7 @@ import DownloaderWidget from '../components/react/DownloaderWidget.jsx';
 import FAQItem from '../components/FAQItem.astro';
 import TrendingDownloads from '../components/TrendingDownloads.astro';
 import TryOtherPlatforms from '../components/TryOtherPlatforms.astro';
+import RichContent from '../components/RichContent.astro';
 
 import { platforms, ui } from '../data/i18n.js';
 
@@ -16,38 +17,34 @@ const t = ui.en;
 const ttSchema = [
   {
     '@context': 'https://schema.org',
-    '@type': 'WebApplication',
-    name: 'TikTok Downloader — InstaDownloader',
+    '@type': 'SoftwareApplication',
+    '@id': `${SITE_URL}/tiktok#tool`,
+    name: 'TikTok Video Downloader — InstaDownloader',
     url: `${SITE_URL}/tiktok`,
-    description: pData.desc || 'Download TikTok videos without watermark in HD for free. Save TikTok as MP4 or extract MP3 audio.',
+    description: pData.desc || 'Free TikTok video downloader. Download TikTok videos in HD and save original audio. No login, no watermark, instant save.',
     applicationCategory: 'MultimediaApplication',
-    operatingSystem: 'Any',
-    browserRequirements: 'Requires JavaScript. Requires HTML5.',
-    image: `${SITE_URL}/og-image.png`,
+    applicationSubCategory: 'Video Downloader',
+    operatingSystem: 'Any (web-based)',
+    isAccessibleForFree: true,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-    publisher: {
-      '@type': 'Organization',
-      name: 'InstaDownloader',
-      logo: {
-        '@type': 'ImageObject',
-        url: `${SITE_URL}/favicon.ico`
-      }
-    },
-    alternateName: [
-      'tiktok downloader', 'tiktok video downloader',
-      'tiktok downloader no watermark', 'tiktok saver',
-      'download tiktok videos', 'snaptik', 'ssstiktok',
-      'save tiktok without watermark', 'tiktok mp4 downloader',
-      'tiktok mp3 downloader', 'tiktok audio downloader',
-      'tiktok video saver', 'download tiktok without watermark free',
-      'tiktok downloader online', 'tikmate',
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    featureList: [
+      'HD video download',
+      'Original audio preserved',
+      'No login required',
+      'Works on iOS, Android, Windows and macOS',
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      ratingCount: '6740',
-      bestRating: '5',
-    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to download TikTok videos with InstaDownloader',
+    totalTime: 'PT30S',
+    step: [
+      { '@type': 'HowToStep', position: 1, name: 'Copy the link', text: 'On TikTok, tap Share and then Copy Link for any public video.' },
+      { '@type': 'HowToStep', position: 2, name: 'Paste the URL', text: 'Paste the link into the search field on InstaDownloader and click the download button.' },
+      { '@type': 'HowToStep', position: 3, name: 'Download in HD', text: 'Click the download button and the file saves to your device instantly.' },
+    ],
   },
   {
     '@context': 'https://schema.org',
@@ -63,13 +60,12 @@ const ttSchema = [
 
 <PageLayout
   title={pData.title || "TikTok Video Downloader — Download TikTok Videos Without Watermark HD 2026"}
-  description={pData.desc || "Download TikTok videos without watermark in HD for free. Save TikTok as MP4 or extract MP3 audio. No registration, no watermark, instant download. Works on all devices."}
-  keywords="tiktok downloader, tiktok downloader no watermark, download tiktok without watermark, tiktok video downloader, save tiktok without watermark, tiktok saver, download tiktok videos, tiktok mp4 downloader, tiktok mp3 downloader, tiktok audio downloader, snaptik, ssstiktok, tiktok video saver, tiktok downloader online free, tikmate"
+  description={pData.desc || "Download TikTok videos in HD for free. Save TikTok as MP4 or extract MP3 audio. No registration, instant download. Works on all devices."}
+  ogImage="/og-tiktok.png"
   schema={ttSchema}
 >
   <div class="max-w-[1000px] mx-auto px-6 py-5">
     <div class="text-center mb-6">
-      <div class="inline-flex px-4 py-1.5 rounded-full text-sm font-bold bg-[rgba(0,242,234,0.1)] border border-[rgba(0,242,234,0.2)] text-[#00f2ea] mb-3">🎵 TT Saver</div>
       <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-black mb-1 leading-tight" style="color:var(--txt);">
         {pData.h1 || "TikTok Video Downloader"}
       </h1>
@@ -114,6 +110,43 @@ const ttSchema = [
         </div>
       </div>
     </DownloaderWidget>
+
+    <RichContent
+      platform="TikTok"
+      features={[
+        { icon: '🔇', title: 'No-Watermark Download', desc: 'Save TikTok videos without the embedded watermark, in original HD resolution, as a clean MP4 file ready to reshare or reuse.' },
+        { icon: '🎵', title: 'Save TikTok Audio', desc: 'Extract the audio track from any TikTok video as an MP3. Perfect for getting the original sound clip or trending music.' },
+        { icon: '📱', title: 'Works on Mobile', desc: 'Use InstaDownloader directly in your phone browser. No TikTok app workaround needed — paste, tap download, done.' },
+        { icon: '⚡', title: 'Lightning Fast', desc: 'Most TikTok videos are short. Our engine processes the download request in under 3 seconds for the majority of clips.' },
+        { icon: '🔒', title: 'No TikTok Login', desc: 'You never need to enter your TikTok username or password. Completely anonymous, entirely web-based.' },
+        { icon: '🆓', title: 'Unlimited Downloads', desc: 'No daily cap on how many TikTok videos you can save. Download as many as you need, all day, every day.' },
+      ]}
+      supportedTypes={[
+        { label: 'Standard TikTok Videos (MP4, no watermark)', desc: 'Public TikTok videos in full quality, saved without the TikTok logo watermark that is normally embedded in the top corner.' },
+        { label: 'TikTok Videos with Watermark', desc: 'If you prefer the original file exactly as it appears on TikTok, including the username watermark, that option is also available.' },
+        { label: 'TikTok Audio (MP3)', desc: 'The original audio track from any public TikTok video. Use it for trending sounds, remixes, background music, or archiving.' },
+        { label: 'Duet & Stitch Videos', desc: 'TikTok Duets and Stitches are treated as standard videos. Download them the same way — paste the URL and save.' },
+        { label: 'TikTok Photo Slideshows', desc: 'TikTok’s newer slideshow format (multiple photos with music) is also supported. Saves as a video file.' },
+      ]}
+      whySection={{
+        title: 'Why Use InstaDownloader for TikTok?',
+        paras: [
+          'TikTok is the fastest-growing short-form video platform in the world, with creators posting millions of clips every day on topics from comedy and dance to cooking, education, and life hacks. The TikTok app has a built-in save function, but it adds a prominent watermark to every downloaded video. <strong>InstaDownloader removes that watermark</strong> so your saved copy is clean and presentation-ready.',
+          'Whether you want to save a tutorial to watch offline, archive a video from a creator you love, or use a clip for a reaction video or edit, InstaDownloader makes the process fast and frictionless. Simply copy the share link from TikTok, paste it into the tool, and your clean MP4 is ready in seconds.',
+          'TikTok’s watermark restriction is a deliberate design choice. The platform encourages sharing within its ecosystem but discourages redistribution. InstaDownloader gives you the unwatermarked source file that creators themselves upload. Note that you should always credit the original creator when resharing their content elsewhere.',
+          'Our tool is also popular for saving TikTok audio. TikTok is now one of the primary discovery platforms for new music. When a song goes viral on TikTok, millions of people want to save it. InstaDownloader extracts the audio track as a clean MP3 so you can use it in your own projects, add it to a playlist, or simply listen offline.',
+          'InstaDownloader handles all TikTok URL formats: the standard app share link (vm.tiktok.com/...), the full web URL (tiktok.com/@user/video/...), and even links copied from the TikTok website on desktop.',
+        ],
+      }}
+      proTips={[
+        { tip: 'Use the share button inside the TikTok app', detail: 'Tap the arrow icon on any TikTok video and select “Copy Link”. This gives you a short URL in the format vm.tiktok.com/... which our tool handles perfectly.' },
+        { tip: 'Paste the full web URL for fastest results', detail: 'On desktop, the full URL (tiktok.com/@username/video/1234567) tends to resolve faster than short links because there is no redirect step.' },
+        { tip: 'Download before a video is deleted', detail: 'Creators occasionally delete or set videos to private. If you want to save something for later, download it promptly.' },
+        { tip: 'Private accounts are not accessible', detail: 'Only public TikTok videos can be downloaded. If a creator has set their account to private, the content is not accessible externally.' },
+        { tip: 'Use the MP3 option for trending sounds', detail: 'TikTok trending sounds change rapidly. Download the MP3 version of a viral sound while it is still available to use in your own content.' },
+      ]}
+      disclaimer="InstaDownloader is an independent tool not affiliated with, endorsed by, or connected to TikTok or ByteDance Ltd. Download only content you have the right to use. Removing watermarks and redistributing TikTok content without the creator's consent may violate TikTok's Terms of Service and applicable intellectual property laws. Always credit the original creator."
+    />
 
     <div class="mt-16 pt-16 border-t border-[var(--bdr)]">
       <TrendingDownloads />

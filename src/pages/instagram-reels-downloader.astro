@@ -6,6 +6,7 @@ import TryOtherPlatforms from '../components/TryOtherPlatforms.astro';
 import FAQItem from '../components/FAQItem.astro';
 import PlatformIcon from '../components/PlatformIcon.astro';
 import TrendingDownloads from '../components/TrendingDownloads.astro';
+import RichContent from '../components/RichContent.astro';
 
 import { platforms, ui } from '../data/i18n.js';
 
@@ -17,38 +18,34 @@ const t = ui.en;
 const reelsSchema = [
   {
     '@context': 'https://schema.org',
-    '@type': 'WebApplication',
+    '@type': 'SoftwareApplication',
+    '@id': `${SITE_URL}/instagram-reels-downloader#tool`,
     name: 'Instagram Reels Downloader — InstaDownloader',
     url: `${SITE_URL}/instagram-reels-downloader`,
-    description: pData.desc || 'Download Instagram Reels for free in HD without watermark. Paste any Reel link and save it instantly as MP4.',
+    description: pData.desc || 'Download Instagram Reels for free in HD. Paste any Reel link and save it instantly as MP4. No login required.',
     applicationCategory: 'MultimediaApplication',
-    operatingSystem: 'Any',
-    browserRequirements: 'Requires JavaScript. Requires HTML5.',
-    image: `${SITE_URL}/og-image.png`,
+    applicationSubCategory: 'Video Downloader',
+    operatingSystem: 'Any (web-based)',
+    isAccessibleForFree: true,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-    publisher: {
-      '@type': 'Organization',
-      name: 'InstaDownloader',
-      logo: {
-        '@type': 'ImageObject',
-        url: `${SITE_URL}/favicon.ico`
-      }
-    },
-    alternateName: [
-      'instagram reels downloader', 'download instagram reels',
-      'reels downloader', 'ig reels downloader',
-      'instagram reel saver', 'download reels from instagram',
-      'save instagram reels', 'instagram reels video downloader',
-      'download ig reels', 'instagram reels mp4 downloader',
-      'instagram reels downloader without watermark',
-      'download instagram reels without login',
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    featureList: [
+      'HD Reels download',
+      'No login required',
+      'Instant MP4 save',
+      'Works on iOS, Android, Windows and macOS',
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      ratingCount: '3760',
-      bestRating: '5',
-    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to download Instagram Reels with InstaDownloader',
+    totalTime: 'PT30S',
+    step: [
+      { '@type': 'HowToStep', position: 1, name: 'Copy the Reel link', text: 'On Instagram, open a Reel and tap Share, then Copy Link.' },
+      { '@type': 'HowToStep', position: 2, name: 'Paste the URL', text: 'Paste the Reel link into the search field on InstaDownloader and click the download button.' },
+      { '@type': 'HowToStep', position: 3, name: 'Download in HD', text: 'Click the download button and the Reel saves to your device as MP4 instantly.' },
+    ],
   },
   {
     '@context': 'https://schema.org',
@@ -63,9 +60,9 @@ const reelsSchema = [
 ---
 
 <PageLayout
-  title={pData.title || "Instagram Reels Downloader — Download IG Reels HD Free, No Watermark 2026"}
-  description={pData.desc || "Download Instagram Reels for free in HD without watermark. Paste any Reel link and save it instantly as MP4. Works on iPhone, Android & PC. No login required."}
-  keywords="instagram reels downloader, download instagram reels, reels downloader, ig reels downloader, save instagram reels, download reels from instagram, instagram reels video downloader, instagram reels mp4 downloader, instagram reels downloader without watermark, download instagram reels without login, instagram reel saver"
+  title={pData.title || "Instagram Reels Downloader — Download IG Reels HD Free 2026"}
+  description={pData.desc || "Download Instagram Reels for free in HD. Paste any Reel link and save it instantly as MP4. Works on iPhone, Android & PC. No login required."}
+  ogImage="/og-reels.png"
   schema={reelsSchema}
 >
   <section class="max-w-[860px] mx-auto px-5 pt-12 pb-16">
@@ -132,6 +129,43 @@ const reelsSchema = [
           <FAQItem q={faq.q} a={faq.a} />
         ))}
       </div>
+
+      <RichContent
+        platform="Instagram Reels"
+        features={[
+          { icon: '🎬', title: 'Pure HD Reels (MP4)', desc: 'Download any public Instagram Reel as a full-quality 1080p MP4. The file is identical to what the creator originally uploaded.' },
+          { icon: '🔇', title: 'Zero Watermark', desc: 'The downloaded Reel has no InstaDownloader watermark or Instagram overlay. You get the raw, clean video file.' },
+          { icon: '📱', title: 'Works on iPhone & Android', desc: 'Fully mobile-optimised. Open InstaDownloader in your phone browser, paste the Reel link, and save directly to Camera Roll.' },
+          { icon: '⚡', title: 'Instant Download', desc: 'Reels are short, so our engine processes the download request in 1–3 seconds. No wait time, no queue.' },
+          { icon: '🔒', title: 'No Instagram Login', desc: 'Zero Instagram credentials required. We never ask for your username, password, or any app permission.' },
+          { icon: '🆓', title: 'Unlimited & Free', desc: 'Download as many Reels as you want, every day, at no charge. No subscription, no daily cap.' },
+        ]}
+        supportedTypes={[
+          { label: 'Instagram Reels (MP4, up to 1080p)', desc: 'All public Instagram Reels regardless of duration (up to 90 seconds). Saved as a vertically-oriented 1080×1920 MP4 file.' },
+          { label: 'Reels with Original Audio', desc: 'The audio track (whether original, licensed music, or voiceover) is preserved exactly as in the Reel. We do not strip or replace audio.' },
+          { label: 'Reels with Subtitles/Captions', desc: 'If the creator has burned-in captions (not dynamic overlays), these are preserved in the downloaded file since they are part of the video stream.' },
+          { label: 'Collaborative Reels (Collabs)', desc: 'Reels posted jointly by two creators (Collab posts) can be downloaded the same way — paste either creator’s Reel link.' },
+          { label: 'Reels from Explore & Hashtag pages', desc: 'Copy any Reel link from the Explore tab, a hashtag page, or your feed and paste it into InstaDownloader.' },
+        ]}
+        whySection={{
+          title: 'Why Use InstaDownloader for Instagram Reels?',
+          paras: [
+            'Instagram Reels launched in 2020 and quickly became the platform’s most-watched content format, surpassing standard posts and Stories in total views. From dance trends and comedy sketches to recipe tutorials and business tips, Reels are where the most engaging Instagram content lives. Yet Instagram still does not offer a native “Download Reel” button. <strong>InstaDownloader fills that gap</strong>.',
+            'Our dedicated Instagram Reels downloader is optimised specifically for the Reel format. Unlike general-purpose download tools that may strip audio or downgrade resolution, InstaDownloader retrieves the original video stream that Instagram stores on its CDN — at up to 1080p, with the original audio intact.',
+            'Saving a Reel is as simple as three taps. Open Instagram, find the Reel you want, tap the three-dot menu (⋯) and select “Copy Link”. Open InstaDownloader in your browser, paste the link, and tap Download. In seconds, the Reel is saved to your device as a clean MP4.',
+            'Content creators commonly use InstaDownloader to back up their own Reels after deleting them from the app, to repurpose content for other platforms, or to save reference material from other creators (with appropriate credit). Educators and researchers use it to archive cultural content and viral trends for analysis.',
+            'InstaDownloader handles the full range of Reel URLs: standard post links (instagram.com/reel/...), app share links (instagram.com/p/... for older Reels), and short links generated by the Instagram Share button on mobile.',
+          ],
+        }}
+        proTips={[
+          { tip: 'Open the Reel in the Instagram app for the cleanest link', detail: 'Tap the three-dot menu (⋯) on any Reel and select “Copy Link”. This produces an instagram.com/reel/... URL that our tool handles fastest.' },
+          { tip: 'Check that the account is public', detail: 'You can only download Reels from public Instagram accounts. If a profile is set to private, the Reel link will not resolve for external tools.' },
+          { tip: 'Download Reels with trending audio promptly', detail: 'Instagram occasionally restricts or mutes audio on Reels when music licensing changes. Download time-sensitive Reels while the audio is still live.' },
+          { tip: 'Reels saved to Highlights are also downloadable', detail: 'If a creator has added a Reel to their Highlights, it is permanently accessible (as long as their account is public) and can be downloaded any time.' },
+          { tip: 'Use a desktop browser for batch workflows', detail: 'If you need to download multiple Reels in a session, using InstaDownloader in a desktop browser is faster because links are easier to copy from the web version of Instagram.' },
+        ]}
+        disclaimer="InstaDownloader is an independent tool not affiliated with, endorsed by, or connected to Instagram or Meta Platforms, Inc. Download only content from public accounts you have the right to use. Respect creators’ intellectual property. Saving and redistributing Reels without the creator’s permission may violate Instagram’s Terms of Service and applicable copyright laws."
+      />
 
       <TrendingDownloads />
     </div>

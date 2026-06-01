@@ -5,6 +5,7 @@ import DownloaderWidget from '../components/react/DownloaderWidget.jsx';
 import FAQItem from '../components/FAQItem.astro';
 import TrendingDownloads from '../components/TrendingDownloads.astro';
 import TryOtherPlatforms from '../components/TryOtherPlatforms.astro';
+import RichContent from '../components/RichContent.astro';
 
 import { platforms, ui } from '../data/i18n.js';
 
@@ -16,38 +17,34 @@ const t = ui.en;
 const xSchema = [
   {
     '@context': 'https://schema.org',
-    '@type': 'WebApplication',
-    name: 'X Twitter Video Downloader — InstaDownloader',
+    '@type': 'SoftwareApplication',
+    '@id': `${SITE_URL}/x#tool`,
+    name: 'X (Twitter) Video Downloader — InstaDownloader',
     url: `${SITE_URL}/x`,
-    description: pData.desc || 'Free Twitter & X video downloader. Download X (Twitter) videos, GIFs and photos in HD.',
+    description: pData.desc || 'Free X (Twitter) video downloader. Download videos, GIFs and images from any public X post in HD.',
     applicationCategory: 'MultimediaApplication',
-    operatingSystem: 'Any',
-    browserRequirements: 'Requires JavaScript. Requires HTML5.',
-    image: `${SITE_URL}/og-image.png`,
+    applicationSubCategory: 'Video Downloader',
+    operatingSystem: 'Any (web-based)',
+    isAccessibleForFree: true,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-    publisher: {
-      '@type': 'Organization',
-      name: 'InstaDownloader',
-      logo: {
-        '@type': 'ImageObject',
-        url: `${SITE_URL}/favicon.ico`
-      }
-    },
-    alternateName: [
-      'twitter video downloader', 'x video downloader',
-      'twitter downloader', 'x downloader',
-      'download twitter videos', 'save twitter videos',
-      'tweet video downloader', 'twitter gif downloader',
-      'twitter mp4 downloader', 'x twitter video saver',
-      'download x videos', 'twitter media downloader',
-      'save tweets with video', 'twitter video saver',
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    featureList: [
+      'HD video download',
+      'GIF download',
+      'No login required',
+      'Works on iOS, Android, Windows and macOS',
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      ratingCount: '2890',
-      bestRating: '5',
-    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to download X (Twitter) videos with InstaDownloader',
+    totalTime: 'PT30S',
+    step: [
+      { '@type': 'HowToStep', position: 1, name: 'Copy the post link', text: 'On X, tap the Share button and then Copy Link for any public tweet or post.' },
+      { '@type': 'HowToStep', position: 2, name: 'Paste the URL', text: 'Paste the link into the search field on InstaDownloader and click the download button.' },
+      { '@type': 'HowToStep', position: 3, name: 'Download in HD', text: 'Click the download button and the video saves to your device instantly.' },
+    ],
   },
   {
     '@context': 'https://schema.org',
@@ -64,12 +61,11 @@ const xSchema = [
 <PageLayout
   title={pData.title || "Twitter / X Video Downloader — Download X & Twitter Videos HD Free 2026"}
   description={pData.desc || "Free Twitter & X video downloader. Download X (Twitter) videos, GIFs and photos in HD. No login required. Fast, secure, instant save on mobile & desktop."}
-  keywords="twitter video downloader, x video downloader, twitter downloader, x downloader, download twitter videos, save twitter videos, tweet video downloader, twitter gif downloader, twitter mp4 downloader, x twitter video saver, download x videos free, twitter media downloader, twitter video saver"
+  ogImage="/og-x.png"
   schema={xSchema}
 >
   <div class="max-w-[1000px] mx-auto px-6 py-5">
     <div class="text-center mb-6">
-      <div style="color:var(--txt);" class="inline-flex px-4 py-1.5 rounded-full text-sm font-bold bg-[rgba(100,116,139,0.1)] border border-[rgba(100,116,139,0.2)] text-[#14171a] dark:text-[#f8fafc] mb-3">𝕏 X Saver</div>
       <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-black mb-1 leading-tight" style="color:var(--txt);">
         {pData.h1 || "X (Twitter) Video Downloader"}
       </h1>
@@ -114,6 +110,43 @@ const xSchema = [
         </div>
       </div>
     </DownloaderWidget>
+
+    <RichContent
+      platform="X (Twitter)"
+      features={[
+        { icon: '🎬', title: 'Download X Videos (MP4)', desc: 'Save any video from a public X (Twitter) post as a full-quality MP4 file. Works for tweets, quote posts, and thread posts.' },
+        { icon: '🎞️', title: 'Download Twitter GIFs', desc: 'Twitter GIFs are actually MP4 loops. InstaDownloader saves them as MP4 files that loop correctly in any media player.' },
+        { icon: '🖼️', title: 'Download Post Images', desc: 'Save any photo attached to a public X post in full original resolution. Supports all image formats posted on X.' },
+        { icon: '🔒', title: 'No X Login Required', desc: 'No Twitter or X account needed. Just paste the tweet URL and download. Fully anonymous and private.' },
+        { icon: '🆓', title: 'Always Free', desc: 'No subscription, no premium tier. Download unlimited X/Twitter videos every day at no cost.' },
+        { icon: '🌐', title: 'Works on All Devices', desc: 'Works in any browser on iPhone, Android, Windows, macOS and Linux. No app installation required.' },
+      ]}
+      supportedTypes={[
+        { label: 'X / Twitter Videos (MP4)', desc: 'Native videos posted directly in tweets or X posts. Downloaded in the highest quality the creator uploaded — typically up to 1080p.' },
+        { label: 'Twitter GIFs (MP4 loop)', desc: 'Animated GIFs on Twitter/X are encoded as silent looping MP4 videos. Saved as MP4 which plays as a seamless loop.' },
+        { label: 'Post Images (JPG/PNG)', desc: 'Photos attached to public X posts. Downloaded in the original resolution uploaded by the account.' },
+        { label: 'Space Recording Clips', desc: 'Short video clips shared in X posts from Space recordings or other recorded content can be downloaded as MP4.' },
+        { label: 'Thread Videos', desc: 'Videos embedded in any post within an X thread, accessible via the individual tweet URL, are fully downloadable.' },
+      ]}
+      whySection={{
+        title: 'Why Use InstaDownloader for X (Twitter)?',
+        paras: [
+          'X, formerly Twitter, is home to some of the most viral video content on the internet — breaking news footage, sports highlights, political speeches, comedy clips, and cultural moments that spread globally within hours. X does not provide a native video download button, which means users who want to save videos must rely on third-party tools like <strong>InstaDownloader</strong>.',
+          'Our X video downloader works by accessing the publicly available media stream attached to any tweet or X post. When you paste the URL of a post containing a video, our engine retrieves the highest-quality MP4 stream available and creates a direct download link for you. Nothing is stored on our servers — the file goes from X’s CDN directly to your device.',
+          'One common confusion with X is that animated GIFs on the platform are not actually GIF files — they are encoded as silent looping MP4 videos to reduce file size and improve playback performance. InstaDownloader downloads these as MP4 files, which loop correctly in any modern media player or browser.',
+          'After Elon Musk’s acquisition and the rebrand to X, many API access points changed. We continuously update our engine to handle the latest X URL formats, including posts from x.com and the legacy twitter.com domain (both work with InstaDownloader).',
+          'InstaDownloader is widely used by journalists, researchers, social media archivists, and content creators to preserve public tweets before they are deleted. Given that X has become a critical platform for first-hand documentation of world events, having a reliable download tool is increasingly important.',
+        ],
+      }}
+      proTips={[
+        { tip: 'Copy the tweet URL from the post timestamp', detail: 'Click the date/time stamp on any X post (e.g. “2h” or “Jan 15”). This opens the individual post page with a clean URL like x.com/username/status/1234567890.' },
+        { tip: 'Both x.com and twitter.com URLs work', detail: 'InstaDownloader accepts both the new x.com domain and the legacy twitter.com domain. Copy either format and it will resolve correctly.' },
+        { tip: 'Protected accounts cannot be downloaded', detail: 'Only videos from public X accounts (those without a lock icon) can be downloaded. Protected accounts restrict all external access to their content.' },
+        { tip: 'Use the highest quality option', detail: 'When multiple quality options are available, select the highest MP4 quality for the best result. X serves video at up to 1080p for most uploaded content.' },
+        { tip: 'Act quickly for breaking news clips', detail: 'Viral tweets are sometimes deleted within hours, especially news clips posted without the rights holder’s permission. Download time-sensitive content promptly.' },
+      ]}
+      disclaimer="InstaDownloader is an independent tool not affiliated with, endorsed by, or connected to X Corp. (formerly Twitter, Inc.). Download only content you have the right to use. Downloading and redistributing copyrighted content from X without the owner’s permission may violate X’s Terms of Service and applicable copyright laws."
+    />
 
     <div class="mt-16 pt-16 border-t border-[var(--bdr)]">
       <TrendingDownloads />

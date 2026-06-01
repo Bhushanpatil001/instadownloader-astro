@@ -1,24 +1,52 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import ContactForm from '../components/react/ContactForm.jsx';
+import { SITE_URL } from '../data/constants.js';
+
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  url: `${SITE_URL}/contact`,
+  name: 'Contact InstaDownloader',
+  description: 'Contact the InstaDownloader team for support, bug reports, DMCA takedowns or partnerships.',
+  mainEntity: {
+    '@type': 'Organization',
+    '@id': `${SITE_URL}/#organization`,
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'customer support',
+        email: 'support@instadownloader.app',
+        availableLanguage: ['English'],
+      },
+      {
+        '@type': 'ContactPoint',
+        contactType: 'DMCA / legal',
+        email: 'dmca@instadownloader.app',
+        availableLanguage: ['English'],
+      },
+    ],
+  },
+};
 
 const CONTACT_INFO = [
     { icon: '🐛', title: 'Bug Reports',         desc: 'Found something broken? Let us know and we\'ll fix it ASAP.' },
-    { icon: '⚖️',  title: 'DMCA / Copyright',  desc: 'We respect intellectual property. Send a formal DMCA request.' },
+    { icon: '⚖️',  title: 'DMCA / Copyright',  desc: 'We respect intellectual property. Send a formal DMCA request to dmca@instadownloader.app.' },
     { icon: '💡', title: 'Feature Requests',    desc: 'Have a platform or feature suggestion? We love hearing ideas.' },
     { icon: '🤝', title: 'Partnerships',        desc: 'Interested in advertising or collaboration opportunities.' },
 ];
 ---
 
 <PageLayout
-  title="Contact Us — Downloader | Get Help & Support"
-  description="Contact the Downloader team for support, bug reports, DMCA takedowns, or general inquiries. We typically respond within 24 hours."
+  title="Contact InstaDownloader — Support & DMCA"
+  description="Contact the InstaDownloader team for support, bug reports, DMCA takedowns, or general inquiries. We typically respond within 24 hours."
+  schema={contactSchema}
 >
   <div class="max-w-[1000px] mx-auto px-6 py-5">
     <div class="text-center mb-6">
       <div class="inline-flex px-4 py-1.5 rounded-full text-sm font-bold bg-[rgba(124,58,237,0.1)] border border-[rgba(124,58,237,0.2)] text-[var(--brand2)] mb-3">✉️ Get in Touch</div>
       <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-black mb-1 leading-tight" style="color:var(--txt);">
-        Contact <span style="background:var(--g-brand); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Us</span>
+        Contact <span style="background:var(--g-brand); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">InstaDownloader</span>
       </h1>
       <p class="text-lg opacity-70 max-w-[700px] mx-auto">
         Have a question, a bug to report, or a DMCA request? We're here to help and usually respond within 24 hours.

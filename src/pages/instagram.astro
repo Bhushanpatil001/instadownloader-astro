@@ -5,6 +5,7 @@ import DownloaderWidget from '../components/react/DownloaderWidget.jsx';
 import FAQItem from '../components/FAQItem.astro';
 import TrendingDownloads from '../components/TrendingDownloads.astro';
 import TryOtherPlatforms from '../components/TryOtherPlatforms.astro';
+import RichContent from '../components/RichContent.astro';
 
 import { platforms, ui } from '../data/i18n.js';
 
@@ -16,39 +17,34 @@ const t = ui.en;
 const igSchema = [
   {
     '@context': 'https://schema.org',
-    '@type': 'WebApplication',
-    name: 'Instagram Downloader — InstaDownloader',
+    '@type': 'SoftwareApplication',
+    '@id': `${SITE_URL}/instagram#tool`,
+    name: 'Instagram Video Downloader — InstaDownloader',
     url: `${SITE_URL}/instagram`,
-    description: pData.desc || 'Free Instagram video downloader. Download Instagram reels, posts, stories, IGTV and photos in HD. No login, no watermark, instant save.',
+    description: pData.desc || 'Free Instagram video downloader. Save reels, posts, stories and IGTV in HD. No login, no watermark, instant save.',
     applicationCategory: 'MultimediaApplication',
-    operatingSystem: 'Any',
-    browserRequirements: 'Requires JavaScript. Requires HTML5.',
-    image: `${SITE_URL}/og-image.png`,
+    applicationSubCategory: 'Video Downloader',
+    operatingSystem: 'Any (web-based)',
+    isAccessibleForFree: true,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-    publisher: {
-      '@type': 'Organization',
-      name: 'InstaDownloader',
-      logo: {
-        '@type': 'ImageObject',
-        url: `${SITE_URL}/favicon.ico`
-      }
-    },
-    alternateName: [
-      'instagram downloader', 'instadownloader', 'insta downloader',
-      'igram', 'igram.io', 'instagram video downloader',
-      'instagram reels downloader', 'instagram photo downloader',
-      'instagram story downloader', 'insta video downloader',
-      'save instagram videos', 'download instagram reels',
-      'instagram saver', 'ig downloader', 'ig video downloader',
-      'download instagram photos', 'instagram story saver',
-      'download instagram without watermark',
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    featureList: [
+      'HD video download',
+      'No login required',
+      'Download Reels, Posts, Stories and IGTV',
+      'Works on iOS, Android, Windows and macOS',
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      ratingCount: '5230',
-      bestRating: '5',
-    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to download Instagram videos with InstaDownloader',
+    totalTime: 'PT30S',
+    step: [
+      { '@type': 'HowToStep', position: 1, name: 'Copy the link', text: 'On Instagram, tap Share and then Copy Link for any public post, reel or story.' },
+      { '@type': 'HowToStep', position: 2, name: 'Paste the URL', text: 'Paste the link into the search field on InstaDownloader and click the download button.' },
+      { '@type': 'HowToStep', position: 3, name: 'Download in HD', text: 'Click the download button and the file saves to your device instantly.' },
+    ],
   },
   {
     '@context': 'https://schema.org',
@@ -65,12 +61,11 @@ const igSchema = [
 <PageLayout
   title={pData.title || "Instagram Video Downloader — Download Reels, Posts, Stories & IGTV Free 2026"}
   description={pData.desc || "Free Instagram video downloader. Download Instagram reels, posts, stories, IGTV and photos in HD. No login, no watermark, instant save. Works on Android, iPhone & PC."}
-  keywords="instagram downloader, instadownloader, insta downloader, igram, instagram video downloader, instagram reels downloader, instagram photo downloader, instagram story downloader, download instagram reels, ig downloader, instagram saver, save instagram videos, download instagram videos free, instagram story saver, instagram video saver, reels downloader, download instagram without login"
+  ogImage="/og-instagram.png"
   schema={igSchema}
 >
   <div class="max-w-[1000px] mx-auto px-6 py-5">
     <div class="text-center mb-6">
-      <div class="inline-flex px-4 py-1.5 rounded-full text-sm font-bold bg-[rgba(225,48,108,0.1)] border border-[rgba(225,48,108,0.2)] text-[#e1306c] mb-3">📸 Insta Saver</div>
       <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-black mb-1 leading-tight" style="color:var(--txt);">
         {pData.h1 || "Instagram Video Downloader"}
       </h1>
@@ -115,6 +110,44 @@ const igSchema = [
         </div>
       </div>
     </DownloaderWidget>
+
+    <RichContent
+      platform="Instagram"
+      features={[
+        { icon: '📹', title: 'Download Instagram Reels', desc: 'Save any public Reel as a full-quality MP4 file directly to your device. Works on iPhone, Android, Windows and Mac.' },
+        { icon: '🖼️', title: 'Download Photos & Carousels', desc: 'Save individual photos or entire carousel albums from any public Instagram post in original resolution.' },
+        { icon: '📖', title: 'Download Instagram Stories', desc: 'Save stories from public accounts before they expire. Supports both photo and video stories.' },
+        { icon: '🎬', title: 'IGTV & Long-form Videos', desc: 'Download IGTV videos and long-form content in HD. No duration limits — save full episodes.' },
+        { icon: '🔒', title: 'No Login Required', desc: 'You never need to log in or share your Instagram credentials. Everything is processed securely and anonymously.' },
+        { icon: '⚡', title: 'Instant Processing', desc: 'Our servers fetch your download link in seconds. No waiting queues, no email confirmations — just instant access.' },
+      ]}
+      supportedTypes={[
+        { label: 'Instagram Reels (MP4)', desc: 'Short-form vertical videos up to 90 seconds. Downloaded in the original resolution posted by the creator — typically 1080×1920.' },
+        { label: 'Feed Photos (JPG)', desc: 'Standard square or portrait photos from any public post. Saved in the original resolution up to 1080px.' },
+        { label: 'Carousel Posts', desc: 'Multi-image or mixed-media posts. You can download all images and videos from a single carousel in one click.' },
+        { label: 'Instagram Stories', desc: 'Ephemeral 24-hour content from public accounts. Both photo stories and video stories are supported.' },
+        { label: 'IGTV Videos', desc: 'Long-form vertical or horizontal videos uploaded to the IGTV section of public profiles.' },
+        { label: 'Profile Videos', desc: 'Any video appearing on a public profile grid, regardless of length or format.' },
+      ]}
+      whySection={{
+        title: 'Why Use InstaDownloader for Instagram?',
+        paras: [
+          'Instagram is one of the most popular platforms for sharing visual content, with over 2 billion active users posting millions of Reels, photos, and stories every day. While Instagram makes it easy to browse and save posts to a private collection inside the app, it does not offer a built-in download button for saving content to your device. That is where <strong>InstaDownloader</strong> comes in.',
+          'Our Instagram downloader is a free, browser-based tool that works entirely on the web — no app installation needed. Simply copy the link to any public Instagram post, Reel, story, or IGTV video, paste it into the tool, and click Download. The file is sent directly from Instagram\'s servers to your device, so quality is never compromised.',
+          'Privacy is at the core of how InstaDownloader works. We do not store any URLs you submit, and we do not save or host any downloaded media on our own servers. Every request is handled in real-time and discarded immediately. You are simply using InstaDownloader as a bridge between the Instagram CDN and your device.',
+          'InstaDownloader works on every major device and operating system. Whether you are on an iPhone, an Android smartphone, a Windows PC, or a MacBook, the tool adapts to your browser. No plugin installation, no account creation — just paste, click, and download.',
+          'We regularly update our download engine to keep pace with Instagram\'s technical changes, so you can rely on InstaDownloader to work consistently. Our free tier has no daily download limits, no watermarks added to files, and no forced sign-ups.',
+        ],
+      }}
+      proTips={[
+        { tip: 'Use the Share button in the Instagram app', detail: 'On mobile, tap the three-dot menu (⋯) on any post or Reel and select "Copy Link". This gives you the cleanest URL format that our tool processes fastest.' },
+        { tip: 'Public accounts only', detail: 'InstaDownloader can only download content from public Instagram accounts. Private accounts block external access by design and we respect that restriction.' },
+        { tip: 'Download Reels from a browser on desktop', detail: 'On desktop, right-click on a Reel, select "Copy link address" from the browser context menu and paste it directly. This often gives you the direct CDN URL which resolves faster.' },
+        { tip: 'Best quality comes from Reels and IGTV', detail: 'Instagram serves Reels and IGTV at up to 1080p. Feed photos can go up to 1080×1350px in portrait mode. Stories are served at 1080×1920px.' },
+        { tip: 'Save Stories before they expire', detail: 'Instagram stories disappear after 24 hours. If you want to save a story from a public account, do it promptly — our tool works on active stories as long as the account is public.' },
+      ]}
+      disclaimer="InstaDownloader is an independent tool not affiliated with, endorsed by, or connected to Instagram or Meta Platforms, Inc. Download only content you have the right to use. Respect creators' intellectual property rights. Downloading and redistributing copyrighted content without the creator's permission may violate Instagram's Terms of Service and applicable copyright laws."
+    />
 
     <div class="mt-16 pt-16 border-t border-[var(--bdr)]">
       <TrendingDownloads />

@@ -1,0 +1,81 @@
+---
+// Rich SEO content block for each platform tool page
+// Injects ~900 words of unique, useful content per platform
+const {
+  platform,        // 'instagram' | 'youtube' | 'tiktok' | 'facebook' | 'pinterest' | 'x' | 'reels' | 'shorts'
+  features,        // Array of { icon, title, desc }
+  whySection,      // { title, paras: string[] }
+  proTips,         // Array of { tip, detail }
+  supportedTypes,  // Array of { label, desc }
+  disclaimer,      // string
+} = Astro.props;
+---
+
+<!-- Rich Content Section — adds ~900+ words of unique SEO-friendly content -->
+<div class="seo-rich-content mt-16 space-y-16">
+
+  <!-- Features grid -->
+  <section aria-labelledby={`features-${platform}`}>
+    <h2 id={`features-${platform}`} class="seo-section-heading mb-8">
+      Key Features of InstaDownloader for {platform.charAt(0).toUpperCase() + platform.slice(1)}
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+      {features.map(({ icon, title, desc }: { icon: string; title: string; desc: string }) => (
+        <div class="p-6 rounded-[20px] border border-[var(--bdr)] hover:bg-[var(--bg-glass-h)] transition-all" style="background:var(--bg-glass);">
+          <div class="text-2xl mb-3">{icon}</div>
+          <h3 class="font-bold text-sm mb-2" style="color:var(--txt);">{title}</h3>
+          <p class="text-[0.82rem] leading-relaxed opacity-60" style="color:var(--txt3);">{desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Supported content types -->
+  <section aria-labelledby={`types-${platform}`}>
+    <h2 id={`types-${platform}`} class="seo-section-heading mb-6">What You Can Download</h2>
+    <div class="divide-y divide-[var(--bdr)] rounded-[20px] border border-[var(--bdr)] overflow-hidden" style="background:var(--bg-glass);">
+      {supportedTypes.map(({ label, desc }: { label: string; desc: string }) => (
+        <div class="flex items-start gap-4 px-6 py-5">
+          <span class="flex-shrink-0 w-2 h-2 rounded-full mt-2" style="background:var(--brand);"></span>
+          <div>
+            <strong class="block text-sm font-bold mb-1" style="color:var(--txt);">{label}</strong>
+            <p class="text-[0.82rem] leading-relaxed opacity-60">{desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Why section (long-form text) -->
+  <section aria-labelledby={`why-${platform}`}>
+    <h2 id={`why-${platform}`} class="seo-section-heading mb-6">{whySection.title}</h2>
+    <div class="p-8 rounded-[24px] border border-[var(--bdr)] space-y-5" style="background:var(--bg-glass);">
+      {whySection.paras.map((p: string) => (
+        <p class="text-[0.92rem] leading-relaxed opacity-75 seo-p" set:html={p}></p>
+      ))}
+    </div>
+  </section>
+
+  <!-- Pro tips -->
+  <section aria-labelledby={`tips-${platform}`}>
+    <h2 id={`tips-${platform}`} class="seo-section-heading mb-6">Pro Tips for Downloading</h2>
+    <ol class="space-y-4 list-none p-0">
+      {proTips.map(({ tip, detail }: { tip: string; detail: string }, i: number) => (
+        <li class="flex gap-4 p-5 rounded-[16px] border border-[var(--bdr)]" style="background:var(--bg-glass);">
+          <span class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white text-xs"
+                style="background:var(--g-brand);">{i + 1}</span>
+          <div>
+            <strong class="block text-sm font-bold mb-1" style="color:var(--txt);">{tip}</strong>
+            <p class="text-[0.82rem] leading-relaxed opacity-60">{detail}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <!-- Disclaimer -->
+  <aside class="p-5 rounded-[16px] border border-[var(--bdr)] text-[0.78rem] leading-relaxed opacity-50" style="background:var(--bg-glass);">
+    <strong>⚠️ Disclaimer:</strong> {disclaimer}
+  </aside>
+
+</div>

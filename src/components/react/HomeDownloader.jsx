@@ -79,10 +79,7 @@ export default function HomeDownloader({ lang = 'en' }) {
           {t['home.desc']}
         </p>
 
-        <div className="max-w-[800px] mx-auto px-5 relative z-0">
-           <AdSlot slot="1601408852" className="mt-8 mb-0" />
-        </div>
-        {/* Search - Ensure high z-index to avoid ad overlap */}
+        {/* Search */}
         <form onSubmit={handleSearch} className="flex gap-2 max-w-[660px] mx-auto relative z-20 flex-col sm:flex-row">
           <input type="text" value={url} onChange={e => setUrl(e.target.value)}
             placeholder={t['common.placeholder']}
@@ -94,6 +91,10 @@ export default function HomeDownloader({ lang = 'en' }) {
             {loading ? (t['common.searching'] || '⏳ Searching…') : `🔍 ${t['common.download'] || 'Search'}`}
           </button>
         </form>
+
+        <div className="max-w-[800px] mx-auto px-5 relative z-0">
+           <AdSlot slot="1601408852" className="mt-8 mb-0" />
+        </div>
 
       </section>
 
@@ -166,11 +167,6 @@ export default function HomeDownloader({ lang = 'en' }) {
             </div>
           </div>
         )}
-        
-        {/* Mid Ad */}
-        <div className="relative z-0">
-          <AdSlot slot="6748959606" className="mt-8" />
-        </div>
       </div>
 
       {/* ── Platform grid ── */}
@@ -194,6 +190,11 @@ export default function HomeDownloader({ lang = 'en' }) {
           ))}
         </div>
       </section>
+
+       {/* Mid Ad */}
+        <div className="relative z-0">
+          <AdSlot slot="6748959606" className="mt-8" />
+        </div>
 
       <style>{`@keyframes fadeInUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}`}</style>
     </>

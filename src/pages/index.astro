@@ -13,21 +13,22 @@ const FAQS = [
   { q: t['faq.q4'] || "Is there a download limit?", a: t['faq.a4'] || "No, you can download an unlimited number of videos and images every day." }
 ];
 
+// Homepage schema uses @graph per schema-templates.md §1
+// Note: BaseLayout already injects WebSite + Organization on the home page.
+// We only pass the WebApplication + FAQPage from here — BaseLayout merges them.
 const homeSchema = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
+    '@id': `${SITE_URL}/#webapp`,
     name: 'InstaDownloader',
     url: SITE_URL,
     applicationCategory: 'MultimediaApplication',
-    operatingSystem: 'Any',
+    operatingSystem: 'Any (web-based)',
+    browserRequirements: 'Requires JavaScript and a modern browser (Chrome, Safari, Firefox, Edge)',
+    isAccessibleForFree: true,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      ratingCount: '9420',
-      bestRating: '5',
-    },
+    publisher: { '@id': `${SITE_URL}/#organization` },
   },
   {
     '@context': 'https://schema.org',
@@ -44,7 +45,6 @@ const homeSchema = [
 <PageLayout
   title={t['home.title']}
   description={t['home.desc']}
-  keywords={t['home.keywords']}
   schema={homeSchema}
 >
   <HomeContent lang="en" />

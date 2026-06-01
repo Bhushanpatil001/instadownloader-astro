@@ -9,6 +9,7 @@ interface Props {
   ogImage?: string;
   ogLocale?: string;
   schema?: object | object[];
+  robots?: string;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   ogImage = '/og-image.png',
   ogLocale = 'en_US',
   schema,
+  robots = 'index, follow',
 } = Astro.props;
 
 const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'https://instadownloader.app';
@@ -53,20 +55,35 @@ const isHomePage = purePath === '/' || purePath === '';
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': `${siteUrl}/#organization`,
   name: 'InstaDownloader',
   url: siteUrl,
-  logo: `${siteUrl}/favicon.ico`,
-  sameAs: [],
+  logo: {
+    '@type': 'ImageObject',
+    url: `${siteUrl}/logo192.png`,
+    width: 192,
+    height: 192,
+  },
+  foundingDate: '2026',
+  sameAs: [
+    'https://twitter.com/instadownloader',
+  ],
 };
 
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
+  '@id': `${siteUrl}/#website`,
   name: 'InstaDownloader',
   url: siteUrl,
+  publisher: { '@id': `${siteUrl}/#organization` },
+  inLanguage: 'en-US',
   potentialAction: {
     '@type': 'SearchAction',
-    target: `${siteUrl}/?q={search_term_string}`,
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${siteUrl}/search?q={search_term_string}`,
+    },
     'query-input': 'required name=search_term_string',
   },
 };
@@ -147,11 +164,11 @@ if (schema) {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={robots} />
 
     <title>{title}</title>
     <meta name="description" content={description} />
-    {keywords && <meta name="keywords" content={keywords} />}
+    {/* meta-keywords intentionally omitted — deprecated since 2009, not used by any major search engine */}
     <link rel="canonical" href={canonical} />
 
     <!-- Hreflang alternates (multilingual SEO) -->
@@ -163,13 +180,16 @@ if (schema) {
     )}
 
     <!-- Open Graph -->
-    <meta property="og:title"       content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url"         content={canonical} />
-    <meta property="og:type"        content="website" />
-    <meta property="og:image"       content={`${siteUrl}${ogImage}`} />
-    <meta property="og:site_name"   content="InstaDownloader" />
-    <meta property="og:locale"      content={currentLocale} />
+    <meta property="og:title"        content={title} />
+    <meta property="og:description"  content={description} />
+    <meta property="og:url"          content={canonical} />
+    <meta property="og:type"         content="website" />
+    <meta property="og:image"        content={`${siteUrl}${ogImage}`} />
+    <meta property="og:image:width"  content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt"    content={`InstaDownloader — ${title}`} />
+    <meta property="og:site_name"    content="InstaDownloader" />
+    <meta property="og:locale"       content={currentLocale} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card"        content="summary_large_image" />
@@ -219,4 +239,120 @@ if (schema) {
 
 <style is:global>
   @import '../styles/global.css';
+
+  /* ── SEO Content Section Styling ────────────────────────── */
+  .seo-content-section {
+      margin-top: 4.5rem;
+      padding-top: 4rem;
+      border-top: 1px solid var(--bdr);
+      text-align: left;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .seo-section-heading {
+      font-size: 1.85rem !important;
+      font-weight: 800 !important;
+      line-height: 1.3 !important;
+      letter-spacing: -0.025em !important;
+      color: var(--txt) !important;
+      margin-top: 3.5rem !important;
+      margin-bottom: 1.25rem !important;
+      position: relative;
+      padding-left: 1.25rem;
+      display: block !important;
+  }
+
+  .seo-section-heading::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.25rem;
+      bottom: 0.25rem;
+      width: 4px;
+      background: var(--g-brand);
+      border-radius: 4px;
+  }
+
+  .seo-p {
+      font-size: 1rem !important;
+      line-height: 1.8 !important;
+      color: var(--txt2) !important;
+      margin-bottom: 1.5rem !important;
+      display: block !important;
+  }
+
+  .seo-p strong {
+      color: var(--txt) !important;
+      font-weight: 600 !important;
+  }
+
+  /* How to Use list styling */
+  .seo-content-section ol {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+      gap: 1.5rem !important;
+      margin: 1.5rem 0 3rem 0 !important;
+      padding: 0 !important;
+      list-style: none !important;
+  }
+
+  .seo-content-section li.flex {
+      background: rgba(255, 255, 255, 0.02) !important;
+      border: 1px solid var(--bdr) !important;
+      padding: 1.5rem !important;
+      border-radius: 20px !important;
+      transition: all 0.3s ease !important;
+      align-items: flex-start !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .seo-content-section li.flex:hover {
+      transform: translateY(-4px) !important;
+      border-color: var(--bdr-h) !important;
+      background: rgba(255, 255, 255, 0.04) !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .seo-content-section li.flex span {
+      background: var(--g-brand) !important;
+      width: 2.25rem !important;
+      height: 2.25rem !important;
+      font-size: 0.95rem !important;
+      font-weight: 800 !important;
+      color: #ffffff !important;
+      border-radius: 9999px !important;
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+  }
+
+  .seo-content-section li.flex strong {
+      font-size: 1.1rem !important;
+      font-weight: 700 !important;
+      color: var(--txt) !important;
+      display: block;
+      margin-bottom: 0.25rem;
+  }
+
+  .seo-content-section li.flex p {
+      color: var(--txt2) !important;
+      opacity: 1 !important;
+      font-size: 0.88rem !important;
+      line-height: 1.6 !important;
+      margin-top: 0.25rem !important;
+  }
+
+  /* Light mode overrides for high-contrast and perfect readability */
+  [data-theme="light"] .seo-content-section li.flex {
+      background: rgba(0, 0, 0, 0.015) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  }
+
+  [data-theme="light"] .seo-content-section li.flex:hover {
+      background: rgba(0, 0, 0, 0.03) !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+  }
 </style>

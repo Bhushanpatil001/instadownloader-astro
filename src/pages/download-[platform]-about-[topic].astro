@@ -127,10 +127,13 @@ const topicSchema = [
 ];
 ---
 
+{/* C2: Trending pages are noindex,follow until they have 600+ words of unique content per ACTION-PLAN.md */}
 <PageLayout
-  title={`${title} — Downloader 2026`}
+  title={`${title} — InstaDownloader 2026`}
   description={description}
   schema={topicSchema}
+  canonical={`${SITE_URL}/download-${platSlug}-about-${topicSlug}`}
+  robots="noindex, follow"
 >
   <section class="max-w-6xl mx-auto px-5 pt-14 pb-20">
     <div class="text-center mb-16 relative overflow-hidden">

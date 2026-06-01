@@ -5,6 +5,7 @@ import DownloaderWidget from '../components/react/DownloaderWidget.jsx';
 import FAQItem from '../components/FAQItem.astro';
 import TrendingDownloads from '../components/TrendingDownloads.astro';
 import TryOtherPlatforms from '../components/TryOtherPlatforms.astro';
+import RichContent from '../components/RichContent.astro';
 
 import { platforms, ui } from '../data/i18n.js';
 
@@ -16,38 +17,34 @@ const t = ui.en;
 const ytSchema = [
   {
     '@context': 'https://schema.org',
-    '@type': 'WebApplication',
-    name: 'YouTube Downloader — InstaDownloader',
+    '@type': 'SoftwareApplication',
+    '@id': `${SITE_URL}/yt#tool`,
+    name: 'YouTube Video Downloader — InstaDownloader',
     url: `${SITE_URL}/yt`,
-    description: pData.desc || 'Free YouTube video downloader. Download YouTube videos in HD, convert YouTube to MP3, save YouTube Shorts.',
+    description: pData.desc || 'Free YouTube video downloader. Download YouTube videos in HD, convert to MP3, save YouTube Shorts.',
     applicationCategory: 'MultimediaApplication',
-    operatingSystem: 'Any',
-    browserRequirements: 'Requires JavaScript. Requires HTML5.',
-    image: `${SITE_URL}/og-image.png`,
+    applicationSubCategory: 'Video Downloader',
+    operatingSystem: 'Any (web-based)',
+    isAccessibleForFree: true,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-    publisher: {
-      '@type': 'Organization',
-      name: 'InstaDownloader',
-      logo: {
-        '@type': 'ImageObject',
-        url: `${SITE_URL}/favicon.ico`
-      }
-    },
-    alternateName: [
-      'youtube downloader', 'yt downloader', 'youtube video downloader',
-      'youtube to mp3', 'ytmp3', 'youtube mp3 downloader',
-      'youtube mp4 downloader', 'savefrom', 'y2mate',
-      'download youtube videos', 'youtube converter',
-      'youtube shorts downloader', 'save youtube videos',
-      'youtube audio downloader', 'youtube hd downloader',
-      'youtube downloader online', 'youtube 4k downloader',
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    featureList: [
+      'HD video download',
+      'MP3 audio extraction',
+      'YouTube Shorts support',
+      'Works on iOS, Android, Windows and macOS',
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      ratingCount: '4100',
-      bestRating: '5',
-    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to download YouTube videos with InstaDownloader',
+    totalTime: 'PT30S',
+    step: [
+      { '@type': 'HowToStep', position: 1, name: 'Copy the link', text: 'On YouTube, tap Share and then Copy Link for any public video or Short.' },
+      { '@type': 'HowToStep', position: 2, name: 'Paste the URL', text: 'Paste the link into the search field on InstaDownloader and click the download button.' },
+      { '@type': 'HowToStep', position: 3, name: 'Download in HD', text: 'Choose your preferred format (MP4 or MP3) and the file saves to your device instantly.' },
+    ],
   },
   {
     '@context': 'https://schema.org',
@@ -64,12 +61,11 @@ const ytSchema = [
 <PageLayout
   title={pData.title || "YouTube Video Downloader — Download Videos, Shorts & MP3 from YouTube Free 2026"}
   description={pData.desc || "Free YouTube video downloader. Download YouTube videos in HD, convert YouTube to MP3, save YouTube Shorts. Fast, secure, no registration. Works on mobile & desktop."}
-  keywords="youtube downloader, yt downloader, youtube to mp3, ytmp3, youtube video downloader, youtube mp4 downloader, youtube shorts downloader, download youtube videos, youtube converter, youtube mp3 downloader, youtube hd downloader, save youtube videos, youtube audio downloader, youtube 4k downloader, download youtube shorts, youtube downloader online free"
+  ogImage="/og-youtube.png"
   schema={ytSchema}
 >
   <div class="max-w-[1000px] mx-auto px-6 py-5">
     <div class="text-center mb-6">
-      <div class="inline-flex px-4 py-1.5 rounded-full text-sm font-bold bg-[rgba(255,0,0,0.1)] border border-[rgba(255,0,0,0.2)] text-[#ff0000] mb-3">📺 YT Saver</div>
       <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-black mb-1 leading-tight" style="color:var(--txt);">
         {pData.h1 || "YouTube Video Downloader"}
       </h1>
@@ -114,6 +110,43 @@ const ytSchema = [
         </div>
       </div>
     </DownloaderWidget>
+
+    <RichContent
+      platform="YouTube"
+      features={[
+        { icon: '🎬', title: 'HD Video Download', desc: 'Download any public YouTube video in HD quality up to 1080p as a standard MP4 file ready for any device or video editor.' },
+        { icon: '🎵', title: 'YouTube to MP3', desc: 'Extract the audio track from any YouTube video and save it as a high-quality MP3 file — perfect for music, podcasts, and lectures.' },
+        { icon: '📱', title: 'YouTube Shorts Download', desc: 'Save vertical YouTube Shorts as MP4. Works the same as regular videos — just paste the Shorts URL and download instantly.' },
+        { icon: '🚀', title: 'No Software Install', desc: 'A fully web-based tool. Works in Chrome, Safari, Firefox and Edge on any operating system — no extensions or apps needed.' },
+        { icon: '🆓', title: 'Always Free', desc: 'No paywalls. Download as many YouTube videos as you need every day at no cost. No subscription required.' },
+        { icon: '🔒', title: 'No YouTube Login', desc: 'You never need to connect your Google or YouTube account. Paste the link and download — that is all.' },
+      ]}
+      supportedTypes={[
+        { label: 'YouTube Videos (MP4, up to 1080p)', desc: 'Standard YouTube videos in full HD quality. The file downloads as an MP4 which plays on every device, TV, and video editing application.' },
+        { label: 'YouTube Audio (MP3)', desc: 'The audio-only track from any YouTube video. Ideal for podcasts, music, interviews, lectures, and audiobooks.' },
+        { label: 'YouTube Shorts (MP4)', desc: 'Short-form vertical videos (up to 60 seconds). Saved as a standard MP4 at up to 1080×1920 resolution.' },
+        { label: 'Playlists (individual videos)', desc: 'Paste the URL of any individual video within a playlist to download that specific video quickly.' },
+        { label: 'Unlisted Videos', desc: 'Any YouTube video with an accessible URL — including unlisted videos — can be downloaded as long as the link is shareable.' },
+      ]}
+      whySection={{
+        title: 'Why Use InstaDownloader for YouTube?',
+        paras: [
+          'YouTube is the world\'s largest video platform, hosting billions of videos spanning every topic imaginable — from educational lectures and tutorials to music videos and live sporting events. While YouTube Premium subscribers get an official offline mode inside the YouTube app, most users have no built-in way to save videos to their device for later viewing. <strong>InstaDownloader\'s YouTube downloader</strong> fills that gap completely free of charge.',
+          'Our tool works by reading the publicly accessible stream URLs that YouTube makes available for each video. When you paste a video link, our engine identifies the highest-quality format available and generates a direct download link to your browser — nothing is stored on our servers in between.',
+          'One of the most popular features is our <strong>YouTube to MP3</strong> converter. Content creators, students, commuters, and music lovers use it daily to extract just the audio track from a video — whether that is a favourite song, a podcast episode, an audiobook, or a university lecture. The output is a clean, properly tagged MP3 file.',
+          'YouTube Shorts has grown into one of the most watched short-form video formats globally. Our downloader handles Shorts URLs natively — just paste a Shorts link and it saves as a vertical MP4, identical to what you would find in the YouTube app.',
+          'Because InstaDownloader is entirely web-based, there is nothing to install. It runs in your browser on iOS, Android, Windows, macOS, and Linux. You do not need a Google account, a YouTube account, or any plugin to use it.',
+        ],
+      }}
+      proTips={[
+        { tip: 'Copy the URL from the browser address bar', detail: 'On desktop, the cleanest YouTube URL is in the address bar (e.g. youtube.com/watch?v=...). Avoid using short links from share buttons as they sometimes redirect.' },
+        { tip: 'Choose MP3 for audio-only content', detail: 'If you only want to listen — not watch — select the MP3 option after pasting the link. The file will be considerably smaller and plays on every music player.' },
+        { tip: 'For Shorts, use the Shorts URL directly', detail: 'Shorts have a different URL format (youtube.com/shorts/...). Paste that URL directly for the best results.' },
+        { tip: 'Age-restricted videos are not supported', detail: 'YouTube age-restricted videos require a logged-in session to access the stream. Since we do not connect to your account, these videos cannot be downloaded.' },
+        { tip: 'Private videos cannot be downloaded', detail: 'Only public or unlisted YouTube videos with an accessible link can be downloaded. Private videos are protected and inaccessible externally.' },
+      ]}
+      disclaimer="InstaDownloader is an independent tool not affiliated with, endorsed by, or connected to YouTube or Google LLC. Download only content you have the right to use. Downloading copyrighted material without authorisation may violate YouTube's Terms of Service and applicable copyright law. This tool is intended for personal, non-commercial use only."
+    />
 
     <div class="mt-16 pt-16 border-t border-[var(--bdr)]">
       <TrendingDownloads />

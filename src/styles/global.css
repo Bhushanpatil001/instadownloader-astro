@@ -114,3 +114,117 @@ details summary::-webkit-details-marker {
 details summary {
     list-style: none;
 }
+
+/* ── SEO Content Section Styling ────────────────────────── */
+.seo-content-section {
+    margin-top: 4.5rem;
+    padding-top: 4rem;
+    border-top: 1px solid var(--bdr);
+    text-align: left;
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.seo-section-heading {
+    font-size: 1.85rem !important;
+    font-weight: 800 !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.025em !important;
+    color: var(--txt) !important;
+    margin-top: 3.5rem !important;
+    margin-bottom: 1.25rem !important;
+    position: relative;
+    padding-left: 1.25rem;
+}
+
+.seo-section-heading::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.25rem;
+    bottom: 0.25rem;
+    width: 4px;
+    background: var(--g-brand);
+    border-radius: 4px;
+}
+
+.seo-p {
+    font-size: 1rem !important;
+    line-height: 1.8 !important;
+    color: var(--txt2) !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.seo-p strong {
+    color: var(--txt) !important;
+    font-weight: 600 !important;
+}
+
+/* How to Use list styling */
+.seo-content-section ol {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+    gap: 1.5rem !important;
+    margin: 1.5rem 0 3rem 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+.seo-content-section li.flex {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid var(--bdr) !important;
+    padding: 1.5rem !important;
+    border-radius: 20px !important;
+    transition: all 0.3s ease !important;
+    align-items: flex-start !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.seo-content-section li.flex:hover {
+    transform: translateY(-4px) !important;
+    border-color: var(--bdr-h) !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+}
+
+.seo-content-section li.flex span {
+    background: var(--g-brand) !important;
+    width: 2.25rem !important;
+    height: 2.25rem !important;
+    font-size: 0.95rem !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    border-radius: 9999px !important;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.seo-content-section li.flex strong {
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: var(--txt) !important;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.seo-content-section li.flex p {
+    color: var(--txt2) !important;
+    opacity: 1 !important;
+    font-size: 0.88rem !important;
+    line-height: 1.6 !important;
+    margin-top: 0.25rem !important;
+}
+
+/* Light mode overrides for high-contrast and perfect readability */
+[data-theme="light"] .seo-content-section li.flex {
+    background: rgba(0, 0, 0, 0.015) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="light"] .seo-content-section li.flex:hover {
+    background: rgba(0, 0, 0, 0.03) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+}

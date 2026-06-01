@@ -1,0 +1,24 @@
+# InstaDownloader — free social media video downloader
+
+> InstaDownloader is a free web tool that lets users download videos, reels, posts and stories from Instagram, YouTube, TikTok, Facebook, Pinterest and X without signup, login or watermark (where platform terms permit).
+
+## Tools
+- [Instagram Downloader](https://instadownloader.app/instagram): Download Instagram reels, posts, stories, IGTV and photos in HD.
+- [Instagram Reels Downloader](https://instadownloader.app/instagram-reels-downloader): Save Instagram Reels in HD.
+- [YouTube Downloader](https://instadownloader.app/yt): Download YouTube videos in HD, convert to MP3.
+- [YouTube Shorts Downloader](https://instadownloader.app/youtube-shorts-downloader): Save YouTube Shorts as MP4 or MP3.
+- [TikTok Downloader](https://instadownloader.app/tiktok): Download TikTok videos in HD with audio preserved.
+- [Facebook Downloader](https://instadownloader.app/facebook): Save Facebook videos and reels in HD.
+- [Pinterest Downloader](https://instadownloader.app/pinterest): Download Pinterest video pins and images in HD.
+- [X Downloader](https://instadownloader.app/x): Save videos and GIFs from X (formerly Twitter).
+
+## Company
+- [About](https://instadownloader.app/about): Mission, team and approach.
+- [Contact](https://instadownloader.app/contact): Support, DMCA, partnerships.
+- [Blog](https://instadownloader.app/blog): Guides and tips for downloading social media content.
+
+## Legal
+- [Privacy Policy](https://instadownloader.app/privacy-policy)
+- [Terms of Use](https://instadownloader.app/terms)
+- [Disclaimer](https://instadownloader.app/disclaimer)
+- [Cookies Policy](https://instadownloader.app/cookies-policy)

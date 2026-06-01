@@ -17,6 +17,7 @@ interface Props {
   ogLocale?: string;
   schema?: object | object[];
   hreflangs?: { lang: string; url: string }[];
+  robots?: string;
 }
 
 const url = new URL(Astro.url.href);
